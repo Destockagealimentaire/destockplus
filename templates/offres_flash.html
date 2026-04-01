@@ -59,32 +59,42 @@
                         <span class="flash-text">FLASH</span>
                     </div>
 
-                    <!-- Image -->
-                    <div class="product-image">
-                        <a href="/produit/{{ produit.id }}">
-                            <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
-                                 alt="{{ produit.nom }}"
-                                 onerror="this.src='https://via.placeholder.com/300x300?text=Produit'">
-                        </a>
-                        
-                        <!-- Actions rapides -->
-                        <div class="product-actions">
-                            <button class="action-btn" onclick="addToWishlist({{ produit.id }})" title="Ajouter aux favoris">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn" onclick="quickView({{ produit.id }})" title="Aperçu rapide">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
+                    <!-- Image avec cadre propre -->
+                    <div class="product-image-container">
+                        <div class="product-image-wrapper">
+                            <a href="/produit/{{ produit.id }}" class="product-image-link">
+                                <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                                     alt="{{ produit.nom }}"
+                                     class="product-img"
+                                     onerror="this.src='https://via.placeholder.com/400x300?text=Produit'">
+                            </a>
+                            
+                            <!-- Badge de réduction -->
+                            {% if produit.prix_promo %}
+                            <div class="discount-badge">
+                                -{{ ((1 - produit.prix_promo/produit.prix) * 100)|round|int }}%
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Actions rapides -->
+                            <div class="product-actions">
+                                <button class="action-btn" onclick="addToWishlist({{ produit.id }})" title="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn" onclick="quickView({{ produit.id }})" title="Aperçu rapide">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
 
-                        <!-- Timer -->
-                        <div class="product-timer">
-                            <i class="fas fa-clock"></i>
-                            <span class="timer-value">23h 59m</span>
+                            <!-- Timer -->
+                            <div class="product-timer">
+                                <i class="fas fa-clock"></i>
+                                <span class="timer-value">23h 59m</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Informations -->
+                    <!-- Informations produit -->
                     <div class="product-info">
                         <div class="product-category">
                             {{ produit.categorie.nom if produit.categorie else 'Non catégorisé' }}
@@ -98,14 +108,11 @@
                         <div class="product-price-block">
                             {% if produit.prix_promo %}
                             <div class="price-container">
-                                <span class="current-price">{{ produit.prix_promo|format_price }}</span>
-                                <span class="original-price">{{ produit.prix|format_price }}</span>
-                            </div>
-                            <div class="discount-badge-large">
-                                -{{ ((1 - produit.prix_promo/produit.prix) * 100)|round|int }}%
+                                <span class="current-price">{{ "%.2f"|format(produit.prix_promo) }} €</span>
+                                <span class="original-price">{{ "%.2f"|format(produit.prix) }} €</span>
                             </div>
                             {% else %}
-                            <span class="current-price">{{ produit.prix|format_price }}</span>
+                            <span class="current-price">{{ "%.2f"|format(produit.prix) }} €</span>
                             {% endif %}
                         </div>
 
@@ -113,7 +120,7 @@
                         {% if produit.prix_promo %}
                         <div class="savings-badge">
                             <i class="fas fa-tag"></i>
-                            Économisez {{ (produit.prix - produit.prix_promo)|format_price }}
+                            Économisez {{ "%.2f"|format(produit.prix - produit.prix_promo) }} €
                         </div>
                         {% endif %}
 
@@ -129,10 +136,9 @@
                                 <i class="fas fa-exclamation-circle"></i>
                                 Plus que {{ produit.stock }} en stock !
                             </span>
-                                <!-- Barre de progression -->
-                                <div class="stock-bar">
-                                    <div class="stock-fill" style="width: {{ (produit.stock / produit.stock_initial * 100)|int if produit.stock_initial else 50 }}%"></div>
-                                </div>
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: {{ (produit.stock / produit.stock_initial * 100)|int if produit.stock_initial else 50 }}%"></div>
+                            </div>
                             {% else %}
                             <span class="stock-status out-of-stock">
                                 <i class="fas fa-times-circle"></i>
@@ -379,7 +385,7 @@
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.9rem;
-    z-index: 5;
+    z-index: 10;
     display: flex;
     align-items: center;
     gap: 0.3rem;
@@ -401,28 +407,67 @@
     50% { opacity: 0.5; }
 }
 
-/* Image produit */
-.product-image {
+/* Image Container - CADRE PROPRE */
+.product-image-container {
     position: relative;
-    height: 250px;
-    overflow: hidden;
+    background: #f5f5f5;
+    padding: 1rem;
 }
 
-.product-image img {
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Ratio 4:3 */
+    overflow: hidden;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-image-link {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-.flash-product-card:hover .product-image img {
-    transform: scale(1.1);
+.product-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.flash-product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Badge de réduction */
+.discount-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--danger), #ff6b6b);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 10;
+    box-shadow: var(--shadow);
 }
 
 /* Actions rapides */
 .product-actions {
     position: absolute;
-    top: 1rem;
+    bottom: 1rem;
     right: 1rem;
     display: flex;
     flex-direction: column;
@@ -430,7 +475,7 @@
     opacity: 0;
     transform: translateX(20px);
     transition: var(--transition);
-    z-index: 5;
+    z-index: 10;
 }
 
 .flash-product-card:hover .product-actions {
@@ -439,13 +484,13 @@
 }
 
 .action-btn {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background: white;
     border: none;
     border-radius: 50%;
     color: var(--text);
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
@@ -465,21 +510,21 @@
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(5px);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    backdrop-filter: blur(5px);
-    z-index: 5;
+    gap: 0.4rem;
+    z-index: 10;
 }
 
 .product-timer i {
     color: var(--secondary);
-    animation: pulse 2s infinite;
+    font-size: 0.8rem;
 }
 
 /* Informations produit */
@@ -488,18 +533,20 @@
 }
 
 .product-category {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .product-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.4;
+    min-height: 2.8rem;
 }
 
 .product-title a {
@@ -514,38 +561,26 @@
 
 /* Prix */
 .product-price-block {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     margin-bottom: 0.5rem;
-    flex-wrap: wrap;
 }
 
 .price-container {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .current-price {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--secondary);
 }
 
 .original-price {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--text-light);
     text-decoration: line-through;
-}
-
-.discount-badge-large {
-    background: linear-gradient(135deg, var(--danger), #ff6b6b);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: 700;
 }
 
 /* Économies */
@@ -555,28 +590,24 @@
     gap: 0.3rem;
     background: rgba(0, 184, 148, 0.1);
     color: var(--success);
-    padding: 0.3rem 1rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.savings-badge i {
-    font-size: 0.8rem;
+    margin: 0.5rem 0;
 }
 
 /* Stock */
 .stock-info {
-    margin-bottom: 1rem;
+    margin: 0.75rem 0;
 }
 
 .stock-status {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
 }
 
 .stock-status.in-stock {
@@ -592,28 +623,28 @@
 }
 
 .stock-bar {
-    height: 6px;
+    height: 4px;
     background: var(--border);
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
-    width: 100%;
+    margin-top: 0.3rem;
 }
 
 .stock-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--warning), #fbbf24);
-    border-radius: 3px;
+    border-radius: 2px;
     transition: width 0.3s ease;
 }
 
 /* Bouton achat */
 .flash-buy-btn {
     width: 100%;
-    padding: 1rem;
+    padding: 0.9rem;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     color: var(--primary);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
@@ -621,11 +652,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
 }
 
 .flash-buy-btn:hover:not(:disabled) {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -650,7 +682,7 @@
 }
 
 .no-products h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--text);
     margin-bottom: 1rem;
 }
@@ -664,7 +696,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     color: var(--primary);
     text-decoration: none;
@@ -692,7 +724,7 @@
 }
 
 .newsletter-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -713,12 +745,12 @@
 
 .newsletter-form-large input {
     flex: 1;
-    padding: 1rem 1.5rem;
+    padding: 0.9rem 1.5rem;
     border: none;
     border-radius: 50px;
     background: transparent;
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .newsletter-form-large input::placeholder {
@@ -730,7 +762,7 @@
 }
 
 .newsletter-form-large button {
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     color: var(--primary);
     border: none;
@@ -760,6 +792,12 @@
     }
 }
 
+.flash-product-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.flash-product-card:nth-child(1) { animation-delay: 0s; }
 .flash-product-card:nth-child(2) { animation-delay: 0.1s; }
 .flash-product-card:nth-child(3) { animation-delay: 0.2s; }
 .flash-product-card:nth-child(4) { animation-delay: 0.3s; }
@@ -810,11 +848,16 @@
     
     .filter-tag {
         padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .products-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-image-wrapper {
+        padding-top: 70%;
     }
     
     .newsletter-form-large {
@@ -822,24 +865,30 @@
         background: transparent;
         padding: 0;
         gap: 1rem;
+        border-radius: 0;
     }
     
     .newsletter-form-large input,
     .newsletter-form-large button {
         width: 100%;
+        border-radius: 50px;
+    }
+    
+    .newsletter-form-large input {
+        background: rgba(255,255,255,0.1);
+        padding: 0.9rem;
     }
 }
 </style>
 
 <script>
-// Compte à rebours (exemple: 24h)
+// Compte à rebours
 function updateCountdown() {
     const hours = document.getElementById('hours');
     const minutes = document.getElementById('minutes');
     const seconds = document.getElementById('seconds');
     
     if (hours && minutes && seconds) {
-        // Simulation d'un compte à rebours
         let h = 24;
         let m = 0;
         let s = 0;
@@ -869,13 +918,12 @@ function updateCountdown() {
 
 // Filtrage des produits
 function filterProducts(discount) {
-    // Mettre à jour les boutons actifs
+    const btn = event.currentTarget;
     document.querySelectorAll('.filter-tag').forEach(btn => {
         btn.classList.remove('active');
     });
-    event.currentTarget.classList.add('active');
+    btn.classList.add('active');
     
-    // Filtrer les produits
     const products = document.querySelectorAll('.flash-product-card');
     products.forEach(product => {
         const productDiscount = parseInt(product.dataset.discount);
@@ -895,6 +943,11 @@ function filterProducts(discount) {
 
 // Ajouter au panier
 function addToCart(productId) {
+    const btn = event.currentTarget;
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ajout...';
+    btn.disabled = true;
+    
     fetch(`/ajouter-panier/${productId}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -906,9 +959,6 @@ function addToCart(productId) {
             const cartCount = document.getElementById('cartCount');
             if (cartCount) cartCount.textContent = data.total;
             
-            // Animation du bouton
-            const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check"></i> Ajouté !';
             btn.style.background = 'var(--success)';
             btn.style.color = 'white';
@@ -916,22 +966,51 @@ function addToCart(productId) {
                 btn.innerHTML = originalHTML;
                 btn.style.background = 'linear-gradient(135deg, var(--secondary), var(--accent))';
                 btn.style.color = 'var(--primary)';
+                btn.disabled = false;
             }, 2000);
+        } else {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+            alert('Erreur lors de l\'ajout');
         }
+    })
+    .catch(error => {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        alert('Erreur de connexion');
     });
 }
 
 // Wishlist
 function addToWishlist(productId) {
     const btn = event.currentTarget;
+    const originalHTML = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-heart"></i>';
     btn.style.background = 'var(--danger)';
     btn.style.color = 'white';
-    setTimeout(() => {
-        btn.innerHTML = '<i class="far fa-heart"></i>';
-        btn.style.background = 'white';
-        btn.style.color = 'var(--text)';
-    }, 1000);
+    btn.disabled = true;
+    
+    fetch(`/wishlist/ajouter/${productId}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => response.json())
+    .then(data => {
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = 'white';
+            btn.style.color = 'var(--text)';
+            btn.disabled = false;
+        }, 1500);
+    })
+    .catch(error => {
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = 'white';
+            btn.style.color = 'var(--text)';
+            btn.disabled = false;
+        }, 1500);
+    });
 }
 
 // Quick view
@@ -943,10 +1022,10 @@ function quickView(productId) {
 function newsletterSignup() {
     const input = document.querySelector('.newsletter-form-large input');
     if (input.value && input.value.includes('@')) {
-        alert('Merci pour votre inscription ! Vous recevrez nos alertes offres flash.');
+        alert('✅ Merci pour votre inscription ! Vous recevrez nos alertes offres flash.');
         input.value = '';
     } else {
-        alert('Veuillez entrer une adresse email valide');
+        alert('❌ Veuillez entrer une adresse email valide');
     }
 }
 
