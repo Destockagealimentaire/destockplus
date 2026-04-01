@@ -1,0 +1,2220 @@
+{% extends "base.html" %}
+
+{% block title %}DestockPro - Destockage Alimentaire Professionnel{% endblock %}
+
+{% block content %}
+<!-- Hero Section Moderne -->
+<section class="hero-modern">
+    <div class="hero-particles"></div>
+    <div class="hero-content-modern">
+        <div class="hero-text-modern">
+            <h1>Destockage <span>Alimentaire</span> Professionnel</h1>
+            <p class="hero-description">Découvrez nos offres exceptionnelles sur des produits de qualité à prix imbattables. Jusqu'à -70% sur une large sélection.</p>
+            <div class="hero-buttons-modern">
+                <a href="/produits" class="hero-btn-primary">Découvrir nos produits <i class="fas fa-arrow-right"></i></a>
+                <a href="/contact" class="hero-btn-secondary">Nous contacter</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Produits</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Clients satisfaits</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/48h</span>
+                    <span class="stat-label">Livraison</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-modern">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80" 
+                 alt="Destockage alimentaire">
+            <div class="hero-badge">
+                <i class="fas fa-tag"></i> -20% sur votre première commande
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="slider-modern" id="mainSlider">
+    <div class="slider-container-modern">
+        <!-- Slide 1 - Nutella -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/nutella-palette.jpg') }}" 
+                 alt="Palette de Nutella"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">OFFRE SPÉCIALE GROSSISTE</span>
+                <h2>Nutella Pot 1kg - 760 pots</h2>
+                <p>La célèbre pâte à tartiner en palette complète</p>
+                <a href="/produit/100" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Slide 2 - Red Bull -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/redbull-palette.jpg') }}" 
+                 alt="Palette Red Bull"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">PROMO FLASH</span>
+                <h2>Red Bull 250ml - 2592 canettes</h2>
+                <p>La boisson énergisante originale à prix imbattable</p>
+                <a href="/produit/101" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Slide 3 - Ruinart Blanc de Blancs -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/ruinart-champagne.jpg') }}" 
+                 alt="Ruinart Blanc de Blancs"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">OFFRE DE PRINTEMPS</span>
+                <h2>Ruinart Blanc de Blancs</h2>
+                <p>240 bouteilles de champagne d'exception</p>
+                <a href="/produit/114" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Slide 4 - Heineken -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/heineken-palette.jpg') }}" 
+                 alt="Heineken"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">IDÉAL POUR BARS</span>
+                <h2>Heineken 33cl</h2>
+                <p>2592 canettes de bière blonde lager</p>
+                <a href="/produit/115" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Slide 5 - Orangina -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/orangina-palette.jpg') }}" 
+                 alt="Orangina"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">100% PUR JUS</span>
+                <h2>Orangina 33cl</h2>
+                <p>2592 canettes à la pulpe d'orange</p>
+                <a href="/produit/104" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button class="slider-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-nav-modern">
+        <button class="slider-dot-modern active" onclick="goToSlide(0)"></button>
+        <button class="slider-dot-modern" onclick="goToSlide(1)"></button>
+        <button class="slider-dot-modern" onclick="goToSlide(2)"></button>
+        <button class="slider-dot-modern" onclick="goToSlide(3)"></button>
+        <button class="slider-dot-modern" onclick="goToSlide(4)"></button>
+    </div>
+</div>
+
+<!-- Section Catégories avec logos -->
+<section class="categories-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Nos rayons</span>
+            <h2 class="section-title">Explorez nos catégories</h2>
+            <p class="section-description">Des produits de qualité sélectionnés pour vous dans chaque rayon</p>
+        </div>
+
+        <div class="categories-grid">
+            {% for cat in categories %}
+            <div class="category-card" onclick="window.location.href='/produits?categorie={{ cat.id }}'">
+                <div class="category-icon-wrapper">
+                    <div class="category-icon">
+                        {% if cat.id == 1 %}
+                            <i class="fas fa-wine-bottle"></i>
+                        {% elif cat.id == 2 %}
+                            <i class="fas fa-wine-glass-alt"></i>
+                        {% elif cat.id == 3 %}
+                            <i class="fas fa-apple-alt"></i>
+                        {% elif cat.id == 4 %}
+                            <i class="fas fa-shopping-basket"></i>
+                        {% elif cat.id == 5 %}
+                            <i class="fas fa-snowflake"></i>
+                        {% elif cat.id == 6 %}
+                            <i class="fas fa-cheese"></i>
+                        {% elif cat.id == 7 %}
+                            <i class="fas fa-drumstick-bite"></i>
+                        {% else %}
+                            <i class="fas fa-tags"></i>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3>{{ cat.nom }}</h3>
+                    <p>{{ cat.description|truncate(50) }}</p>
+                    <span class="category-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Produits populaires -->
+<section class="featured-products-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Notre sélection</span>
+            <h2 class="section-title">Produits populaires</h2>
+            <p class="section-description">Les produits les plus appréciés par nos clients</p>
+        </div>
+
+        <div class="featured-products-grid">
+            {% for produit in produits %}
+            <div class="featured-product-card" onclick="window.location.href='/produit/{{ produit.id }}'">
+                <div class="featured-product-badge">
+                    {% if produit.prix_promo %}
+                    <span class="badge-promo">-{{ ((1 - produit.prix_promo/produit.prix) * 100)|round|int }}%</span>
+                    {% endif %}
+                    {% if produit.stock <= 5 and produit.stock > 0 %}
+                    <span class="badge-stock">Stock limité</span>
+                    {% endif %}
+                </div>
+
+                <div class="featured-product-image">
+                    <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                         alt="{{ produit.nom }}"
+                         onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=300'">
+                    
+                    <div class="featured-product-actions">
+                        <button class="action-btn" onclick="event.stopPropagation(); quickView({{ produit.id }})" title="Voir le produit">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation(); addToWishlist({{ produit.id }})" title="Ajouter aux favoris">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="featured-product-info">
+                    <div class="product-category">{{ produit.categorie.nom if produit.categorie else 'Produit' }}</div>
+                    <h3 class="product-title">{{ produit.nom|truncate(40) }}</h3>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            {% for i in range(5) %}
+                                {% if i < 4 %}
+                                <i class="fas fa-star"></i>
+                                {% else %}
+                                <i class="fas fa-star-half-alt"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <span class="rating-count">({{ produit.note_count or 0 }} avis)</span>
+                    </div>
+
+                    <div class="product-price">
+                        {% if produit.prix_promo %}
+                        <div class="price-container">
+                            <span class="current-price">{{ "%.2f"|format(produit.prix_promo) }} €</span>
+                            <span class="original-price">{{ "%.2f"|format(produit.prix) }} €</span>
+                        </div>
+                        <span class="savings">Économisez {{ "%.2f"|format(produit.prix - produit.prix_promo) }} €</span>
+                        {% else %}
+                        <span class="current-price">{{ "%.2f"|format(produit.prix) }} €</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="product-footer">
+                        <div class="stock-status">
+                            {% if produit.stock > 10 %}
+                            <i class="fas fa-check-circle in-stock"></i>
+                            <span>En stock</span>
+                            {% elif produit.stock > 0 %}
+                            <i class="fas fa-exclamation-circle low-stock"></i>
+                            <span>Plus que {{ produit.stock }}</span>
+                            {% else %}
+                            <i class="fas fa-times-circle out-of-stock"></i>
+                            <span>Rupture</span>
+                            {% endif %}
+                        </div>
+
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart({{ produit.id }})" {% if produit.stock == 0 %}disabled{% endif %}>
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section-footer">
+            <a href="/produits" class="btn-outline">
+                Voir tous les produits
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Bloc texte enrichissant avec photo d'entrepôt -->
+<section class="warehouse-section">
+    <div class="container">
+        <div class="warehouse-grid">
+            <div class="warehouse-content">
+                <span class="section-tag">Notre infrastructure</span>
+                <h2>Un entrepôt de 5000m² dédié à votre satisfaction</h2>
+                <p class="warehouse-description">Découvrez les coulisses de DestockPro : un entrepôt moderne et optimisé pour garantir la qualité et la rapidité de vos livraisons.</p>
+                
+                <div class="warehouse-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Chaîne du froid maîtrisée</h4>
+                            <p>Nos produits frais et surgelés sont stockés dans des chambres froides à température contrôlée en permanence.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Préparation automatisée</h4>
+                            <p>Notre système de picking automatisé garantit une préparation de commande rapide et sans erreur.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Contrôle qualité rigoureux</h4>
+                            <p>Chaque palette est inspectée avant expédition pour garantir la conformité des produits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warehouse-stats">
+                    <div class="warehouse-stat">
+                        <span class="stat-number">5000m²</span>
+                        <span class="stat-label">d'entrepôt</span>
+                    </div>
+                    <div class="warehouse-stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Surveillance</span>
+                    </div>
+                    <div class="warehouse-stat">
+                        <span class="stat-number">-25°C</span>
+                        <span class="stat-label">Surgelés</span>
+                    </div>
+                    <div class="warehouse-stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Palettes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="warehouse-image">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Notre entrepôt">
+                <div class="image-caption">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Visitez notre entrepôt en vidéo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deuxième bloc texte avec engagement RSE -->
+<section class="commitment-section">
+    <div class="container">
+        <div class="commitment-grid">
+            <div class="commitment-image">
+                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Notre engagement">
+                <div class="image-badge">
+                    <i class="fas fa-leaf"></i>
+                    <span>Engagement RSE</span>
+                </div>
+            </div>
+            <div class="commitment-content">
+                <span class="section-tag">Notre mission</span>
+                <h2>Lutter contre le gaspillage alimentaire</h2>
+                <p class="commitment-description">Chez DestockPro, nous avons à cœur de donner une seconde vie aux produits. Chaque année, ce sont des tonnes de gaspillage que nous évitons grâce à notre modèle de destockage responsable.</p>
+                
+                <div class="commitment-numbers">
+                    <div class="number-item">
+                        <span class="number">150T</span>
+                        <span class="label">Gaspillage évité</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="number">500+</span>
+                        <span class="label">Producteurs partenaires</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="number">-70%</span>
+                        <span class="label">De réduction moyenne</span>
+                    </div>
+                </div>
+
+                <div class="commitment-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Notre objectif : rendre le destockage accessible à tous tout en préservant la planète.</p>
+                    <div class="quote-author">
+                        <strong>Thomas Martin</strong>
+                        <span>Fondateur de DestockPro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide vidéo style -->
+<section class="video-showcase">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">En images</span>
+            <h2 class="section-title">DestockPro en action</h2>
+            <p class="section-description">Découvrez comment nous travaillons au quotidien pour vous offrir le meilleur du destockage</p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card main-video">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Présentation DestockPro">
+                    <button class="video-play-btn" onclick="playVideo('main')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="video-duration">2:45</div>
+                </div>
+                <div class="video-info">
+                    <h3>Visite guidée de notre entrepôt</h3>
+                    <p>Découvrez les coulisses de DestockPro et notre processus de préparation des commandes.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1551024702-6d8f5e4c9d6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Préparation des palettes">
+                    <button class="video-play-btn" onclick="playVideo('video1')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="video-duration">1:30</div>
+                </div>
+                <div class="video-info">
+                    <h3>Préparation des palettes</h3>
+                    <p>Notre équipe à l'œuvre pour préparer vos commandes avec soin.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Contrôle qualité">
+                    <button class="video-play-btn" onclick="playVideo('video2')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="video-duration">1:15</div>
+                </div>
+                <div class="video-info">
+                    <h3>Contrôle qualité</h3>
+                    <p>Chaque produit est vérifié avant expédition pour garantir votre satisfaction.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1551024702-6d8f5e4c9d6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Livraison">
+                    <button class="video-play-btn" onclick="playVideo('video3')">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="video-duration">2:00</div>
+                </div>
+                <div class="video-info">
+                    <h3>Livraison express</h3>
+                    <p>De notre entrepôt à votre porte en 24/48h.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal vidéo -->
+<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+        <button class="video-modal-close" onclick="closeVideoModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+            <iframe id="videoIframe" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Features modernes -->
+<section class="features-modern">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-modern">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Livraison rapide</h3>
+                <p>Livraison en 24/48h partout en France. Suivi en temps réel de votre commande.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-modern">
+                    <i class="fas fa-euro-sign"></i>
+                </div>
+                <h3>Prix imbattables</h3>
+                <p>Jusqu'à -70% sur une large sélection de produits de qualité.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-modern">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Qualité garantie</h3>
+                <p>Produits frais et contrôlés. Satisfaction client ou remboursé.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon-modern">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Paiement sécurisé</h3>
+                <p>Transactions 100% sécurisées. Tous nos paiements sont cryptés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter moderne -->
+<section class="newsletter-modern">
+    <div class="container">
+        <div class="newsletter-container-modern">
+            <h2>Restez informé de nos offres</h2>
+            <p>Inscrivez-vous à notre newsletter pour recevoir nos meilleures offres en avant-première</p>
+            <form class="newsletter-form-modern" onsubmit="event.preventDefault(); newsletterSignup()">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit">
+                    S'inscrire <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --warning: #fdcb6e;
+    --info: #0984e3;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero-modern {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+    padding: 120px 0 60px;
+}
+
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(196, 167, 71, 0.1) 0%, transparent 50%);
+}
+
+.hero-content-modern {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text-modern h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-text-modern h1 span {
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+}
+
+.hero-text-modern h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: rgba(196, 167, 71, 0.2);
+    z-index: -1;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons-modern {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(196, 167, 71, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(196, 167, 71, 0.4);
+}
+
+.hero-btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-btn-secondary:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--secondary);
+    display: block;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.hero-image-modern {
+    position: relative;
+}
+
+.hero-image-modern img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    animation: pulse 2s infinite;
+    white-space: nowrap;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Slider */
+.slider-modern {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+}
+
+.slider-container-modern {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.slider-slide-modern {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slider-slide-modern img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+}
+
+.slider-content-modern {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 600px;
+    z-index: 2;
+    width: 80%;
+}
+
+.slider-subtitle {
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.slider-content-modern h2 {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.slider-content-modern p {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.slider-btn-modern {
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.slider-btn-modern:hover {
+    gap: 1.5rem;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(196, 167, 71, 0.4);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 3;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev {
+    left: 20px;
+}
+
+.slider-arrow.next {
+    right: 20px;
+}
+
+.slider-nav-modern {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slider-dot-modern {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+
+.slider-dot-modern.active {
+    background: var(--secondary);
+    transform: scale(1.2);
+}
+
+/* Section Catégories */
+.categories-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--surface), var(--background));
+}
+
+.section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.section-subtitle {
+    display: inline-block;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+.section-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.category-icon-wrapper {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(196, 167, 71, 0.2);
+}
+
+.category-card:hover .category-icon {
+    transform: rotateY(180deg) scale(1.1);
+}
+
+.category-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.category-content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.category-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.category-card:hover .category-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.category-link i {
+    transition: transform 0.3s ease;
+}
+
+.category-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Produits populaires */
+.featured-products-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.featured-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.featured-product-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.featured-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
+}
+
+.featured-product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.badge-promo {
+    background: linear-gradient(135deg, var(--danger), #ff6b6b);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+}
+
+.badge-stock {
+    background: var(--warning);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+}
+
+.featured-product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: white;
+}
+
+.featured-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.6s ease;
+}
+
+.featured-product-card:hover .featured-product-image img {
+    transform: scale(1.1);
+}
+
+.featured-product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition);
+    z-index: 5;
+}
+
+.featured-product-card:hover .featured-product-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.featured-product-actions .action-btn {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-product-actions .action-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.featured-product-info {
+    padding: 1.5rem;
+}
+
+.product-category {
+    color: var(--secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.rating-count {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.product-price {
+    margin-bottom: 1rem;
+}
+
+.price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.savings {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--success);
+    background: rgba(0, 184, 148, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stock-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.stock-status i {
+    font-size: 1rem;
+}
+
+.in-stock {
+    color: var(--success);
+}
+
+.low-stock {
+    color: var(--warning);
+}
+
+.out-of-stock {
+    color: var(--danger);
+}
+
+.add-to-cart-btn {
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.add-to-cart-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.section-footer {
+    text-align: center;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* Section Entrepôt */
+.warehouse-section,
+.commitment-section,
+.video-showcase {
+    padding: 5rem 0;
+}
+
+.warehouse-section {
+    background: linear-gradient(135deg, var(--surface), var(--background));
+}
+
+.warehouse-grid,
+.commitment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.section-tag {
+    display: inline-block;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.warehouse-content h2,
+.commitment-content h2 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.warehouse-description,
+.commitment-description {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.warehouse-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.feature-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.feature-text p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.warehouse-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.warehouse-stat {
+    text-align: center;
+}
+
+.warehouse-stat .stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.warehouse-stat .stat-label {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.warehouse-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.warehouse-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.warehouse-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.image-caption i {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+/* Section Engagement */
+.commitment-section {
+    background: white;
+}
+
+.commitment-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.commitment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-badge {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.commitment-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.number-item {
+    text-align: center;
+}
+
+.number-item .number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--secondary);
+    line-height: 1;
+}
+
+.number-item .label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.commitment-quote {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+    border-left: 4px solid var(--secondary);
+}
+
+.commitment-quote i {
+    color: var(--secondary);
+    font-size: 2rem;
+    opacity: 0.3;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.commitment-quote p {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.quote-author strong {
+    display: block;
+    color: var(--text);
+}
+
+.quote-author span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Section Vidéo */
+.video-showcase {
+    background: var(--surface);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.video-card.main-video {
+    grid-row: span 2;
+}
+
+.video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.video-card:hover .video-thumbnail img {
+    transform: scale(1.1);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.video-play-btn:hover {
+    background: var(--accent);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.video-info {
+    padding: 1rem;
+}
+
+.video-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.video-info p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Modal Vidéo */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.video-modal-content {
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    color: var(--danger);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal-close:hover {
+    transform: rotate(90deg);
+    background: var(--danger);
+    color: white;
+}
+
+.video-container {
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+/* Features modernes */
+.features-modern {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+    color: white;
+}
+
+.features-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+    border-color: var(--secondary);
+}
+
+.feature-icon-modern {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon-modern {
+    transform: rotateY(180deg);
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.feature-card p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+}
+
+/* Newsletter moderne */
+.newsletter-modern {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-modern::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.newsletter-container-modern {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+.newsletter-container-modern h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.newsletter-container-modern p {
+    color: var(--primary);
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.newsletter-form-modern {
+    display: flex;
+    gap: 1rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-shadow: var(--shadow-lg);
+}
+
+.newsletter-form-modern input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    background: transparent;
+    min-width: 0;
+}
+
+.newsletter-form-modern input:focus {
+    outline: none;
+}
+
+.newsletter-form-modern button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.newsletter-form-modern button:hover {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .categories-grid,
+    .featured-products-grid,
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .video-card.main-video {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content-modern {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-buttons-modern {
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    .hero-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -40px;
+        white-space: nowrap;
+    }
+    
+    .slider-content-modern {
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        text-align: center;
+    }
+    
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .categories-grid,
+    .featured-products-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .warehouse-grid,
+    .commitment-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .warehouse-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .commitment-numbers {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-card.main-video {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-buttons-modern {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .slider-modern {
+        height: 500px;
+    }
+    
+    .slider-content-modern h2 {
+        font-size: 1.8rem;
+    }
+    
+    .slider-arrow {
+        display: none;
+    }
+    
+    .slider-nav-modern {
+        bottom: 10px;
+    }
+    
+    .categories-grid,
+    .featured-products-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-card {
+        padding: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+    
+    .warehouse-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .image-caption {
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .newsletter-form-modern {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+    }
+    
+    .newsletter-form-modern input,
+    .newsletter-form-modern button {
+        width: 100%;
+    }
+    
+    .video-modal-close {
+        top: -40px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+</style>
+
+<script>
+// Fonctions du slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider-slide-modern');
+const dots = document.querySelectorAll('.slider-dot-modern');
+
+function showSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    
+    currentSlide = index;
+    const sliderContainer = document.querySelector('.slider-container-modern');
+    if (sliderContainer) {
+        sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+    });
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+function goToSlide(index) {
+    showSlide(index);
+}
+
+// Auto-advance slides
+if (document.querySelector('.slider-modern')) {
+    setInterval(nextSlide, 5000);
+}
+
+// Fonctions pour les vidéos
+function playVideo(videoId) {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    
+    if (videoId === 'main') {
+        iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    } else {
+        iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    }
+    
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoIframe');
+    
+    if (iframe) iframe.src = '';
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+// Quick view function
+function quickView(productId) {
+    window.location.href = `/produit/${productId}`;
+}
+
+// ========== FONCTION FAVORIS CORRIGÉE ==========
+function addToWishlist(productId) {
+    // Vérifier si l'utilisateur est connecté
+    {% if not current_user.is_authenticated %}
+    showNotification('Veuillez vous connecter pour ajouter aux favoris', 'warning');
+    setTimeout(() => {
+        window.location.href = '/connexion?next=' + encodeURIComponent(window.location.pathname);
+    }, 2000);
+    return;
+    {% endif %}
+    
+    fetch(`/wishlist/ajouter/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification('Produit ajouté aux favoris !', 'success');
+            // Changer l'icône du cœur
+            const btn = event.currentTarget;
+            btn.innerHTML = '<i class="fas fa-heart"></i>';
+            btn.style.color = '#d63031';
+            btn.style.background = 'white';
+            btn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 300);
+        } else {
+            if (data.message === 'Déjà dans vos favoris') {
+                showNotification('Ce produit est déjà dans vos favoris', 'info');
+            } else {
+                showNotification(data.message || 'Erreur lors de l\'ajout', 'danger');
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('Erreur de connexion', 'danger');
+    });
+}
+
+function addToCart(productId) {
+    fetch(`/ajouter-panier/${productId}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({quantite: 1})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount) cartCount.textContent = data.total;
+            showNotification('Produit ajouté au panier !', 'success');
+            
+            // Animation du bouton
+            const btn = event.currentTarget;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+            }, 1000);
+        } else {
+            showNotification(data.error || 'Erreur lors de l\'ajout', 'danger');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        showNotification('Erreur de connexion', 'danger');
+    });
+}
+
+function newsletterSignup() {
+    const input = document.querySelector('.newsletter-form-modern input');
+    if (input && input.value && input.value.includes('@')) {
+        showNotification('Merci pour votre inscription !', 'success');
+        input.value = '';
+    } else {
+        showNotification('Veuillez entrer une adresse email valide', 'warning');
+    }
+}
+
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'exclamation-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.background = type === 'success' ? '#00b894' : (type === 'warning' ? '#fdcb6e' : '#d63031');
+    notification.style.color = type === 'warning' ? '#2d3436' : 'white';
+    notification.style.padding = '1rem 1.5rem';
+    notification.style.borderRadius = '12px';
+    notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+    notification.style.display = 'flex';
+    notification.style.alignItems = 'center';
+    notification.style.gap = '0.5rem';
+    notification.style.zIndex = '9999';
+    notification.style.fontSize = '0.9rem';
+    notification.style.fontWeight = '500';
+    notification.style.animation = 'slideIn 0.3s ease';
+    notification.style.backdropFilter = 'blur(10px)';
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Fermer le modal avec Echap
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeVideoModal();
+    }
+});
+
+// Styles d'animation pour les notifications
+if (!document.getElementById('notificationStyles')) {
+    const style = document.createElement('style');
+    style.id = 'notificationStyles';
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+</script>
+{% endblock %}

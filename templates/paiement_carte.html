@@ -1,0 +1,743 @@
+{% extends "base.html" %}
+
+{% block title %}Paiement par carte - DestockPro{% endblock %}
+
+{% block content %}
+<div class="payment-card-page">
+    <div class="container">
+        <h1 class="page-title">Paiement par carte bancaire</h1>
+
+        <!-- Progress bar -->
+        <div class="payment-progress">
+            <div class="progress-step completed">
+                <span class="step-number">1</span>
+                <span class="step-label">Panier</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step completed">
+                <span class="step-number">2</span>
+                <span class="step-label">Paiement</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">
+                <span class="step-number">3</span>
+                <span class="step-label">Confirmation</span>
+            </div>
+        </div>
+
+        <div class="payment-card-layout">
+            <!-- Formulaire de paiement -->
+            <div class="payment-form-section">
+                <div class="form-header">
+                    <h2>Informations de paiement</h2>
+                    <p>Paiement sécurisé</p>
+                </div>
+
+                {% if not est_connecte %}
+                <div class="guest-section">
+                    <h3>Informations de livraison</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom complet *</label>
+                            <input type="text" id="nom" name="nom" class="form-input" required 
+                                   value="{{ client_data.nom if client_data else '' }}"
+                                   placeholder="Jean Dupont">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required 
+                                   value="{{ client_data.email if client_data else '' }}"
+                                   placeholder="jean@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" class="form-input" required 
+                                   value="{{ client_data.telephone if client_data else '' }}"
+                                   placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="adresse">Adresse de livraison *</label>
+                            <input type="text" id="adresse" name="adresse" class="form-input" required 
+                                   value="{{ client_data.adresse if client_data else '' }}"
+                                   placeholder="Numéro et nom de rue">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="code_postal">Code postal *</label>
+                            <input type="text" id="code_postal" name="code_postal" class="form-input" required 
+                                   value="{{ client_data.code_postal if client_data else '' }}"
+                                   placeholder="75001">
+                        </div>
+                        <div class="form-group">
+                            <label for="ville">Ville *</label>
+                            <input type="text" id="ville" name="ville" class="form-input" required 
+                                   value="{{ client_data.ville if client_data else '' }}"
+                                   placeholder="Paris">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pays">Pays</label>
+                            <select id="pays" name="pays" class="form-input">
+                                <option value="France" {% if client_data.pays == 'France' %}selected{% endif %}>France</option>
+                                <option value="Belgique" {% if client_data.pays == 'Belgique' %}selected{% endif %}>Belgique</option>
+                                <option value="Suisse" {% if client_data.pays == 'Suisse' %}selected{% endif %}>Suisse</option>
+                                <option value="Luxembourg" {% if client_data.pays == 'Luxembourg' %}selected{% endif %}>Luxembourg</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="societe">Société (optionnel)</label>
+                            <input type="text" id="societe" name="societe" class="form-input" 
+                                   value="{{ client_data.societe if client_data else '' }}"
+                                   placeholder="Nom de votre entreprise">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="instruction_livraison">Instructions de livraison (optionnel)</label>
+                            <textarea id="instruction_livraison" name="instruction_livraison" class="form-input" 
+                                      rows="2" placeholder="Code d'accès, étage, horaires...">{{ client_data.instruction if client_data else '' }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="card-section">
+                    <h3>Carte bancaire</h3>
+                    <div class="card-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-discover"></i>
+                    </div>
+                    
+                    <!-- Formulaire carte bancaire simple -->
+                    <div class="card-form">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="card_number">Numéro de carte *</label>
+                                <input type="text" id="card_number" class="form-input" 
+                                       placeholder="1234 5678 9012 3456" maxlength="19"
+                                       oninput="formatCardNumber(this)">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card_expiry">Date d'expiration *</label>
+                                <input type="text" id="card_expiry" class="form-input" 
+                                       placeholder="MM/AA" maxlength="5"
+                                       oninput="formatExpiry(this)">
+                            </div>
+                            <div class="form-group">
+                                <label for="card_cvv">CVV *</label>
+                                <input type="password" id="card_cvv" class="form-input" 
+                                       placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card_holder">Titulaire de la carte *</label>
+                                <input type="text" id="card_holder" class="form-input" 
+                                       placeholder="JEAN DUPONT">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-errors" class="card-errors" role="alert"></div>
+                </div>
+
+                <input type="hidden" id="discount_amount" value="{{ reduction }}">
+                <input type="hidden" id="promo_code" value="{{ session.get('promo_code', {}).get('code', '') }}">
+                <input type="hidden" id="commande_id" value="{{ commande.id }}">
+
+                <button id="submit-payment" class="submit-btn">
+                    <span class="btn-text">Payer {{ commande.total_final|format_price }}</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Traitement...
+                    </span>
+                </button>
+
+                <p class="security-note">
+                    <i class="fas fa-lock"></i>
+                    Vos informations sont cryptées et sécurisées
+                </p>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div class="order-summary">
+                <h2>Récapitulatif</h2>
+                
+                <div class="order-items">
+                    {% for item in items %}
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h4>{{ item.produit.nom|truncate(30) }}</h4>
+                            <p>Quantité: {{ item.quantite }} palette{% if item.quantite > 1 %}s{% endif %}</p>
+                        </div>
+                        <div class="item-price">
+                            {{ (item.prix_unitaire * item.quantite)|format_price }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Sous-total</span>
+                        <span>{{ commande.total|format_price }}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Livraison ({{ nb_palettes }} palette{% if nb_palettes > 1 %}s{% endif %})</span>
+                        <span>{{ commande.frais_port|format_price }}</span>
+                    </div>
+                    {% if commande.reduction > 0 %}
+                    <div class="summary-row discount">
+                        <span>Réduction</span>
+                        <span>-{{ commande.reduction|format_price }}</span>
+                    </div>
+                    {% endif %}
+                    <div class="summary-row total">
+                        <span>Total TTC</span>
+                        <span class="total-amount">{{ commande.total_final|format_price }}</span>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('paiement') }}" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Changer de mode de paiement
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Vos styles CSS existants */
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --transition: all 0.25s ease;
+}
+
+.payment-card-page {
+    padding: 2rem 0 4rem;
+    background: var(--surface);
+    min-height: calc(100vh - 200px);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+/* Progress bar */
+.payment-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.progress-step.completed .step-number {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+}
+
+.progress-step.active .step-number {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+.progress-line {
+    width: 100px;
+    height: 2px;
+    background: var(--border);
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Layout */
+.payment-card-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+}
+
+/* Formulaire */
+.payment-form-section {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-header h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.form-header p {
+    color: var(--text-light);
+}
+
+.guest-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.guest-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group.full-width {
+    flex: 0 0 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.1);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.card-section {
+    margin-bottom: 2rem;
+}
+
+.card-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.card-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--text-light);
+}
+
+.card-icons i:hover {
+    color: var(--secondary);
+}
+
+.card-form {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-errors {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    min-height: 20px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.security-note i {
+    color: var(--success);
+}
+
+/* Order summary */
+.order-summary {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 100px;
+}
+
+.order-summary h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.order-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-details h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.item-details p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.summary-totals {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--text);
+}
+
+.summary-row.discount {
+    color: var(--success);
+}
+
+.summary-row.total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--border);
+}
+
+.total-amount {
+    color: var(--secondary);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--secondary);
+    transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .payment-card-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+    
+    .progress-line {
+        width: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .progress-step .step-label {
+        display: none;
+    }
+    
+    .progress-line {
+        width: 30px;
+    }
+}
+</style>
+
+<script>
+// Formatage du numéro de carte
+function formatCardNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+    let formatted = '';
+    for (let i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+            formatted += ' ';
+        }
+        formatted += value[i];
+    }
+    input.value = formatted.substring(0, 19);
+}
+
+// Formatage de la date d'expiration
+function formatExpiry(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length >= 2) {
+        input.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    } else {
+        input.value = value;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const submitBtn = document.getElementById('submit-payment');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoader = document.querySelector('.btn-loader');
+    
+    submitBtn.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        // Récupérer les données du formulaire
+        let clientData = {
+            discount_amount: document.getElementById('discount_amount').value,
+            promo_code: document.getElementById('promo_code').value,
+            commande_id: document.getElementById('commande_id').value,
+            card_info: {
+                number: document.getElementById('card_number').value,
+                expiry: document.getElementById('card_expiry').value,
+                cvv: document.getElementById('card_cvv').value,
+                holder: document.getElementById('card_holder').value
+            }
+        };
+        
+        {% if not est_connecte %}
+        // Pour les invités, récupérer les données du formulaire de livraison
+        clientData.nom = document.getElementById('nom').value;
+        clientData.email = document.getElementById('email').value;
+        clientData.telephone = document.getElementById('telephone').value;
+        clientData.adresse = document.getElementById('adresse').value;
+        clientData.code_postal = document.getElementById('code_postal').value;
+        clientData.ville = document.getElementById('ville').value;
+        clientData.pays = document.getElementById('pays').value;
+        clientData.societe = document.getElementById('societe').value;
+        clientData.instruction = document.getElementById('instruction_livraison').value;
+        {% endif %}
+        
+        // Validation carte
+        const cardNumber = clientData.card_info.number.replace(/\s/g, '');
+        if (cardNumber.length < 15) {
+            showError('Numéro de carte invalide');
+            return;
+        }
+        
+        if (!clientData.card_info.expiry || clientData.card_info.expiry.length < 5) {
+            showError('Date d\'expiration invalide');
+            return;
+        }
+        
+        if (!clientData.card_info.cvv || clientData.card_info.cvv.length < 3) {
+            showError('CVV invalide');
+            return;
+        }
+        
+        if (!clientData.card_info.holder) {
+            showError('Nom du titulaire requis');
+            return;
+        }
+        
+        // Afficher le loader
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
+        
+        try {
+            const response = await fetch('/paiement/carte/telegram', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(clientData)
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                window.location.href = '/confirmation/' + data.commande_id;
+            } else {
+                throw new Error(data.error);
+            }
+            
+        } catch (error) {
+            showError(error.message);
+            resetButton();
+        }
+    });
+    
+    function resetButton() {
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+    }
+    
+    function showError(message) {
+        const errorElement = document.getElementById('card-errors');
+        errorElement.textContent = message;
+        errorElement.style.color = 'var(--danger)';
+        setTimeout(() => {
+            errorElement.textContent = '';
+        }, 5000);
+    }
+});
+</script>
+{% endblock %}

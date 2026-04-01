@@ -1,0 +1,192 @@
+{% extends "compte/base_compte.html" %}
+
+{% block compte_title %}Mon profil{% endblock %}
+{% block compte_subtitle %}Gérez vos informations personnelles{% endblock %}
+
+{% block compte_content %}
+<form method="POST" action="{{ url_for('compte_profil') }}" class="profil-form">
+    <div class="form-section">
+        <h3><i class="fas fa-user"></i> Informations personnelles</h3>
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" value="{{ current_user.prenom }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" value="{{ current_user.nom }}" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" value="{{ current_user.email }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" value="{{ current_user.telephone or '' }}">
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <h3><i class="fas fa-map-marker-alt"></i> Adresse</h3>
+        
+        <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <input type="text" id="adresse" name="adresse" value="{{ current_user.adresse or '' }}" placeholder="Numéro et nom de rue">
+        </div>
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="code_postal">Code postal</label>
+                <input type="text" id="code_postal" name="code_postal" value="{{ current_user.code_postal or '' }}">
+            </div>
+            
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville" value="{{ current_user.ville or '' }}">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="pays">Pays</label>
+            <select id="pays" name="pays">
+                <option value="France" {% if current_user.pays == 'France' %}selected{% endif %}>France</option>
+                <option value="Belgique" {% if current_user.pays == 'Belgique' %}selected{% endif %}>Belgique</option>
+                <option value="Suisse" {% if current_user.pays == 'Suisse' %}selected{% endif %}>Suisse</option>
+                <option value="Luxembourg" {% if current_user.pays == 'Luxembourg' %}selected{% endif %}>Luxembourg</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <h3><i class="fas fa-lock"></i> Changer de mot de passe</h3>
+        <p class="section-note">Laissez vide si vous ne souhaitez pas modifier votre mot de passe</p>
+        
+        <div class="form-group">
+            <label for="current_password">Mot de passe actuel</label>
+            <input type="password" id="current_password" name="current_password" placeholder="••••••••">
+        </div>
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="new_password">Nouveau mot de passe</label>
+                <input type="password" id="new_password" name="new_password" placeholder="••••••••">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password">Confirmer</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••">
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">
+            <i class="fas fa-save"></i> Enregistrer les modifications
+        </button>
+        <a href="{{ url_for('compte') }}" class="btn-secondary">
+            <i class="fas fa-times"></i> Annuler
+        </a>
+    </div>
+</form>
+
+<style>
+.profil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-section {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.form-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.form-section h3 i {
+    color: var(--secondary);
+}
+
+.section-note {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: var(--surface);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button,
+    .form-actions a {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+{% endblock %}

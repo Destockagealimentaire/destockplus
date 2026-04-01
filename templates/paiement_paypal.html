@@ -1,0 +1,559 @@
+{% extends "base.html" %}
+
+{% block title %}Paiement PayPal - DestockPro{% endblock %}
+
+{% block content %}
+<div class="payment-paypal-page">
+    <div class="container">
+        <h1 class="page-title">Paiement par PayPal</h1>
+
+        <!-- Progress bar -->
+        <div class="payment-progress">
+            <div class="progress-step completed">
+                <span class="step-number">1</span>
+                <span class="step-label">Panier</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step completed">
+                <span class="step-number">2</span>
+                <span class="step-label">Paiement</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">
+                <span class="step-number">3</span>
+                <span class="step-label">Confirmation</span>
+            </div>
+        </div>
+
+        <div class="payment-paypal-layout">
+            <!-- Formulaire PayPal -->
+            <div class="paypal-form-section">
+                <div class="form-header">
+                    <h2><i class="fab fa-paypal"></i> Paiement via PayPal</h2>
+                    <p>Vous allez être redirigé vers PayPal pour finaliser votre paiement</p>
+                </div>
+
+                <div class="paypal-info">
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="info-content">
+                            <h3>Paiement 100% sécurisé</h3>
+                            <p>PayPal protège vos informations bancaires. Aucune donnée sensible n'est stockée sur notre site.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="info-content">
+                            <h3>Traitement instantané</h3>
+                            <p>Votre commande sera confirmée immédiatement après le paiement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-undo-alt"></i>
+                        <div class="info-content">
+                            <h3>Protection acheteur</h3>
+                            <p>Bénéficiez de la protection PayPal en cas de problème.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% if not est_connecte %}
+                <div class="guest-section">
+                    <h3>Vos coordonnées</h3>
+                    <form method="POST" action="{{ url_for('paiement_paypal') }}" id="paypalForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom complet *</label>
+                                <input type="text" id="nom" name="nom" class="form-input" required 
+                                       placeholder="Jean Dupont"
+                                       value="{{ session.get('client_nom', '') }}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" class="form-input" required 
+                                       placeholder="jean@email.com"
+                                       value="{{ session.get('client_email', '') }}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    </form>
+                </div>
+                {% endif %}
+
+                <button type="button" class="paypal-button" onclick="redirectToPayPal()">
+                    <i class="fab fa-paypal"></i>
+                    Payer avec PayPal
+                    <span class="amount">{{ total|format_price }}</span>
+                </button>
+
+                <p class="security-note">
+                    <i class="fas fa-lock"></i>
+                    Vous serez redirigé vers PayPal après avoir cliqué sur le bouton
+                </p>
+            </div>
+
+            <!-- Récapitulatif -->
+            <div class="order-summary">
+                <h2>Récapitulatif</h2>
+                
+                <div class="order-items">
+                    {% for item in panier %}
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h4>{{ item.produit.nom|truncate(30) }}</h4>
+                            <p>Quantité: {{ item.quantite }}</p>
+                        </div>
+                        <div class="item-price">
+                            {% set prix_unitaire = item.produit.prix_promo or item.produit.prix %}
+                            {{ (prix_unitaire * item.quantite)|format_price }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Sous-total</span>
+                        <span>{{ total|format_price }}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Livraison ({{ nb_palettes }} palette{% if nb_palettes > 1 %}s{% endif %})</span>
+                        <span>{{ frais_port|format_price }}</span>
+                    </div>
+                    {% if reduction > 0 %}
+                    <div class="summary-row discount">
+                        <span>Réduction</span>
+                        <span>-{{ reduction|format_price }}</span>
+                    </div>
+                    {% endif %}
+                    <div class="summary-row total">
+                        <span>Total TTC</span>
+                        <span class="total-amount">{{ (total + frais_port - (reduction|default(0)))|format_price }}</span>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('paiement') }}" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Changer de mode de paiement
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.payment-paypal-page {
+    padding: 2rem 0 4rem;
+    background: var(--surface);
+    min-height: calc(100vh - 200px);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+/* Progress bar */
+.payment-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.progress-step.completed .step-number {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+}
+
+.progress-step.active .step-number {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.progress-line {
+    width: 100px;
+    height: 2px;
+    background: var(--border);
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Layout */
+.payment-paypal-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+}
+
+/* Formulaire */
+.paypal-form-section {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.form-header h2 i {
+    color: #003087;
+    margin-right: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-light);
+}
+
+/* Info cards */
+.paypal-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.info-card p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* Guest section */
+.guest-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.guest-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.1);
+}
+
+/* PayPal button */
+.paypal-button {
+    width: 100%;
+    padding: 1.2rem;
+    background: #003087;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 1rem;
+}
+
+.paypal-button:hover {
+    background: #00256e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 48, 135, 0.3);
+}
+
+.paypal-button i {
+    font-size: 1.5rem;
+}
+
+.paypal-button .amount {
+    background: rgba(255,255,255,0.2);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.security-note i {
+    color: var(--success);
+}
+
+/* Order summary */
+.order-summary {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.order-summary h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.order-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-details h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.item-details p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary);
+    white-space: nowrap;
+}
+
+.summary-totals {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--text);
+}
+
+.summary-row.discount {
+    color: var(--success);
+}
+
+.summary-row.total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--border);
+}
+
+.total-amount {
+    color: var(--secondary);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--secondary);
+    transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .payment-paypal-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+    
+    .paypal-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-line {
+        width: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-step .step-label {
+        display: none;
+    }
+    
+    .progress-line {
+        width: 30px;
+    }
+}
+</style>
+
+<script>
+function redirectToPayPal() {
+    {% if not est_connecte %}
+    const nom = document.getElementById('nom').value;
+    const email = document.getElementById('email').value;
+    
+    if (!nom || !email) {
+        alert('Veuillez remplir tous les champs');
+        return;
+    }
+    
+    if (!email.includes('@')) {
+        alert('Email invalide');
+        return;
+    }
+    {% endif %}
+    
+    // Afficher un loader
+    const btn = document.querySelector('.paypal-button');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirection vers PayPal...';
+    btn.disabled = true;
+    
+    // Soumettre le formulaire ou rediriger
+    {% if not est_connecte %}
+    document.getElementById('paypalForm').submit();
+    {% else %}
+    // Pour les utilisateurs connectés, redirection directe
+    window.location.href = "{{ url_for('paiement_paypal') }}?confirm=1";
+    {% endif %}
+}
+</script>
+{% endblock %}

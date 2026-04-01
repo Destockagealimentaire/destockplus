@@ -1,0 +1,956 @@
+{% extends "base.html" %}
+
+{% block title %}Offres Flash - DestockPro{% endblock %}
+
+{% block content %}
+<div class="flash-offers-page">
+    <!-- Hero Section -->
+    <section class="flash-hero">
+        <div class="container">
+            <div class="flash-hero-content">
+                <span class="flash-badge">
+                    <i class="fas fa-bolt"></i> OFFRE FLASH
+                </span>
+                <h1>Ne manquez pas nos <span class="highlight">offres exceptionnelles</span></h1>
+                <p>Des produits sélectionnés à prix imbattables, pour une durée limitée !</p>
+                <div class="flash-countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">24</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flash-hero-pattern"></div>
+    </section>
+
+    <!-- Filtres rapides -->
+    <section class="flash-filters">
+        <div class="container">
+            <div class="filter-tags">
+                <button class="filter-tag active" onclick="filterProducts('all')">Tous</button>
+                <button class="filter-tag" onclick="filterProducts('-50')">-50% et plus</button>
+                <button class="filter-tag" onclick="filterProducts('-60')">-60% et plus</button>
+                <button class="filter-tag" onclick="filterProducts('-70')">-70% et plus</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grille des produits -->
+    <section class="flash-products">
+        <div class="container">
+            {% if produits %}
+            <div class="products-grid" id="productsGrid">
+                {% for produit in produits %}
+                <div class="flash-product-card" data-discount="{{ ((1 - produit.prix_promo/produit.prix) * 100)|int if produit.prix_promo else 0 }}">
+                    <!-- Badge Flash -->
+                    <div class="flash-badge-large">
+                        <span class="flash-icon"><i class="fas fa-bolt"></i></span>
+                        <span class="flash-text">FLASH</span>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="product-image">
+                        <a href="/produit/{{ produit.id }}">
+                            <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                                 alt="{{ produit.nom }}"
+                                 onerror="this.src='https://via.placeholder.com/300x300?text=Produit'">
+                        </a>
+                        
+                        <!-- Actions rapides -->
+                        <div class="product-actions">
+                            <button class="action-btn" onclick="addToWishlist({{ produit.id }})" title="Ajouter aux favoris">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn" onclick="quickView({{ produit.id }})" title="Aperçu rapide">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <!-- Timer -->
+                        <div class="product-timer">
+                            <i class="fas fa-clock"></i>
+                            <span class="timer-value">23h 59m</span>
+                        </div>
+                    </div>
+
+                    <!-- Informations -->
+                    <div class="product-info">
+                        <div class="product-category">
+                            {{ produit.categorie.nom if produit.categorie else 'Non catégorisé' }}
+                        </div>
+
+                        <h3 class="product-title">
+                            <a href="/produit/{{ produit.id }}">{{ produit.nom|truncate(50) }}</a>
+                        </h3>
+
+                        <!-- Prix -->
+                        <div class="product-price-block">
+                            {% if produit.prix_promo %}
+                            <div class="price-container">
+                                <span class="current-price">{{ produit.prix_promo|format_price }}</span>
+                                <span class="original-price">{{ produit.prix|format_price }}</span>
+                            </div>
+                            <div class="discount-badge-large">
+                                -{{ ((1 - produit.prix_promo/produit.prix) * 100)|round|int }}%
+                            </div>
+                            {% else %}
+                            <span class="current-price">{{ produit.prix|format_price }}</span>
+                            {% endif %}
+                        </div>
+
+                        <!-- Économies -->
+                        {% if produit.prix_promo %}
+                        <div class="savings-badge">
+                            <i class="fas fa-tag"></i>
+                            Économisez {{ (produit.prix - produit.prix_promo)|format_price }}
+                        </div>
+                        {% endif %}
+
+                        <!-- Stock -->
+                        <div class="stock-info">
+                            {% if produit.stock > 10 %}
+                            <span class="stock-status in-stock">
+                                <i class="fas fa-check-circle"></i>
+                                En stock
+                            </span>
+                            {% elif produit.stock > 0 %}
+                            <span class="stock-status low-stock">
+                                <i class="fas fa-exclamation-circle"></i>
+                                Plus que {{ produit.stock }} en stock !
+                            </span>
+                                <!-- Barre de progression -->
+                                <div class="stock-bar">
+                                    <div class="stock-fill" style="width: {{ (produit.stock / produit.stock_initial * 100)|int if produit.stock_initial else 50 }}%"></div>
+                                </div>
+                            {% else %}
+                            <span class="stock-status out-of-stock">
+                                <i class="fas fa-times-circle"></i>
+                                Rupture de stock
+                            </span>
+                            {% endif %}
+                        </div>
+
+                        <!-- Bouton d'achat -->
+                        <button class="flash-buy-btn" onclick="addToCart({{ produit.id }})" {% if produit.stock == 0 %}disabled{% endif %}>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Acheter maintenant</span>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <!-- Aucun produit -->
+            <div class="no-products">
+                <div class="no-products-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h2>Aucune offre flash pour le moment</h2>
+                <p>Revenez bientôt pour découvrir nos prochaines offres exceptionnelles !</p>
+                <a href="/produits" class="btn-primary">
+                    Voir tous nos produits
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Section newsletter -->
+    <section class="flash-newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Ne ratez aucune offre flash</h2>
+                <p>Inscrivez-vous pour être alerté en avant-première de nos prochaines offres exceptionnelles</p>
+                <form class="newsletter-form-large" onsubmit="event.preventDefault(); newsletterSignup()">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit">
+                        M'alerter
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.flash-offers-page {
+    background: var(--surface);
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.flash-hero {
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+    padding-top: 140px;
+}
+
+.flash-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(196, 167, 71, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.flash-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.flash-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.flash-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(196, 167, 71, 0.3);
+    z-index: -1;
+}
+
+.flash-hero p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+}
+
+/* Countdown */
+.flash-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    border-radius: 100px;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 60px;
+}
+
+.countdown-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+}
+
+.countdown-separator {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: -0.5rem;
+}
+
+/* Filtres */
+.flash-filters {
+    margin-top: -2rem;
+    position: relative;
+    z-index: 3;
+}
+
+.filter-tags {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-tag {
+    padding: 0.8rem 2rem;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.filter-tag:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.filter-tag.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Grille produits */
+.flash-products {
+    padding: 4rem 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.flash-product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid var(--border);
+    animation: fadeInUp 0.5s ease;
+}
+
+.flash-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
+}
+
+/* Badge Flash */
+.flash-badge-large {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: linear-gradient(135deg, var(--danger), #ff6b6b);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: var(--shadow);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.flash-icon {
+    animation: bolt 1s infinite;
+}
+
+@keyframes bolt {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Image produit */
+.product-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.flash-product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+/* Actions rapides */
+.product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition);
+    z-index: 5;
+}
+
+.flash-product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Timer */
+.product-timer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    z-index: 5;
+}
+
+.product-timer i {
+    color: var(--secondary);
+    animation: pulse 2s infinite;
+}
+
+/* Informations produit */
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-category {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.product-title a {
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.product-title a:hover {
+    color: var(--secondary);
+}
+
+/* Prix */
+.product-price-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.current-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+}
+
+.original-price {
+    font-size: 1rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.discount-badge-large {
+    background: linear-gradient(135deg, var(--danger), #ff6b6b);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Économies */
+.savings-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0, 184, 148, 0.1);
+    color: var(--success);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.savings-badge i {
+    font-size: 0.8rem;
+}
+
+/* Stock */
+.stock-info {
+    margin-bottom: 1rem;
+}
+
+.stock-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stock-status.in-stock {
+    color: var(--success);
+}
+
+.stock-status.low-stock {
+    color: var(--warning);
+}
+
+.stock-status.out-of-stock {
+    color: var(--danger);
+}
+
+.stock-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.stock-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--warning), #fbbf24);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Bouton achat */
+.flash-buy-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.flash-buy-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.flash-buy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* État vide */
+.no-products {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.no-products-icon {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.no-products h2 {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.no-products p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Newsletter */
+.flash-newsletter {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+}
+
+.newsletter-form-large {
+    display: flex;
+    gap: 1rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.newsletter-form-large input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+}
+
+.newsletter-form-large input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.newsletter-form-large input:focus {
+    outline: none;
+}
+
+.newsletter-form-large button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.newsletter-form-large button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flash-product-card:nth-child(2) { animation-delay: 0.1s; }
+.flash-product-card:nth-child(3) { animation-delay: 0.2s; }
+.flash-product-card:nth-child(4) { animation-delay: 0.3s; }
+.flash-product-card:nth-child(5) { animation-delay: 0.4s; }
+.flash-product-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .flash-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .flash-countdown {
+        padding: 1rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .flash-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .flash-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .flash-countdown {
+        flex-wrap: wrap;
+        border-radius: 20px;
+        max-width: 300px;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+    
+    .filter-tags {
+        gap: 0.5rem;
+    }
+    
+    .filter-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form-large {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        gap: 1rem;
+    }
+    
+    .newsletter-form-large input,
+    .newsletter-form-large button {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+// Compte à rebours (exemple: 24h)
+function updateCountdown() {
+    const hours = document.getElementById('hours');
+    const minutes = document.getElementById('minutes');
+    const seconds = document.getElementById('seconds');
+    
+    if (hours && minutes && seconds) {
+        // Simulation d'un compte à rebours
+        let h = 24;
+        let m = 0;
+        let s = 0;
+        
+        setInterval(() => {
+            if (s > 0) {
+                s--;
+            } else {
+                if (m > 0) {
+                    m--;
+                    s = 59;
+                } else {
+                    if (h > 0) {
+                        h--;
+                        m = 59;
+                        s = 59;
+                    }
+                }
+            }
+            
+            hours.textContent = h.toString().padStart(2, '0');
+            minutes.textContent = m.toString().padStart(2, '0');
+            seconds.textContent = s.toString().padStart(2, '0');
+        }, 1000);
+    }
+}
+
+// Filtrage des produits
+function filterProducts(discount) {
+    // Mettre à jour les boutons actifs
+    document.querySelectorAll('.filter-tag').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.currentTarget.classList.add('active');
+    
+    // Filtrer les produits
+    const products = document.querySelectorAll('.flash-product-card');
+    products.forEach(product => {
+        const productDiscount = parseInt(product.dataset.discount);
+        
+        if (discount === 'all') {
+            product.style.display = 'block';
+        } else {
+            const minDiscount = parseInt(discount.replace('-', ''));
+            if (productDiscount >= minDiscount) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        }
+    });
+}
+
+// Ajouter au panier
+function addToCart(productId) {
+    fetch(`/ajouter-panier/${productId}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({quantite: 1})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount) cartCount.textContent = data.total;
+            
+            // Animation du bouton
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Ajouté !';
+            btn.style.background = 'var(--success)';
+            btn.style.color = 'white';
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = 'linear-gradient(135deg, var(--secondary), var(--accent))';
+                btn.style.color = 'var(--primary)';
+            }, 2000);
+        }
+    });
+}
+
+// Wishlist
+function addToWishlist(productId) {
+    const btn = event.currentTarget;
+    btn.innerHTML = '<i class="fas fa-heart"></i>';
+    btn.style.background = 'var(--danger)';
+    btn.style.color = 'white';
+    setTimeout(() => {
+        btn.innerHTML = '<i class="far fa-heart"></i>';
+        btn.style.background = 'white';
+        btn.style.color = 'var(--text)';
+    }, 1000);
+}
+
+// Quick view
+function quickView(productId) {
+    window.location.href = `/produit/${productId}`;
+}
+
+// Newsletter
+function newsletterSignup() {
+    const input = document.querySelector('.newsletter-form-large input');
+    if (input.value && input.value.includes('@')) {
+        alert('Merci pour votre inscription ! Vous recevrez nos alertes offres flash.');
+        input.value = '';
+    } else {
+        alert('Veuillez entrer une adresse email valide');
+    }
+}
+
+// Démarrer le compte à rebours au chargement
+document.addEventListener('DOMContentLoaded', updateCountdown);
+</script>
+{% endblock %}

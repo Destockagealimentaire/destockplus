@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Gestion des produits - Admin{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <h1>Gestion des produits</h1>
+    
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>
+                    <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                         alt="{{ produit.nom }}" style="width: 50px; height: 50px; object-fit: cover;">
+                </td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }} €</td>
+                <td>{{ produit.stock }}</td>
+                <td>{{ produit.categorie.nom if produit.categorie else 'N/A' }}</td>
+                <td>
+                    <button class="btn-delete" onclick="deleteProduct({{ produit.id }})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+function deleteProduct(id) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+        fetch(`/admin/produits/supprimer/${id}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Erreur: ' + data.error);
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

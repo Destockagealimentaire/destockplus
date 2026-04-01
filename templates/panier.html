@@ -1,0 +1,1343 @@
+<!-- templates/panier.html - Version optimisée mobile -->
+{% extends "base.html" %}
+
+{% block title %}Mon panier - DestockPro{% endblock %}
+
+{% block content %}
+<div class="cart-page">
+    <div class="container">
+        <h1 class="page-title">
+            <i class="fas fa-shopping-cart"></i>
+            Mon panier
+            <span class="cart-badge" id="cartCountBadge">{{ panier|length if panier else 0 }}</span>
+        </h1>
+        
+        {% if panier and panier|length > 0 %}
+        <!-- Panier avec articles -->
+        <div class="cart-layout">
+            <!-- Liste des articles -->
+            <div class="cart-items">
+                {% for item in panier %}
+                <div class="cart-item" data-id="{{ item.produit.id }}">
+                    <!-- En-tête mobile -->
+                    <div class="item-header-mobile">
+                        <div class="item-image-mobile">
+                            <a href="{{ url_for('produit_detail', produit_id=item.produit.id) }}">
+                                <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                                     alt="{{ item.produit.nom }}"
+                                     onerror="this.src='https://via.placeholder.com/80x80?text=Produit'">
+                            </a>
+                        </div>
+                        <div class="item-info-mobile">
+                            <h3 class="item-title-mobile">
+                                <a href="{{ url_for('produit_detail', produit_id=item.produit.id) }}">{{ item.produit.nom }}</a>
+                            </h3>
+                            <p class="item-reference">Réf: {{ item.produit.reference or 'N/A' }}</p>
+                            {% if item.produit.stock < 10 %}
+                            <span class="stock-warning">⚠️ Stock faible: {{ item.produit.stock }} restant(s)</span>
+                            {% endif %}
+                        </div>
+                        <button class="remove-btn-mobile" onclick="removeFromCart({{ item.produit.id }})">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Détails prix et quantité mobile -->
+                    <div class="item-details-mobile">
+                        <div class="price-block">
+                            <span class="price-label">Prix unitaire</span>
+                            <span class="item-price">{{ item.prix|format_price }}</span>
+                        </div>
+                        
+                        <div class="quantity-block">
+                            <span class="price-label">Quantité</span>
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" 
+                                        onclick="updateQuantity({{ item.produit.id }}, 'decrease')"
+                                        {% if item.quantite <= 1 %}disabled{% endif %}>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" 
+                                       class="quantity-input" 
+                                       id="qty-{{ item.produit.id }}"
+                                       value="{{ item.quantite }}" 
+                                       min="1" 
+                                       max="{{ item.produit.stock }}"
+                                       readonly>
+                                <button class="quantity-btn plus" 
+                                        onclick="updateQuantity({{ item.produit.id }}, 'increase')"
+                                        {% if item.quantite >= item.produit.stock %}disabled{% endif %}>
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <span class="stock-info-mobile">Stock: {{ item.produit.stock }}</span>
+                        </div>
+                        
+                        <div class="total-block">
+                            <span class="price-label">Total</span>
+                            <span class="item-total" id="total-{{ item.produit.id }}">{{ item.sous_total|format_price }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Résumé de la commande - Version mobile optimisée -->
+            <div class="cart-summary">
+                <div class="summary-header">
+                    <h2 class="summary-title">Récapitulatif</h2>
+                    <button class="summary-toggle" onclick="toggleSummary()">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="summary-content" id="summaryContent">
+                    <!-- Détails des prix -->
+                    <div class="summary-row">
+                        <span>Sous-total (<span id="cartCount">{{ panier|length }}</span> article(s))</span>
+                        <span class="summary-value" id="subtotal">{{ total|format_price }}</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Livraison</span>
+                        <span class="summary-value">
+                            <span id="shippingCost">Calcul en cours...</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Barre de progression livraison gratuite -->
+                    <div class="shipping-progress" id="shippingProgress">
+                        <div class="progress-text">
+                            <i class="fas fa-truck"></i>
+                            <span id="shippingMessage">Calcul des frais de port...</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code promo -->
+                    <div class="promo-code">
+                        <div class="promo-input-group">
+                            <input type="text" 
+                                   id="promoCode" 
+                                   placeholder="Code promo" 
+                                   class="promo-input"
+                                   onkeyup="if(event.key==='Enter') applyPromoCode()">
+                            <button class="promo-btn" onclick="applyPromoCode()">Appliquer</button>
+                        </div>
+                        <div id="promoMessage" class="promo-message"></div>
+                    </div>
+                    
+                    <!-- Total TTC -->
+                    <div class="summary-total">
+                        <span>Total TTC</span>
+                        <span class="total-amount" id="totalAmount">{{ total|format_price }}</span>
+                    </div>
+                    
+                    <div class="tax-info">
+                        <i class="fas fa-check-circle"></i>
+                        TVA incluse
+                    </div>
+                    
+                    <!-- Boutons d'action -->
+                    <a href="{{ url_for('paiement') }}" class="checkout-btn" id="checkoutBtn">
+                        <i class="fas fa-lock"></i>
+                        Procéder au paiement
+                    </a>
+                    
+                    <div class="payment-methods">
+                        <p>Paiement sécurisé</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-actions">
+                        <a href="{{ url_for('produits') }}" class="continue-link">
+                            <i class="fas fa-arrow-left"></i>
+                            Continuer mes achats
+                        </a>
+                        <button class="clear-cart-btn" onclick="clearCart()">
+                            <i class="fas fa-trash-alt"></i>
+                            Vider le panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Suggestions produits - Version mobile optimisée -->
+        {% if suggestions %}
+        <div class="suggestions-section">
+            <h2 class="suggestions-title">
+                <i class="fas fa-clock"></i>
+                Vous pourriez aussi aimer
+            </h2>
+            <div class="suggestions-grid">
+                {% for produit in suggestions %}
+                <div class="suggestion-card">
+                    <div class="suggestion-image">
+                        <a href="{{ url_for('produit_detail', produit_id=produit.id) }}">
+                            <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                                 alt="{{ produit.nom }}"
+                                 onerror="this.src='https://via.placeholder.com/200x200?text=Produit'">
+                        </a>
+                        {% if produit.prix_promo %}
+                        <span class="suggestion-badge">-{{ ((1 - produit.prix_promo/produit.prix) * 100)|int }}%</span>
+                        {% endif %}
+                    </div>
+                    <div class="suggestion-info">
+                        <h3 class="suggestion-name">
+                            <a href="{{ url_for('produit_detail', produit_id=produit.id) }}">{{ produit.nom|truncate(35) }}</a>
+                        </h3>
+                        <div class="suggestion-price">
+                            {% if produit.prix_promo %}
+                            <span class="current">{{ produit.prix_promo|format_price }}</span>
+                            <span class="original">{{ produit.prix|format_price }}</span>
+                            {% else %}
+                            <span class="current">{{ produit.prix|format_price }}</span>
+                            {% endif %}
+                        </div>
+                        <button class="suggestion-add" onclick="addToCart({{ produit.id }})">
+                            <i class="fas fa-plus"></i>
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        {% else %}
+        <!-- Panier vide - Version mobile optimisée -->
+        <div class="empty-cart">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-basket"></i>
+            </div>
+            <h2 class="empty-cart-title">Votre panier est vide</h2>
+            <p class="empty-cart-text">
+                Découvrez nos produits et profitez de nos offres exceptionnelles<br>
+                avec jusqu'à -70% sur une large sélection.
+            </p>
+            <div class="empty-cart-actions">
+                <a href="{{ url_for('produits') }}" class="btn-primary">
+                    <i class="fas fa-store"></i>
+                    Découvrir nos produits
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn-secondary">
+                    <i class="fas fa-headset"></i>
+                    Besoin d'aide ?
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --warning: #fdcb6e;
+    --shadow: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --transition: all 0.25s ease;
+}
+
+.cart-page {
+    padding: 1rem 0 3rem;
+    background: var(--background);
+    min-height: 60vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.page-title i {
+    color: var(--secondary);
+    font-size: 1.5rem;
+}
+
+.cart-badge {
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.cart-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cart-items {
+    background: var(--background);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.cart-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem;
+    transition: var(--transition);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item:hover {
+    background: var(--surface);
+}
+
+/* Version mobile - Layout en colonne */
+.item-header-mobile {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.item-image-mobile {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+}
+
+.item-image-mobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.5rem;
+}
+
+.item-info-mobile {
+    flex: 1;
+}
+
+.item-title-mobile {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.item-title-mobile a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.item-title-mobile a:hover {
+    color: var(--secondary);
+}
+
+.item-reference {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.stock-warning {
+    font-size: 0.7rem;
+    color: var(--warning);
+    display: inline-block;
+    background: rgba(253, 203, 110, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.remove-btn-mobile {
+    width: 32px;
+    height: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.remove-btn-mobile:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.item-details-mobile {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    background: var(--surface);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.price-block,
+.quantity-block,
+.total-block {
+    text-align: center;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.item-total {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--background);
+    border-radius: 6px;
+    padding: 0.2rem;
+    border: 1px solid var(--border);
+}
+
+.quantity-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: var(--surface);
+    border-radius: 4px;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.quantity-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantity-input {
+    width: 40px;
+    height: 28px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.stock-info-mobile {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+/* Résumé de commande - Mobile */
+.cart-summary {
+    background: var(--background);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--surface);
+    cursor: pointer;
+}
+
+.summary-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.summary-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.summary-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.summary-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.summary-content {
+    padding: 1rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.summary-content.collapsed {
+    display: none;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.summary-value {
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.shipping-progress {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text);
+}
+
+.progress-text i {
+    color: var(--secondary);
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.promo-code {
+    margin: 0.75rem 0;
+}
+
+.promo-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.promo-input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.promo-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.promo-btn {
+    padding: 0.6rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.promo-btn:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+.promo-message {
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+}
+
+.promo-message.success {
+    color: var(--success);
+}
+
+.promo-message.error {
+    color: var(--danger);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    margin: 0.5rem 0;
+    border-top: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.total-amount {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.tax-info {
+    font-size: 0.7rem;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin: 0.75rem 0;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.payment-methods {
+    text-align: center;
+    margin: 0.75rem 0;
+}
+
+.payment-methods p {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.summary-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.continue-link {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.continue-link:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.clear-cart-btn {
+    background: none;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.clear-cart-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+/* Suggestions - Mobile */
+.suggestions-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.suggestions-title {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.suggestions-title i {
+    color: var(--secondary);
+}
+
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.suggestion-card {
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.suggestion-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: var(--secondary);
+}
+
+.suggestion-image {
+    position: relative;
+    height: 120px;
+    background: white;
+    padding: 0.5rem;
+}
+
+.suggestion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.suggestion-badge {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+    background: var(--danger);
+    color: white;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+.suggestion-info {
+    padding: 0.75rem;
+}
+
+.suggestion-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+}
+
+.suggestion-name a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.suggestion-name a:hover {
+    color: var(--secondary);
+}
+
+.suggestion-price {
+    margin-bottom: 0.5rem;
+}
+
+.suggestion-price .current {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.suggestion-price .original {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+    margin-left: 0.2rem;
+}
+
+.suggestion-add {
+    width: 100%;
+    padding: 0.4rem;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.suggestion-add:hover {
+    background: var(--accent);
+}
+
+/* Panier vide - Mobile */
+.empty-cart {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--background);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.empty-cart-icon {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.empty-cart-title {
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.empty-cart-text {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.empty-cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--border);
+}
+
+/* Notifications */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Tablette */
+@media (min-width: 768px) {
+    .cart-page {
+        padding: 2rem 0 4rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .cart-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .cart-items {
+        flex: 2;
+    }
+    
+    .cart-summary {
+        flex: 1;
+        position: sticky;
+        top: 100px;
+    }
+    
+    .suggestions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .suggestion-image {
+        height: 160px;
+    }
+    
+    .empty-cart-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .cart-items {
+        flex: 3;
+    }
+    
+    .suggestions-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+</style>
+
+<script>
+let shippingCost = 0;
+let nbPalettes = 0;
+
+function calculateNbPalettes() {
+    let total = 0;
+    document.querySelectorAll('.quantity-input').forEach(input => {
+        total += parseInt(input.value) || 0;
+    });
+    nbPalettes = total;
+    return nbPalettes;
+}
+
+function calculateShippingCost() {
+    const palettes = calculateNbPalettes();
+    let cost = 0;
+    
+    if (palettes === 1) cost = 89.00;
+    else if (palettes === 2) cost = 129.00;
+    else if (palettes === 3) cost = 169.00;
+    else if (palettes <= 5) cost = 199.00;
+    else if (palettes <= 8) cost = 249.00;
+    else if (palettes <= 12) cost = 299.00;
+    else cost = 299 + (palettes - 12) * 25;
+    
+    shippingCost = cost;
+    return cost;
+}
+
+function updateShippingDisplay() {
+    const cost = calculateShippingCost();
+    const shippingElement = document.getElementById('shippingCost');
+    const shippingMessage = document.getElementById('shippingMessage');
+    const progressFill = document.getElementById('progressFill');
+    const subtotalElement = document.getElementById('subtotal');
+    
+    if (!subtotalElement) return;
+    
+    const subtotal = parseFloat(subtotalElement.textContent.replace('€', '').replace(',', '.').trim());
+    
+    if (shippingElement) {
+        shippingElement.textContent = `${cost.toFixed(2)} €`;
+    }
+    
+    if (shippingMessage) {
+        shippingMessage.innerHTML = `<i class="fas fa-truck"></i> ${nbPalettes} palette${nbPalettes > 1 ? 's' : ''} : ${cost.toFixed(2)} €`;
+    }
+    
+    if (subtotal >= 1500) {
+        if (progressFill) progressFill.style.width = '100%';
+        if (shippingMessage) shippingMessage.innerHTML = '<i class="fas fa-truck"></i> <strong>Livraison offerte !</strong>';
+    } else if (subtotal > 0) {
+        const percent = (subtotal / 1500) * 100;
+        if (progressFill) progressFill.style.width = `${Math.min(percent, 100)}%`;
+        if (shippingMessage) {
+            const remaining = 1500 - subtotal;
+            shippingMessage.innerHTML = `<i class="fas fa-truck"></i> Plus que ${remaining.toFixed(2)} € pour la livraison gratuite`;
+        }
+    }
+}
+
+function updateQuantity(productId, action) {
+    console.log("🔄 updateQuantity appelé pour produit:", productId, "action:", action);
+    
+    const item = document.querySelector(`.cart-item[data-id="${productId}"]`);
+    if (!item) {
+        console.error("❌ Élément .cart-item non trouvé pour ID:", productId);
+        return;
+    }
+    
+    const input = document.getElementById(`qty-${productId}`);
+    if (!input) {
+        console.error("❌ Input qty non trouvé pour ID:", productId);
+        return;
+    }
+    
+    const currentQty = parseInt(input.value);
+    console.log("   Quantité actuelle:", currentQty);
+    
+    const maxStockElem = item.querySelector('.stock-info-mobile, .stock-info');
+    let maxStock = 999;
+    
+    if (maxStockElem) {
+        const stockText = maxStockElem.textContent;
+        const match = stockText.match(/\d+/);
+        if (match) maxStock = parseInt(match[0]);
+    }
+    console.log("   Stock max:", maxStock);
+    
+    let newQuantity = currentQty;
+    
+    if (action === 'increase' && currentQty < maxStock) {
+        newQuantity = currentQty + 1;
+    } else if (action === 'decrease' && currentQty > 1) {
+        newQuantity = currentQty - 1;
+    } else {
+        console.log("   Action non valide ou limite atteinte");
+        return;
+    }
+    
+    console.log("   Nouvelle quantité:", newQuantity);
+    
+    const buttons = item.querySelectorAll('.quantity-btn');
+    buttons.forEach(btn => btn.style.opacity = '0.5');
+    
+    // Envoyer en JSON avec le bon Content-Type
+    fetch(`/panier/modifier/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({quantite: newQuantity})
+    })
+    .then(response => {
+        console.log("   Réponse status:", response.status);
+        if (!response.ok) {
+            return response.text().then(text => {
+                console.error("   Réponse texte:", text);
+                throw new Error(`Erreur ${response.status}`);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("   Données reçues:", data);
+        if (data.success) {
+            location.reload();
+        } else {
+            showNotification(data.error || 'Erreur lors de la mise à jour', 'error');
+            buttons.forEach(btn => btn.style.opacity = '1');
+        }
+    })
+    .catch(error => {
+        console.error('❌ Erreur:', error);
+        showNotification(error.message || 'Erreur de connexion', 'error');
+        buttons.forEach(btn => btn.style.opacity = '1');
+    });
+}
+function removeFromCart(productId) {
+    if (!confirm('Supprimer cet article du panier ?')) return;
+    
+    const item = document.querySelector(`.cart-item[data-id="${productId}"]`);
+    if (item) item.style.opacity = '0.5';
+    
+    const removeBtn = event.currentTarget;
+    if (removeBtn) removeBtn.disabled = true;
+    
+    fetch(`/panier/supprimer/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification('Article supprimé du panier', 'success');
+            setTimeout(() => location.reload(), 500);
+        } else {
+            showNotification(data.error || 'Erreur lors de la suppression', 'error');
+            if (item) item.style.opacity = '1';
+            if (removeBtn) removeBtn.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        showNotification('Erreur de connexion', 'error');
+        if (item) item.style.opacity = '1';
+        if (removeBtn) removeBtn.disabled = false;
+    });
+}
+
+function clearCart() {
+    if (!confirm('Êtes-vous sûr de vouloir vider votre panier ?')) return;
+    
+    fetch('/panier/vider', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification('Panier vidé', 'success');
+            location.reload();
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        showNotification('Erreur de connexion', 'error');
+    });
+}
+
+function addToCart(productId) {
+    const btn = event.currentTarget;
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+    
+    fetch(`/ajouter-panier/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({quantite: 1})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            showNotification('Produit ajouté au panier !', 'success');
+            setTimeout(() => {
+                window.location.href = '/panier';
+            }, 1000);
+        } else {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            showNotification('Erreur lors de l\'ajout', 'error');
+        }
+    })
+    .catch(error => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        showNotification('Erreur de connexion', 'error');
+    });
+}
+
+function applyPromoCode() {
+    const input = document.getElementById('promoCode');
+    const message = document.getElementById('promoMessage');
+    const code = input.value.trim().toUpperCase();
+    const totalElem = document.getElementById('subtotal');
+    
+    if (!totalElem) return;
+    
+    const total = parseFloat(totalElem.textContent.replace('€', '').replace(',', '.').trim());
+    
+    if (!code) {
+        message.innerHTML = 'Veuillez entrer un code promo';
+        message.className = 'promo-message error';
+        return;
+    }
+    
+    fetch('/api/valider-code-promo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({code: code, total: total})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.valid) {
+            message.innerHTML = data.message;
+            message.className = 'promo-message success';
+            
+            const totalAmount = document.getElementById('totalAmount');
+            if (totalAmount) {
+                totalAmount.textContent = `${data.new_total.toFixed(2)} €`;
+                totalAmount.style.animation = 'pulse 0.3s ease';
+                setTimeout(() => totalAmount.style.animation = '', 300);
+            }
+        } else {
+            message.innerHTML = data.message;
+            message.className = 'promo-message error';
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        message.innerHTML = 'Erreur de connexion';
+        message.className = 'promo-message error';
+    });
+}
+
+function toggleSummary() {
+    const content = document.getElementById('summaryContent');
+    const toggle = document.querySelector('.summary-toggle');
+    
+    if (content && toggle) {
+        content.classList.toggle('collapsed');
+        toggle.classList.toggle('active');
+    }
+}
+
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.left = '20px';
+    notification.style.background = type === 'success' ? '#00b894' : '#d63031';
+    notification.style.color = 'white';
+    notification.style.padding = '1rem';
+    notification.style.borderRadius = '8px';
+    notification.style.display = 'flex';
+    notification.style.alignItems = 'center';
+    notification.style.gap = '0.5rem';
+    notification.style.zIndex = '9999';
+    notification.style.animation = 'slideIn 0.3s ease';
+    notification.style.fontSize = '0.9rem';
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateShippingDisplay();
+});
+</script>
+{% endblock %}

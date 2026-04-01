@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="compte-page">
+    <div class="compte-container">
+        <!-- En-tête -->
+        <div class="compte-header">
+            <h1 class="compte-title">{% block compte_title %}Mon compte{% endblock %}</h1>
+            <p class="compte-subtitle">{% block compte_subtitle %}Gérez votre espace personnel{% endblock %}</p>
+        </div>
+
+        <div class="compte-layout">
+            <!-- Sidebar -->
+            <aside class="compte-sidebar">
+                <div class="user-card">
+                    <div class="user-avatar">
+                        {{ current_user.prenom[0]|upper }}{{ current_user.nom[0]|upper }}
+                    </div>
+                    <div class="user-info">
+                        <h3>{{ current_user.prenom }} {{ current_user.nom }}</h3>
+                        <p>{{ current_user.email }}</p>
+                        <span class="user-since">Membre depuis {{ current_user.date_inscription.strftime('%d/%m/%Y') }}</span>
+                    </div>
+                </div>
+
+                <nav class="compte-nav">
+                    <a href="{{ url_for('compte') }}" class="nav-item {% if request.endpoint == 'compte' %}active{% endif %}">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Tableau de bord</span>
+                    </a>
+                    <a href="{{ url_for('compte_commandes') }}" class="nav-item {% if request.endpoint == 'compte_commandes' %}active{% endif %}">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Mes commandes</span>
+                    </a>
+                    <a href="{{ url_for('compte_profil') }}" class="nav-item {% if request.endpoint == 'compte_profil' %}active{% endif %}">
+                        <i class="fas fa-user"></i>
+                        <span>Mon profil</span>
+                    </a>
+                    <a href="{{ url_for('compte_adresses') }}" class="nav-item {% if request.endpoint == 'compte_adresses' %}active{% endif %}">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mes adresses</span>
+                    </a>
+                    <a href="{{ url_for('compte_favoris') }}" class="nav-item {% if request.endpoint == 'compte_favoris' %}active{% endif %}">
+                        <i class="fas fa-heart"></i>
+                        <span>Mes favoris</span>
+                    </a>
+                    <a href="{{ url_for('deconnexion') }}" class="nav-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Contenu principal -->
+            <main class="compte-main">
+                {% block compte_content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Variables */
+.compte-page {
+    background: var(--surface);
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0 4rem;
+}
+
+.compte-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* En-tête */
+.compte-header {
+    margin-bottom: 2rem;
+}
+
+.compte-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.compte-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+.compte-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Layout */
+.compte-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+/* Sidebar */
+.compte-sidebar {
+    background: var(--background);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.user-card {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+    text-align: center;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.user-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.user-info p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+}
+
+.user-since {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    display: block;
+}
+
+/* Navigation */
+.compte-nav {
+    padding: 0.75rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 0.25rem;
+}
+
+.nav-item i {
+    width: 20px;
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.nav-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background: var(--surface);
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.nav-item.active i {
+    color: var(--primary);
+}
+
+.nav-item.logout {
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    color: var(--danger);
+}
+
+.nav-item.logout i {
+    color: var(--danger);
+}
+
+.nav-item.logout:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.nav-item.logout:hover i {
+    color: white;
+}
+
+/* Contenu principal */
+.compte-main {
+    background: var(--background);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Cartes */
+.card-stats {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.card-stats:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--secondary);
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.card-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Tableau des commandes */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.commande-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.commande-table th {
+    text-align: left;
+    padding: 1rem;
+    background: var(--surface);
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+}
+
+.commande-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+/* Badges de statut */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-en_attente,
+.status-en_attente_virement {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-confirmee {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-expediee {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-livree {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-annulee {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Boutons */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--border);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--secondary);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    border: 2px solid var(--secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+/* État vide */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Grille produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pagination-info {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.page-btn.current {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+    cursor: default;
+}
+
+.page-dots {
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .compte-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .compte-sidebar {
+        position: static;
+    }
+    
+    .user-card {
+        display: flex;
+        text-align: left;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .user-avatar {
+        margin: 0;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .user-info h3 {
+        font-size: 1rem;
+    }
+    
+    .compte-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .nav-item {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+    
+    .nav-item.logout {
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .compte-container {
+        padding: 0 1rem;
+    }
+    
+    .compte-main {
+        padding: 1.5rem;
+    }
+    
+    .compte-title {
+        font-size: 1.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .pagination {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .compte-nav {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        min-width: auto;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-avatar {
+        margin: 0 auto;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .commande-table th,
+    .commande-table td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+{% endblock %}

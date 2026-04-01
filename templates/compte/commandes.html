@@ -1,0 +1,419 @@
+<!-- templates/compte/commandes.html - Version corrigée -->
+{% extends "compte/base_compte.html" %}
+
+{% block compte_title %}Mes commandes{% endblock %}
+{% block compte_subtitle %}Historique et suivi de vos commandes{% endblock %}
+
+{% block compte_content %}
+{% if commandes and commandes.items and commandes.items|length > 0 %}
+<div class="commandes-list">
+    {% for commande in commandes.items %}
+    <div class="commande-card">
+        <div class="commande-header">
+            <div class="commande-ref">
+                <span class="label">Commande</span>
+                <span class="value">{{ commande.numero }}</span>
+            </div>
+            <div class="commande-date">
+                <span class="label">Date</span>
+                <span class="value">{{ commande.date_creation.strftime('%d/%m/%Y') }}</span>
+            </div>
+            <div class="commande-status">
+                <span class="status-badge status-{{ commande.statut }}">
+                    {% if commande.statut == 'confirmee' %}
+                        Confirmée
+                    {% elif commande.statut == 'en_attente_paiement' %}
+                        En attente de paiement
+                    {% elif commande.statut == 'en_attente_virement' %}
+                        En attente de virement
+                    {% elif commande.statut == 'expediee' %}
+                        Expédiée
+                    {% elif commande.statut == 'livree' %}
+                        Livrée
+                    {% elif commande.statut == 'annulee' %}
+                        Annulée
+                    {% else %}
+                        {{ commande.statut|replace('_', ' ')|title }}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="commande-items">
+            {% set items = commande.items %}
+            {% if items %}
+                {% for item in items[:2] %}
+                <div class="commande-item">
+                    <div class="item-image">
+                        {% if item.produit %}
+                        <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                             alt="{{ item.produit.nom }}"
+                             onerror="this.src='https://via.placeholder.com/50?text=Produit'">
+                        {% else %}
+                        <img src="https://via.placeholder.com/50?text=Produit" alt="Produit">
+                        {% endif %}
+                    </div>
+                    <div class="item-details">
+                        <h4>{{ item.produit.nom if item.produit else 'Produit indisponible'|truncate(50) }}</h4>
+                        <p>{{ item.quantite }} x {{ "%.2f"|format(item.prix_unitaire) }} €</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if items|length > 2 %}
+                <div class="more-items">
+                    +{{ items|length - 2 }} autres articles
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="no-items">
+                    <p>Aucun article dans cette commande</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="commande-footer">
+            <div class="commande-total">
+                <span class="label">Total</span>
+                <span class="value">{{ "%.2f"|format(commande.total_final) }} €</span>
+            </div>
+            <a href="{{ url_for('compte_commande_detail', commande_id=commande.id) }}" class="btn-detail">
+                Voir les détails <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if commandes.pages and commandes.pages > 1 %}
+<div class="pagination">
+    <div class="pagination-info">
+        Page {{ commandes.page }} sur {{ commandes.pages }}
+    </div>
+    <div class="pagination-pages">
+        {% if commandes.has_prev %}
+        <a href="{{ url_for('compte_commandes', page=commandes.prev_num) }}" class="page-btn">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        {% endif %}
+
+        {% for page_num in commandes.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+            {% if page_num %}
+                {% if page_num == commandes.page %}
+                <span class="page-btn current">{{ page_num }}</span>
+                {% else %}
+                <a href="{{ url_for('compte_commandes', page=page_num) }}" class="page-btn">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                <span class="page-dots">...</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if commandes.has_next %}
+        <a href="{{ url_for('compte_commandes', page=commandes.next_num) }}" class="page-btn">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+{% else %}
+<div class="empty-state">
+    <div class="empty-icon">
+        <i class="fas fa-shopping-bag"></i>
+    </div>
+    <h3>Aucune commande pour le moment</h3>
+    <p>Découvrez nos produits et passez votre première commande</p>
+    <a href="{{ url_for('produits') }}" class="btn-primary">
+        Découvrir nos produits
+    </a>
+</div>
+{% endif %}
+
+<style>
+.commandes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.commande-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.commande-card:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow);
+}
+
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+
+.commande-ref .label,
+.commande-date .label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 0.2rem;
+}
+
+.commande-ref .value,
+.commande-date .value {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.commande-status .status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-badge.status-confirmee,
+.status-badge.status-livree {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.status-en_attente_paiement,
+.status-badge.status-en_attente_virement {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.status-expediee {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-badge.status-annulee {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.commande-items {
+    padding: 1rem 1.5rem;
+}
+
+.commande-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.commande-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.25rem;
+}
+
+.item-details h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.item-details p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.more-items {
+    padding-top: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.no-items {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.commande-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--background);
+    border-top: 1px solid var(--border);
+}
+
+.commande-total .label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-light);
+}
+
+.commande-total .value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.btn-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: var(--surface);
+    border-radius: 16px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.pagination-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.page-btn.current {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.page-dots {
+    padding: 0.5rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .commande-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .commande-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .btn-detail {
+        justify-content: center;
+    }
+    
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .pagination-pages {
+        justify-content: center;
+    }
+}
+</style>
+{% endblock %}

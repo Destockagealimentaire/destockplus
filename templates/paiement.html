@@ -1,0 +1,2508 @@
+{% extends "base.html" %}
+
+{% block title %}Paiement sécurisé - DestockPro{% endblock %}
+
+{% block content %}
+<div class="payment-page">
+    <div class="container">
+        <!-- Header avec progression -->
+        <div class="payment-header">
+            <h1 class="page-title">
+                <i class="fas fa-lock"></i>
+                Paiement sécurisé
+            </h1>
+            <p class="page-subtitle">Finalisez votre commande en toute sécurité</p>
+        </div>
+
+        <!-- Barre de progression -->
+        <div class="checkout-steps">
+            <div class="step completed">
+                <div class="step-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-label">Étape 1</span>
+                    <span class="step-name">Panier</span>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+
+            <div class="step active">
+                <div class="step-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-label">Étape 2</span>
+                    <span class="step-name">Paiement</span>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-label">Étape 3</span>
+                    <span class="step-name">Confirmation</span>
+                </div>
+            </div>
+        </div>
+
+        {% if not est_connecte %}
+        <!-- Bannière de connexion optionnelle -->
+        <div class="login-prompt">
+            <div class="prompt-content">
+                <div class="prompt-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="prompt-text">
+                    <h3>Déjà client ?</h3>
+                    <p>Connectez-vous pour accélérer votre commande et suivre vos achats</p>
+                </div>
+                <div class="prompt-actions">
+                    <a href="{{ url_for('connexion', next=request.path) }}" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Se connecter
+                    </a>
+                    <a href="{{ url_for('inscription', next=request.path) }}" class="btn-register">
+                        <i class="fas fa-user-plus"></i>
+                        Créer un compte
+                    </a>
+                </div>
+            </div>
+            <button class="btn-continue-guest" onclick="continueAsGuest()">
+                <i class="fas fa-arrow-right"></i>
+                Continuer en tant qu'invité
+            </button>
+        </div>
+        {% endif %}
+        
+        <!-- Section paiement principale -->
+        <div class="payment-layout" id="paymentSection" {% if not est_connecte %}style="display: none;"{% endif %}>
+            <!-- Colonne gauche : Méthodes de paiement -->
+            <div class="payment-methods-column">
+                <!-- INFORMATIONS DE LIVRAISON - Version corrigée -->
+                    <div class="shipping-info-section">
+                        <h3 class="section-subtitle">
+                            <i class="fas fa-truck"></i>
+                            Adresse de livraison
+                        </h3>
+                        
+                        {% if not est_connecte %}
+                        <!-- Formulaire pour les invités -->
+                        <div class="guest-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nom">Nom complet *</label>
+                                    <input type="text" id="nom" name="nom" class="form-input" required 
+                                        placeholder="Jean Dupont"
+                                        value="{{ session.get('client_nom', '') }}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required 
+                                        placeholder="jean@email.com"
+                                        value="{{ session.get('client_email', '') }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone *</label>
+                                    <input type="tel" id="telephone" name="telephone" class="form-input" required 
+                                        placeholder="06 12 34 56 78"
+                                        value="{{ session.get('client_telephone', '') }}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="adresse">Adresse de livraison *</label>
+                                    <input type="text" id="adresse" name="adresse" class="form-input" required 
+                                        placeholder="Numéro et nom de rue"
+                                        value="{{ session.get('client_adresse', '') }}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="code_postal">Code postal *</label>
+                                    <input type="text" id="code_postal" name="code_postal" class="form-input" required 
+                                        placeholder="75001"
+                                        value="{{ session.get('client_code_postal', '') }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ville">Ville *</label>
+                                    <input type="text" id="ville" name="ville" class="form-input" required 
+                                        placeholder="Paris"
+                                        value="{{ session.get('client_ville', '') }}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pays">Pays</label>
+                                    <select id="pays" name="pays" class="form-input">
+                                        <option value="France" selected>France</option>
+                                        <option value="Belgique">Belgique</option>
+                                        <option value="Suisse">Suisse</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+                                        <option value="Monaco">Monaco</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="societe">Société (optionnel)</label>
+                                    <input type="text" id="societe" name="societe" class="form-input" 
+                                        placeholder="Nom de votre entreprise"
+                                        value="{{ session.get('client_societe', '') }}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="instruction_livraison">Instructions de livraison (optionnel)</label>
+                                    <textarea id="instruction_livraison" name="instruction_livraison" class="form-input" 
+                                            rows="2" placeholder="Code d'accès, étage, horaires...">{{ session.get('client_instruction', '') }}</textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="creer_compte" name="creer_compte">
+                                    <label for="creer_compte">Créer un compte pour suivre mes commandes plus facilement</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOTAVX AVEC FRAIS DE LIVRAISON DYNAMIQUES - À REMPLACER DANS VOTRE CODE -->
+
+                        {% else %}
+                        <!-- Informations pour les clients connectés -->
+                        <div class="connected-client-info">
+                            <div class="info-card">
+                                <div class="info-header">
+                                    <h4>Adresse de livraison par défaut</h4>
+                                    <a href="{{ url_for('compte_profil') }}" class="btn-edit">
+                                        <i class="fas fa-edit"></i> Modifier
+                                    </a>
+                                </div>
+                                
+                                <div class="info-content">
+                                    <div class="info-row">
+                                        <span class="info-label"><i class="fas fa-user"></i> Contact :</span>
+                                        <span class="info-value">{{ current_user.prenom }} {{ current_user.nom }}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label"><i class="fas fa-phone"></i> Téléphone :</span>
+                                        <span class="info-value">{{ current_user.telephone or 'Non renseigné' }}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label"><i class="fas fa-map-marker-alt"></i> Adresse :</span>
+                                        <span class="info-value">
+                                            {{ current_user.adresse or 'Non renseignée' }}<br>
+                                            {{ current_user.code_postal or '' }} {{ current_user.ville or '' }}<br>
+                                            {{ current_user.pays or 'France' }}
+                                        </span>
+                                    </div>
+                                    {% if current_user.societe %}
+                                    <div class="info-row">
+                                        <span class="info-label"><i class="fas fa-building"></i> Société :</span>
+                                        <span class="info-value">{{ current_user.societe }}</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="info-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Cette adresse sera utilisée pour la livraison de votre commande.</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-credit-card"></i>
+                        Choisissez votre mode de paiement
+                    </h2>
+
+                    <div class="payment-methods-list">
+                        <!-- Carte bancaire -->
+                        <div class="payment-method" onclick="selectMethod('card')" id="method-card">
+                            <div class="method-radio">
+                                <div class="radio-circle"></div>
+                            </div>
+                            <div class="method-logo">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Carte bancaire</h3>
+                                <p>Visa, Mastercard, American Express</p>
+                                <div class="method-features">
+                                    <span class="feature">
+                                        <i class="fas fa-lock"></i>
+                                        Paiement sécurisé
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-shield-alt"></i>
+                                       3D Secure
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-euro-sign"></i>
+                                        Paiement en 3x possible
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="method-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="card-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard" class="card-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/196/196565.png" alt="Amex" class="card-icon">
+                            </div>
+                        </div>
+
+                        <!-- PayPal -->
+                        <div class="payment-method" onclick="selectMethod('paypal')" id="method-paypal">
+                            <div class="method-radio">
+                                <div class="radio-circle"></div>
+                            </div>
+                            <div class="method-logo">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>PayPal</h3>
+                                <p>Paiement rapide avec votre compte PayPal</p>
+                                <div class="method-features">
+                                    <span class="feature">
+                                        <i class="fas fa-bolt"></i>
+                                        Paiement express
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Protection acheteur
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="method-badge">
+                                <span class="badge-paypal">PayPal</span>
+                            </div>
+                        </div>
+
+                        <!-- Virement bancaire -->
+                        <div class="payment-method" onclick="selectMethod('transfer')" id="method-transfer">
+                            <div class="method-radio">
+                                <div class="radio-circle"></div>
+                            </div>
+                            <div class="method-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>Virement bancaire</h3>
+                                <p>Paiement par virement SEPA</p>
+                                <div class="method-features">
+                                    <span class="feature">
+                                        <i class="fas fa-clock"></i>
+                                        Traitement sous 24-48h
+                                    </span>
+                                    <span class="feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        Validation manuelle
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="method-badge">
+                                <span class="badge-transfer">IBAN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informations de sécurité -->
+                    <div class="security-info">
+                        <div class="security-item">
+                            <i class="fas fa-lock text-success"></i>
+                            <span>Paiement 100% sécurisé</span>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-shield-alt text-success"></i>
+                            <span>Certifié SSL</span>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-euro-sign text-success"></i>
+                            <span>Prix TTC - TVA incluse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne droite : Récapitulatif -->
+            <div class="order-summary-column">
+                <div class="section-card summary-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-receipt"></i>
+                        Récapitulatif
+                    </h2>
+
+                    <!-- Liste des articles -->
+                    <div class="order-items">
+                        {% for item in panier %}
+                        <div class="order-item">
+                            <div class="item-image">
+                                <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                                     alt="{{ item.produit.nom }}"
+                                     onerror="this.src='https://via.placeholder.com/60x60?text=Produit'">
+                                <span class="item-quantity">{{ item.quantite }}</span>
+                            </div>
+                            <div class="item-info">
+                                <h4 class="item-title">{{ item.produit.nom|truncate(30) }}</h4>
+                                <p class="item-sku">Réf: {{ item.produit.reference or 'N/A' }}</p>
+                            </div>
+                            <div class="item-price">
+                                {% set prix_unitaire = item.produit.prix_promo or item.produit.prix %}
+                                <span class="price">{{ (prix_unitaire * item.quantite)|format_price }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Section code promo améliorée -->
+                    <div class="promo-section">
+                        <h3><i class="fas fa-ticket-alt"></i> Code promo</h3>
+                        <div class="promo-input-group">
+                            <input type="text" 
+                                   id="promoCode" 
+                                   placeholder="Entrez votre code" 
+                                   class="promo-input"
+                                   value="{{ session.get('promo_code', {}).get('code', '') }}">
+                            <button class="promo-btn" onclick="validatePromoCode()">
+                                <i class="fas fa-check"></i>
+                                Appliquer
+                            </button>
+                        </div>
+                        <div id="promoMessage" class="promo-message"></div>
+                        
+                        <!-- Codes promo disponibles -->
+                        <div class="available-codes">
+                            <p><i class="fas fa-gift"></i> Codes disponibles :</p>
+                            <div class="code-tags">
+                                <span class="code-tag" onclick="useCode('BIENVENUE20')">
+                                    BIENVENUE20
+                                    <small>-20% dès 1000€ (1ère commande)</small>
+                                </span>
+                                <span class="code-tag" onclick="useCode('GROS1500')">
+                                    GROS1500
+                                    <small>-10% dès 1500€</small>
+                                </span>
+                                <span class="code-tag" onclick="useCode('GROS2500')">
+                                    GROS2500
+                                    <small>-15% dès 2500€</small>
+                                </span>
+                                <span class="code-tag" onclick="useCode('GROS5000')">
+                                    GROS5000
+                                    <small>-20% dès 5000€</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOTAVX AVEC FRAIS DE LIVRAISON DYNAMIQUES - À REMPLACER DANS VOTRE CODE -->
+                    <!-- TOTAUX AVEC FRAIS DE LIVRAISON CORRIGÉS -->
+                    <div class="totals-breakdown">
+                        <div class="total-row">
+                            <span>Sous-total</span>
+                            <span>{{ total|format_price }}</span>
+                        </div>
+                        
+                        <!-- Frais de livraison -->
+                        <div class="total-row shipping-cost-row">
+                            <span class="shipping-label">
+                                <i class="fas fa-truck"></i>
+                                Livraison ({{ nb_palettes }} palette{% if nb_palettes > 1 %}s{% endif %})
+                                <span class="shipping-detail-toggle" onclick="toggleShippingDetail()">
+                                    <i class="fas fa-info-circle"></i> Détail
+                                </span>
+                            </span>
+                            <span class="shipping-price" id="shippingCost">
+                                <span class="shipping-amount">{{ frais_port|format_price }}</span>
+                            </span>
+                        </div>
+                        
+                        <!-- Détail des frais de port -->
+                        <div class="shipping-detail-card" id="shippingDetail" style="display: none;">
+                            <div class="shipping-detail-header">
+                                <i class="fas fa-calculator"></i>
+                                <span>Calcul des frais de port</span>
+                            </div>
+                            <div class="shipping-detail-content">
+                                <div class="shipping-detail-row">
+                                    <span>Nombre de palettes :</span>
+                                    <span class="shipping-detail-value" id="paletteCount">{{ nb_palettes }}</span>
+                                </div>
+                                <div class="shipping-detail-row highlight">
+                                    <span>Tarif appliqué :</span>
+                                    <span class="shipping-detail-value" id="shippingRate">{{ frais_port|format_price }}</span>
+                                </div>
+                            </div>
+                            <div class="shipping-detail-footer">
+                                <i class="fas fa-clock"></i>
+                                <span>Livraison sous 24-48h après expédition</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Ligne de réduction -->
+                        <div class="total-row discount" id="discountRow" style="display: none;">
+                            <span>Réduction</span>
+                            <span class="discount-amount" id="discountAmount">-0,00 €</span>
+                        </div>
+                        
+                        <!-- TOTAL FINAL -->
+                        <div class="total-row final">
+                            <span class="final-label">Total TTC <small>(livraison incluse)</small></span>
+                            <span class="final-amount" id="finalAmount">{{ (total + frais_port)|format_price }}</span>
+                        </div>
+                    </div><!-- TOTAUX AVEC FRAIS DE LIVRAISON CORRIGÉS -->
+                    <div class="totals-breakdown">
+                        <div class="total-row">
+                            <span>Sous-total</span>
+                            <span>{{ total|format_price }}</span>
+                        </div>
+                        
+                        <!-- Frais de livraison -->
+                        <div class="total-row shipping-cost-row">
+                            <span class="shipping-label">
+                                <i class="fas fa-truck"></i>
+                                Livraison ({{ nb_palettes }} palette{% if nb_palettes > 1 %}s{% endif %})
+                                <span class="shipping-detail-toggle" onclick="toggleShippingDetail()">
+                                    <i class="fas fa-info-circle"></i> Détail
+                                </span>
+                            </span>
+                            <span class="shipping-price" id="shippingCost">
+                                <span class="shipping-amount">{{ frais_port|format_price }}</span>
+                            </span>
+                        </div>
+                        
+                        <!-- Détail des frais de port -->
+                        <div class="shipping-detail-card" id="shippingDetail" style="display: none;">
+                            <div class="shipping-detail-header">
+                                <i class="fas fa-calculator"></i>
+                                <span>Calcul des frais de port</span>
+                            </div>
+                            <div class="shipping-detail-content">
+                                <div class="shipping-detail-row">
+                                    <span>Nombre de palettes :</span>
+                                    <span class="shipping-detail-value" id="paletteCount">{{ nb_palettes }}</span>
+                                </div>
+                                <div class="shipping-detail-row highlight">
+                                    <span>Tarif appliqué :</span>
+                                    <span class="shipping-detail-value" id="shippingRate">{{ frais_port|format_price }}</span>
+                                </div>
+                            </div>
+                            <div class="shipping-detail-footer">
+                                <i class="fas fa-clock"></i>
+                                <span>Livraison sous 24-48h après expédition</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Ligne de réduction -->
+                        <div class="total-row discount" id="discountRow" style="display: none;">
+                            <span>Réduction</span>
+                            <span class="discount-amount" id="discountAmount">-0,00 €</span>
+                        </div>
+                        
+                        <!-- TOTAL FINAL -->
+                        <div class="total-row final">
+                            <span class="final-label">Total TTC <small>(livraison incluse)</small></span>
+                            <span class="final-amount" id="finalAmount">{{ (total + frais_port)|format_price }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Bouton de confirmation -->
+                    <form method="POST" action="/paiement/process" id="paymentForm">
+                        <input type="hidden" name="payment_method" id="selectedMethod" value="">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="discount_amount" id="discountInput" value="0">
+                        <input type="hidden" name="promo_code_used" id="promoCodeInput" value="">
+                        
+                        {% if not est_connecte %}
+                        <!-- Champs client pour les invités -->
+                        <input type="hidden" name="nom" id="hidden_nom">
+                        <input type="hidden" name="email" id="hidden_email">
+                        <input type="hidden" name="telephone" id="hidden_telephone">
+                        <input type="hidden" name="adresse" id="hidden_adresse">
+                        <input type="hidden" name="code_postal" id="hidden_code_postal">
+                        <input type="hidden" name="ville" id="hidden_ville">
+                        <input type="hidden" name="pays" id="hidden_pays" value="France">
+                        <input type="hidden" name="societe" id="hidden_societe">
+                        <input type="hidden" name="instruction_livraison" id="hidden_instruction">
+                        {% endif %}
+                        <button type="button" class="btn-pay" id="payButton" onclick="processPayment()" disabled>
+                            <i class="fas fa-lock"></i>
+                            Payer {{ (total + (0 if total >= 50 else 5.90))|format_price }}
+                        </button>
+                    </form>
+
+                    <!-- Méthodes de paiement acceptées -->
+                    <div class="accepted-payments">
+                        <p>Moyens de paiement acceptés :</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-amex" title="American Express"></i>
+                            <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            <i class="fas fa-university" title="Virement"></i>
+                        </div>
+                    </div>
+
+                    <!-- Lien retour -->
+                    <a href="{{ url_for('panier') }}" class="back-to-cart">
+                        <i class="fas fa-arrow-left"></i>
+                        Retourner au panier
+                    </a>
+                </div>
+
+                <!-- Garanties -->
+                <div class="guarantee-card">
+                    <div class="guarantee-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <div>
+                            <h4>Retour gratuit</h4>
+                            <p>Sous 14 jours</p>
+                        </div>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Service client</h4>
+                            <p>7j/7 de 8h à 20h</p>
+                        </div>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h4>Livraison rapide</h4>
+                            <p>24/48h partout en France</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmation pour le virement -->
+<div class="modal" id="transferModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-university"></i> Virement bancaire</h3>
+            <button class="modal-close" onclick="closeTransferModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="transfer-info">
+                <div class="info-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <p>Veuillez effectuer un virement aux coordonnées suivantes :</p>
+            </div>
+            
+            <div class="bank-details">
+                <div class="detail-row">
+                    <span class="detail-label">Bénéficiaire</span>
+                    <span class="detail-value">DestockPro SAS</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">IBAN</span>
+                    <span class="detail-value">FR76 1234 5678 9012 3456 7890 123</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">BIC</span>
+                    <span class="detail-value">BNPAFRPP</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Montant</span>
+                    <span class="detail-value highlight" id="modalAmount">{{ (total + (0 if total >= 50 else 5.90))|format_price }}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Référence</span>
+                    <span class="detail-value reference" id="modalReference">CMD-{{ range(100000, 999999) | random }}</span>
+                </div>
+            </div>
+
+            <div class="transfer-warning">
+                <i class="fas fa-clock"></i>
+                <p>La commande sera traitée dès réception du virement (24-48h ouvrés)</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-copy" onclick="copyBankDetails()">
+                <i class="fas fa-copy"></i>
+                Copier les coordonnées
+            </button>
+            <button class="btn-confirm" onclick="confirmTransfer()">
+                J'ai effectué le virement
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* ... tout le CSS reste identique ... */
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --warning: #fdcb6e;
+    --info: #0984e3;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --transition: all 0.25s ease;
+}
+
+/* Page de paiement */
+.payment-page {
+    padding: 2rem 0 4rem;
+    background: var(--surface);
+    min-height: calc(100vh - 200px);
+}
+
+.payment-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-title i {
+    color: var(--secondary);
+    font-size: 2rem;
+}
+
+.page-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Checkout steps */
+.checkout-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    position: relative;
+}
+
+.step:last-child .step-connector {
+    display: none;
+}
+
+.step-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    z-index: 2;
+    background: white;
+}
+
+.step.completed .step-icon {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+}
+
+.step.active .step-icon {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(196, 167, 71, 0.2);
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.2rem;
+}
+
+.step-name {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.step-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.step.completed ~ .step .step-connector {
+    background: var(--success);
+}
+
+/* Login prompt */
+.login-prompt {
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prompt-content {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.prompt-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.prompt-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.prompt-text h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.prompt-text p {
+    color: rgba(255,255,255,0.8);
+}
+
+.prompt-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-login, .btn-register {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-login {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-login:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.btn-register {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-register:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-continue-guest {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-continue-guest:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Payment layout */
+.payment-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section cards */
+.section-card {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    color: var(--secondary);
+}
+
+/* Payment methods */
+.payment-methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    background: var(--background);
+}
+
+.payment-method:hover {
+    border-color: var(--secondary);
+    background: var(--surface);
+}
+
+.payment-method.selected {
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, rgba(196, 167, 71, 0.05), rgba(212, 175, 55, 0.05));
+}
+
+.method-radio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.payment-method.selected .method-radio {
+    border-color: var(--secondary);
+}
+
+.payment-method.selected .radio-circle {
+    width: 12px;
+    height: 12px;
+    background: var(--secondary);
+    border-radius: 50%;
+    animation: pulseIn 0.3s ease;
+}
+
+@keyframes pulseIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.method-logo {
+    width: 48px;
+    height: 48px;
+    background: var(--surface);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--secondary);
+    transition: var(--transition);
+}
+
+.payment-method:hover .method-logo,
+.payment-method.selected .method-logo {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.05);
+}
+
+.method-details {
+    flex: 1;
+}
+
+.method-details h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.method-details p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.method-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    background: var(--surface);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.feature i {
+    color: var(--success);
+    font-size: 0.7rem;
+}
+
+.method-badge {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.card-icon {
+    width: 30px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.badge-paypal {
+    background: #003087;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.badge-transfer {
+    background: var(--primary);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* Security info */
+.security-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.security-item i {
+    color: var(--success);
+}
+
+/* Order items */
+.order-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-quantity {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--secondary);
+    color: var(--primary);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 2px solid white;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.item-sku {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary);
+    white-space: nowrap;
+}
+
+.price {
+    font-size: 0.95rem;
+}
+
+/* Promo section améliorée */
+.promo-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.promo-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.promo-section h3 i {
+    color: var(--secondary);
+}
+
+.promo-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.promo-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.promo-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.promo-btn {
+    padding: 0.8rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.promo-btn:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+.promo-message {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    min-height: 20px;
+}
+
+.promo-message.success {
+    color: var(--success);
+}
+
+.promo-message.error {
+    color: var(--danger);
+}
+
+.available-codes {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--background);
+    border-radius: 8px;
+    border: 1px dashed var(--secondary);
+}
+
+.available-codes p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.code-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.code-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.code-tag:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    border-color: var(--secondary);
+}
+
+.code-tag small {
+    font-size: 0.7rem;
+    font-weight: normal;
+    color: var(--text-light);
+    margin-top: 0.2rem;
+}
+
+.code-tag:hover small {
+    color: var(--primary);
+}
+
+/* Totals */
+.totals-breakdown {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--text);
+}
+
+.total-row.discount {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.total-row.final {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--border);
+}
+
+.final-amount {
+    color: var(--secondary);
+    font-size: 1.4rem;
+}
+
+.free-shipping {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* Shipping progress */
+.shipping-progress {
+    margin: 0.5rem 0;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.progress-text i {
+    color: var(--secondary);
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Pay button */
+.btn-pay {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-pay:hover::before {
+    left: 100%;
+}
+
+.btn-pay:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-pay:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Accepted payments */
+.accepted-payments {
+    text-align: center;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.accepted-payments p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-light);
+}
+
+.payment-icons i {
+    transition: var(--transition);
+}
+
+.payment-icons i:hover {
+    color: var(--secondary);
+    transform: scale(1.1);
+}
+
+/* Back link */
+.back-to-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.back-to-cart:hover {
+    color: var(--secondary);
+    transform: translateX(-5px);
+}
+
+/* Guarantee card */
+.guarantee-card {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.guarantee-item {
+    text-align: center;
+}
+
+.guarantee-item i {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+.guarantee-item h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.guarantee-item p {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--background);
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.modal-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-header i {
+    color: var(--secondary);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.modal-close:hover {
+    background: var(--danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.transfer-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.info-icon i {
+    font-size: 1.5rem;
+    color: var(--info);
+}
+
+.transfer-info p {
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.bank-details {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.detail-value.highlight {
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+.detail-value.reference {
+    font-family: monospace;
+    background: var(--background);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.transfer-warning {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: rgba(253, 203, 110, 0.1);
+    border-left: 3px solid var(--warning);
+    border-radius: 4px;
+}
+
+.transfer-warning i {
+    color: var(--warning);
+    font-size: 1.2rem;
+}
+
+.transfer-warning p {
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.btn-copy, .btn-confirm {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-copy {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-copy:hover {
+    background: var(--border);
+}
+
+.btn-confirm {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-confirm:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkout-steps {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .step {
+        width: 100%;
+    }
+    
+    .step-connector {
+        display: none !important;
+    }
+    
+    .prompt-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .prompt-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .security-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-method {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .method-radio {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .method-features {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .guarantee-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .page-title i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Loading states */
+.btn-pay.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-pay.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3rem 0.6rem;
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+}
+/* Shipping Info Section */
+.shipping-info-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.section-subtitle i {
+    color: var(--secondary);
+    font-size: 1.4rem;
+}
+
+/* Guest Form */
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group.full-width {
+    flex: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-group label::after {
+    content: " *";
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.form-group:has(input[type="checkbox"]) label::after {
+    content: "";
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(196, 167, 71, 0.1);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 60px;
+    font-family: inherit;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--secondary);
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+    flex: 1;
+}
+
+.checkbox-group label::after {
+    content: "";
+}
+
+/* Connected Client Info */
+.connected-client-info {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.btn-edit {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--secondary);
+    border-radius: 20px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-edit:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    min-width: 100px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.info-label i {
+    color: var(--secondary);
+    width: 16px;
+}
+
+.info-value {
+    flex: 1;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.info-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: rgba(196, 167, 71, 0.1);
+    border-radius: 6px;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    border-left: 3px solid var(--secondary);
+}
+
+.info-note i {
+    font-size: 1.2rem;
+}
+/* Shipping Detail Card */
+.shipping-detail-card {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border: 1px solid var(--secondary);
+    border-radius: 12px;
+    margin: 1rem 0;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.shipping-detail-header {
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shipping-detail-header i {
+    font-size: 1.2rem;
+}
+
+.shipping-detail-content {
+    padding: 1rem;
+    background: white;
+}
+
+.shipping-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.shipping-detail-row:last-child {
+    border-bottom: none;
+}
+
+.shipping-detail-row.highlight {
+    background: rgba(196, 167, 71, 0.1);
+    margin: 0.5rem -1rem -0.5rem -1rem;
+    padding: 0.8rem 1rem;
+    border-top: 2px solid var(--secondary);
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.shipping-detail-value {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.shipping-detail-footer {
+    background: var(--surface);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.shipping-detail-footer i {
+    color: var(--info);
+}
+
+/* Shipping label avec icône info */
+.shipping-label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.shipping-label i {
+    color: var(--secondary);
+}
+
+.shipping-detail-toggle {
+    cursor: pointer;
+    color: var(--info);
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.shipping-detail-toggle:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.shipping-price {
+    font-weight: 600;
+    color: var(--secondary);
+}
+/* S'assurer que le formulaire invité est bien affiché */
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Style pour les champs obligatoires */
+.form-input:invalid {
+    border-color: var(--danger);
+}
+
+/* Animation pour le bouton */
+.btn-pay:not(:disabled) {
+    cursor: pointer;
+    opacity: 1;
+}/* S'assurer que le formulaire invité est bien affiché */
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Style pour les champs obligatoires */
+.form-input:invalid {
+    border-color: var(--danger);
+}
+
+/* Animation pour le bouton */
+.btn-pay:not(:disabled) {
+    cursor: pointer;
+    opacity: 1;
+}
+</style>
+
+<script>
+let selectedMethod = null;
+let currentOrderTotal = {{ total + (0 if total >= 50 else 5.90) }};
+let appliedDiscount = 0;
+
+// Sélectionner une méthode de paiement
+function selectMethod(method) {
+    document.querySelectorAll('.payment-method').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    const selectedCard = document.getElementById(`method-${method}`);
+    if (selectedCard) {
+        selectedCard.classList.add('selected');
+    }
+    
+    selectedMethod = method;
+    document.getElementById('selectedMethod').value = method;
+    
+    const payButton = document.getElementById('payButton');
+    payButton.disabled = false;
+    
+    payButton.style.transform = 'scale(1.02)';
+    setTimeout(() => {
+        payButton.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Valider le code promo
+// Valider le code promo
+function validatePromoCode() {
+    const code = document.getElementById('promoCode').value.trim().toUpperCase();
+    const message = document.getElementById('promoMessage');
+    const baseTotal = {{ total }};
+    const fraisPort = {{ frais_port }};
+    
+    if (!code) {
+        message.innerHTML = 'Veuillez entrer un code promo';
+        message.className = 'promo-message error';
+        return;
+    }
+    
+    // Codes promo valides
+    const validCodes = {
+        'BIENVENUE20': { discount: 20, min: 1000, first: true },
+        'GROS1500': { discount: 10, min: 1500 },
+        'GROS2500': { discount: 15, min: 2500 },
+        'GROS5000': { discount: 20, min: 5000 }
+    };
+    
+    if (validCodes[code]) {
+        const promo = validCodes[code];
+        
+        // Vérifier le montant minimum
+        if (baseTotal < promo.min) {
+            message.innerHTML = `❌ Ce code requiert un minimum d'achat de ${promo.min}€`;
+            message.className = 'promo-message error';
+            return;
+        }
+        
+        // Calculer la réduction
+        const discountAmount = baseTotal * promo.discount / 100;
+        const newTotal = baseTotal + fraisPort - discountAmount;
+        
+        // Afficher la réduction
+        appliedDiscount = discountAmount;
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('discountAmount').textContent = `-${formatPrice(discountAmount)}`;
+        document.getElementById('finalAmount').textContent = formatPrice(newTotal);
+        document.getElementById('modalAmount').textContent = formatPrice(newTotal);
+        document.getElementById('discountInput').value = discountAmount;
+        document.getElementById('promoCodeInput').value = code;
+        
+        // Mettre à jour le bouton
+        const payButton = document.getElementById('payButton');
+        payButton.innerHTML = `<i class="fas fa-lock"></i> Payer ${formatPrice(newTotal)}`;
+        
+        message.innerHTML = `✅ Code appliqué ! -${promo.discount}% (${formatPrice(discountAmount)})`;
+        message.className = 'promo-message success';
+        
+    } else {
+        message.innerHTML = '❌ Code promo invalide';
+        message.className = 'promo-message error';
+    }
+}
+
+// Utiliser un code pré-défini
+function useCode(code) {
+    document.getElementById('promoCode').value = code;
+    validatePromoCode();
+}
+
+// Formater le prix
+function formatPrice(price) {
+    return new Intl.NumberFormat('fr-FR', {
+        style: 'currency',
+        currency: 'EUR'
+    }).format(price);
+}
+
+// Traiter le paiement
+// Traiter le paiement - VERSION CORRIGÉE
+function processPayment() {
+    console.log('=== PROCESS PAYMENT START ===');
+    console.log('Selected method:', selectedMethod);
+    
+    if (!selectedMethod) {
+        showNotification('Veuillez choisir un mode de paiement', 'error');
+        return;
+    }
+    
+    {% if not est_connecte %}
+    // Récupérer les valeurs du formulaire invité
+    const nom = document.getElementById('nom');
+    const email = document.getElementById('email');
+    const telephone = document.getElementById('telephone');
+    const adresse = document.getElementById('adresse');
+    const code_postal = document.getElementById('code_postal');
+    const ville = document.getElementById('ville');
+    const pays = document.getElementById('pays');
+    
+    // Vérifier que les champs existent
+    if (!nom || !email || !telephone || !adresse || !code_postal || !ville) {
+        console.error('Champs manquants dans le formulaire');
+        showNotification('Erreur technique, veuillez recharger la page', 'error');
+        return;
+    }
+    
+    const nomValue = nom.value.trim();
+    const emailValue = email.value.trim();
+    const telephoneValue = telephone.value.trim();
+    const adresseValue = adresse.value.trim();
+    const codePostalValue = code_postal.value.trim();
+    const villeValue = ville.value.trim();
+    const paysValue = pays ? pays.value : 'France';
+    
+    // Validation
+    if (!nomValue) {
+        showNotification('Veuillez entrer votre nom complet', 'error');
+        nom.focus();
+        return;
+    }
+    
+    if (!emailValue) {
+        showNotification('Veuillez entrer votre email', 'error');
+        email.focus();
+        return;
+    }
+    
+    if (!emailValue.includes('@') || !emailValue.includes('.')) {
+        showNotification('Veuillez entrer un email valide (ex: nom@domaine.com)', 'error');
+        email.focus();
+        return;
+    }
+    
+    if (!telephoneValue) {
+        showNotification('Veuillez entrer votre numéro de téléphone', 'error');
+        telephone.focus();
+        return;
+    }
+    
+    // Validation du téléphone (au moins 10 chiffres)
+    const phoneDigits = telephoneValue.replace(/[^0-9]/g, '');
+    if (phoneDigits.length < 10) {
+        showNotification('Veuillez entrer un numéro de téléphone valide (10 chiffres minimum)', 'error');
+        telephone.focus();
+        return;
+    }
+    
+    if (!adresseValue) {
+        showNotification('Veuillez entrer votre adresse de livraison', 'error');
+        adresse.focus();
+        return;
+    }
+    
+    if (!codePostalValue) {
+        showNotification('Veuillez entrer votre code postal', 'error');
+        code_postal.focus();
+        return;
+    }
+    
+    if (!villeValue) {
+        showNotification('Veuillez entrer votre ville', 'error');
+        ville.focus();
+        return;
+    }
+    
+    // Remplir les champs cachés
+    document.getElementById('hidden_nom').value = nomValue;
+    document.getElementById('hidden_email').value = emailValue;
+    document.getElementById('hidden_telephone').value = telephoneValue;
+    document.getElementById('hidden_adresse').value = adresseValue;
+    document.getElementById('hidden_code_postal').value = codePostalValue;
+    document.getElementById('hidden_ville').value = villeValue;
+    document.getElementById('hidden_pays').value = paysValue;
+    
+    const societe = document.getElementById('societe');
+    if (societe) {
+        document.getElementById('hidden_societe').value = societe.value || '';
+    }
+    
+    const instruction = document.getElementById('instruction_livraison');
+    if (instruction) {
+        document.getElementById('hidden_instruction').value = instruction.value || '';
+    }
+    
+    console.log('✅ Données client validées:', {
+        nom: nomValue,
+        email: emailValue,
+        telephone: telephoneValue,
+        adresse: adresseValue,
+        code_postal: codePostalValue,
+        ville: villeValue,
+        pays: paysValue
+    });
+    {% endif %}
+    
+    // Désactiver le bouton
+    const payButton = document.getElementById('payButton');
+    payButton.classList.add('loading');
+    payButton.disabled = true;
+    payButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traitement en cours...';
+    
+    console.log('✅ Soumission du formulaire vers /paiement/process');
+    
+    // Soumettre le formulaire
+    document.getElementById('paymentForm').submit();
+}
+function continueAsGuest() {
+    const prompt = document.querySelector('.login-prompt');
+    const paymentSection = document.getElementById('paymentSection');
+    
+    if (prompt && paymentSection) {
+        prompt.style.animation = 'slideUp 0.3s ease forwards';
+        setTimeout(() => {
+            prompt.style.display = 'none';
+            paymentSection.style.display = 'grid';
+            paymentSection.style.animation = 'fadeIn 0.5s ease';
+            paymentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // ✅ Important: Forcer l'affichage des champs de formulaire
+            const guestForm = document.querySelector('.guest-form');
+            if (guestForm) {
+                guestForm.style.display = 'flex';
+            }
+            
+            // ✅ Afficher une notification pour guider l'utilisateur
+            setTimeout(() => {
+                showNotification('Veuillez remplir vos coordonnées et choisir un mode de paiement', 'info');
+            }, 500);
+        }, 300);
+    }
+}
+function toggleShippingDetail() {
+    const detailCard = document.getElementById('shippingDetail');
+    if (detailCard) {
+        if (detailCard.style.display === 'none' || detailCard.style.display === '') {
+            detailCard.style.display = 'block';
+            detailCard.style.animation = 'slideDown 0.3s ease';
+        } else {
+            detailCard.style.animation = 'slideUp 0.3s ease';
+            setTimeout(() => {
+                detailCard.style.display = 'none';
+            }, 300);
+        }
+    }
+}
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.background = type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--danger)' : 'var(--info)';
+    notification.style.color = 'white';
+    notification.style.padding = '1rem 1.5rem';
+    notification.style.borderRadius = '8px';
+    notification.style.boxShadow = 'var(--shadow-lg)';
+    notification.style.display = 'flex';
+    notification.style.alignItems = 'center';
+    notification.style.gap = '0.5rem';
+    notification.style.zIndex = '9999';
+    notification.style.animation = 'slideIn 0.3s ease';
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,940 @@
+{% extends "base.html" %}
+
+{% block title %}Confirmation de commande - DestockPro{% endblock %}
+
+{% block content %}
+<div class="confirmation-section">
+    <div class="confirmation-container">
+        <!-- En-tête de confirmation -->
+        <div class="confirmation-header">
+            <div class="success-animation">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h1>Merci pour votre commande !</h1>
+            <p class="confirmation-message">Votre commande a bien été enregistrée</p>
+        </div>
+
+        <!-- Détails de la commande -->
+        <div class="order-details-card">
+            <div class="order-number">
+                <span>Numéro de commande</span>
+                <strong>{{ commande.numero }}</strong>
+            </div>
+            
+            <div class="order-date">
+                <span>Date</span>
+                <strong>{{ commande.date_creation.strftime('%d/%m/%Y à %H:%M') }}</strong>
+            </div>
+            
+            <div class="order-status">
+                <span>Statut</span>
+                <span class="status-badge status-{{ commande.statut }}">
+                    {% if commande.statut == 'en_attente_paiement' or commande.statut == 'en_attente' %}
+                        En attente de paiement
+                    {% elif commande.statut == 'en_attente_virement' %}
+                        En attente de virement
+                    {% elif commande.statut == 'confirmee' %}
+                        Confirmée
+                    {% elif commande.statut == 'expediee' %}
+                        Expédiée
+                    {% elif commande.statut == 'livree' %}
+                        Livrée
+                    {% else %}
+                        {{ commande.statut }}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+        <!-- Résumé commande -->
+        <div class="order-summary-card">
+            <h2>Récapitulatif de votre commande</h2>
+            
+            <div class="order-items-list">
+                {% for item in items %}
+                <div class="order-item">
+                    <div class="item-image">
+                        <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                             alt="{{ item.produit.nom }}"
+                             onerror="this.src='https://via.placeholder.com/80x80?text=Produit'">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{ item.produit.nom }}</h3>
+                        <p class="item-sku">Réf: {{ item.produit.reference or 'N/A' }}</p>
+                    </div>
+                    <div class="item-quantity">x{{ item.quantite }}</div>
+                    <div class="item-price">{{ (item.prix_unitaire * item.quantite)|format_price }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="order-totals">
+                <div class="total-row">
+                    <span>Sous-total</span>
+                    <span>{{ commande.total|format_price }}</span>
+                </div>
+                <div class="total-row">
+                    <span>Livraison</span>
+                    <span>{{ commande.frais_port|format_price }}</span>
+                </div>
+                {% if commande.reduction > 0 %}
+                <div class="total-row discount">
+                    <span>Réduction</span>
+                    <span>-{{ commande.reduction|format_price }}</span>
+                </div>
+                {% endif %}
+                <div class="total-row grand-total">
+                    <span>Total TTC</span>
+                    <span>{{ commande.total_final|format_price }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informations livraison -->
+        <div class="delivery-info-card">
+            <h2>Adresse de livraison</h2>
+            
+            <div class="address">
+                <p><strong>{{ commande.nom_client }}</strong></p>
+                <p>{{ commande.adresse_livraison|replace(',', '<br>')|safe }}</p>
+                <p class="phone">📞 {{ commande.telephone_client or 'Non renseigné' }}</p>
+                <p class="email">✉️ {{ commande.email_client }}</p>
+            </div>
+            
+            <div class="delivery-estimate">
+                <span class="estimate-icon">🚚</span>
+                <div class="estimate-text">
+                    <strong>Livraison estimée</strong>
+                    <p>Entre le {{ date_livraison_min }} et le {{ date_livraison_max }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mode de paiement -->
+        <div class="payment-info-card">
+            <h2>Mode de paiement</h2>
+            
+            <div class="payment-method">
+                {% if commande.mode_paiement == 'carte' %}
+                <span class="payment-icon">💳</span>
+                <div class="payment-details">
+                    <strong>Carte bancaire</strong>
+                    <p>Paiement sécurisé</p>
+                    {% if commande.paiement_id %}
+                    <p class="payment-id">Transaction: {{ commande.paiement_id[:20] }}...</p>
+                    {% endif %}
+                </div>
+                {% elif commande.mode_paiement == 'transfer' or commande.mode_paiement == 'virement' %}
+                <span class="payment-icon">🏦</span>
+                <div class="payment-details">
+                    <strong>Virement bancaire</strong>
+                    <p>En attente de réception du virement</p>
+                </div>
+                {% elif commande.mode_paiement == 'paypal' %}
+                <span class="payment-icon">🅿️</span>
+                <div class="payment-details">
+                    <strong>PayPal</strong>
+                    <p>Paiement express</p>
+                </div>
+                {% endif %}
+            </div>
+            
+            {% if commande.mode_paiement == 'transfer' or commande.mode_paiement == 'virement' %}
+            <div class="payment-instructions">
+                <h3>Instructions de virement</h3>
+                <p>Veuillez effectuer un virement de <strong>{{ commande.total_final|format_price }}</strong> sur le compte suivant :</p>
+                <div class="bank-details-summary">
+                    <div class="bank-row">
+                        <span class="bank-label">Bénéficiaire :</span>
+                        <code>DestockPro SAS</code>
+                        <button class="copy-btn-small" onclick="copyToClipboard('DestockPro SAS')">Copier</button>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bank-label">IBAN :</span>
+                        <code>FR76 1234 5678 9012 3456 7890 123</code>
+                        <button class="copy-btn-small" onclick="copyToClipboard('FR7612345678901234567890123')">Copier</button>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bank-label">BIC :</span>
+                        <code>BNPAFRPP</code>
+                        <button class="copy-btn-small" onclick="copyToClipboard('BNPAFRPP')">Copier</button>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bank-label">Référence :</span>
+                        <code>{{ commande.numero }}</code>
+                        <button class="copy-btn-small" onclick="copyToClipboard('{{ commande.numero }}')">Copier</button>
+                    </div>
+                </div>
+                <p class="warning-text">
+                    <i class="fas fa-clock"></i>
+                    Le virement doit être effectué sous 5 jours ouvrés. La commande sera traitée dès réception du virement.
+                </p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Actions -->
+        <div class="confirmation-actions">
+            <a href="{{ url_for('compte_commandes') }}" class="btn btn-primary">
+                <i class="fas fa-chart-line"></i>
+                Suivre ma commande
+            </a>
+            <a href="{{ url_for('produits') }}" class="btn btn-outline">
+                <i class="fas fa-shopping-bag"></i>
+                Continuer mes achats
+            </a>
+            <button class="btn btn-outline" onclick="window.print()">
+                <i class="fas fa-print"></i>
+                Imprimer
+            </button>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="confirmation-newsletter">
+            <h3>Ne manquez aucune offre</h3>
+            <p>Inscrivez-vous à notre newsletter pour recevoir nos meilleures promotions</p>
+            <form class="newsletter-form" onsubmit="return false;">
+                <input type="email" placeholder="Votre email" value="{{ commande.email_client }}" id="newsletterEmail">
+                <button type="button" class="btn btn-primary" onclick="subscribeNewsletter()">
+                    S'inscrire
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Variables */
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --warning: #fdcb6e;
+    --info: #0984e3;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+    --transition: all 0.25s ease;
+}
+
+.confirmation-section {
+    background: var(--surface);
+    min-height: calc(100vh - 200px);
+    padding: 2rem 1rem 4rem;
+}
+
+.confirmation-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header avec animation */
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.success-animation {
+    margin: 0 auto 1.5rem;
+    width: 100px;
+    height: 100px;
+}
+
+.checkmark {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: var(--secondary);
+    stroke-miterlimit: 10;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--secondary);
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px var(--secondary);
+    }
+}
+
+.confirmation-header h1 {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-message {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Cartes */
+.order-details-card,
+.order-summary-card,
+.delivery-info-card,
+.payment-info-card {
+    background: var(--background);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.order-details-card:hover,
+.order-summary-card:hover,
+.delivery-info-card:hover,
+.payment-info-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.order-details-card h2,
+.order-summary-card h2,
+.delivery-info-card h2,
+.payment-info-card h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary);
+    display: inline-block;
+}
+
+/* Détails commande */
+.order-number,
+.order-date,
+.order-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-number:last-child,
+.order-date:last-child,
+.order-status:last-child {
+    border-bottom: none;
+}
+
+.order-number span,
+.order-date span,
+.order-status span {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.order-number strong {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    font-family: monospace;
+}
+
+.status-badge {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-en_attente_paiement,
+.status-en_attente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-en_attente_virement {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-confirmee {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-expediee {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-livree {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Liste des articles */
+.order-items-list {
+    margin: 1.5rem 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 70px 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.item-sku {
+    color: var(--text-light);
+    font-size: 0.75rem;
+}
+
+.item-quantity {
+    color: var(--text-light);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--secondary);
+    white-space: nowrap;
+}
+
+/* Totaux */
+.order-totals {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    color: var(--text);
+}
+
+.total-row.discount {
+    color: var(--success);
+}
+
+.grand-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--border);
+}
+
+.grand-total span:last-child {
+    color: var(--secondary);
+    font-size: 1.3rem;
+}
+
+/* Adresse */
+.address {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.address p {
+    margin: 0.3rem 0;
+    line-height: 1.5;
+}
+
+.address .phone,
+.address .email {
+    margin-top: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Livraison estimée */
+.delivery-estimate {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(196, 167, 71, 0.1), rgba(212, 175, 55, 0.05));
+    border-radius: 12px;
+    border-left: 4px solid var(--secondary);
+}
+
+.estimate-icon {
+    font-size: 2rem;
+}
+
+.estimate-text strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.estimate-text p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Mode de paiement */
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.payment-icon {
+    font-size: 2rem;
+}
+
+.payment-details strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.payment-details p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.payment-id {
+    font-size: 0.75rem;
+    font-family: monospace;
+    margin-top: 0.2rem;
+}
+
+/* Instructions virement */
+.payment-instructions {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.payment-instructions h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment-instructions h3::before {
+    content: '🏦';
+}
+
+.bank-details-summary {
+    margin: 1rem 0;
+    background: var(--background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bank-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.bank-row:last-child {
+    border-bottom: none;
+}
+
+.bank-label {
+    min-width: 90px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.bank-row code {
+    flex: 1;
+    background: var(--surface);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.copy-btn-small {
+    padding: 0.2rem 0.6rem;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: var(--transition);
+}
+
+.copy-btn-small:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+.warning-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(253, 203, 110, 0.1);
+    border-radius: 8px;
+    color: var(--warning);
+    font-size: 0.85rem;
+}
+
+.warning-text i {
+    font-size: 1rem;
+}
+
+/* Actions */
+.confirmation-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-outline:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Newsletter */
+.confirmation-newsletter {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    border-radius: 16px;
+    color: white;
+    margin-top: 2rem;
+}
+
+.confirmation-newsletter h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-newsletter p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.newsletter-form .btn {
+    background: var(--secondary);
+    color: var(--primary);
+    white-space: nowrap;
+}
+
+.newsletter-form .btn:hover {
+    background: var(--accent);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .confirmation-section {
+        padding: 1rem;
+    }
+    
+    .confirmation-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .confirmation-message {
+        font-size: 1rem;
+    }
+    
+    .order-details-card,
+    .order-summary-card,
+    .delivery-info-card,
+    .payment-info-card {
+        padding: 1rem;
+    }
+    
+    .order-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .item-image {
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .item-quantity,
+    .item-price {
+        text-align: center;
+    }
+    
+    .order-number,
+    .order-date,
+    .order-status {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .total-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    
+    .grand-total {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .bank-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .bank-label {
+        min-width: auto;
+    }
+    
+    .bank-row code {
+        width: 100%;
+        word-break: break-all;
+    }
+    
+    .confirmation-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        justify-content: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form .btn {
+        width: 100%;
+    }
+    
+    .delivery-estimate {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .payment-method {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+    .success-animation {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .order-number strong {
+        font-size: 1rem;
+        word-break: break-all;
+    }
+    
+    .grand-total span:last-child {
+        font-size: 1.1rem;
+    }
+    
+    .confirmation-newsletter h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.order-details-card,
+.order-summary-card,
+.delivery-info-card,
+.payment-info-card {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.order-details-card { animation-delay: 0.1s; }
+.order-summary-card { animation-delay: 0.2s; }
+.delivery-info-card { animation-delay: 0.3s; }
+.payment-info-card { animation-delay: 0.4s; }
+.confirmation-actions { animation: fadeInUp 0.5s ease 0.5s forwards; opacity: 0; animation-fill-mode: forwards; }
+.confirmation-newsletter { animation: fadeInUp 0.5s ease 0.6s forwards; opacity: 0; animation-fill-mode: forwards; }
+</style>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✓ Copié !';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 2000);
+    }).catch(() => {
+        alert('Erreur lors de la copie');
+    });
+}
+
+function subscribeNewsletter() {
+    const email = document.getElementById('newsletterEmail').value;
+    if (email && email.includes('@')) {
+        alert('Merci pour votre inscription à notre newsletter !');
+    } else {
+        alert('Veuillez entrer un email valide');
+    }
+}
+
+// Animation au scroll
+document.addEventListener('DOMContentLoaded', function() {
+    // Ajouter une classe pour les animations
+    const cards = document.querySelectorAll('.order-details-card, .order-summary-card, .delivery-info-card, .payment-info-card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1 + 0.1}s`;
+    });
+});
+</script>
+{% endblock %}

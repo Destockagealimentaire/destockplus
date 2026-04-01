@@ -1,0 +1,1866 @@
+{% extends "base.html" %}
+
+{% block title %}Nos produits - DestockPro{% endblock %}
+
+{% block content %}
+<!-- Hero Section Élégante -->
+<section class="products-hero">
+    <div class="hero-pattern"></div>
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-subtitle">Découvrez notre sélection</span>
+            <h1 class="hero-title">Produits en <span class="highlight">destockage</span></h1>
+            <p class="hero-description">Des produits de qualité à prix exceptionnels, livraison rapide partout en France</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value">{{ produits.total }}</span>
+                    <span class="stat-label">Produits disponibles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">-70%</span>
+                    <span class="stat-label">Jusqu'à réduction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">24/48h</span>
+                    <span class="stat-label">Livraison express</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="var(--background)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Section Filtres et Produits -->
+<section class="products-section">
+    <div class="container">
+        <div class="products-layout">
+            <!-- Sidebar Filtres -->
+            <aside class="filters-sidebar" id="filtersSidebar">
+                <div class="filters-header">
+                    <h3><i class="fas fa-sliders-h"></i> Filtres</h3>
+                    <button class="filters-close" onclick="toggleFilters()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="filters-content">
+                    <!-- Catégories -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Catégories</h4>
+                        <div class="filter-options">
+                            <a href="/produits" class="filter-category {% if not categorie_active %}active{% endif %}">
+                                <span>Tous les produits</span>
+                                <span class="count">{{ produits.total }}</span>
+                            </a>
+                            {% for categorie in categories %}
+                            <a href="/produits?categorie={{ categorie.id }}" 
+                               class="filter-category {% if categorie_active == categorie.id %}active{% endif %}">
+                                <span>{{ categorie.nom }}</span>
+                                <span class="count">{{ categorie.produits|length }}</span>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Prix -->
+                    <!-- Prix - Version avec plage 0-20000 -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Prix</h4>
+                        <div class="price-range">
+                            <div class="price-slider">
+                                <div class="price-slider-track" id="priceTrack"></div>
+                                <input type="range" min="0" max="20000" value="0" class="price-range-min" id="priceMin">
+                                <input type="range" min="0" max="20000" value="20000" class="price-range-max" id="priceMax">
+                            </div>
+                            <div class="price-inputs">
+                                <div class="price-input">
+                                    <span>Min</span>
+                                    <input type="number" id="minPrice" value="0" placeholder="0 €" step="100">
+                                </div>
+                                <div class="price-input">
+                                    <span>Max</span>
+                                    <input type="number" id="maxPrice" value="20000" placeholder="20000 €" step="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disponibilité -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Disponibilité</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="inStockOnly">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">En stock uniquement</span>
+                        </label>
+                    </div>
+
+                    <!-- Promotions -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">Promotions</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="promoOnly">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Produits en promotion</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filters-footer">
+                    <button class="btn-apply" onclick="applyFilters()">
+                        <i class="fas fa-check"></i>
+                        Appliquer les filtres
+                    </button>
+                    <button class="btn-reset" onclick="resetFilters()">
+                        <i class="fas fa-redo-alt"></i>
+                        Réinitialiser
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="products-main">
+                <!-- Toolbar -->
+                <div class="products-toolbar">
+                    <button class="mobile-filters-toggle" onclick="toggleFilters()">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Filtres</span>
+                    </button>
+
+                    <div class="results-info">
+                        <span class="results-count">{{ produits.total }}</span> produits trouvés
+                    </div>
+
+                    <div class="sort-options">
+                        <label for="sortBy">Trier par :</label>
+                        <div class="sort-select">
+                            <select id="sortBy" onchange="changeSort()">
+                                <option value="popularite">Popularité</option>
+                                <option value="prix-croissant">Prix croissant</option>
+                                <option value="prix-decroissant">Prix décroissant</option>
+                                <option value="nouveaute">Nouveautés</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                {% if produits.items %}
+                <div class="products-grid">
+                    {% for produit in produits.items %}
+                    <div class="product-card" onclick="window.location.href='/produit/{{ produit.id }}'">
+                        <!-- Badges -->
+                        <div class="product-badges">
+                            {% if produit.prix_promo %}
+                            <span class="badge promo">-{{ ((1 - produit.prix_promo/produit.prix) * 100)|round|int }}%</span>
+                            {% endif %}
+                            {% if produit.stock <= 5 and produit.stock > 0 %}
+                            <span class="badge stock-warning">Stock limité</span>
+                            {% endif %}
+                        </div>
+
+                        <!-- Image - Style exactement comme dans l'index -->
+                        <div class="featured-product-image">
+                            <img src="{{ url_for('static', filename='images/produits/' + produit.image_principale) }}" 
+                                 alt="{{ produit.nom }}"
+                                 loading="lazy"
+                                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                            
+                            <!-- Actions rapides - Style index -->
+                            <div class="featured-product-actions">
+                                <button class="action-btn" onclick="event.stopPropagation(); quickView({{ produit.id }})" title="Voir le produit">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn" onclick="event.stopPropagation(); addToWishlist({{ produit.id }})" title="Ajouter aux favoris">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn" onclick="event.stopPropagation(); quickView({{ produit.id }})" title="Aperçu rapide">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Informations produit - Style index -->
+                        <div class="featured-product-info">
+                            <div class="product-category">
+                                {{ produit.categorie.nom if produit.categorie else 'Produit' }}
+                            </div>
+
+                            <h3 class="product-title">
+                                <a href="/produit/{{ produit.id }}" onclick="event.stopPropagation()">{{ produit.nom|truncate(40) }}</a>
+                            </h3>
+
+                            <div class="product-rating">
+                                <div class="stars">
+                                    {% for i in range(5) %}
+                                        {% if i < 4 %}
+                                        <i class="fas fa-star"></i>
+                                        {% else %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <span class="rating-count">({{ produit.note_count or 0 }} avis)</span>
+                            </div>
+
+                            <div class="product-price">
+                                {% if produit.prix_promo %}
+                                <div class="price-container">
+                                    <span class="current-price">{{ "%.2f"|format(produit.prix_promo) }} €</span>
+                                    <span class="original-price">{{ "%.2f"|format(produit.prix) }} €</span>
+                                </div>
+                                <span class="savings">Économisez {{ "%.2f"|format(produit.prix - produit.prix_promo) }} €</span>
+                                {% else %}
+                                <span class="current-price">{{ "%.2f"|format(produit.prix) }} €</span>
+                                {% endif %}
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="stock-status">
+                                    {% if produit.stock > 10 %}
+                                    <span class="stock-status">
+                                        <i class="fas fa-check-circle in-stock"></i>
+                                        <span>En stock</span>
+                                    </span>
+                                    {% elif produit.stock > 0 %}
+                                    <span class="stock-status">
+                                        <i class="fas fa-exclamation-circle low-stock"></i>
+                                        <span>Plus que {{ produit.stock }}</span>
+                                    </span>
+                                    {% else %}
+                                    <span class="stock-status">
+                                        <i class="fas fa-times-circle out-of-stock"></i>
+                                        <span>Rupture</span>
+                                    </span>
+                                    {% endif %}
+                                </div>
+
+                                <button class="add-to-cart-btn" 
+                                        onclick="event.stopPropagation(); addToCart({{ produit.id }})"
+                                        {% if produit.stock == 0 %}disabled{% endif %}
+                                        title="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+
+                            {% if produit.origine %}
+                            <div class="product-origin">
+                                <i class="fas fa-map-marker-alt"></i>
+                                {{ produit.origine }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <!-- Aucun produit -->
+                <div class="no-products">
+                    <div class="no-products-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Aucun produit trouvé</h3>
+                    <p>Essayez de modifier vos filtres ou de réinitialiser la recherche.</p>
+                    <button class="btn-reset-search" onclick="resetFilters()">
+                        <i class="fas fa-redo-alt"></i>
+                        Réinitialiser les filtres
+                    </button>
+                </div>
+                {% endif %}
+
+                <!-- Pagination -->
+                {% if produits.pages > 1 %}
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Page <span class="current-page">{{ produits.page }}</span> sur <span class="total-pages">{{ produits.pages }}</span>
+                    </div>
+                    
+                    <div class="pagination-pages">
+                        {% if produits.has_prev %}
+                        <a href="{{ url_for('produits', page=produits.prev_num, categorie=categorie_active) }}" 
+                           class="page-btn prev" title="Page précédente">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        {% endif %}
+
+                        {% for page_num in produits.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+                            {% if page_num %}
+                                {% if page_num == produits.page %}
+                                <span class="page-btn current">{{ page_num }}</span>
+                                {% else %}
+                                <a href="{{ url_for('produits', page=page_num, categorie=categorie_active) }}" 
+                                   class="page-btn">{{ page_num }}</a>
+                                {% endif %}
+                            {% else %}
+                                <span class="page-dots">...</span>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if produits.has_next %}
+                        <a href="{{ url_for('produits', page=produits.next_num, categorie=categorie_active) }}" 
+                           class="page-btn next" title="Page suivante">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="pagination-per-page">
+                        <select onchange="changePerPage(this.value)" class="per-page-select">
+                            <option value="12" {% if per_page == 12 %}selected{% endif %}>12 par page</option>
+                            <option value="24" {% if per_page == 24 %}selected{% endif %}>24 par page</option>
+                            <option value="48" {% if per_page == 48 %}selected{% endif %}>48 par page</option>
+                            <option value="96" {% if per_page == 96 %}selected{% endif %}>96 par page</option>
+                        </select>
+                    </div>
+                </div>
+                {% endif %}
+            </main>
+        </div>
+    </div>
+</section>
+
+<!-- Quick View Modal -->
+<div class="modal" id="quickViewModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeQuickView()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="quickViewContent"></div>
+    </div>
+</div>
+
+<style>
+:root {
+    --primary: #1a1a1a;
+    --secondary: #c4a747;
+    --accent: #d4af37;
+    --background: #ffffff;
+    --surface: #f8f9fa;
+    --text: #2d3436;
+    --text-light: #636e72;
+    --border: #dfe6e9;
+    --success: #00b894;
+    --danger: #d63031;
+    --warning: #fdcb6e;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hero Section (identique à l'original) */
+.products-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+    color: white;
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+    padding-top: 140px;
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(196, 167, 71, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(196, 167, 71, 0.3);
+    z-index: -1;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    color: var(--background);
+}
+
+.hero-wave svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+/* Products Section */
+.products-section {
+    padding: 3rem 0 5rem;
+    background: var(--background);
+}
+
+.products-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    position: relative;
+}
+
+/* Filters Sidebar (identique à l'original) */
+.filters-sidebar {
+    background: var(--background);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.filters-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background);
+}
+
+.filters-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters-header h3 i {
+    color: var(--secondary);
+}
+
+.filters-close {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filters-close:hover {
+    color: var(--danger);
+    transform: rotate(90deg);
+}
+
+.filters-content {
+    padding: 1.5rem;
+}
+
+.filter-group {
+    margin-bottom: 2rem;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.filter-category:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateX(5px);
+    border-color: var(--secondary);
+}
+
+.filter-category.active {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+}
+
+.filter-category .count {
+    background: var(--background);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.filter-category:hover .count,
+.filter-category.active .count {
+    background: var(--primary);
+    color: white;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    position: relative;
+    padding: 0.25rem 0;
+    color: var(--text);
+}
+
+.filter-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.filter-checkbox:hover .checkmark {
+    border-color: var(--secondary);
+}
+
+.filter-checkbox input:checked ~ .checkmark {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.filter-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-text {
+    font-size: 0.95rem;
+}
+
+/* Price Range */
+.price-range {
+    padding: 0.5rem 0;
+}
+
+.price-slider {
+    position: relative;
+    height: 5px;
+    background: var(--border);
+    border-radius: 5px;
+    margin: 2rem 0 1rem;
+}
+
+.price-slider-track {
+    position: absolute;
+    height: 100%;
+    background: var(--secondary);
+    border-radius: 5px;
+}
+
+.price-range-min,
+.price-range-max {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    top: 0;
+}
+
+.price-range-min::-webkit-slider-thumb,
+.price-range-max::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    border: 3px solid white;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.price-range-min::-webkit-slider-thumb:hover,
+.price-range-max::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: var(--accent);
+}
+
+.price-inputs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.price-input {
+    flex: 1;
+}
+
+.price-input span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.price-input input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.price-input input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+/* Filters Footer */
+.filters-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--surface);
+}
+
+.btn-apply,
+.btn-reset {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-apply {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-apply:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-reset {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-reset:hover {
+    background: var(--border);
+    color: var(--primary);
+}
+
+/* Products Toolbar */
+.products-toolbar {
+    background: var(--background);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 1px solid var(--border);
+}
+
+.mobile-filters-toggle {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-filters-toggle:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.results-info {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.results-count {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-options label {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.sort-select {
+    position: relative;
+}
+
+.sort-select select {
+    padding: 0.6rem 2rem 0.6rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none;
+    transition: var(--transition);
+    color: var(--text);
+}
+
+.sort-select select:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.sort-select i {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Product Card - Style EXACTEMENT comme dans l'index */
+.product-card {
+    background: var(--surface);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
+}
+
+/* Badges - Style index */
+.product-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+}
+
+.badge.promo {
+    background: linear-gradient(135deg, var(--danger), #ff6b6b);
+    color: white;
+}
+
+.badge.stock-warning {
+    background: var(--warning);
+    color: var(--primary);
+}
+
+/* Image - EXACTEMENT comme dans l'index */
+.featured-product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: white;
+}
+
+.featured-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .featured-product-image img {
+    transform: scale(1.1);
+}
+
+/* Actions - Style index */
+.featured-product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition);
+    z-index: 5;
+}
+
+.product-card:hover .featured-product-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.featured-product-actions .action-btn {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-product-actions .action-btn:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Product Info - Style index */
+.featured-product-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-category {
+    color: var(--secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.product-title a {
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.product-title a:hover {
+    color: var(--secondary);
+}
+
+/* Rating - Style index */
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.rating-count {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+/* Price - Style index */
+.product-price {
+    margin-bottom: 1rem;
+}
+
+.price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.savings {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--success);
+    background: rgba(0, 184, 148, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Footer - Style index */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.stock-status {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.stock-status i {
+    font-size: 1rem;
+}
+
+.in-stock {
+    color: var(--success);
+}
+
+.low-stock {
+    color: var(--warning);
+}
+
+.out-of-stock {
+    color: var(--danger);
+}
+
+/* Add to cart button - Style index */
+.add-to-cart-btn {
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.add-to-cart-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Product Origin */
+.product-origin {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.product-origin i {
+    color: var(--secondary);
+    font-size: 0.8rem;
+}
+
+/* No Products */
+.no-products {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 2px dashed var(--border);
+}
+
+.no-products-icon {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+.no-products h3 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.no-products p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.btn-reset-search {
+    padding: 0.8rem 2rem;
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-reset-search:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.pagination-info {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.current-page,
+.total-pages {
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.page-btn:hover:not(.current) {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.page-btn.current {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--secondary);
+    cursor: default;
+    font-weight: 700;
+}
+
+.page-btn.prev,
+.page-btn.next {
+    font-size: 0.9rem;
+}
+
+.page-dots {
+    color: var(--text-light);
+    padding: 0 0.3rem;
+}
+
+.per-page-select {
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.per-page-select:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--background);
+    border-radius: 16px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: none;
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: var(--danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Responsive Styles - CORRECTION POUR LE MENU MOBILE */
+@media (max-width: 1200px) {
+    .products-layout {
+        grid-template-columns: 260px 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .products-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Correction pour que le menu reste visible */
+    .filters-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 320px;
+        height: 100vh;
+        max-height: 100vh;
+        z-index: 1000;
+        border-radius: 0;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    .filters-sidebar.active {
+        left: 0;
+    }
+    
+    /* Overlay pour fermer le sidebar */
+    .filters-sidebar.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 320px;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: -1;
+    }
+    
+    .filters-header {
+        border-radius: 0;
+    }
+    
+    .filters-close {
+        display: block;
+    }
+    
+    .mobile-filters-toggle {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        gap: 1.5rem;
+    }
+    
+    .featured-product-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .products-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sort-options {
+        justify-content: space-between;
+    }
+    
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .pagination-pages {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .featured-product-actions {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .product-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .featured-product-image {
+        height: 160px;
+    }
+    
+    .featured-product-image img {
+        padding: 0.75rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.loading {
+    background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Print Styles */
+@media print {
+    .filters-sidebar,
+    .products-toolbar,
+    .pagination,
+    .add-to-cart-btn,
+    .featured-product-actions {
+        display: none !important;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animation pour les notifications */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+</style>
+
+<script>
+    // ========== GESTION DES PRIX ==========
+    const priceMin = document.getElementById('priceMin');
+    const priceMax = document.getElementById('priceMax');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const priceTrack = document.getElementById('priceTrack');
+    
+    const PRICE_MIN = 0;
+    const PRICE_MAX = 20000;
+    
+    function updatePriceRange() {
+        if (!priceMin || !priceMax) return;
+        
+        let min = parseInt(priceMin.value);
+        let max = parseInt(priceMax.value);
+        
+        if (isNaN(min)) min = PRICE_MIN;
+        if (isNaN(max)) max = PRICE_MAX;
+        
+        // Éviter que min dépasse max
+        if (min >= max) {
+            if (min >= PRICE_MAX - 100) {
+                priceMin.value = PRICE_MAX - 100;
+                priceMax.value = PRICE_MAX;
+            } else {
+                priceMax.value = min + 100;
+            }
+            min = parseInt(priceMin.value);
+            max = parseInt(priceMax.value);
+        }
+        
+        // Mettre à jour les inputs
+        if (minPriceInput) minPriceInput.value = min;
+        if (maxPriceInput) maxPriceInput.value = max;
+        
+        // Calculer les pourcentages pour le slider
+        const percentMin = ((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
+        const percentMax = ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100;
+        
+        if (priceTrack) {
+            priceTrack.style.left = percentMin + '%';
+            priceTrack.style.width = (percentMax - percentMin) + '%';
+        }
+    }
+    
+    // Initialisation des événements du slider
+    if (priceMin && priceMax) {
+        priceMin.addEventListener('input', updatePriceRange);
+        priceMax.addEventListener('input', updatePriceRange);
+        
+        if (minPriceInput) {
+            minPriceInput.addEventListener('change', function() {
+                let value = parseFloat(this.value);
+                if (isNaN(value)) value = PRICE_MIN;
+                value = Math.max(PRICE_MIN, Math.min(PRICE_MAX - 100, value));
+                priceMin.value = value;
+                updatePriceRange();
+            });
+        }
+        
+        if (maxPriceInput) {
+            maxPriceInput.addEventListener('change', function() {
+                let value = parseFloat(this.value);
+                if (isNaN(value)) value = PRICE_MAX;
+                value = Math.min(PRICE_MAX, Math.max(PRICE_MIN + 100, value));
+                priceMax.value = value;
+                updatePriceRange();
+            });
+        }
+        
+        updatePriceRange();
+    }
+    
+    // ========== APPLICATION DES FILTRES ==========
+    function applyFilters() {
+        console.log("🔍 Application des filtres...");
+        
+        const minPriceVal = minPriceInput ? minPriceInput.value : 0;
+        const maxPriceVal = maxPriceInput ? maxPriceInput.value : PRICE_MAX;
+        const inStockChecked = document.getElementById('inStockOnly')?.checked || false;
+        const promoChecked = document.getElementById('promoOnly')?.checked || false;
+        
+        const url = new URL(window.location.href);
+        
+        // Ajouter les paramètres de prix
+        if (parseFloat(minPriceVal) > 0) {
+            url.searchParams.set('min_price', minPriceVal);
+        } else {
+            url.searchParams.delete('min_price');
+        }
+        
+        if (parseFloat(maxPriceVal) < PRICE_MAX) {
+            url.searchParams.set('max_price', maxPriceVal);
+        } else {
+            url.searchParams.delete('max_price');
+        }
+        
+        // Ajouter les autres filtres
+        if (inStockChecked) {
+            url.searchParams.set('in_stock', '1');
+        } else {
+            url.searchParams.delete('in_stock');
+        }
+        
+        if (promoChecked) {
+            url.searchParams.set('promo', '1');
+        } else {
+            url.searchParams.delete('promo');
+        }
+        
+        // Reset à la page 1
+        url.searchParams.set('page', '1');
+        
+        console.log("URL générée:", url.toString());
+        window.location.href = url.toString();
+    }
+    
+    function resetFilters() {
+        console.log("🔄 Réinitialisation des filtres...");
+        const url = new URL(window.location.href);
+        
+        url.searchParams.delete('min_price');
+        url.searchParams.delete('max_price');
+        url.searchParams.delete('in_stock');
+        url.searchParams.delete('promo');
+        url.searchParams.set('page', '1');
+        
+        // Garder la catégorie si présente
+        const currentCategorie = new URLSearchParams(window.location.search).get('categorie');
+        if (currentCategorie) {
+            url.searchParams.set('categorie', currentCategorie);
+        }
+        
+        console.log("URL de reset:", url.toString());
+        window.location.href = url.toString();
+    }
+    
+    function restoreFiltersFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Restaurer les prix
+        const minPriceUrl = urlParams.get('min_price');
+        const maxPriceUrl = urlParams.get('max_price');
+        
+        if (minPriceUrl && minPriceInput) {
+            minPriceInput.value = minPriceUrl;
+            if (priceMin) priceMin.value = Math.min(parseFloat(minPriceUrl), PRICE_MAX);
+        }
+        
+        if (maxPriceUrl && maxPriceInput) {
+            maxPriceInput.value = maxPriceUrl;
+            if (priceMax) priceMax.value = Math.min(parseFloat(maxPriceUrl), PRICE_MAX);
+        }
+        
+        // Restaurer les checkboxes
+        const inStock = urlParams.get('in_stock');
+        const inStockCheckbox = document.getElementById('inStockOnly');
+        if (inStockCheckbox) inStockCheckbox.checked = (inStock === '1');
+        
+        const promo = urlParams.get('promo');
+        const promoCheckbox = document.getElementById('promoOnly');
+        if (promoCheckbox) promoCheckbox.checked = (promo === '1');
+        
+        // Mettre à jour le slider
+        updatePriceRange();
+        
+        console.log("Filtres restaurés depuis URL");
+    }
+    
+    // ========== TRI ==========
+    function changeSort() {
+        const sort = document.getElementById('sortBy').value;
+        const url = new URL(window.location.href);
+        
+        // Garder tous les filtres existants
+        const currentParams = new URLSearchParams(window.location.search);
+        for (let [key, value] of currentParams) {
+            if (key !== 'sort' && key !== 'page') {
+                url.searchParams.set(key, value);
+            }
+        }
+        
+        url.searchParams.set('sort', sort);
+        url.searchParams.set('page', '1');
+        window.location.href = url.toString();
+    }
+    
+    // ========== PAGINATION ==========
+    function changePerPage(value) {
+        const url = new URL(window.location.href);
+        
+        const currentParams = new URLSearchParams(window.location.search);
+        for (let [key, val] of currentParams) {
+            if (key !== 'per_page' && key !== 'page') {
+                url.searchParams.set(key, val);
+            }
+        }
+        
+        url.searchParams.set('per_page', value);
+        url.searchParams.set('page', '1');
+        window.location.href = url.toString();
+    }
+    
+    // ========== CATÉGORIES ==========
+    function changePage(pageNumber) {
+        const url = new URL(window.location.href);
+        
+        const currentParams = new URLSearchParams(window.location.search);
+        for (let [key, value] of currentParams) {
+            if (key !== 'page') {
+                url.searchParams.set(key, value);
+            }
+        }
+        
+        url.searchParams.set('page', pageNumber);
+        window.location.href = url.toString();
+    }
+    
+    // ========== MENU MOBILE ==========
+    function toggleFilters() {
+        const sidebar = document.getElementById('filtersSidebar');
+        if (sidebar) {
+            sidebar.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        }
+    }
+    
+    // ========== AJOUT AU PANIER ==========
+    function addToCart(productId) {
+        const btn = event.currentTarget;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+        
+        fetch(`/ajouter-panier/${productId}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({quantite: 1})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) cartCount.textContent = data.total;
+                showNotification('Produit ajouté au panier !', 'success');
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.disabled = false;
+                }, 1500);
+            } else {
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+                showNotification('Erreur lors de l\'ajout', 'danger');
+            }
+        })
+        .catch(error => {
+            btn.innerHTML = originalHtml;
+            btn.disabled = false;
+            showNotification('Erreur de connexion', 'danger');
+        });
+    }
+    
+    function addToWishlist(productId) {
+        fetch(`/wishlist/ajouter/${productId}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showNotification('Produit ajouté aux favoris !', 'success');
+                const btn = event.currentTarget;
+                btn.innerHTML = '<i class="fas fa-heart"></i>';
+                btn.style.color = '#d63031';
+            } else {
+                showNotification(data.message || 'Erreur', 'danger');
+            }
+        })
+        .catch(error => {
+            showNotification('Erreur de connexion', 'danger');
+        });
+    }
+    
+    function quickView(productId) {
+        window.location.href = `/produit/${productId}`;
+    }
+    
+    function closeQuickView() {
+        const modal = document.getElementById('quickViewModal');
+        if (modal) modal.style.display = 'none';
+    }
+    
+    // ========== NOTIFICATIONS ==========
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i><span>${message}</span>`;
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.right = '20px';
+        notification.style.left = '20px';
+        notification.style.background = type === 'success' ? '#00b894' : '#d63031';
+        notification.style.color = 'white';
+        notification.style.padding = '1rem';
+        notification.style.borderRadius = '8px';
+        notification.style.display = 'flex';
+        notification.style.alignItems = 'center';
+        notification.style.gap = '0.5rem';
+        notification.style.zIndex = '9999';
+        notification.style.animation = 'slideIn 0.3s ease';
+        notification.style.fontSize = '0.9rem';
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+    
+    // ========== INITIALISATION ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("Page chargée - Restauration des filtres");
+        restoreFiltersFromUrl();
+        
+        // Restaurer le tri sélectionné
+        const urlParams = new URLSearchParams(window.location.search);
+        const sortValue = urlParams.get('sort');
+        if (sortValue && document.getElementById('sortBy')) {
+            document.getElementById('sortBy').value = sortValue;
+        }
+        
+        // Gestion des images
+        document.querySelectorAll('.featured-product-image img').forEach(img => {
+            img.onload = function() {
+                if (this.naturalWidth > this.naturalHeight) {
+                    this.style.objectFit = 'contain';
+                }
+            };
+        });
+    });
+    
+    // Fermer les modals en cliquant à l'extérieur
+    window.onclick = function(event) {
+        const modal = document.getElementById('quickViewModal');
+        if (modal && event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+    
+    // Fermer les filtres mobiles en cliquant à l'extérieur
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('filtersSidebar');
+        const toggle = document.querySelector('.mobile-filters-toggle');
+        
+        if (sidebar && sidebar.classList.contains('active') && 
+            !sidebar.contains(event.target) && 
+            toggle && !toggle.contains(event.target)) {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,733 @@
+{% extends "base.html" %}
+
+{% block title %}Inscription - DestockPro{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card-modern">
+            <div class="auth-header-modern">
+                <h1>Créer un compte</h1>
+                <p>Rejoignez DestockPro et profitez d'offres exclusives</p>
+            </div>
+
+            <form method="POST" action="/inscription" class="auth-form-modern" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group-modern">
+                        <label for="prenom">
+                            <i class="fas fa-user"></i>
+                            Prénom
+                        </label>
+                        <input type="text" id="prenom" name="prenom" 
+                               placeholder="Jean" required 
+                               class="form-input-modern">
+                    </div>
+
+                    <div class="form-group-modern">
+                        <label for="nom">
+                            <i class="fas fa-user"></i>
+                            Nom
+                        </label>
+                        <input type="text" id="nom" name="nom" 
+                               placeholder="Dupont" required 
+                               class="form-input-modern">
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Adresse email
+                    </label>
+                    <input type="email" id="email" name="email" 
+                           placeholder="jean.dupont@email.com" required 
+                           class="form-input-modern">
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="telephone">
+                        <i class="fas fa-phone"></i>
+                        Téléphone (optionnel)
+                    </label>
+                    <input type="tel" id="telephone" name="telephone" 
+                           placeholder="01 23 45 67 89" 
+                           class="form-input-modern">
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Mot de passe
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" 
+                               placeholder="••••••••" required 
+                               class="form-input-modern">
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                    </div>
+                    <ul class="password-requirements">
+                        <li id="req-length"><i class="fas fa-circle"></i> Minimum 8 caractères</li>
+                        <li id="req-uppercase"><i class="fas fa-circle"></i> Une majuscule</li>
+                        <li id="req-number"><i class="fas fa-circle"></i> Un chiffre</li>
+                        <li id="req-special"><i class="fas fa-circle"></i> Un caractère spécial</li>
+                    </ul>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="confirm_password">
+                        <i class="fas fa-lock"></i>
+                        Confirmer le mot de passe
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirm_password" name="confirm_password" 
+                               placeholder="••••••••" required 
+                               class="form-input-modern">
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirm_password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-match" id="passwordMatch"></div>
+                </div>
+
+                <div class="form-group-modern checkbox-group">
+                    <label class="checkbox-modern">
+                        <input type="checkbox" name="newsletter" checked>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Je souhaite recevoir la newsletter et les offres promotionnelles</span>
+                    </label>
+                </div>
+
+                <div class="form-group-modern checkbox-group">
+                    <label class="checkbox-modern">
+                        <input type="checkbox" name="conditions" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">
+                            J'accepte les <a href="/conditions">conditions générales</a> et la 
+                            <a href="/confidentialite">politique de confidentialité</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit-btn" id="registerBtn">
+                    <span class="btn-text">Créer mon compte</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <div class="auth-divider-modern">
+                <span>ou</span>
+            </div>
+
+            <div class="social-auth">
+                <button class="social-auth-btn google">
+                    <i class="fab fa-google"></i>
+                    Google
+                </button>
+                <button class="social-auth-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </button>
+            </div>
+
+            <div class="auth-footer-modern">
+                <p>Déjà un compte ? <a href="/connexion">Se connecter</a></p>
+            </div>
+
+            <div class="auth-benefits-modern">
+                <h3>En créant votre compte, vous bénéficiez de :</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-tag"></i>
+                        <span>Offres exclusives membres</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Suivi de commande en temps réel</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-gift"></i>
+                        <span>Programme de fidélité</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Paiement express</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.auth-page {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(196, 167, 71, 0.03) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.auth-container {
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-card-modern {
+    background: var(--background);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+.auth-header-modern {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-header-modern h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.auth-header-modern p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.auth-form-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group-modern label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.form-group-modern label i {
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.form-input-modern {
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.form-input-modern:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(196, 167, 71, 0.1);
+    background: var(--background);
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.password-toggle:hover {
+    color: var(--secondary);
+}
+
+.password-strength {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    height: 4px;
+    flex: 1;
+    background: var(--border);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.strength-bar.weak {
+    background: var(--danger);
+}
+
+.strength-bar.medium {
+    background: var(--warning);
+}
+
+.strength-bar.strong {
+    background: var(--success);
+}
+
+.password-requirements {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.password-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-light);
+}
+
+.password-requirements li.valid {
+    color: var(--success);
+}
+
+.password-requirements li.valid i {
+    color: var(--success);
+}
+
+.password-requirements li i {
+    font-size: 0.5rem;
+    color: var(--text-light);
+}
+
+.password-match {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+.password-match.match {
+    color: var(--success);
+}
+
+.password-match.error {
+    color: var(--danger);
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-modern {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.checkbox-modern input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.checkbox-modern:hover input ~ .checkmark {
+    border-color: var(--secondary);
+}
+
+.checkbox-modern input:checked ~ .checkmark {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-modern input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-modern .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-text {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.checkbox-text a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.checkbox-text a:hover {
+    text-decoration: underline;
+}
+
+.auth-submit-btn {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    padding: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.auth-submit-btn:hover::before {
+    left: 100%;
+}
+
+.auth-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-submit-btn:active {
+    transform: translateY(0);
+}
+
+.btn-loader {
+    margin-left: 0.5rem;
+}
+
+.auth-divider-modern {
+    text-align: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.auth-divider-modern::before,
+.auth-divider-modern::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 30px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.auth-divider-modern::before {
+    left: 0;
+}
+
+.auth-divider-modern::after {
+    right: 0;
+}
+
+.auth-divider-modern span {
+    background: var(--background);
+    padding: 0 1rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.social-auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-auth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--background);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-auth-btn.google:hover {
+    border-color: #DB4437;
+    background: rgba(219, 68, 55, 0.05);
+    transform: translateY(-3px);
+}
+
+.social-auth-btn.facebook:hover {
+    border-color: #4267B2;
+    background: rgba(66, 103, 178, 0.05);
+    transform: translateY(-3px);
+}
+
+.social-auth-btn i {
+    font-size: 1.2rem;
+}
+
+.social-auth-btn.google i {
+    color: #DB4437;
+}
+
+.social-auth-btn.facebook i {
+    color: #4267B2;
+}
+
+.auth-footer-modern {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.auth-footer-modern a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.auth-footer-modern a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+.auth-benefits-modern {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--surface), var(--background));
+    border-radius: 16px;
+}
+
+.auth-benefits-modern h3 {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.benefit-item i {
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .auth-card-modern {
+        padding: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .password-requirements {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-auth {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+    field.setAttribute('type', type);
+    
+    const button = field.nextElementSibling;
+    const icon = button.querySelector('i');
+    icon.classList.toggle('fa-eye');
+    icon.classList.toggle('fa-eye-slash');
+}
+
+// Validation du mot de passe en temps réel
+document.getElementById('password').addEventListener('input', function(e) {
+    const password = e.target.value;
+    const strengthBars = document.querySelectorAll('.strength-bar');
+    const requirements = {
+        length: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        number: /[0-9]/.test(password),
+        special: /[!@#$%^&*]/.test(password)
+    };
+    
+    // Mettre à jour les indicateurs
+    document.getElementById('req-length').className = requirements.length ? 'valid' : '';
+    document.getElementById('req-uppercase').className = requirements.uppercase ? 'valid' : '';
+    document.getElementById('req-number').className = requirements.number ? 'valid' : '';
+    document.getElementById('req-special').className = requirements.special ? 'valid' : '';
+    
+    // Calculer la force
+    const score = Object.values(requirements).filter(Boolean).length;
+    strengthBars.forEach((bar, index) => {
+        bar.classList.remove('weak', 'medium', 'strong');
+        if (index < score) {
+            if (score <= 2) bar.classList.add('weak');
+            else if (score <= 3) bar.classList.add('medium');
+            else bar.classList.add('strong');
+        }
+    });
+});
+
+// Vérification de la correspondance des mots de passe
+document.getElementById('confirm_password').addEventListener('input', function(e) {
+    const password = document.getElementById('password').value;
+    const confirm = e.target.value;
+    const matchDiv = document.getElementById('passwordMatch');
+    
+    if (confirm.length === 0) {
+        matchDiv.textContent = '';
+        matchDiv.className = 'password-match';
+    } else if (password === confirm) {
+        matchDiv.textContent = '✓ Mots de passe identiques';
+        matchDiv.className = 'password-match match';
+    } else {
+        matchDiv.textContent = '✗ Les mots de passe ne correspondent pas';
+        matchDiv.className = 'password-match error';
+    }
+});
+
+// Gestion de la soumission du formulaire
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm_password').value;
+    const conditions = document.querySelector('input[name="conditions"]').checked;
+    
+    if (password !== confirm) {
+        showNotification('Les mots de passe ne correspondent pas', 'danger');
+        return;
+    }
+    
+    if (!conditions) {
+        showNotification('Vous devez accepter les conditions générales', 'warning');
+        return;
+    }
+    
+    const submitBtn = document.getElementById('registerBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline';
+    submitBtn.disabled = true;
+    
+    // Simuler l'envoi du formulaire
+    setTimeout(() => {
+        this.submit();
+    }, 1000);
+});
+</script>
+{% endblock %}

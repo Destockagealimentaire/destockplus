@@ -1,0 +1,472 @@
+{% extends "compte/base_compte.html" %}
+
+{% block compte_title %}Commande {{ commande.numero }}{% endblock %}
+{% block compte_subtitle %}Commande du {{ commande.date_creation.strftime('%d/%m/%Y') }}{% endblock %}
+
+{% block compte_content %}
+<!-- Statut -->
+<div class="status-card">
+    <div class="status-header">
+        <i class="fas fa-info-circle"></i>
+        <span>Statut de la commande</span>
+    </div>
+    <div class="status-content">
+        <span class="status-badge-large status-{{ commande.statut }}">
+            {% if commande.statut == 'en_attente_virement' %}
+                <i class="fas fa-hourglass-half"></i> En attente de virement
+            {% elif commande.statut == 'en_attente' %}
+                <i class="fas fa-clock"></i> En attente
+            {% elif commande.statut == 'confirmee' %}
+                <i class="fas fa-check-circle"></i> Confirmée
+            {% elif commande.statut == 'expediee' %}
+                <i class="fas fa-truck"></i> Expédiée
+            {% elif commande.statut == 'livree' %}
+                <i class="fas fa-home"></i> Livrée
+            {% elif commande.statut == 'annulee' %}
+                <i class="fas fa-times-circle"></i> Annulée
+            {% endif %}
+        </span>
+        
+        {% if commande.statut == 'en_attente_virement' %}
+        <div class="alert-info">
+            <i class="fas fa-info-circle"></i>
+            <div>
+                <strong>Instructions de paiement :</strong>
+                <p>Veuillez effectuer le virement bancaire en utilisant les informations ci-dessous.</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="details-grid">
+    <!-- Informations commande -->
+    <div class="detail-card">
+        <h3><i class="fas fa-info-circle"></i> Détails de la commande</h3>
+        <div class="detail-row">
+            <span>Numéro de commande :</span>
+            <strong>{{ commande.numero }}</strong>
+        </div>
+        <div class="detail-row">
+            <span>Date de commande :</span>
+            <strong>{{ commande.date_creation.strftime('%d/%m/%Y à %H:%M') }}</strong>
+        </div>
+        <div class="detail-row">
+            <span>Mode de paiement :</span>
+            <strong>
+                {% if commande.mode_paiement == 'carte' %}
+                    <i class="fas fa-credit-card"></i> Carte bancaire
+                {% elif commande.mode_paiement == 'virement' %}
+                    <i class="fas fa-university"></i> Virement bancaire
+                {% elif commande.mode_paiement == 'paypal' %}
+                    <i class="fab fa-paypal"></i> PayPal
+                {% endif %}
+            </strong>
+        </div>
+        {% if commande.promo_code %}
+        <div class="detail-row">
+            <span>Code promo :</span>
+            <strong class="promo-code">{{ commande.promo_code }}</strong>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Adresse de livraison -->
+    <div class="detail-card">
+        <h3><i class="fas fa-map-marker-alt"></i> Adresse de livraison</h3>
+        <div class="address-details">
+            <p><strong>{{ commande.nom_client }}</strong></p>
+            <p>{{ commande.adresse_livraison|nl2br }}</p>
+            {% if commande.telephone_client %}
+            <p><i class="fas fa-phone"></i> {{ commande.telephone_client }}</p>
+            {% endif %}
+            <p><i class="fas fa-envelope"></i> {{ commande.email_client }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Instructions de virement -->
+{% if commande.statut == 'en_attente_virement' %}
+<div class="bank-info">
+    <h3><i class="fas fa-university"></i> Informations bancaires</h3>
+    <div class="bank-details">
+        <div class="bank-row">
+            <span>Bénéficiaire :</span>
+            <strong>DestockPro SAS</strong>
+        </div>
+        <div class="bank-row">
+            <span>IBAN :</span>
+            <strong>FR76 1234 5678 9012 3456 7890 123</strong>
+        </div>
+        <div class="bank-row">
+            <span>BIC :</span>
+            <strong>DESTFRPP</strong>
+        </div>
+        <div class="bank-row">
+            <span>Montant :</span>
+            <strong class="amount">{{ "%.2f"|format(commande.total_final) }} €</strong>
+        </div>
+        <div class="bank-row">
+            <span>Référence :</span>
+            <strong class="reference">{{ commande.numero }}</strong>
+        </div>
+    </div>
+    <div class="alert-warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <small>Votre commande sera expédiée dès réception du virement. Comptez 2 à 3 jours ouvrés pour le traitement.</small>
+    </div>
+</div>
+{% endif %}
+
+<!-- Produits commandés -->
+<div class="products-card">
+    <h3><i class="fas fa-box"></i> Produits commandés</h3>
+    <div class="table-responsive">
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Référence</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in commande.items %}
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                                 alt="{{ item.produit.nom }}"
+                                 onerror="this.src='https://via.placeholder.com/40'">
+                            <span>{{ item.produit.nom }}</span>
+                        </div>
+                    </td>
+                    <td>{{ item.produit.sku or 'N/A' }}</td>
+                    <td>{{ "%.2f"|format(item.prix_unitaire) }} €</td>
+                    <td>{{ item.quantite }}</td>
+                    <td class="fw-bold">{{ "%.2f"|format(item.prix_unitaire * item.quantite) }} €</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-end">Sous-total</td>
+                    <td><strong>{{ "%.2f"|format(commande.total) }} €</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-end">Frais de port</td>
+                    <td>{{ "%.2f"|format(commande.frais_port) }} €</td>
+                </tr>
+                {% if commande.reduction > 0 %}
+                <tr class="text-success">
+                    <td colspan="4" class="text-end">Réduction</td>
+                    <td>-{{ "%.2f"|format(commande.reduction) }} €</td>
+                </tr>
+                {% endif %}
+                <tr class="total-row">
+                    <td colspan="4" class="text-end"><strong>Total</strong></td>
+                    <td class="total-amount">{{ "%.2f"|format(commande.total_final) }} €</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="action-buttons">
+    <a href="{{ url_for('compte_commandes') }}" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Retour à mes commandes
+    </a>
+    <a href="{{ url_for('produits') }}" class="btn-primary">
+        <i class="fas fa-shopping-bag"></i> Continuer mes achats
+    </a>
+</div>
+
+<style>
+.status-card {
+    background: var(--surface);
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.status-header i {
+    color: var(--secondary);
+}
+
+.status-content {
+    padding: 1.5rem;
+}
+
+.status-badge-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.alert-info {
+    background: #e7f3ff;
+    border-left: 4px solid #2196f3;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.alert-info i {
+    color: #2196f3;
+    font-size: 1.2rem;
+}
+
+.alert-info p {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.detail-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-card h3 i {
+    color: var(--secondary);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row span {
+    color: var(--text-light);
+}
+
+.promo-code {
+    color: var(--secondary);
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.address-details p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.bank-info {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.bank-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.bank-info h3 i {
+    color: var(--secondary);
+}
+
+.bank-details {
+    background: var(--background);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bank-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.bank-row:last-child {
+    border-bottom: none;
+}
+
+.bank-row .amount {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+.bank-row .reference {
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #856404;
+}
+
+.products-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.products-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.products-card h3 i {
+    color: var(--secondary);
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th {
+    text-align: left;
+    padding: 0.75rem;
+    background: var(--background);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+}
+
+.order-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.product-info img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: white;
+    border-radius: 6px;
+    padding: 0.25rem;
+}
+
+.order-table tfoot tr td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: none;
+}
+
+.total-row {
+    background: var(--background);
+    font-weight: 700;
+}
+
+.total-amount {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+.text-end {
+    text-align: right;
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bank-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .order-table th,
+    .order-table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .product-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons a {
+        justify-content: center;
+    }
+}
+</style>
+{% endblock %}

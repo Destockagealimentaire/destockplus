@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}Confirmation de commande - DestockPro{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- En-tête de confirmation -->
+    <div class="text-center mb-5">
+        <div class="confirmation-icon mb-4">
+            <i class="fas fa-check-circle" style="font-size: 5rem; color: #00b894;"></i>
+        </div>
+        <h1 class="display-4 fw-bold mb-3">Commande confirmée !</h1>
+        <p class="lead">Merci pour votre commande, {{ commande.nom_client }}.</p>
+        <p class="text-muted">Un email de confirmation vous a été envoyé à {{ commande.email_client }}</p>
+    </div>
+
+    <div class="row">
+        <!-- Informations commande -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Détails de la commande</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Numéro de commande</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            {{ commande.numero }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Date de commande</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            {{ commande.date_creation.strftime('%d/%m/%Y à %H:%M') }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Statut</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            <span class="badge bg-warning">En attente de virement</span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Mode de paiement</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            Virement bancaire
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livraison -->
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Livraison</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Adresse de livraison</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            {{ commande.adresse_livraison|nl2br }}
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Date estimée</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            <i class="fas fa-truck"></i> Entre le {{ date_livraison_min }} et le {{ date_livraison_max }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions de paiement par virement -->
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Instructions de paiement</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Veuillez effectuer le virement bancaire en utilisant les informations ci-dessous :
+                    </div>
+                    <div class="bank-details">
+                        <p><strong>Bénéficiaire :</strong> DestockPro SAS</p>
+                        <p><strong>IBAN :</strong> FR76 1234 5678 9012 3456 7890 123</p>
+                        <p><strong>BIC :</strong> DESTFRPP</p>
+                        <p><strong>Montant :</strong> {{ "%.2f"|format(commande.total_final) }} €</p>
+                        <p><strong>Référence :</strong> {{ commande.numero }}</p>
+                    </div>
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <small>Votre commande sera expédiée dès réception du virement. Comptez 2 à 3 jours ouvrés pour le traitement.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé de la commande -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Résumé de la commande</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Liste des produits -->
+                    <div class="order-items mb-3">
+                        {% for item in items %}
+                        <div class="order-item d-flex gap-3 mb-3 pb-3 border-bottom">
+                            <div class="order-item-image" style="width: 60px;">
+                                <img src="{{ url_for('static', filename='images/produits/' + item.produit.image_principale) }}" 
+                                     alt="{{ item.produit.nom }}"
+                                     class="img-fluid rounded"
+                                     onerror="this.src='https://via.placeholder.com/60?text=Produit'">
+                            </div>
+                            <div class="order-item-details flex-grow-1">
+                                <h6 class="mb-1">{{ item.produit.nom }}</h6>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Quantité: {{ item.quantite }}</span>
+                                    <span class="fw-bold">{{ "%.2f"|format(item.prix_unitaire * item.quantite) }} €</span>
+                                </div>
+                                <small class="text-muted">Prix unitaire: {{ "%.2f"|format(item.prix_unitaire) }} €</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <hr>
+                    
+                    <!-- Totaux -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Sous-total</span>
+                        <span>{{ "%.2f"|format(commande.total) }} €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Frais de port</span>
+                        <span>{{ "%.2f"|format(commande.frais_port) }} €</span>
+                    </div>
+                    {% if commande.reduction > 0 %}
+                    <div class="d-flex justify-content-between mb-2 text-success">
+                        <span>Réduction</span>
+                        <span>-{{ "%.2f"|format(commande.reduction) }} €</span>
+                    </div>
+                    {% endif %}
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3 fw-bold">
+                        <span>Total</span>
+                        <span class="text-primary fs-4">{{ "%.2f"|format(commande.total_final) }} €</span>
+                    </div>
+                    
+                    {% if commande.promo_code %}
+                    <div class="alert alert-success py-2">
+                        <i class="fas fa-tag"></i> Code promo: {{ commande.promo_code }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Boutons d'action -->
+            <div class="mt-4 d-grid gap-2">
+                <a href="/produits" class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-bag"></i> Continuer mes achats
+                </a>
+                <a href="/compte/commandes" class="btn btn-outline-secondary">
+                    <i class="fas fa-list"></i> Voir mes commandes
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.confirmation-icon {
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.bank-details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.order-item-image {
+    flex-shrink: 0;
+}
+
+.order-item-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .bank-details p {
+        font-size: 0.85rem;
+    }
+}
+</style>
+{% endblock %}
