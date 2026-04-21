@@ -635,15 +635,24 @@ def api_panier():
 
 
 @app.route('/produit/<int:produit_id>')
-def produit_detail(produit_id):
-    """Page détail d'un produit"""
+@app.route('/produit/<int:produit_id>-<string:slug>')
+def produit_detail(produit_id, slug=None):
+    """Page détail d'un produit avec URL SEO friendly"""
     produit = Produit.query.get_or_404(produit_id)
+    
+    # Générer le slug du produit
+    from sitemap import slugify
+    produit_slug = slugify(produit.nom)
+    
+    # Rediriger vers l'URL avec slug si nécessaire
+    if not slug or slug != produit_slug:
+        return redirect(url_for('produit_detail', produit_id=produit_id, slug=produit_slug), 301)
     
     # Incrémenter le compteur de vues
     produit.views += 1
     db.session.commit()
     
-    # Produits similaires (même catégorie)
+    # Produits similaires
     produits_similaires = Produit.query.filter_by(
         categorie_id=produit.categorie_id, 
         actif=True
@@ -652,10 +661,24 @@ def produit_detail(produit_id):
     # Récupérer les avis
     avis = Avis.query.filter_by(produit_id=produit.id).order_by(Avis.date_creation.desc()).all()
     
+    # Meta tags SEO
+    meta_title = f"{produit.nom} - Destock Alimentaire"
+    meta_description = produit.description[:160] if produit.description else f"Achetez {produit.nom} au meilleur prix sur Destock Alimentaire. Livraison rapide partout en France."
+    
     return render_template('produit.html', 
                          produit=produit,
                          similaires=produits_similaires,
-                         avis=avis)
+                         avis=avis,
+                         meta_title=meta_title,
+                         meta_description=meta_description)
+
+def slugify(text):
+    """Convertit un texte en slug URL-friendly"""
+    import re
+    from unidecode import unidecode
+    text = unidecode(str(text).lower())
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
 
 
 
@@ -2076,6 +2099,109 @@ def admin_supprimer_produit(produit_id):
     except Exception as e:
         db.session.rollback()
         return jsonify({'success': False, 'error': str(e)}), 500
+
+# Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
+
+# ============= SITEMAP ROUTES =============
+@app.route('/sitemap.xml')
+def sitemap():
+    """Génère le sitemap XML complet"""
+    from models import Produit, Categorie
+    from datetime import datetime
+    import xml.etree.ElementTree as ET
+    from xml.dom import minidom
+    
+    # URLs statiques
+    static_urls = [
+        {'loc': '/', 'priority': 1.0, 'changefreq': 'daily'},
+        {'loc': '/produits', 'priority': 0.9, 'changefreq': 'daily'},
+        {'loc': '/offres-flash', 'priority': 0.9, 'changefreq': 'daily'},
+        {'loc': '/qui-sommes-nous', 'priority': 0.6, 'changefreq': 'monthly'},
+        {'loc': '/contact', 'priority': 0.7, 'changefreq': 'monthly'},
+        {'loc': '/mentions-legales', 'priority': 0.3, 'changefreq': 'yearly'},
+        {'loc': '/cgv', 'priority': 0.3, 'changefreq': 'yearly'},
+        {'loc': '/confidentialite', 'priority': 0.3, 'changefreq': 'yearly'},
+    ]
+    
+    # URLs dynamiques - Produits
+    produits = Produit.query.filter_by(actif=True).all()
+    for produit in produits:
+        static_urls.append({
+            'loc': f'/produit/{produit.id}',
+            'priority': 0.9,
+            'changefreq': 'weekly'
+        })
+    
+    # Génération XML
+    root = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    
+    for url_data in static_urls:
+        url_elem = ET.SubElement(root, 'url')
+        loc = ET.SubElement(url_elem, 'loc')
+        loc.text = f"https://www.destockalimentaire.com{url_data['loc']}"
+        priority = ET.SubElement(url_elem, 'priority')
+        priority.text = str(url_data['priority'])
+        changefreq = ET.SubElement(url_elem, 'changefreq')
+        changefreq.text = url_data['changefreq']
+    
+    xml_str = ET.tostring(root, encoding='utf-8')
+    dom = minidom.parseString(xml_str)
+    
+    return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
+
+# Routes pour les articles SEO
+@app.route('/destockage-alimentaire-paris')
+def destockage_alimentaire_paris():
+    """Article SEO destockage Paris"""
+    return render_template('articles/destockage_alimentaire_paris.html')
+
+@app.route('/destockage-alimentaire-lyon')
+def destockage_alimentaire_lyon():
+    """Article SEO destockage Lyon"""
+    return render_template('articles/destockage_alimentaire_lyon.html')
+    
+@app.route('/sitemap-produits.xml')
+def sitemap_produits():
+    """Sitemap spécifique pour les produits"""
+    from models import Produit
+    from datetime import datetime
+    import xml.etree.ElementTree as ET
+    from xml.dom import minidom
+    
+    produits = Produit.query.filter_by(actif=True).all()
+    
+    root = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    
+    for produit in produits:
+        url_elem = ET.SubElement(root, 'url')
+        loc = ET.SubElement(url_elem, 'loc')
+        # Générer un slug à partir du nom du produit
+        slug = produit.nom.lower().replace(' ', '-').replace('é', 'e').replace('è', 'e').replace('à', 'a')
+        loc.text = f"https://www.destockalimentaire.com/produit/{produit.id}-{slug}"
+        lastmod = ET.SubElement(url_elem, 'lastmod')
+        lastmod.text = datetime.now().strftime('%Y-%m-%d')
+        changefreq = ET.SubElement(url_elem, 'changefreq')
+        changefreq.text = 'weekly'
+        priority = ET.SubElement(url_elem, 'priority')
+        priority.text = '0.9'
+    
+    xml_str = ET.tostring(root, encoding='utf-8')
+    dom = minidom.parseString(xml_str)
+    
+    return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    """Fichier robots.txt"""
+    return """User-agent: *
+Allow: /
+
+Sitemap: https://www.destockalimentaire.com/sitemap.xml
+Sitemap: https://www.destockalimentaire.com/sitemap-produits.xml
+""", 200, {'Content-Type': 'text/plain'}
+
+
 
 @app.route('/admin/commandes')
 @login_required
