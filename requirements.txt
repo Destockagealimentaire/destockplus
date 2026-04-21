@@ -9,3 +9,4 @@ Werkzeug==2.3.7
 python-dotenv==1.0.0
 email-validator==2.1.0
 Pillow==10.4.0  # Version plus récente
+unidecode==1.3.7 
