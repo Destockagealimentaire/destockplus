@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire Paris - Le Guide Complet 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures adresses de destockage alimentaire à Paris. Économisez jusqu'à 70% sur vos achats alimentaires en Île-de-France. Guide complet et conseils d'expert.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Paris, destockage Paris, alimentaire pas cher Paris, grossiste alimentaire Paris, rachat de stock Paris{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 mb-4">Destockage Alimentaire Paris : Le Guide Complet 2024</h1>
+            
+            <div class="alert alert-success mb-4">
+                <strong>💡 Bon à savoir :</strong> Paris et sa région représentent le plus gros marché du destockage alimentaire en France avec plus de 200 professionnels actifs.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-paris.jpg') }}" 
+                 alt="Destockage alimentaire Paris" 
+                 class="img-fluid rounded mb-4">
+            
+            <div class="content">
+                <h2>Pourquoi choisir le destockage alimentaire à Paris ?</h2>
+                <p>Paris, capitale économique de la France, concentre le plus grand nombre d'opportunités de destockage alimentaire. Avec des milliers de restaurants, hôtels et commerces, la demande est constante et les opportunités sont nombreuses. Le destockage alimentaire à Paris permet aux professionnels comme aux particuliers de réaliser des économies substantielles sur leurs achats quotidiens.</p>
+                
+                <h2>Les meilleurs quartiers pour le destockage à Paris</h2>
+                <ul>
+                    <li><strong>Le 11ème arrondissement</strong> - Quartier historique du destockage avec de nombreux grossistes</li>
+                    <li><strong>La Chapelle (18ème)</strong> - Zone de gros spécialisée dans l'alimentaire</li>
+                    <li><strong>Bercy (12ème)</strong> - Marché de Rungis accessible pour les professionnels</li>
+                    <li><strong>Saint-Ouen (Porte de Clignancourt)</strong> - Zone commerciale dynamique</li>
+                </ul>
+                
+                <h2>Types de produits disponibles à Paris</h2>
+                <p>Le marché parisien du destockage offre une diversité impressionnante de produits :</p>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🥤 Boissons</h5>
+                                <p class="card-text">Jus, sodas, eaux, thés glacés - jusqu'à -60%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🍾 Vins & Spiritueux</h5>
+                                <p class="card-text">Champagnes, vins, alcools - fins de séries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🥫 Épicerie</h5>
+                                <p class="card-text">Conserves, pâtes, riz, sauces - lots promotionnels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Comment profiter du destockage alimentaire à Paris ?</h2>
+                <p>Chez <strong>Destock Alimentaire</strong>, nous vous proposons un accès direct aux meilleures opportunités de destockage en Île-de-France. Notre plateforme centralise les offres des plus grands grossistes parisiens, vous permettant de :</p>
+                
+                <ul>
+                    <li>Comparer les prix en temps réel</li>
+                    <li>Accéder à des stocks exclusifs</li>
+                    <li>Bénéficier de livraison rapide à Paris et petite couronne</li>
+                    <li>Profiter de remises allant jusqu'à 70%</li>
+                </ul>
+                
+                <div class="bg-light p-4 rounded my-4">
+                    <h3 class="h4">🎯 Offre spéciale Paris</h3>
+                    <p>Pour toute commande livrée à Paris, bénéficiez de <strong>-10% supplémentaires</strong> avec le code <strong>PARIS10</strong>. Valable jusqu'au 31/12/2024.</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">Découvrir les offres</a>
+                </div>
+                
+                <h2>Témoignages de nos clients parisiens</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p class="card-text">"Je gère un restaurant dans le Marais et j'économise plus de 2000€ par mois grâce au destockage alimentaire."</p>
+                                <footer class="blockquote-footer">Thomas, Paris 4ème</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p class="card-text">"Service impeccable et livraison rapide. Les prix sont imbattables pour la région parisienne."</p>
+                                <footer class="blockquote-footer">Sophie, Traiteur Paris 15ème</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Questions fréquentes sur le destockage à Paris</h2>
+                
+                <div class="accordion" id="faqParis">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                La livraison est-elle gratuite à Paris ?
+                            </button>
+                        </h3>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqParis">
+                            <div class="accordion-body">
+                                Oui, pour toute commande supérieure à 500€, la livraison est gratuite dans Paris intra-muros et la petite couronne.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Peut-on venir chercher la marchandise directement ?
+                            </button>
+                        </h3>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqParis">
+                            <div class="accordion-body">
+                                Absolument ! Vous pouvez retirer vos commandes dans notre entrepôt partenaire situé porte de la Chapelle (18ème) du lundi au vendredi de 9h à 17h.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <h3>Prêt à économiser sur vos achats alimentaires à Paris ?</h3>
+                    <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg mt-3">Voir les offres actuelles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schema.org markup pour SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Paris - Le Guide Complet 2024",
+    "description": "Guide complet du destockage alimentaire à Paris. Découvrez les meilleures adresses et économisez jusqu'à 70%.",
+    "author": {
+        "@type": "Organization",
+        "name": "Destock Alimentaire"
+    },
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-06-01",
+    "mainEntityOfPage": "https://www.destockalimentaire.com/destockage-alimentaire-paris"
+}
+</script>
+{% endblock %}

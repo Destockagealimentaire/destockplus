@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire Lyon - Le Guide Complet 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures adresses de destockage alimentaire à Lyon et sa région. Économies garanties pour les professionnels et particuliers. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Lyon, destockage Lyon, alimentaire pas cher Lyon, grossiste alimentaire Lyon, rachat de stock Lyon{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 mb-4">Destockage Alimentaire Lyon : Le Guide Complet 2024</h1>
+            
+            <div class="alert alert-info mb-4">
+                <strong>🌟 Le saviez-vous ?</strong> Lyon est la 2ème place du destockage alimentaire en France, avec un marché en croissance de +25% en 2024.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-lyon.jpg') }}" 
+                 alt="Destockage alimentaire Lyon" 
+                 class="img-fluid rounded mb-4">
+            
+            <div class="content">
+                <h2>Lyon, capitale de la gastronomie et du destockage</h2>
+                <p>Reconnue mondialement pour sa gastronomie, Lyon est également devenue un hub majeur du destockage alimentaire en France. Grâce à sa position stratégique au carrefour de l'Europe et à son tissu économique dynamique, la région lyonnaise offre des opportunités uniques pour les professionnels de la restauration et les commerçants.</p>
+                
+                <h2>Les zones incontournables du destockage à Lyon</h2>
+                <ul>
+                    <li><strong>Vénissieux (Zone industrielle)</strong> - Le plus grand pôle de grossistes de la région</li>
+                    <li><strong>Corbas (Parc d'activités)</strong> - Spécialisé dans l'import/export alimentaire</li>
+                    <li><strong>Lyon 7ème (Gerland)</strong> - Proche du MIN de Lyon (Marché d'Intérêt National)</li>
+                    <li><strong>Saint-Priest</strong> - Zone logistique avec de nombreux entrepôts de destockage</li>
+                </ul>
+                
+                <h2>Produits disponibles en destockage à Lyon</h2>
+                <p>Le marché lyonnais se distingue par la qualité et la diversité de ses produits :</p>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🧀 Produits régionaux</h5>
+                                <p class="card-text">Fromages AOP, charcuteries, vins du Rhône - fins de séries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🥩 Viandes haut de gamme</h5>
+                                <p class="card-text">Bœuf, veau, agneau - lots professionnels</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">🍰 Pâtisserie & boulangerie</h5>
+                                <p class="card-text">Ingrédients professionnels, farines, beurres</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Pourquoi choisir Destock Alimentaire pour vos achats à Lyon ?</h2>
+                <p>Avec <strong>Destock Alimentaire</strong>, accédez aux meilleurs stocks de destockage de la région lyonnaise :</p>
+                
+                <ul>
+                    <li><strong>Livraison express</strong> - Livraison sous 24h dans Lyon et sa métropole</li>
+                    <li><strong>Partenaires locaux</strong> - Plus de 50 grossistes lyonnais référencés</li>
+                    <li><strong>Qualité garantie</strong> - Tous nos produits sont contrôlés avant expédition</li>
+                    <li><strong>Prix dégressifs</strong> - Remises automatiques selon le volume</li>
+                </ul>
+                
+                <div class="bg-light p-4 rounded my-4">
+                    <h3 class="h4">🎁 Offre spéciale Lyon</h3>
+                    <p>Commandez pour 1000€ et bénéficiez de <strong>la livraison gratuite</strong> dans toute la métropole lyonnaise + <strong>5% de remise</strong> avec le code <strong>LYON5</strong>.</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">Profiter de l'offre</a>
+                </div>
+                
+                <h2>Success stories lyonnaises</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p class="card-text">"Grâce au destockage, j'ai réduit mes coûts d'approvisionnement de 40% pour mes 3 boulangeries lyonnaises."</p>
+                                <footer class="blockquote-footer">Marc, Boulanger à Villeurbanne</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p class="card-text">"Le service client est réactif et les produits sont de qualité. Je recommande vivement Destock Alimentaire."</p>
+                                <footer class="blockquote-footer">Laure, Restauratrice à Lyon 1er</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Le MIN de Lyon : une opportunité unique</h2>
+                <p>Le Marché d'Intérêt National (MIN) de Lyon est l'un des plus grands d'Europe. Grâce à notre implantation locale, nous avons accès aux meilleurs invendus et fins de séries des grossistes du MIN, que nous vous proposons à prix cassés.</p>
+                
+                <h2>Questions fréquentes sur le destockage à Lyon</h2>
+                
+                <div class="accordion" id="faqLyon">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#lyon1">
+                                Livrez-vous dans toute la région lyonnaise ?
+                            </button>
+                        </h3>
+                        <div id="lyon1" class="accordion-collapse collapse show" data-bs-parent="#faqLyon">
+                            <div class="accordion-body">
+                                Oui, nous livrons dans tout le Grand Lyon : Lyon, Villeurbanne, Vénissieux, Caluire, Vaulx-en-Velin, Bron, et toute la métropole.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lyon2">
+                                Proposez-vous des produits lyonnais typiques ?
+                            </button>
+                        </h3>
+                        <div id="lyon2" class="accordion-collapse collapse" data-bs-parent="#faqLyon">
+                            <div class="accordion-body">
+                                Absolument ! Nous avons régulièrement des stocks de saucissons de Lyon, quenelles, cervelas, et autres spécialités régionales à prix destockés.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lyon3">
+                                Puis-je commander pour mon restaurant ?
+                            </button>
+                        </h3>
+                        <div id="lyon3" class="accordion-collapse collapse" data-bs-parent="#faqLyon">
+                            <div class="accordion-body">
+                                Oui, nous travaillons avec de nombreux restaurants lyonnais. Créez un compte professionnel pour bénéficier de tarifs préférentiels et de conditions de paiement adaptées.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <h3>Rejoignez les centaines de professionnels lyonnais qui nous font confiance</h3>
+                    <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg mt-3">Découvrir nos offres à Lyon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schema.org markup pour SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Lyon - Le Guide Complet 2024",
+    "description": "Guide complet du destockage alimentaire à Lyon. Découvrez les meilleures adresses et économies garanties.",
+    "author": {
+        "@type": "Organization",
+        "name": "Destock Alimentaire"
+    },
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-06-01",
+    "mainEntityOfPage": "https://www.destockalimentaire.com/destockage-alimentaire-lyon"
+}
+</script>
+{% endblock %}
