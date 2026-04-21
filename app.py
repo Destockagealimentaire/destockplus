@@ -650,7 +650,6 @@ def produit_detail(produit_id, slug=None):
     produit = Produit.query.get_or_404(produit_id)
     
     # Générer le slug du produit
-    from sitemap import slugify
     produit_slug = slugify(produit.nom)
     
     # Rediriger vers l'URL avec slug si nécessaire
