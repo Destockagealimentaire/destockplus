@@ -633,7 +633,14 @@ def api_panier():
         'nb_articles': len(panier_data)
     })
 
-
+def slugify(text):
+    """Convertit un texte en slug URL-friendly"""
+    import re
+    from unidecode import unidecode
+    text = unidecode(str(text).lower())
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
+    
 @app.route('/produit/<int:produit_id>')
 @app.route('/produit/<int:produit_id>-<string:slug>')
 def produit_detail(produit_id, slug=None):
@@ -672,13 +679,7 @@ def produit_detail(produit_id, slug=None):
                          meta_title=meta_title,
                          meta_description=meta_description)
 
-def slugify(text):
-    """Convertit un texte en slug URL-friendly"""
-    import re
-    from unidecode import unidecode
-    text = unidecode(str(text).lower())
-    text = re.sub(r'[^a-z0-9]+', '-', text)
-    return text.strip('-')
+
 
 
 
