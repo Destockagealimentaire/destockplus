@@ -1381,7 +1381,22 @@ def test_telegram_commande():
         flash('❌ Erreur d\'envoi', 'danger')
     
     return redirect(url_for('index'))
-    
+
+# Routes pour les articles SEO
+@app.route('/discount-alimentaire')
+def discount_alimentaire():
+    """Article SEO discount alimentaire"""
+    return render_template('articles/discount_alimentaire.html')
+
+@app.route('/destockage-alimentaire-lille')
+def destockage_alimentaire_lille():
+    """Article SEO destockage Lille"""
+    return render_template('articles/destockage_alimentaire_lille.html')
+
+@app.route('/destockage-alimentaire-france')
+def destockage_alimentaire_france():
+    """Article SEO destockage France"""
+    return render_template('articles/destockage_alimentaire_france.html')
 
 @app.route('/ajouter-panier/<int:produit_id>', methods=['POST'])
 @csrf.exempt  # Temporairement pour tester, mais à sécuriser après
