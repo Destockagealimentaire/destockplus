@@ -11,6 +11,8 @@ import json
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
 from telegram_bot import send_telegram_message, test_telegram_connection, send_order_notification
+from sitemap import slugify
+
 
 app = Flask(__name__)
 
