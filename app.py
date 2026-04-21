@@ -2121,6 +2121,8 @@ def admin_supprimer_produit(produit_id):
 # Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
 
 # ============= SITEMAP ROUTES =============
+# ============= SITEMAP ROUTES =============
+
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -2139,15 +2141,31 @@ def sitemap():
         {'loc': '/mentions-legales', 'priority': 0.3, 'changefreq': 'yearly'},
         {'loc': '/cgv', 'priority': 0.3, 'changefreq': 'yearly'},
         {'loc': '/confidentialite', 'priority': 0.3, 'changefreq': 'yearly'},
+        {'loc': '/discount-alimentaire', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-paris', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lyon', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lille', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-france', 'priority': 0.8, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
     produits = Produit.query.filter_by(actif=True).all()
     for produit in produits:
+        slug = slugify(produit.nom)
         static_urls.append({
-            'loc': f'/produit/{produit.id}',
+            'loc': f'/produit/{produit.id}-{slug}',
             'priority': 0.9,
-            'changefreq': 'weekly'
+            'changefreq': 'weekly',
+            'lastmod': datetime.now().strftime('%Y-%m-%d')
+        })
+    
+    # URLs dynamiques - Catégories
+    categories = Categorie.query.all()
+    for cat in categories:
+        static_urls.append({
+            'loc': f'/produits?categorie={cat.id}',
+            'priority': 0.8,
+            'changefreq': 'daily'
         })
     
     # Génération XML
@@ -2155,17 +2173,70 @@ def sitemap():
     
     for url_data in static_urls:
         url_elem = ET.SubElement(root, 'url')
+        
         loc = ET.SubElement(url_elem, 'loc')
         loc.text = f"https://www.destockalimentaire.com{url_data['loc']}"
+        
         priority = ET.SubElement(url_elem, 'priority')
         priority.text = str(url_data['priority'])
+        
         changefreq = ET.SubElement(url_elem, 'changefreq')
         changefreq.text = url_data['changefreq']
+        
+        if 'lastmod' in url_data:
+            lastmod = ET.SubElement(url_elem, 'lastmod')
+            lastmod.text = url_data['lastmod']
     
     xml_str = ET.tostring(root, encoding='utf-8')
     dom = minidom.parseString(xml_str)
     
     return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
+
+
+@app.route('/sitemap-produits.xml')
+def sitemap_produits():
+    """Sitemap spécifique pour les produits"""
+    from models import Produit
+    from datetime import datetime
+    import xml.etree.ElementTree as ET
+    from xml.dom import minidom
+    
+    produits = Produit.query.filter_by(actif=True).all()
+    
+    root = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    
+    for produit in produits:
+        url_elem = ET.SubElement(root, 'url')
+        loc = ET.SubElement(url_elem, 'loc')
+        slug = slugify(produit.nom)
+        loc.text = f"https://www.destockalimentaire.com/produit/{produit.id}-{slug}"
+        lastmod = ET.SubElement(url_elem, 'lastmod')
+        lastmod.text = datetime.now().strftime('%Y-%m-%d')
+        changefreq = ET.SubElement(url_elem, 'changefreq')
+        changefreq.text = 'weekly'
+        priority = ET.SubElement(url_elem, 'priority')
+        priority.text = '0.9'
+    
+    xml_str = ET.tostring(root, encoding='utf-8')
+    dom = minidom.parseString(xml_str)
+    
+    return dom.toprettyxml(indent='  '), 200, {'Content-Type':application/xml'}
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    """Fichier robots.txt"""
+    return """User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /compte/
+Disallow: /panier/
+Disallow: /paiement/
+
+Sitemap: https://www.destockalimentaire.com/sitemap.xml
+Sitemap: https://www.destockalimentaire.com/sitemap-produits.xml
+Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
+""", 200, {'Content-Type': 'text/plain'}
 
 # Routes pour les articles SEO
 @app.route('/destockage-alimentaire-paris')
@@ -2207,17 +2278,6 @@ def sitemap_produits():
     dom = minidom.parseString(xml_str)
     
     return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
-
-
-@app.route('/robots.txt')
-def robots_txt():
-    """Fichier robots.txt"""
-    return """User-agent: *
-Allow: /
-
-Sitemap: https://www.destockalimentaire.com/sitemap.xml
-Sitemap: https://www.destockalimentaire.com/sitemap-produits.xml
-""", 200, {'Content-Type': 'text/plain'}
 
 
 
