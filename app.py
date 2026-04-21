@@ -2220,7 +2220,7 @@ def sitemap_produits():
     xml_str = ET.tostring(root, encoding='utf-8')
     dom = minidom.parseString(xml_str)
     
-    return dom.toprettyxml(indent='  '), 200, {'Content-Type':application/xml'}
+    return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
 
 
 @app.route('/robots.txt')
