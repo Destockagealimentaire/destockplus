@@ -1,6 +1,5 @@
-# app.py
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
-from flask_wtf.csrf import CSRFProtect  # Maintenant ça devrait fonctionner
+from flask_wtf.csrf import CSRFProtect
 from extensions import db, login_manager
 from flask_login import UserMixin, login_user, login_required, logout_user, current_user
 from datetime import datetime, timedelta
@@ -11,7 +10,6 @@ import json
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
 from telegram_bot import send_telegram_message, test_telegram_connection, send_order_notification
-from sitemap import slugify
 
 
 app = Flask(__name__)
@@ -637,6 +635,8 @@ def api_panier():
 
 def slugify(text):
     """Convertit un texte en slug URL-friendly"""
+    if not text:
+        return ""
     import re
     from unidecode import unidecode
     text = unidecode(str(text).lower())
