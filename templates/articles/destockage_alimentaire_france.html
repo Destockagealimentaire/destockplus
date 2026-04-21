@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire France - Le Guide National 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire partout en France. Livraison nationale, prix imbattables et économies jusqu'à 70% sur toute l'alimentation.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire France, destockage France, alimentaire pas cher France, grossiste alimentaire France, destockage national{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage France</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 mb-4">Destockage Alimentaire France : Économisez Partout sur le Territoire</h1>
+            
+            <div class="alert alert-primary mb-4">
+                <strong>🇫🇷 Le saviez-vous ?</strong> Le marché français du destockage alimentaire représente plus de 2 milliards d'euros par an et connaît une croissance de 15% chaque année.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-france.jpg') }}" 
+                 alt="Destockage alimentaire France" 
+                 class="img-fluid rounded mb-4"
+                 loading="lazy">
+            
+            <div class="content">
+                <h2>Le destockage alimentaire : un phénomène national</h2>
+                <p>Le <strong>destockage alimentaire</strong> s'est imposé comme une alternative incontournable pour les consommateurs français soucieux de leur budget. Face à l'inflation, de plus en plus de ménages et de professionnels se tournent vers cette solution économique qui permet de réaliser des économies substantielles sur leurs achats alimentaires.</p>
+                
+                <h2>Les régions françaises du destockage</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-success text-white">
+                                <strong>🏆 Top 5 des régions</strong>
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li><strong>Île-de-France</strong> - 35% du marché</li>
+                                    <li><strong>Hauts-de-France</strong> - 18% du marché</li>
+                                    <li><strong>Auvergne-Rhône-Alpes</strong> - 15% du marché</li>
+                                    <li><strong>Grand Est</strong> - 12% du marché</li>
+                                    <li><strong>Nouvelle-Aquitaine</strong> - 8% du marché</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header bg-info text-white">
+                                <strong>📈 Marchés en croissance</strong>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Occitanie : +22% en 2024</li>
+                                    <li>PACA : +18% en 2024</li>
+                                    <li>Bretagne : +15% en 2024</li>
+                                    <li>Normandie : +12% en 2024</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Livraison nationale : où sommes-nous présents ?</h2>
+                
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Région</th>
+                                <th>Délai livraison</th>
+                                <th>Frais de port</th>
+                                <th>Offre spéciale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Île-de-France</td><td>24-48h</td><td>À partir de 69€</td><td>Gratuit dès 500€</td></tr>
+                            <tr><td>Hauts-de-France</td><td>24-48h</td><td>À partir de 69€</td><td>Gratuit dès 400€</td></tr>
+                            <tr><td>Normandie</td><td>48h</td><td>À partir de 89€</td><td>-10% première commande</td></tr>
+                            <tr><td>Grand Est</td><td>48-72h</td><td>À partir de 89€</td><td>-10% première commande</td></tr>
+                            <tr><td>Bretagne</td><td>48-72h</td><td>À partir de 89€</td><td>Livraison offerte dès 600€</td></tr>
+                            <tr><td>PACA</td><td>3-4 jours</td><td>À partir de 99€</td><td>-15% sur 1ère commande</td></tr>
+                            <tr><td>Occitanie</td><td>3-4 jours</td><td>À partir de 99€</td><td>-15% sur 1ère commande</td></tr>
+                            <tr><td>Nouvelle-Aquitaine</td><td>3-4 jours</td><td>À partir de 99€</td><td>Gratuit dès 700€</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Pourquoi choisir Destock Alimentaire pour toute la France ?</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 text-center">
+                        <div class="display-4">🚚</div>
+                        <h3 class="h6">Livraison nationale</h3>
+                        <small>Partout en France métropolitaine</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="display-4">💰</div>
+                        <h3 class="h6">Prix imbattables</h3>
+                        <small>Jusqu'à -70%</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="display-4">✅</div>
+                        <h3 class="h6">Qualité garantie</h3>
+                        <small>Produits conformes</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="display-4">🔒</div>
+                        <h3 class="h6">Paiement sécurisé</h3>
+                        <small>CB, PayPal, virement</small>
+                    </div>
+                </div>
+                
+                <h2>Les avantages par type de client</h2>
+                
+                <div class="accordion mb-4" id="accordionFrance">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pro">
+                                🍽️ Professionnels de la restauration
+                            </button>
+                        </h3>
+                        <div id="pro" class="accordion-collapse collapse show" data-bs-parent="#accordionFrance">
+                            <div class="accordion-body">
+                                <p>Chefs, restaurateurs, traiteurs : réduisez vos coûts d'approvisionnement de 30 à 50%.</p>
+                                <ul>
+                                    <li>Compte professionnel avec paiement à 30 jours</li>
+                                    <li>Tarifs dégressifs selon volume</li>
+                                    <li>Livraison express possible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#commerce">
+                                🛒 Commerçants et revendeurs
+                            </button>
+                        </h3>
+                        <div id="commerce" class="accordion-collapse collapse" data-bs-parent="#accordionFrance">
+                            <div class="accordion-body">
+                                <p>Épiceries, supérettes, boutiques : approvisionnez-vous à prix grossiste.</p>
+                                <ul>
+                                    <li>Marge garantie de 40% minimum</li>
+                                    <li>Produits pour revente</li>
+                                    <li>Livraison sur palette</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#particulier">
+                                👨‍👩‍👧‍👦 Particuliers
+                            </button>
+                        </h3>
+                        <div id="particulier" class="accordion-collapse collapse" data-bs-parent="#accordionFrance">
+                            <div class="accordion-body">
+                                <p>Familles, couples, célibataires : économisez sur vos courses quotidiennes.</p>
+                                <ul>
+                                    <li>Livraison à domicile</li>
+                                    <li>Possibilité d'achat en lot avec voisins</li>
+                                    <li>Newsletter des bonnes affaires</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-success text-white p-4 rounded my-4 text-center">
+                    <h3 class="h4">🚚 Livraison dans toute la France</h3>
+                    <p>Que vous soyez à Paris, Lyon, Marseille, Lille, Bordeaux, Toulouse, Nantes, Strasbourg ou Nice, nous livrons partout !</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg">Commander maintenant</a>
+                </div>
+                
+                <h2>Nos engagements qualité</h2>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center mb-3">
+                            <span class="display-4">🏆</span>
+                            <p><strong>Produits certifiés</strong><br>Conformes aux normes françaises</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center mb-3">
+                            <span class="display-4">📋</span>
+                            <p><strong>Traçabilité totale</strong><br>Origine et lot tracés</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center mb-3">
+                            <span class="display-4">🔧</span>
+                            <p><strong>Service client</strong><br>7j/7 pour vous assister</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Comment ça marche ?</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 60px; height: 60px;">
+                            <span class="h3 mb-0">1</span>
+                        </div>
+                        <p><strong>Parcourez</strong><br>Nos offres</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 60px; height: 60px;">
+                            <span class="h3 mb-0">2</span>
+                        </div>
+                        <p><strong>Ajoutez</strong><br>Au panier</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 60px; height: 60px;">
+                            <span class="h3 mb-0">3</span>
+                        </div>
+                        <p><strong>Payez</strong><br>Sécurisé</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 60px; height: 60px;">
+                            <span class="h3 mb-0">4</span>
+                        </div>
+                        <p><strong>Recevez</strong><br>Chez vous</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <h3>Rejoignez les milliers de clients satisfaits partout en France</h3>
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg mt-3">Voir toutes nos offres</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire France - Guide National 2024",
+    "description": "Guide complet du destockage alimentaire en France. Livraison nationale, économies garanties.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"}
+}
+</script>
+{% endblock %}
