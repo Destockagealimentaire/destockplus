@@ -2220,6 +2220,7 @@ def sitemap_produits():
     xml_str = ET.tostring(root, encoding='utf-8')
     dom = minidom.parseString(xml_str)
     
+    # CORRECTION ICI : ajout des guillemets autour de 'application/xml'
     return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
 
 
@@ -2249,35 +2250,7 @@ def destockage_alimentaire_lyon():
     """Article SEO destockage Lyon"""
     return render_template('articles/destockage_alimentaire_lyon.html')
     
-@app.route('/sitemap-produits.xml')
-def sitemap_produits():
-    """Sitemap spécifique pour les produits"""
-    from models import Produit
-    from datetime import datetime
-    import xml.etree.ElementTree as ET
-    from xml.dom import minidom
-    
-    produits = Produit.query.filter_by(actif=True).all()
-    
-    root = ET.Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-    
-    for produit in produits:
-        url_elem = ET.SubElement(root, 'url')
-        loc = ET.SubElement(url_elem, 'loc')
-        # Générer un slug à partir du nom du produit
-        slug = produit.nom.lower().replace(' ', '-').replace('é', 'e').replace('è', 'e').replace('à', 'a')
-        loc.text = f"https://www.destockalimentaire.com/produit/{produit.id}-{slug}"
-        lastmod = ET.SubElement(url_elem, 'lastmod')
-        lastmod.text = datetime.now().strftime('%Y-%m-%d')
-        changefreq = ET.SubElement(url_elem, 'changefreq')
-        changefreq.text = 'weekly'
-        priority = ET.SubElement(url_elem, 'priority')
-        priority.text = '0.9'
-    
-    xml_str = ET.tostring(root, encoding='utf-8')
-    dom = minidom.parseString(xml_str)
-    
-    return dom.toprettyxml(indent='  '), 200, {'Content-Type': 'application/xml'}
+
 
 
 
