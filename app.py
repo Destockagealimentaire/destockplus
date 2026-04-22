@@ -2281,9 +2281,10 @@ def discount_alimentaire_2026():
     return render_template('articles/discount_alimentaire_26.html')
 
 @app.route('/destockage-alimentaire-lille-2026')
-def destockage_alimentaire_lille():
+def destockage_alimentaire_lille_26():
     """Article SEO destockage Lille"""
     return render_template('articles/destockage_alimentaire_lille_26.html')
+    
 @app.route('/destockage-alimentaire-paris-2026')
 def destockage_alimentaire_paris_26():
     """Article SEO destockage Paris"""
