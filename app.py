@@ -2140,11 +2140,21 @@ def sitemap():
         {'loc': '/mentions-legales', 'priority': 0.3, 'changefreq': 'yearly'},
         {'loc': '/cgv', 'priority': 0.3, 'changefreq': 'yearly'},
         {'loc': '/confidentialite', 'priority': 0.3, 'changefreq': 'yearly'},
+        
+        # Articles existants
         {'loc': '/discount-alimentaire', 'priority': 0.8, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-paris', 'priority': 0.8, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-lyon', 'priority': 0.8, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-lille', 'priority': 0.8, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-france', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-espagne', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-professionnel', 'priority': 0.8, 'changefreq': 'weekly'},
+        
+        # 🆕 NOUVEAUX ARTICLES 2026
+        {'loc': '/discount-alimentaire-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lille-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-paris-2026', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
