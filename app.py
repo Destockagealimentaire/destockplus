@@ -2275,7 +2275,7 @@ def destockage_alimentaire_professionnel():
     """Article SEO destockage professionnel"""
     return render_template('articles/destockage_alimentaire_professionnel.html')
 
-exemple @app.route('/discount-alimentaire-2026')
+@app.route('/discount-alimentaire-2026')
 def discount_alimentaire_2026():
     """Article SEO discount alimentaire"""
     return render_template('articles/discount_alimentaire_26.html')
