@@ -2248,6 +2248,36 @@ def destockage_alimentaire_paris():
 def destockage_alimentaire_lyon():
     """Article SEO destockage Lyon"""
     return render_template('articles/destockage_alimentaire_lyon.html')
+
+
+@app.route('/destockage-alimentaire-belgique')
+def destockage_alimentaire_belgique():
+    """Article SEO destockage Belgique"""
+    return render_template('articles/destockage_alimentaire_belgique.html')
+
+@app.route('/destockage-alimentaire-espagne')
+def destockage_alimentaire_espagne():
+    """Article SEO destockage Espagne"""
+    return render_template('articles/destockage_alimentaire_espagne.html')
+
+@app.route('/destockage-alimentaire-professionnel')
+def destockage_alimentaire_professionnel():
+    """Article SEO destockage professionnel"""
+    return render_template('articles/destockage_alimentaire_professionnel.html')
+
+exemple @app.route('/discount-alimentaire-2026')
+def discount_alimentaire_2026():
+    """Article SEO discount alimentaire"""
+    return render_template('articles/discount_alimentaire_26.html')
+
+@app.route('/destockage-alimentaire-lille-2026')
+def destockage_alimentaire_lille():
+    """Article SEO destockage Lille"""
+    return render_template('articles/destockage_alimentaire_lille_26.html')
+@app.route('/destockage-alimentaire-paris-2026')
+def destockage_alimentaire_paris_26():
+    """Article SEO destockage Paris"""
+    return render_template('articles/destockage_alimentaire_paris_26.html')
     
 
 
