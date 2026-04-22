@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire Belgique - Guide Complet 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire en Belgique. Économisez jusqu'à 70% sur vos achats à Bruxelles, Anvers, Liège et dans toute la Belgique. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Belgique, destockage Belgique, alimentaire pas cher Belgique, grossiste alimentaire Belgique, destockage Bruxelles, destockage Anvers{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage Belgique</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 mb-4">🇧🇪 Destockage Alimentaire Belgique : Le Guide Complet 2024</h1>
+            
+            <div class="alert alert-success mb-4">
+                <strong>🍟 Bon à savoir :</strong> La Belgique est le 4ème marché européen du destockage alimentaire, avec une croissance de +18% en 2024. Bruxelles, Anvers et Liège sont les principaux hubs.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-belgique.jpg') }}" 
+                 alt="Destockage alimentaire Belgique" 
+                 class="img-fluid rounded mb-4"
+                 loading="lazy">
+            
+            <div class="content">
+                <h2>Pourquoi le destockage alimentaire explose en Belgique ?</h2>
+                <p>La Belgique, carrefour de l'Europe, est devenue un hub majeur du <strong>destockage alimentaire</strong>. Grâce à sa position stratégique entre la France, l'Allemagne et les Pays-Bas, de nombreux grossistes et entrepôts logistiques se sont implantés dans le pays. Les consommateurs belges économisent en moyenne 1200€ par an grâce au destockage.</p>
+                
+                <h2>Les villes incontournables du destockage en Belgique</h2>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <h3 class="h5">🏙️ Bruxelles</h3>
+                                <p>Capitale européenne, plus de 50 grossistes spécialisés dans le destockage.</p>
+                                <small>📍 Région de Bruxelles-Capitale</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <h3 class="h5">⚓ Anvers</h3>
+                                <p>Port majeur, zone logistique gigantesque avec des prix imbattables.</p>
+                                <small>📍 Province d'Anvers</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <h3 class="h5">🏭 Liège</h3>
+                                <p>Pôle logistique wallon, proche de la frontière française.</p>
+                                <small>📍 Province de Liège</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Produits stars du destockage belge</h2>
+                
+                <div class="table-responsive mb-4">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Catégorie</th>
+                                <th>Produits populaires</th>
+                                <th>Économies</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🍺 Bières belges</td>
+                                <td>Stella Artois, Jupiler, Leffe, Duvel, Chimay</td>
+                                <td>-40 à -60%</td>
+                            </tr>
+                            <tr>
+                                <td>🍟 Frites et snacks</td>
+                                <td>Frites surgelées, sauces, mayonnaises</td>
+                                <td>-35 à -50%</td>
+                            </tr>
+                            <tr>
+                                <td>🍫 Chocolats</td>
+                                <td>Pralines, tablettes, pâtes à tartiner</td>
+                                <td>-30 à -55%</td>
+                            </tr>
+                            <tr>
+                                <td>🧀 Fromages</td>
+                                <td>Fromages belges et d'import</td>
+                                <td>-25 à -45%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Pourquoi choisir Destock Alimentaire pour la Belgique ?</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🚚 Livraison express</h3>
+                                <p>Livraison sous 24-48h à Bruxelles, Anvers, Liège, Charleroi, Namur et dans toute la Belgique.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🇪🇺 Pas de frais de douane</h3>
+                                <p>La Belgique étant dans l'UE, pas de frais supplémentaires ni de formalités douanières.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">💶 Paiement en euros</h3>
+                                <p>Transactions en euros, pas de frais de change.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">📦 Retrait possible</h3>
+                                <p>Point de retrait à Bruxelles pour les commandes en ligne.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-primary text-white p-4 rounded my-4 text-center">
+                    <h3 class="h4">🎁 Offre spéciale Belgique</h3>
+                    <p class="mb-2">Pour toute commande livrée en Belgique, bénéficiez de <strong>-10%</strong> avec le code <strong>BELGIQUE10</strong></p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">Voir les offres</a>
+                </div>
+                
+                <h2>Questions fréquentes sur le destockage en Belgique</h2>
+                
+                <div class="accordion mb-4" id="faqBelgique">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#belgique1">
+                                Quels sont les délais de livraison en Belgique ?
+                            </button>
+                        </h3>
+                        <div id="belgique1" class="accordion-collapse collapse show" data-bs-parent="#faqBelgique">
+                            <div class="accordion-body">
+                                Livraison sous 24-48h à Bruxelles, Anvers, Liège, Charleroi, Namur. Comptez 48-72h pour le reste de la Wallonie et la Flandre.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#belgique2">
+                                Y a-t-il des frais de douane ?
+                            </button>
+                        </h3>
+                        <div id="belgique2" class="accordion-collapse collapse" data-bs-parent="#faqBelgique">
+                            <div class="accordion-body">
+                                Non, la Belgique étant dans l'Union Européenne, il n'y a aucun frais de douane ni taxe supplémentaire.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#belgique3">
+                                Peut-on payer en espèces à la livraison ?
+                            </button>
+                        </h3>
+                        <div id="belgique3" class="accordion-collapse collapse" data-bs-parent="#faqBelgique">
+                            <div class="accordion-body">
+                                Oui, nous proposons le paiement à la livraison pour les commandes en Belgique (frais de 5€). Également possible par carte, virement ou PayPal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <h3>Prêt à économiser sur vos achats en Belgique ?</h3>
+                    <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg mt-3">Découvrir les offres</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Belgique - Guide Complet 2024",
+    "description": "Guide complet du destockage alimentaire en Belgique. Économies jusqu'à 70% à Bruxelles, Anvers, Liège.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-06-01"
+}
+</script>
+{% endblock %}

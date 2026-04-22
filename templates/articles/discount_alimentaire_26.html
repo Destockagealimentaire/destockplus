@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}Discount Alimentaire - Économisez Jusqu'à 70% sur vos Courses 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Le discount alimentaire vous permet d'économiser jusqu'à 70% sur vos achats. Découvrez les meilleures astuces, offres et bon plans pour réduire votre budget courses dès aujourd'hui.{% endblock %}
+
+{% block meta_keywords %}discount alimentaire, alimentaire pas cher, courses pas cher, économies alimentaires, bon plans courses, destockage discount, promo alimentaire{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Discount Alimentaire</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 mb-4">💰 Discount Alimentaire : Le Guide Complet pour Économiser jusqu'à 70%</h1>
+            
+            <div class="alert alert-success mb-4">
+                <strong>📊 Chiffre clé :</strong> En 2024, le discount alimentaire permet aux ménages français d'économiser en moyenne 1200€ par an sur leur budget courses. Un record !
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/discount-alimentaire.jpg') }}" 
+                 alt="Discount alimentaire - Économies garanties" 
+                 class="img-fluid rounded mb-4"
+                 loading="lazy">
+            
+            <div class="content">
+                <h2>Qu'est-ce que le discount alimentaire ?</h2>
+                <p>Le <strong>discount alimentaire</strong> est une pratique qui permet d'acheter des produits alimentaires à des prix défiant toute concurrence. Contrairement aux idées reçues, le discount ne rime pas avec mauvaise qualité. Il s'agit plutôt de produits provenant de :</p>
+                <ul>
+                    <li>Fins de séries et surplus de production</li>
+                    <li>Changements d'emballage (même produit, nouvel aspect)</li>
+                    <li>Produits approchant leur DDM (Date de Durabilité Minimale)</li>
+                    <li>Commandes annulées ou invendus</li>
+                    <li>Destockages de grossistes et centrales d'achat</li>
+                </ul>
+                
+                <h2>Les 4 types de discount alimentaire</h2>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <div class="display-4 mb-2">🏪</div>
+                                <h3 class="h5 card-title">Hard Discount</h3>
+                                <p class="card-text">Magasins comme Lidl, Aldi, Netto - Prix bas permanents sur l'ensemble de la gamme.</p>
+                                <small>Économies : 20-30%</small>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-success" style="width: 25%">-25%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <div class="display-4 mb-2">📦</div>
+                                <h3 class="h5 card-title">Destockage en ligne</h3>
+                                <p class="card-text">Sites spécialisés comme Destock Alimentaire - Lots professionnels et particuliers.</p>
+                                <small>Économies : 40-70%</small>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-danger" style="width: 55%">-55%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <div class="display-4 mb-2">🥫</div>
+                                <h3 class="h5 card-title">Anti-gaspi</h3>
+                                <p class="card-text">Applications comme Too Good To Go, Phenix - Produits proches de la DDM.</p>
+                                <small>Économies : 50-70%</small>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-warning" style="width: 60%">-60%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body">
+                                <div class="display-4 mb-2">🏭</div>
+                                <h3 class="h5 card-title">Grossistes</h3>
+                                <p class="card-text">Achat en gros pour professionnels et particuliers avertis.</p>
+                                <small>Économies : 30-50%</small>
+                                <div class="progress mt-2">
+                                    <div class="progress-bar bg-info" style="width: 40%">-40%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Top 10 des produits en discount alimentaire</h2>
+                <div class="table-responsive mb-4">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Catégorie</th>
+                                <th>Produits concernés</th>
+                                <th>Économies moyennes</th>
+                                <th>Disponibilité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🥤 Boissons</td><td>Sodas, jus, eaux, thés glacés</td><td class="text-success">-60%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                            <tr><td>🍝 Épicerie</td><td>Pâtes, riz, conserves, sauces</td><td class="text-success">-50%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                            <tr><td>🧀 Produits laitiers</td><td>Fromages, yaourts, beurre</td><td class="text-success">-40%</td><td>⭐⭐⭐⭐</td></tr>
+                            <tr><td>❄️ Surgelés</td><td>Légumes, poissons, pizzas</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐</td></tr>
+                            <tr><td>🍷 Vins et spiritueux</td><td>Vins, champagnes, alcools</td><td class="text-success">-45%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                            <tr><td>🥓 Charcuterie</td><td>Jambon, saucisson, rillettes</td><td class="text-success">-35%</td><td>⭐⭐⭐</td></tr>
+                            <tr><td>🍫 Confiserie</td><td>Chocolats, bonbons, biscuits</td><td class="text-success">-50%</td><td>⭐⭐⭐⭐</td></tr>
+                            <tr><td>🌿 Produits bio</td><td>Bio, sans gluten, vegan</td><td class="text-success">-40%</td><td>⭐⭐⭐</td></tr>
+                            <tr><td>🍳 Hygiène</td><td>Lessive, shampoing, savon</td><td class="text-success">-45%</td><td>⭐⭐⭐⭐</td></tr>
+                            <tr><td>🐶 Animalerie</td><td>Croquettes, litière, accessoires</td><td class="text-success">-35%</td><td>⭐⭐⭐⭐</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Les 5 règles d'or du discount alimentaire</h2>
+                
+                <div class="bg-light p-4 rounded my-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h4>1️⃣ Achetez en quantité</h4>
+                                <p>Plus vous achetez, moins vous payez. Les lots de 6, 12 ou 24 unités sont jusqu'à 60% moins chers.</p>
+                            </div>
+                            <div class="mb-3">
+                                <h4>2️⃣ Comparez les prix au kilo</h4>
+                                <p>Le vrai prix est au poids. Un format familial n'est pas toujours plus économique.</p>
+                            </div>
+                            <div class="mb-3">
+                                <h4>3️⃣ Surveillez les DDM</h4>
+                                <p>Une DDM courte = prix cassé. Les produits à -50% sont souvent à consommer rapidement.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h4>4️⃣ Abonnez-vous aux alertes</h4>
+                                <p>Recevez les meilleures offres en avant-première par email ou SMS.</p>
+                            </div>
+                            <div class="mb-3">
+                                <h4>5️⃣ Groupez vos achats</h4>
+                                <p>Partagez les lots avec votre famille, vos amis ou vos voisins.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Discount alimentaire vs Grandes surfaces : le comparatif</h2>
+                
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Critère</th>
+                                <th>Discount Alimentaire</th>
+                                <th>Grande surface</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>💰 Prix</td><td class="text-success">-40 à -70%</td><td>Prix standard</td></tr>
+                            <tr><td>✨ Qualité</td><td>Identique</td><td>Identique</td></tr>
+                            <tr><td>🔄 Variété</td><td>Variable (stocks changeants)</td><td>Constante</td></tr>
+                            <tr><td>📦 Quantité minimale</td><td>Lot (souvent multiple)</td><td>À l'unité</td></tr>
+                            <tr><td>🚚 Livraison</td><td>Possible (dès 69€)</td><td>Sur rendez-vous</td></tr>
+                            <tr><td>🏷️ Marques</td><td>Grandes marques + distributeur</td><td>Toutes marques</td></tr>
+                            <tr><td>📅 DDM</td><td>Courte à moyenne</td><td>Longue</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-primary text-white p-4 rounded my-4 text-center">
+                    <h3 class="h4">🔥 Offre exclusive Destock Alimentaire</h3>
+                    <p class="mb-2">Profitez de -15% sur votre première commande avec le code <strong>DISCOUNT15</strong></p>
+                    <p class="mb-3 small">Valable sur tout le site, sans minimum d'achat</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">Voir les offres discount</a>
+                </div>
+                
+                <h2>Questions fréquentes sur le discount alimentaire</h2>
+                
+                <div class="accordion mb-4" id="faqDiscount">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                                Le discount alimentaire est-il vraiment sûr ?
+                            </button>
+                        </h3>
+                        <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Oui, tous nos produits sont conformes aux normes sanitaires françaises et européennes. La DDM (Date de Durabilité Minimale) est toujours respectée et clairement indiquée.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                                Peut-on acheter en petite quantité ?
+                            </button>
+                        </h3>
+                        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Oui, nous proposons des lots à partir d'une unité pour certains produits. Plus vous achetez, plus vous économisez, mais il n'y a pas d'obligation d'achat en grande quantité.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                                Comment être informé des nouvelles offres ?
+                            </button>
+                        </h3>
+                        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Inscrivez-vous à notre newsletter en bas de page et suivez-nous sur Facebook et Instagram pour recevoir nos meilleures offres en avant-première.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                                Y a-t-il des frais de livraison ?
+                            </button>
+                        </h3>
+                        <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqDiscount">
+                            <div class="accordion-body">
+                                Les frais de port sont à partir de 69€ selon le volume. Ils sont gratuits pour toute commande supérieure à 500€ en France métropolitaine.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <h3>Prêt à faire des économies exceptionnelles ?</h3>
+                    <p class="lead">Des milliers de clients nous font déjà confiance</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg mt-3">Découvrir nos offres discount</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Discount Alimentaire - Le Guide Complet pour Économiser jusqu'à 70%",
+    "description": "Guide complet du discount alimentaire : astuces, meilleures offres et économies garanties jusqu'à 70%.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-06-01",
+    "mainEntityOfPage": "https://www.destockalimentaire.com/discount-alimentaire"
+}
+</script>
+{% endblock %}

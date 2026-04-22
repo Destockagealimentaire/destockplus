@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire Lille - Les Meilleures Adresses 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Lille et dans les Hauts-de-France. Économies garanties pour les professionnels et particuliers. Livraison rapide dans toute la région.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Lille, destockage Lille, alimentaire pas cher Lille, grossiste alimentaire Lille, destockage Hauts-de-France, destockage Nord{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage Lille</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 mb-4">🏆 Destockage Alimentaire Lille : Le Guide des Bonnes Affaires 2024</h1>
+            
+            <div class="alert alert-info mb-4">
+                <strong>📍 Bon à savoir :</strong> Lille est la 3ème place du destockage alimentaire en France, avec plus de 150 professionnels actifs dans la métropole et une économie moyenne de 1000€ par an pour les familles lilloises.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-lille.jpg') }}" 
+                 alt="Destockage alimentaire Lille" 
+                 class="img-fluid rounded mb-4"
+                 loading="lazy">
+            
+            <div class="content">
+                <h2>Pourquoi Lille est devenue la capitale du destockage dans les Hauts-de-France ?</h2>
+                <p>Située au carrefour de l'Europe, <strong>Lille</strong> bénéficie d'une position géographique exceptionnelle pour le destockage alimentaire. La métropole lilloise, avec ses 1,2 million d'habitants, concentre de nombreux grossistes et entrepôts logistiques qui alimentent toute la région des Hauts-de-France mais aussi la Belgique et les Pays-Bas. Le destockage à Lille permet de réaliser des économies substantielles grâce à la concurrence intense entre les nombreux acteurs présents sur le territoire.</p>
+                
+                <h2>Les zones incontournables du destockage à Lille</h2>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🏭 Zone de Lesquin</h3>
+                                <p>Le plus grand pôle logistique de la métropole avec une dizaine de grossistes spécialisés dans le destockage alimentaire. Accès facile depuis l'autoroute A1.</p>
+                                <small>📍 À 10 min de Lille centre | ⭐ Économies : -50%</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🏪 EuraTechnologies (Lomme)</h3>
+                                <p>Zone dynamique avec plusieurs entrepôts de destockage alimentaire. Idéal pour les produits innovants et les startups alimentaires.</p>
+                                <small>📍 À 15 min de Lille | ⭐ Économies : -45%</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🏘️ Roubaix - Tourcoing</h3>
+                                <p>De nombreux grossistes historiques, spécialisés dans le textile mais aussi l'alimentaire. Ambiance commerçante et prix attractifs.</p>
+                                <small>📍 20 min de Lille | ⭐ Économies : -55%</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h3 class="h5">🚚 Zone de Vendeville</h3>
+                                <p>Proche de l'aéroport, zone logistique majeure avec des offres intéressantes sur les produits importés.</p>
+                                <small>📍 15 min de Lille | ⭐ Économies : -50%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Produits stars du destockage lillois</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🍺</div>
+                                <h3 class="h5">Bières locales</h3>
+                                <p>Ch'ti bières, bières de garde et spécialités brassicoles régionales</p>
+                                <span class="badge bg-success">-50%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🧀</div>
+                                <h3 class="h5">Fromages régionaux</h3>
+                                <p>Maroilles, Vieux-Lille, Mimolette, Boulette d'Avesnes</p>
+                                <span class="badge bg-success">-40%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🥔</div>
+                                <h3 class="h5">Produits du terroir</h3>
+                                <p>Endives, pommes de terre, chicorée, escavèche</p>
+                                <span class="badge bg-success">-45%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🍫</div>
+                                <h3 class="h5">Chocolats</h3>
+                                <p>Palets dunkerquois, bêtises de Cambrai, chocolats belges</p>
+                                <span class="badge bg-success">-35%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🥖</div>
+                                <h3 class="h5">Produits boulangers</h3>
+                                <p>Farines, levures, ingrédients professionnels</p>
+                                <span class="badge bg-success">-40%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <div class="display-4">🍎</div>
+                                <h3 class="h5">Fruits & légumes</h3>
+                                <p>Pommes, poires, endives, choux de Bruxelles</p>
+                                <span class="badge bg-success">-60%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Avantages du destockage à Lille avec Destock Alimentaire</h2>
+                
+                <ul class="list-unstyled">
+                    <li class="mb-3">✅ <strong>Livraison express</strong> - Sous 24h dans toute la métropole lilloise</li>
+                    <li class="mb-3">✅ <strong>Partenaires locaux</strong> - Plus de 30 grossistes lillois référencés</li>
+                    <li class="mb-3">✅ <strong>Retrait gratuit</strong> - Dans notre point de retrait à Lesquin</li>
+                    <li class="mb-3">✅ <strong>Prix dégressifs</strong> - Remises automatiques selon le volume</li>
+                    <li class="mb-3">✅ <strong>Livraison vers Belgique</strong> - Proximité avec la frontière belge</li>
+                </ul>
+                
+                <div class="bg-warning p-4 rounded my-4">
+                    <h3 class="h4">🎁 Offre spéciale Lilloise</h3>
+                    <p>Pour toute commande livrée dans la métropole lilloise, bénéficiez de la <strong>livraison offerte</strong> dès 300€ d'achat avec le code <strong>LILLE300</strong>.</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-dark mt-2">Profiter de l'offre</a>
+                </div>
+                
+                <h2>Témoignages de nos clients lillois</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"Je gère une brasserie dans le Vieux-Lille et j'économise plus de 1500€ par mois grâce à Destock Alimentaire. La livraison est toujours ponctuelle et les produits de qualité."</p>
+                                <footer class="blockquote-footer">Antoine, Lille centre</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"Service impeccable et produits de qualité. La livraison est vraiment rapide à Roubaix. Je recommande vivement !"</p>
+                                <footer class="blockquote-footer">Marie, Roubaix</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"En tant que restaurateur à Villeneuve-d'Ascq, je trouve toujours mon bonheur. Les prix sont imbattables dans la région."</p>
+                                <footer class="blockquote-footer">David, Villeneuve-d'Ascq</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"Je commande pour mon épicerie de quartier à Lille. Le rapport qualité-prix est excellent et la livraison fiable."</p>
+                                <footer class="blockquote-footer">Sophie, Lille Wazemmes</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Questions fréquentes sur Lille</h2>
+                
+                <div class="accordion mb-4" id="faqLille">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#lille1">
+                                Livrez-vous dans toute la région Hauts-de-France ?
+                            </button>
+                        </h3>
+                        <div id="lille1" class="accordion-collapse collapse show" data-bs-parent="#faqLille">
+                            <div class="accordion-body">
+                                Oui, nous livrons dans tout le Nord-Pas-de-Calais : Lille, Roubaix, Tourcoing, Villeneuve-d'Ascq, Douai, Lens, Béthune, Valenciennes, Dunkerque, Calais, Boulogne-sur-Mer et toute la région.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lille2">
+                                Puis-je commander pour mon restaurant lillois ?
+                            </button>
+                        </h3>
+                        <div id="lille2" class="accordion-collapse collapse" data-bs-parent="#faqLille">
+                            <div class="accordion-body">
+                                Absolument ! Nous travaillons avec de nombreux restaurants, estaminets et brasseries lilloises. Créez un compte professionnel pour bénéficier de tarifs préférentiels, de paiement à 30 jours et de livraison prioritaire.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lille3">
+                                Y a-t-il un point de retrait à Lille ?
+                            </button>
+                        </h3>
+                        <div id="lille3" class="accordion-collapse collapse" data-bs-parent="#faqLille">
+                            <div class="accordion-body">
+                                Oui, nous avons un point de retrait à Lesquin (zone commerciale) ouvert du lundi au vendredi de 9h à 18h. Le retrait est gratuit et vous pouvez venir avec votre véhicule.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lille4">
+                                Proposez-vous des produits spécifiques aux Hauts-de-France ?
+                            </button>
+                        </h3>
+                        <div id="lille4" class="accordion-collapse collapse" data-bs-parent="#faqLille">
+                            <div class="accordion-body">
+                                Oui, nous avons régulièrement des stocks de bières régionales, maroilles, chicorée, bêtises de Cambrai et autres spécialités des Hauts-de-France à prix destockés.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-success text-white p-4 rounded my-4 text-center">
+                    <h3 class="h4">🚚 Livraison gratuite à Lille</h3>
+                    <p>Pour toute commande supérieure à 300€, la livraison est OFFERTE dans toute la métropole lilloise.</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">Commander maintenant</a>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg">Voir les offres à Lille</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Lille - Guide Complet 2024",
+    "description": "Guide du destockage alimentaire à Lille : meilleures adresses, économies et offres spéciales.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "datePublished": "2024-01-15",
+    "dateModified": "2024-06-01"
+}
+</script>
+{% endblock %}

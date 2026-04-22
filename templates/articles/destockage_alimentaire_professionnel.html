@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+
+{% block title %}Destockage Alimentaire Professionnel - Solution B2B 2024 | Destock Alimentaire{% endblock %}
+
+{% block meta_description %}Solutions de destockage alimentaire pour professionnels. Restaurateurs, traiteurs, commerçants : économisez jusqu'à 70% sur vos approvisionnements. Compte pro, paiement 30 jours, livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire professionnel, destockage B2B, grossiste alimentaire pro, fournisseur restauration, achat alimentaire pro, destockage commerce{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage Professionnel</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 mb-4">🏢 Destockage Alimentaire Professionnel : La Solution B2B pour Booster vos Marges</h1>
+            
+            <div class="alert alert-primary mb-4">
+                <strong>💼 Pour les pros :</strong> Économisez jusqu'à 70% sur vos approvisionnements. Compte professionnel, paiement à 30 jours, livraison rapide partout en France.
+            </div>
+            
+            <img src="{{ url_for('static', filename='images/articles/destockage-professionnel.jpg') }}" 
+                 alt="Destockage alimentaire professionnel" 
+                 class="img-fluid rounded mb-4"
+                 loading="lazy">
+            
+            <div class="content">
+                <h2>Pourquoi choisir le destockage alimentaire professionnel ?</h2>
+                <p>Le <strong>destockage alimentaire professionnel</strong> est une solution stratégique pour tous les acteurs de la restauration, du commerce et de l'agroalimentaire. Dans un contexte économique tendu, réduire ses coûts d'approvisionnement tout en maintenant la qualité est devenu indispensable. Destock Alimentaire vous propose des produits de grandes marques à prix cassés, avec des conditions adaptées aux professionnels.</p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-4 text-center">
+                        <div class="display-4">💰</div>
+                        <h3 class="h5">-70%</h3>
+                        <small>Économies moyennes</small>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="display-4">🚚</div>
+                        <h3 class="h5">24-48h</h3>
+                        <small>Livraison express</small>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="display-4">📦</div>
+                        <h3 class="h5">+1000</h3>
+                        <small>Produits disponibles</small>
+                    </div>
+                </div>
+                
+                <h2>Qui peut bénéficier du destockage professionnel ?</h2>
+                
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">🍽️</div>
+                                <h3 class="h5">Restaurateurs</h3>
+                                <p>Réduisez vos coûts matières premières de 30 à 50%</p>
+                                <span class="badge bg-success">Très populaire</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">🍰</div>
+                                <h3 class="h5">Traiteurs</h3>
+                                <p>Produits premium à prix grossiste</p>
+                                <span class="badge bg-success">Très populaire</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">🏪</div>
+                                <h3 class="h5">Commerçants</h3>
+                                <p>Épiceries, supérettes, boutiques</p>
+                                <span class="badge bg-info">Populaire</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">🏨</div>
+                                <h3 class="h5">Hôtels</h3>
+                                <p>Petits-déjeuners, buffets, room service</p>
+                                <span class="badge bg-info">Populaire</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">🏭</div>
+                                <h3 class="h5">Collectivités</h3>
+                                <p>Cantines, hôpitaux, maisons de retraite</p>
+                                <span class="badge bg-secondary">En développement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3 h-100">
+                            <div class="card-body text-center">
+                                <div class="display-4">📦</div>
+                                <h3 class="h5">Revendeurs</h3>
+                                <p>Achetez pour revendre avec marge</p>
+                                <span class="badge bg-info">Populaire</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Les avantages du compte professionnel</h2>
+                
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Avantage</th>
+                                <th>Compte Particulier</th>
+                                <th>Compte Professionnel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>💰 Prix préférentiels</td>
+                                <td>-</td>
+                                <td class="text-success">✓ Jusqu'à -15%</td>
+                            </tr>
+                            <tr>
+                                <td>💳 Paiement à 30 jours</td>
+                                <td>-</td>
+                                <td class="text-success">✓ Sur facture</td>
+                            </tr>
+                            <tr>
+                                <td>🚚 Livraison prioritaire</td>
+                                <td>-</td>
+                                <td class="text-success">✓ 24h chrono</td>
+                            </tr>
+                            <tr>
+                                <td>📊 Relevé d'achats</td>
+                                <td>-</td>
+                                <td class="text-success">✓ Mensuel</td>
+                            </tr>
+                            <tr>
+                                <td>🆘 Support dédié</td>
+                                <td>-</td>
+                                <td class="text-success">✓ 7j/7</td>
+                            </tr>
+                            <tr>
+                                <td>📦 Retours facilités</td>
+                                <td>14 jours</td>
+                                <td class="text-success">✓ 30 jours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Catégories de produits pour professionnels</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Boissons (sodas, jus, eaux)
+                                <span class="badge bg-primary rounded-pill">-60%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Épicerie (pâtes, riz, conserves)
+                                <span class="badge bg-primary rounded-pill">-50%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Surgelés (légumes, poissons, viandes)
+                                <span class="badge bg-primary rounded-pill">-55%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Produits laitiers
+                                <span class="badge bg-primary rounded-pill">-40%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Vins et spiritueux
+                                <span class="badge bg-primary rounded-pill">-45%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Charcuterie
+                                <span class="badge bg-primary rounded-pill">-35%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Confiserie
+                                <span class="badge bg-primary rounded-pill">-50%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hygiène et entretien
+                                <span class="badge bg-primary rounded-pill">-45%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Comment ça marche pour les pros ?</h2>
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 70px; height: 70px;">
+                            <span class="h2 mb-0">1</span>
+                        </div>
+                        <p><strong>Créez votre compte</strong><br>Gratuit et sans engagement</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 70px; height: 70px;">
+                            <span class="h2 mb-0">2</span>
+                        </div>
+                        <p><strong>Fournissez vos documents</strong><br>Kbis, SIRET, extrait RCS</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 70px; height: 70px;">
+                            <span class="h2 mb-0">3</span>
+                        </div>
+                        <p><strong>Commandez</strong><br>Aux prix grossistes</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 70px; height: 70px;">
+                            <span class="h2 mb-0">4</span>
+                        </div>
+                        <p><strong>Recevez et économisez</strong><br>Jusqu'à 70%</p>
+                    </div>
+                </div>
+                
+                <div class="bg-dark text-white p-4 rounded my-4 text-center">
+                    <h3 class="h4">🎁 Offre de bienvenue professionnelle</h3>
+                    <p class="mb-2">Pour tout premier achat professionnel, bénéficiez de <strong>-20%</strong> avec le code <strong>PRO20</strong> + livraison offerte</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">Créer mon compte pro</a>
+                </div>
+                
+                <h2>Ils nous font confiance</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"Grâce au destockage professionnel, j'ai réduit mes coûts d'approvisionnement de 40%. Le compte pro avec paiement à 30 jours est un vrai plus pour ma trésorerie."</p>
+                                <footer class="blockquote-footer">Philippe, Restaurateur à Lyon</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="text-warning mb-2">★★★★★</div>
+                                <p class="card-text">"Je commande pour mes 3 boulangeries. La qualité est constante et la livraison toujours ponctuelle. Je recommande !"</p>
+                                <footer class="blockquote-footer">Marie, Boulangère à Lille</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Questions fréquentes pour les pros</h2>
+                
+                <div class="accordion mb-4" id="faqPro">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pro1">
+                                Quels documents faut-il fournir pour un compte pro ?
+                            </button>
+                        </h3>
+                        <div id="pro1" class="accordion-collapse collapse show" data-bs-parent="#faqPro">
+                            <div class="accordion-body">
+                                Pour ouvrir un compte professionnel, vous devez fournir : votre KBis (moins de 3 mois), votre numéro SIRET/SIREN, une attestation d'activité professionnelle et un RIB professionnel.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pro2">
+                                Quelles sont les conditions de paiement ?
+                            </button>
+                        </h3>
+                        <div id="pro2" class="accordion-collapse collapse" data-bs-parent="#faqPro">
+                            <div class="accordion-body">
+                                Les professionnels bénéficient d'un paiement à 30 jours fin de mois sur facture. Vous pouvez également payer par carte, virement ou PayPal.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pro3">
+                                Livrez-vous sur tout le territoire ?
+                            </button>
+                        </h3>
+                        <div id="pro3" class="accordion-collapse collapse" data-bs-parent="#faqPro">
+                            <div class="accordion-body">
+                                Oui, nous livrons partout en France métropolitaine. Pour les DOM-TOM et l'international, contactez notre service export.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pro4">
+                                Y a-t-il un minimum de commande ?
+                            </button>
+                        </h3>
+                        <div id="pro4" class="accordion-collapse collapse" data-bs-parent="#faqPro">
+                            <div class="accordion-body">
+                                Le minimum de commande pour les professionnels est de 300€ HT. Au-delà, les frais de port sont gratuits pour toute commande supérieure à 500€ HT.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <h3>Prêt à augmenter vos marges ?</h3>
+                    <p class="lead">Rejoignez les centaines de professionnels qui nous font confiance</p>
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg mt-2 me-2">Découvrir les offres pro</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg mt-2">Contactez notre service B2B</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Professionnel - Solution B2B 2024",
+    "description": "Solutions de destockage alimentaire pour professionnels. Économies jusqu'à 70% sur vos approvisionnements.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"}
+}
+</script>
+{% endblock %}
