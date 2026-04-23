@@ -3,21 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>{% block title %}Destock+ - Destockage Alimentaire professionnel{% endblock %}</title>
     
-    <!-- Google Fonts -->
+    <!-- ============ BALISES SEO PRINCIPALES ============ -->
+    <title>{% block title %}DestockPro - Destockage Alimentaire Professionnel | Économies jusqu'à 70%{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}DestockPro : leader français du destockage alimentaire. Économisez jusqu'à 70% sur vos produits de marque. Livraison rapide partout en France. 5000+ références disponibles.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}destockage alimentaire, destockage professionnel, alimentaire pas cher, grossiste alimentaire, destockage France, achat en gros, palettes alimentaires{% endblock %}">
+    <meta name="author" content="DestockPro">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="revisit-after" content="1 day">
+    <meta name="language" content="French">
+    <meta name="geo.placename" content="France">
+    <meta name="geo.region" content="FR">
+    
+    <!-- ============ BALISES OPEN GRAPH (Facebook/LinkedIn) ============ -->
+    <meta property="og:title" content="{% block og_title %}DestockPro - Destockage Alimentaire Professionnel{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Économisez jusqu'à 70% sur vos courses avec DestockPro. Des milliers de produits de marque à prix cassés. Livraison rapide.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{{ request.url }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DestockPro">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- ============ BALISES TWITTER CARDS ============ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}DestockPro - Destockage Alimentaire{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Économies jusqu'à 70% sur le destockage alimentaire. Livraison rapide partout en France.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/twitter-image.jpg', _external=True) }}{% endblock %}">
+    
+    <!-- ============ BALISES D'INDEXATION AVANCÉES ============ -->
+    <link rel="canonical" href="{% block canonical %}{{ request.url }}{% endblock %}">
+    <link rel="alternate" hreflang="fr" href="{% block hreflang %}{{ request.url }}{% endblock %}">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DestockPro">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- ============ FAVICONS COMPLETS (16 versions pour tous les navigateurs) ============ -->
+    <!-- Favicon classique -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='favicon/favicon-48x48.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    
+    <!-- Apple Touch Icons (iOS) -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='favicon/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ url_for('static', filename='favicon/apple-touch-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='favicon/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='favicon/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='favicon/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='favicon/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='favicon/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='favicon/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ url_for('static', filename='favicon/apple-touch-icon-167x167.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon-180x180.png') }}">
+    
+    <!-- Android/Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='favicon/android-chrome-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='favicon/android-chrome-512x512.png') }}">
+    
+    <!-- Manifest pour PWA -->
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="msapplication-TileColor" content="#1a1a2e">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='favicon/mstile-150x150.png') }}">
+    <meta name="msapplication-config" content="{{ url_for('static', filename='browserconfig.xml') }}">
+    
+    <!-- ============ VERIFICATION DES MOTEURS DE RECHERCHE ============ -->
+    <meta name="google-site-verification" content="VOTRE_CODE_GOOGLE">
+    <meta name="msvalidate.01" content="VOTRE_CODE_BING">
+    <meta name="yandex-verification" content="VOTRE_CODE_YANDEX">
+    <meta name="p:domain_verify" content="VOTRE_CODE_PINTEREST">
+    
+    <!-- ============ GOOGLE FONTS & FONTS AWESOME ============ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
-    
-    <!-- CSS Principal -->
+    <!-- ============ CSS PRINCIPAL ============ -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- ============ PRELOAD DES RESSOURCES CRITIQUES ============ -->
+    <link rel="preload" as="image" href="{{ url_for('static', filename='images/hero-bg.jpg') }}">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    {% block extra_css %}{% endblock %}
+    
+    <!-- ============ SCHEMA.ORG STRUCTURED DATA (BASE) ============ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://www.destockalimentaire.com/#organization",
+                "name": "DestockPro",
+                "alternateName": "Destock Alimentaire",
+                "url": "https://www.destockalimentaire.com",
+                "logo": "https://www.destockalimentaire.com/static/favicon/android-chrome-512x512.png",
+                "sameAs": [
+                    "https://www.facebook.com/destockpro",
+                    "https://www.instagram.com/destockpro",
+                    "https://www.linkedin.com/company/destockpro"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+33178451719",
+                    "contactType": "customer service",
+                    "availableLanguage": "French",
+                    "areaServed": "FR"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "17 Rue Forlen",
+                    "postalCode": "67100",
+                    "addressLocality": "Geispolsheim",
+                    "addressCountry": "FR"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://www.destockalimentaire.com/#website",
+                "url": "https://www.destockalimentaire.com",
+                "name": "DestockPro",
+                "description": "Leader français du destockage alimentaire professionnel",
+                "publisher": {"@id": "https://www.destockalimentaire.com/#organization"},
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.destockalimentaire.com/recherche?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://www.destockalimentaire.com/#localbusiness",
+                "name": "DestockPro",
+                "image": "https://www.destockalimentaire.com/static/images/logo-og.jpg",
+                "priceRange": "€€",
+                "telephone": "+33178451719",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "17 Rue Forlen",
+                    "addressLocality": "Geispolsheim",
+                    "postalCode": "67100",
+                    "addressCountry": "FR"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 48.5156,
+                    "longitude": 7.6500
+                },
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "09:00",
+                        "closes": "18:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Saturday",
+                        "opens": "10:00",
+                        "closes": "16:00"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
     <style>
         /* Variables globales */
         :root {
