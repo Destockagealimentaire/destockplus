@@ -2155,6 +2155,16 @@ def sitemap():
         {'loc': '/discount-alimentaire-2026', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-lille-2026', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-paris-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+
+        # NOUVEAUX ARTICLES SUPER PREMIUM
+        {'loc': '/belgique-destockage-alimentaire-pro', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/bruxelles-destockage-mega-offres', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/paris-destockage-geant-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/lyon-destockage-jumbo-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/lille-destockage-maxi-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+
+        {'loc': '/destockage-food-expert-marseille', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/euro-destockage-mega-bordeaux', 'priority': 1.0, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2290,7 +2300,17 @@ def destockage_alimentaire_paris_26():
     """Article SEO destockage Paris"""
     return render_template('articles/destockage_alimentaire_paris_26.html')
     
+# ============= NOUVEAUX ARTICLES SUPER PREMIUM (SUITE) =============
 
+@app.route('/destockage-food-expert-marseille')
+def destockage_food_expert_marseille():
+    """Article ultra premium - Destockage Marseille 2026"""
+    return render_template('articles/destockage_food_expert_marseille.html')
+
+@app.route('/euro-destockage-mega-bordeaux')
+def euro_destockage_mega_bordeaux():
+    """Article ultra premium - Destockage Bordeaux 2026"""
+    return render_template('articles/euro_destockage_mega_bordeaux.html')
 
 
 
@@ -2322,6 +2342,33 @@ def admin_modifier_statut(commande_id):
         return jsonify({'success': True})
     
     return jsonify({'success': False, 'error': 'Statut invalide'}), 400
+
+# ============= NOUVEAUX ARTICLES SUPER INDEXES =============
+
+@app.route('/belgique-destockage-alimentaire-pro')
+def belgique_destockage_alimentaire_pro():
+    """Article ultra premium - Destockage Belgique"""
+    return render_template('articles/belgique_destockage_alimentaire_pro.html')
+
+@app.route('/bruxelles-destockage-mega-offres')
+def bruxelles_destockage_mega_offres():
+    """Article ultra premium - Destockage Bruxelles"""
+    return render_template('articles/bruxelles_destockage_mega_offres.html')
+
+@app.route('/paris-destockage-geant-2026')
+def paris_destockage_geant_2026():
+    """Article ultra premium - Destockage Paris"""
+    return render_template('articles/paris_destockage_geant_2026.html')
+
+@app.route('/lyon-destockage-jumbo-2026')
+def lyon_destockage_jumbo_2026():
+    """Article ultra premium - Destockage Lyon"""
+    return render_template('articles/lyon_destockage_jumbo_2026.html')
+
+@app.route('/lille-destockage-maxi-2026')
+def lille_destockage_maxi_2026():
+    """Article ultra premium - Destockage Lille"""
+    return render_template('articles/lille_destockage_maxi_2026.html')
 
 # Route contact
 @app.route('/contact', methods=['GET', 'POST'])
