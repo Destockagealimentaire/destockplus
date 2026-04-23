@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}🍷 Destockage Alimentaire Bordeaux 2026 - Guide Expert Nouvelle-Aquitaine | Économies jusqu'à 70%{% endblock %}
+
+{% block meta_description %}Guide expert du destockage alimentaire à Bordeaux et Nouvelle-Aquitaine 2026. Découvrez les meilleures adresses, grossistes et entrepôts. Économies jusqu'à 70%. Livraison express. Plus de 1500 références.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Bordeaux 2026, destockage Bordeaux, alimentaire pas cher Bordeaux, grossiste alimentaire Bordeaux, destockage Gironde, destockage Mérignac, destockage Pessac, destockage Cenon{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/euro-destockage-mega-bordeaux{% endblock %}
+
+{% block og_title %}🍷 Destockage Alimentaire Bordeaux 2026 - Économies jusqu'à 70%{% endblock %}
+{% block og_description %}Le guide ultime du destockage alimentaire à Bordeaux. Découvrez les meilleures adresses girondines et économisez sur vos courses. Livraison express Nouvelle-Aquitaine.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('destockage_food_expert_marseille') }}">Marseille</a></li>
+                    <li class="breadcrumb-item active">Bordeaux</li>
+                </ol>
+            </nav>
+
+            <!-- En-tête premium -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="badge bg-danger px-3 py-2">🍷 N°1 en Nouvelle-Aquitaine</span>
+                    <div class="text-warning">
+                        ★★★★★ <span class="text-muted ms-2">(4.9/5 - 2341 avis)</span>
+                    </div>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">🍷 Destockage Alimentaire <span class="text-danger">Bordeaux</span> 2026</h1>
+                <p class="lead fs-4">Le guide expert pour économiser jusqu'à <strong class="text-success">70%</strong> sur vos courses à Bordeaux et dans toute la Gironde.</p>
+            </div>
+
+            <!-- Alertes info -->
+            <div class="alert alert-danger mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="display-6">🍇</span>
+                    <div>
+                        <strong class="fs-5">Bordeaux, capitale du vin et du destockage 2026</strong><br>
+                        Plus de 8 000 clients girondins satisfaits - Livraison express dans tout le Sud-Ouest
+                    </div>
+                </div>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/bordeaux-destockage-hero.jpg') }}" 
+                 alt="Destockage alimentaire Bordeaux 2026" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <!-- Zones clés Bordeaux -->
+            <h2 class="mb-4">📍 Les zones incontournables du destockage à Bordeaux</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Secteur</th>
+                            <th>Spécialités</th>
+                            <th>Économies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">🏭 Bordeaux Lac</td>
+                            <td>Quartier du Lac - 33300</td>
+                            <td>Grossistes généralistes, palettes</td>
+                            <td class="text-success">-55% à -70%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">🏪 Mérignac - Zone de la Monnaie</td>
+                            <td>Mérignac (33700)</td>
+                            <td>Épicerie, boissons, surgelés</td>
+                            <td class="text-success">-50% à -65%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">🏘️ Cenon - Zone de l'Entreprise</td>
+                            <td>Cenon (33150)</td>
+                            <td>Vins, spiritueux, chocolats</td>
+                            <td class="text-success">-45% à -60%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">⚓ Bassin d'Arcachon</td>
+                            <td>La Teste-de-Buch (33260)</td>
+                            <td>Produits de la mer, conserves</td>
+                            <td class="text-success">-40% à -60%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Produits stars Bordeaux -->
+            <h2 class="mb-4">⭐ Produits stars du destockage bordelais</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🍷</div>
+                            <h3 class="h6">Vins Bordeaux AOC</h3>
+                            <span class="badge bg-success">-65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🦪</div>
+                            <h3 class="h6">Produits de la mer</h3>
+                            <span class="badge bg-success">-55%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🍄</div>
+                            <h3 class="h6">Cèpes et truffes</h3>
+                            <span class="badge bg-success">-50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🍰</div>
+                            <h3 class="h6">Canelés</h3>
+                            <span class="badge bg-success">-50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale Bordeaux -->
+            <div class="bg-danger text-white p-4 rounded-4 my-4 text-center">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div>
+                        <span class="display-6">🎁</span>
+                        <strong class="fs-4 ms-2">Offre exclusive Bordeaux 2026</strong>
+                        <p class="mb-0 mt-1">-20% sur votre première commande + livraison offerte dès 250€</p>
+                    </div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter de l'offre →</a>
+                </div>
+            </div>
+
+            <!-- Livraison -->
+            <h2 class="mb-4">🚚 Livraison express Bordeaux et Gironde</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Délai</th><th>Frais</th><th>Offre</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Bordeaux (intra-rocade)</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 250€</td></tr>
+                        <tr><td>Mérignac, Pessac, Talence, Cenon</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 300€</td></tr>
+                        <tr><td>Bassin d'Arcachon, Libourne</td><td>24-48h</td><td>79€</td><td class="text-success">Gratuit dès 400€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Témoignages -->
+            <h2 class="mb-4">💬 Témoignages bordelais</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Je suis caviste à Bordeaux et j'économise plus de 2000€ par mois. Les lots de vins sont exceptionnels !"</p>
+                            <footer class="blockquote-footer">Jean, <cite>Bordeaux Chartrons</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Livraison rapide et produits de qualité. Je recommande à tous les restaurateurs girondins."</p>
+                            <footer class="blockquote-footer">Claire, <cite>Mérignac</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <h2 class="mb-4">❓ FAQ Bordeaux</h2>
+            
+            <div class="accordion mb-5" id="faqBordeaux">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqB1">
+                            Proposez-vous des vins de Bordeaux en destockage ?
+                        </button>
+                    </h3>
+                    <div id="faqB1" class="accordion-collapse collapse show" data-bs-parent="#faqBordeaux">
+                        <div class="accordion-body">
+                            <strong>Oui !</strong> Nous avons régulièrement des lots de vins Bordeaux AOC, Saint-Émilion, Pomerol, Graves et bien d'autres à prix destockés (-50% à -70%).
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqB2">
+                            Livrez-vous dans tout le Sud-Ouest ?
+                        </button>
+                    </h3>
+                    <div id="faqB2" class="accordion-collapse collapse" data-bs-parent="#faqBordeaux">
+                        <div class="accordion-body">
+                            Absolument ! Nous livrons dans toute la Nouvelle-Aquitaine : Bordeaux, Mérignac, Pessac, Talence, Cenon, mais aussi Bayonne, Biarritz, Pau, Limoges et Poitiers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-gradient bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🍷 Bordeaux économise avec Destock Alimentaire</h3>
+                <p class="lead mb-4">Rejoignez les 8 000 clients girondins qui nous font confiance</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-4 py-3 fw-bold">🛒 Voir les offres Bordeaux →</a>
+                    <a href="{{ url_for('inscription') }}" class="btn btn-outline-light btn-lg px-4 py-3">📧 Créer mon compte</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Bordeaux 2026 - Guide Expert",
+    "description": "Guide complet du destockage alimentaire à Bordeaux. Économies jusqu'à 70%.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2341"},
+    "mainEntityOfPage": "https://www.destockalimentaire.com/euro-destockage-mega-bordeaux"
+}
+</script>
+{% endblock %}

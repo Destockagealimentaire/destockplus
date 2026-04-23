@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}🗼 Destockage Alimentaire Paris 2026 - Méga Guide | 100+ Adresses et Entrepôts{% endblock %}
+
+{% block meta_description %}Guide ultime du destockage alimentaire à Paris et Île-de-France 2026. 100+ adresses, économies jusqu'à 70%. Rungis, Bercy, Chapelle. Livraison 24h Paris.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Paris 2026, destockage Paris, grossiste alimentaire Paris, destockage Rungis, destockage Bercy, destockage Île-de-France, meilleur destockage Paris{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/paris-destockage-geant-2026{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Paris 2026</li>
+                </ol>
+            </nav>
+
+            <h1 class="display-4 fw-bold mb-3">🗼 Destockage Alimentaire <span class="text-danger">Paris</span> 2026</h1>
+            <p class="lead fs-4">Le guide <strong class="text-danger">ultime</strong> pour économiser jusqu'à <strong>70%</strong> sur vos courses en Île-de-France</p>
+            
+            <div class="alert alert-success mb-4">
+                <strong>🇫🇷 Chiffres clés Paris 2026 :</strong> 250+ grossistes - 12M d'habitants en IDF - Économie moyenne 1800€/an
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/paris-destockage-2026.jpg') }}" 
+                 alt="Destockage alimentaire Paris 2026" 
+                 class="img-fluid rounded-4 shadow-lg mb-4">
+
+            <!-- Top zones Paris -->
+            <h2 class="mb-4">📍 Top 10 des zones de destockage à Paris et IDF</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Arrondissement/Ville</th>
+                            <th>Spécialités</th>
+                            <th>Économies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Marché de Rungis</td><td>94 (Val-de-Marne)</td><td>Produits frais, fruits, légumes</td><td class="text-success">-40% à -70%</td></tr>
+                        <tr><td>Porte de la Chapelle</td><td>18ème</td><td>Grossistes généralistes</td><td class="text-success">-50% à -75%</td></tr>
+                        <tr><td>Bercy</td><td>12ème</td><td>Vins et spiritueux</td><td class="text-success">-35% à -60%</td></tr>
+                        <tr><td>Quartier de la Roquette</td><td>11ème</td><td>Épicerie fine</td><td class="text-success">-30% à -55%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre spéciale Paris -->
+            <div class="bg-danger text-white p-4 rounded-4 my-4 text-center">
+                <span class="display-4">🎁</span>
+                <h3>Code spécial Paris 2026 : <strong class="bg-white text-danger px-3 py-2 rounded">PARIS2026</strong></h3>
+                <p class="mt-2">-15% sur toute commande livrée en Île-de-France</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">Voir les offres</a>
+            </div>
+
+            <!-- Livraison Paris -->
+            <h2 class="mb-4">🚚 Livraison express Paris et petite couronne</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Délai</th><th>Frais</th><th>Offre</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Paris intra-muros</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 400€</td></tr>
+                        <tr><td>92, 93, 94</td><td>24-48h</td><td>79€</td><td class="text-success">Gratuit dès 500€</td></tr>
+                        <tr><td>95, 78, 77, 91</td><td>48h</td><td>89€</td><td class="text-success">Gratuit dès 600€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2">🇫🇷 Le meilleur du destockage à Paris</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 mt-3">Découvrir les offres →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Paris 2026 - Guide Ultime",
+    "description": "Guide complet du destockage alimentaire à Paris et Île-de-France en 2026.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"}
+}
+</script>
+{% endblock %}

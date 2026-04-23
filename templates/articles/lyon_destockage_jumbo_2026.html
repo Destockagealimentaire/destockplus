@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}🥐 Destockage Alimentaire Lyon 2026 - Guide Expert | Économies jusqu'à 70%{% endblock %}
+
+{% block meta_description %}Guide expert du destockage alimentaire à Lyon et métropole 2026. Découvrez les meilleures adresses à Gerland, Vénissieux, Corbas. Économies jusqu'à 70%. Livraison 24h.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Lyon 2026, destockage Lyon, alimentaire pas cher Lyon, grossiste alimentaire Lyon, destockage Vénissieux, destockage Gerland, MIN Lyon{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/lyon-destockage-jumbo-2026{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <h1 class="display-4 fw-bold mb-3">🥐 Destockage Alimentaire <span class="text-success">Lyon</span> 2026</h1>
+            <p class="lead">Le <strong>guide expert</strong> pour économiser jusqu'à <strong>70%</strong> sur vos courses dans la métropole lyonnaise</p>
+            
+            <div class="alert alert-success mb-4">
+                <strong>📍 Lyon 2026 :</strong> 2ème place du destockage en France - 150+ grossistes - MIN de Lyon accessible
+            </div>
+
+            <!-- Offre spéciale Lyon -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <h3>🎁 Code spécial Lyonnais : <strong class="bg-white text-success px-3 py-2 rounded">LYON2026</strong></h3>
+                <p>-15% + livraison offerte dès 300€</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg">J'en profite</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center mt-5">
+                <h3>🌟 Lyon économise avec Destock Alimentaire</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 mt-3">Voir les offres</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

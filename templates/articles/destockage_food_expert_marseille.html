@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+
+{% block title %}🌊 Destockage Alimentaire Marseille 2026 - Guide Expert Provence | Économies jusqu'à 75%{% endblock %}
+
+{% block meta_description %}Guide expert du destockage alimentaire à Marseille et Provence-Alpes-Côte d'Azur 2026. Découvrez les meilleures adresses, grossistes et entrepôts. Économies jusqu'à 75%. Livraison 24h. Plus de 2000 références.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Marseille 2026, destockage Marseille, alimentaire pas cher Marseille, grossiste alimentaire Marseille, destockage PACA, destockage Provence, destockage Aubagne, destockage Vitrolles{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/destockage-food-expert-marseille{% endblock %}
+
+{% block og_title %}🌊 Destockage Alimentaire Marseille 2026 - Économies jusqu'à 75%{% endblock %}
+{% block og_description %}Le guide ultime du destockage alimentaire à Marseille. Découvrez les 50 meilleures adresses et économisez sur vos courses. Livraison express PACA.{% endblock %}
+{% block og_image %}https://www.destockalimentaire.com/static/images/og/marseille-destockage-2026.jpg{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <!-- Breadcrumb structuré -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                        <a itemprop="item" href="{{ url_for('index') }}"><span itemprop="name">Accueil</span></a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item active">
+                        <span itemprop="name">Destockage Marseille</span>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- En-tête premium -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="badge bg-info px-3 py-2">🌊 N°1 en PACA</span>
+                    <div class="text-warning">
+                        ★★★★★ <span class="text-muted ms-2">(4.8/5 - 987 avis)</span>
+                    </div>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">🌊 Destockage Alimentaire <span class="text-info">Marseille</span> 2026</h1>
+                <p class="lead fs-4">Le guide expert pour économiser jusqu'à <strong class="text-success">75%</strong> sur vos courses à Marseille et dans toute la région PACA.</p>
+            </div>
+
+            <!-- Alertes info -->
+            <div class="alert alert-info mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="display-6">⚓</span>
+                    <div>
+                        <strong class="fs-5">Marseille, capitale du destockage en Méditerranée 2026</strong><br>
+                        Plus de 10 000 clients PACA satisfaits - Livraison express dans tout le Sud-Est
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image principale -->
+            <img src="{{ url_for('static', filename='images/articles/marseille-destockage-hero.jpg') }}" 
+                 alt="Destockage alimentaire Marseille 2026 - Guide expert économies jusqu'à 75%" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 width="800" height="500"
+                 loading="eager">
+
+            <!-- Table des matières -->
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <h2 class="h5 mb-3">📑 Sommaire - Guide Marseille 2026</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#pourquoi-marseille">1. Pourquoi Marseille en 2026 ?</a></li>
+                            <li><a href="#zones-cles">2. Les 5 zones clés du destockage</a></li>
+                            <li><a href="#produits-stars">3. Produits stars à prix cassés</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#meilleures-adresses">4. Top 20 des meilleures adresses</a></li>
+                            <li><a href="#livraison">5. Livraison express Marseille</a></li>
+                            <li><a href="#faq">6. Questions fréquentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1 : Pourquoi Marseille -->
+            <h2 id="pourquoi-marseille" class="mb-4">⚓ Pourquoi Marseille est devenue la capitale du destockage en Méditerranée ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">📊</div>
+                            <h3 class="h5">+30% de croissance</h3>
+                            <p>Le marché du destockage à Marseille a progressé de 30% en 2025-2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🏭</div>
+                            <h3 class="h5">100+ grossistes</h3>
+                            <p>Plus de 100 professionnels du destockage actifs dans les Bouches-du-Rhône</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">💰</div>
+                            <h3 class="h5">-75% d'économies</h3>
+                            <p>Jusqu'à 75% de réduction sur les marques premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Marseille, avec son <strong>Grand Port Maritime</strong> et sa position stratégique en Méditerranée, est devenue un hub incontournable du <strong>destockage alimentaire</strong> en 2026. La ville bénéficie d'un accès privilégié aux produits importés et aux invendus des plus grandes marques, permettant des prix imbattables sur tout le territoire PACA.</p>
+
+            <div class="bg-info text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div>
+                        <span class="display-6">🎁</span>
+                        <strong class="fs-4 ms-2">Offre exclusive Marseille 2026</strong>
+                        <p class="mb-0 mt-1">-20% sur votre première commande + livraison offerte dès 250€</p>
+                    </div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter de l'offre →</a>
+                </div>
+            </div>
+
+            <!-- Section 2 : Zones clés -->
+            <h2 id="zones-cles" class="mb-4 mt-5">📍 Les 5 zones incontournables du destockage à Marseille</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Secteur</th>
+                            <th>Spécialités</th>
+                            <th>Économies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">⚓ Grand Port Maritime</td>
+                            <td>2ème, 15ème</td>
+                            <td>Produits importés, lots massifs, palettes</td>
+                            <td class="text-success">-65% à -75%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">🏭 Les Milles - Zone du Canet</td>
+                            <td>Aix-en-Provence (13100)</td>
+                            <td>Épicerie, boissons, produits secs</td>
+                            <td class="text-success">-50% à -65%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">🏪 Vitrolles - Zone de l'Anjoly</td>
+                            <td>Vitrolles (13127)</td>
+                            <td>Surgelés, frais, produits laitiers</td>
+                            <td class="text-success">-45% à -60%</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">🏘️ Aubagne - Les Paluds</td>
+                            <td>Aubagne (13400)</td>
+                            <td>Vins, spiritueux, chocolats</td>
+                            <td class="text-success">-40% à -55%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3 : Produits stars -->
+            <h2 id="produits-stars" class="mb-4">⭐ Produits stars à prix cassés à Marseille</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🍷</div>
+                            <h3 class="h6">Vins Côtes de Provence</h3>
+                            <span class="badge bg-success">-60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🍯</div>
+                            <h3 class="h6">Miels et confitures</h3>
+                            <span class="badge bg-success">-55%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">🥫</div>
+                            <h3 class="h6">Sauces provençales</h3>
+                            <span class="badge bg-success">-50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="display-4 mb-2">❄️</div>
+                            <h3 class="h6">Surgelés premium</h3>
+                            <span class="badge bg-success">-60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : Livraison -->
+            <h2 id="livraison" class="mb-4">🚚 Livraison express Marseille et PACA - Tarifs 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Délai</th>
+                            <th>Frais de port</th>
+                            <th>Offre spéciale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Marseille (1er-16ème) + Aubagne</td>
+                            <td>24h</td>
+                            <td>69€</td>
+                            <td class="text-success">Gratuit dès 250€</td>
+                        </tr>
+                        <tr>
+                            <td>Aix-en-Provence, Vitrolles, Martigues</td>
+                            <td>24-48h</td>
+                            <td>79€</td>
+                            <td class="text-success">Gratuit dès 350€</td>
+                        </tr>
+                        <tr>
+                            <td>Var, Vaucluse, Alpes</td>
+                            <td>48-72h</td>
+                            <td>89€</td>
+                            <td class="text-success">Gratuit dès 450€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section FAQ -->
+            <h2 id="faq" class="mb-4">❓ Questions fréquentes Marseille</h2>
+            
+            <div class="accordion mb-5" id="faqMarseille">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqM1">
+                            Livrez-vous à Marseille et dans les quartiers nord ?
+                        </button>
+                    </h3>
+                    <div id="faqM1" class="accordion-collapse collapse show" data-bs-parent="#faqMarseille">
+                        <div class="accordion-body">
+                            <strong>Oui !</strong> Nous livrons dans tous les quartiers de Marseille, y compris les 13ème, 14ème, 15ème et 16ème arrondissements.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqM2">
+                            Proposez-vous des produits provençaux ?
+                        </button>
+                    </h3>
+                    <div id="faqM2" class="accordion-collapse collapse" data-bs-parent="#faqMarseille">
+                        <div class="accordion-body">
+                            Absolument ! Nous avons régulièrement des stocks de vin Côtes de Provence, miel de lavande, tapenade, calissons d'Aix et autres spécialités régionales.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqM3">
+                            Peut-on retirer la commande sur place ?
+                        </button>
+                    </h3>
+                    <div id="faqM3" class="accordion-collapse collapse" data-bs-parent="#faqMarseille">
+                        <div class="accordion-body">
+                            Oui, nous avons un point de retrait dans la zone du Grand Port Maritime (2ème arrondissement) ouvert du lundi au samedi de 9h à 18h.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignages -->
+            <h2 class="mb-4">💬 Ils nous font confiance à Marseille</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Je gère un restaurant sur le Vieux-Port et j'économise plus de 1500€ par mois. Livraison toujours ponctuelle !"</p>
+                            <footer class="blockquote-footer">Philippe, <cite>Marseille 1er</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Qualité au rendez-vous et prix imbattables. Je recommande à tous les professionnels d'Aix."</p>
+                            <footer class="blockquote-footer">Sophie, <cite>Aix-en-Provence</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-gradient bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🌊 Marseille économise avec Destock Alimentaire</h3>
+                <p class="lead mb-4">Rejoignez les 10 000 clients PACA qui nous font confiance</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-4 py-3 fw-bold text-white">🛒 Voir les offres Marseille →</a>
+                    <a href="{{ url_for('inscription') }}" class="btn btn-outline-light btn-lg px-4 py-3">📧 Créer mon compte</a>
+                </div>
+                <p class="mt-4 mb-0 small">⭐ 4.8/5 sur 987 avis certifiés</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Schema.org enrichi -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            "headline": "Destockage Alimentaire Marseille 2026 - Guide Expert",
+            "description": "Guide complet du destockage alimentaire à Marseille. Économies jusqu'à 75%.",
+            "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+            "datePublished": "2026-01-01",
+            "dateModified": "2026-06-01",
+            "mainEntityOfPage": "https://www.destockalimentaire.com/destockage-food-expert-marseille"
+        },
+        {
+            "@type": "Product",
+            "name": "Destockage Alimentaire Marseille",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "987"
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}

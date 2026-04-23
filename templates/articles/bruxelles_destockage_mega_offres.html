@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}🏛️ Destockage Alimentaire Bruxelles 2026 - Les 50 Meilleures Adresses | Guide Expert{% endblock %}
+
+{% block meta_description %}Guide expert du destockage alimentaire à Bruxelles 2026. Découvrez les 50 meilleures adresses, zones et entrepôts. Économies jusqu'à 75% à Bruxelles-Capitale. Livraison 24h.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Bruxelles, destockage Bruxelles, alimentaire pas cher Bruxelles, grossiste alimentaire Bruxelles, destockage Anderlecht, destockage Molenbeek, destockage Schaerbeek{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/bruxelles-destockage-mega-offres{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('belgique_destockage_alimentaire_pro') }}">Belgique</a></li>
+                    <li class="breadcrumb-item active">Bruxelles</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-primary mb-2">🏆 N°1 à Bruxelles</span>
+                <h1 class="display-4 fw-bold">🏛️ Destockage Alimentaire <span class="text-primary">Bruxelles</span> 2026</h1>
+                <p class="lead">Les <strong>50 meilleures adresses</strong> pour économiser jusqu'à <strong class="text-success">75%</strong> sur vos courses dans la capitale belge.</p>
+            </div>
+
+            <div class="alert alert-info shadow-sm mb-4">
+                <span class="fs-4 me-2">📍</span> <strong>Bruxelles-Capitale :</strong> 2 millions d'habitants - Plus de 80 grossistes - Économie moyenne de 1500€/an par famille
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/bruxelles-destockage-hero.jpg') }}" 
+                 alt="Destockage alimentaire Bruxelles 2026 - Guide complet" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <!-- Zones clés -->
+            <h2 class="mb-4">📍 Les 5 zones incontournables du destockage à Bruxelles</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">⭐ Zone n°1</span>
+                            <h3 class="h5">Tour & Taxis</h3>
+                            <p>Le plus grand hub logistique de Bruxelles. Plus de 20 grossistes réunis.</p>
+                            <small class="text-success">Économies : -60% à -75%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">⭐ Zone n°2</span>
+                            <h3 class="h5">Anderlecht - Cureghem</h3>
+                            <p>Quartier historique du commerce de gros à Bruxelles.</p>
+                            <small class="text-success">Économies : -50% à -70%</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">⭐ Zone n°3</span>
+                            <h3 class="h5">Molenbeek - Birmingham</h3>
+                            <p>Zone industrielle dynamique avec de nombreux entrepôts.</p>
+                            <small class="text-success">Économies : -45% à -65%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale Bruxelles -->
+            <div class="bg-primary text-white p-4 rounded-4 my-4 text-center">
+                <span class="display-4 d-block mb-2">🎁</span>
+                <h3 class="h4">Offre spéciale Bruxelloise 2026</h3>
+                <p>Code <strong class="bg-white text-primary px-3 py-2 rounded">BRUXELLES2026</strong> : -15% + livraison gratuite dès 250€</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-2">J'en profite →</a>
+            </div>
+
+            <!-- Call to action finale -->
+            <div class="bg-gradient bg-success text-white p-5 rounded-4 text-center mt-5">
+                <h3 class="h2 mb-3">💪 Bruxelles passe à l'action !</h3>
+                <p class="lead mb-4">Rejoignez les milliers de Bruxellois qui économisent chaque mois</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3 fw-bold">🛒 Commencer maintenant</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Bruxelles 2026 - Guide Expert",
+    "description": "Top 50 des adresses de destockage alimentaire à Bruxelles. Économies jusqu'à 75%.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "mainEntityOfPage": "https://www.destockalimentaire.com/bruxelles-destockage-mega-offres"
+}
+</script>
+{% endblock %}
