@@ -1,0 +1,709 @@
+{% extends "base.html" %}
+
+{% block title %}Foire Aux Questions - DestockPro | Réponses à vos questions sur le destockage alimentaire{% endblock %}
+
+{% block meta_description %}Toutes les réponses à vos questions sur DestockPro : commande, livraison, paiement, retours, engagements anti-gaspillage. FAQ complète sur le destockage alimentaire.{% endblock %}
+
+{% block meta_keywords %}FAQ destockage alimentaire, questions fréquentes destockpro, livraison destockage, paiement sécurisé, retour produit, engagement anti-gaspillage{% endblock %}
+
+{% block og_title %}FAQ - DestockPro | Réponses à toutes vos questions sur le destockage alimentaire{% endblock %}
+{% block og_description %}Vous avez des questions sur nos produits, la livraison, les paiements ou nos engagements ? Consultez notre FAQ pour trouver toutes les réponses.{% endblock %}
+
+{% block canonical %}{{ request.url }}{% endblock %}
+
+{% block content %}
+<div class="faq-page" itemscope itemtype="https://schema.org/FAQPage">
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <div class="faq-hero-content">
+                <h1>Foire Aux <span class="highlight">Questions</span></h1>
+                <p>Toutes les réponses à vos questions sur DestockPro</p>
+            </div>
+        </div>
+        <div class="faq-hero-pattern"></div>
+    </section>
+
+    <!-- Categories de FAQ -->
+    <section class="faq-categories">
+        <div class="container">
+            <div class="categories-grid">
+                <button class="category-btn active" data-category="all">Toutes les questions</button>
+                <button class="category-btn" data-category="commandes">📦 Commandes</button>
+                <button class="category-btn" data-category="livraison">🚚 Livraison</button>
+                <button class="category-btn" data-category="paiement">💳 Paiement</button>
+                <button class="category-btn" data-category="produits">🛍️ Produits</button>
+                <button class="category-btn" data-category="engagement">🌱 Engagement</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Grid -->
+    <section class="faq-grid-section">
+        <div class="container">
+            <div class="faq-grid">
+                <!-- Catégorie: Commandes -->
+                <div class="faq-category-group" data-category="commandes">
+                    <h2 class="category-title">📦 Commandes</h2>
+                    <div class="faq-items">
+                        <!-- Item 1 -->
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Comment passer une commande sur DestockPro ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Passer une commande sur DestockPro est très simple :</p>
+                                    <ol>
+                                        <li>Parcourez notre catalogue et ajoutez les produits souhaités au panier</li>
+                                        <li>Connectez-vous ou créez un compte client</li>
+                                        <li>Validez votre panier et choisissez votre mode de livraison</li>
+                                        <li>Sélectionnez votre moyen de paiement et finalisez la commande</li>
+                                        <li>Vous recevrez un email de confirmation avec votre numéro de commande</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Puis-je modifier ou annuler ma commande ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Vous pouvez modifier ou annuler votre commande gratuitement dans l'heure suivant sa validation. Après ce délai, votre commande est préparée et ne peut plus être modifiée. Contactez rapidement notre service client au 01 78 45 17 19 pour toute demande.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Comment suivre ma commande ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Une fois votre commande expédiée, vous recevez un email avec un lien de suivi. Vous pouvez également suivre vos commandes depuis votre espace client rubrique "Mes commandes". Le suivi est disponible 24h/24.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catégorie: Livraison -->
+                <div class="faq-category-group" data-category="livraison">
+                    <h2 class="category-title">🚚 Livraison</h2>
+                    <div class="faq-items">
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Quels sont les délais de livraison ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Nous livrons sous 24 à 48 heures ouvrées partout en France métropolitaine. Les commandes passées avant 12h sont expédiées le jour même. Pour la Corse et les DOM-TOM, comptez 3 à 5 jours supplémentaires.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Quel est le coût de livraison ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>La livraison est offerte dès 150€ d'achat. Pour les commandes inférieures à 150€, les frais de port sont de 6,90€ en point relais et 9,90€ à domicile. Pour les professionnels, des tarifs préférentiels sont disponibles sur devis.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Puis-je être livré en point relais ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Oui, nous proposons la livraison en point relais dans plus de 7000 points Mondial Relay et Relais Colis partout en France. Vous pouvez sélectionner votre point relais lors de la validation de commande.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catégorie: Paiement -->
+                <div class="faq-category-group" data-category="paiement">
+                    <h2 class="category-title">💳 Paiement</h2>
+                    <div class="faq-items">
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Quels moyens de paiement acceptez-vous ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Nous acceptons plusieurs moyens de paiement sécurisés :</p>
+                                    <ul>
+                                        <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+                                        <li>PayPal</li>
+                                        <li>Virement bancaire</li>
+                                        <li>Paiement en 3x ou 4x sans frais (dès 100€ d'achat)</li>
+                                        <li>Pour les professionnels : paiement à réception de facture</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Les paiements sont-ils sécurisés ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Absolument ! Tous les paiements sont cryptés via le protocole SSL et traités par des partenaires bancaires certifiés PCI-DSS. Vos données bancaires ne sont jamais stockées sur nos serveurs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Puis-je obtenir une facture pour mon entreprise ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Oui, toutes nos commandes sont accompagnées d'une facture légale. Pour les professionnels, vous pouvez demander une facture avec votre numéro de TVA intracommunautaire lors de la commande. Un compte professionnel dédié est également disponible.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catégorie: Produits -->
+                <div class="faq-category-group" data-category="produits">
+                    <h2 class="category-title">🛍️ Produits</h2>
+                    <div class="faq-items">
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Les produits sont-ils encore consommables ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Oui, tous nos produits sont parfaitement consommables. Nous vendons des produits dont la date de durabilité minimale (DDM) est courte ou dont l'emballage a changé, mais leur qualité gustative et sanitaire est irréprochable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Puis-je retourner un produit ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Conformément à la loi, vous disposez d'un délai de rétractation de 14 jours pour les produits non alimentaires. Pour les produits alimentaires, ils ne sont pas repris pour des raisons d'hygiène et de sécurité. En cas de produit défectueux, contactez notre service client sous 48h.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">D'où viennent vos produits ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Nos produits proviennent de grandes marques françaises et européennes, de producteurs locaux et de distributeurs. Nous travaillons exclusivement avec des fournisseurs certifiés pour garantir la qualité et la traçabilité de nos produits.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catégorie: Engagement -->
+                <div class="faq-category-group" data-category="engagement">
+                    <h2 class="category-title">🌱 Engagement</h2>
+                    <div class="faq-items">
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Comment luttez-vous contre le gaspillage ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Notre modèle économique repose sur la récupération et la revalorisation des invendus, surproductions et produits à date courte. Depuis notre création, nous avons évité le gaspillage de plus de 100 tonnes de produits alimentaires. Nous reversons également 1% de notre chiffre d'affaires à des associations de lutte contre la précarité alimentaire.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Quels sont vos engagements RSE ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Nos engagements RSE incluent : la réduction de notre empreinte carbone via des livraisons optimisées, l'utilisation d'emballages éco-responsables, le tri et recyclage des déchets, et le mécénat auprès d'associations caritatives locales.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3 itemprop="name">Proposez-vous des produits bio ou locaux ?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Oui, nous proposons une sélection de produits bio et locaux issus de producteurs français. Notre catalogue s'enrichit régulièrement de nouvelles références respectueuses de l'environnement et du terroir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="faq-contact">
+        <div class="container">
+            <div class="contact-box">
+                <i class="fas fa-headset"></i>
+                <h2>Vous n'avez pas trouvé votre réponse ?</h2>
+                <p>Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+                <div class="contact-links">
+                    <a href="/contact" class="btn-primary">
+                        Nous contacter
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:0178451719" class="btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        01 78 45 17 19
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Schema.org FAQPage -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "Foire Aux Questions DestockPro",
+    "description": "Toutes les réponses aux questions fréquentes sur DestockPro : commandes, livraison, paiement, produits et engagements",
+    "url": "{{ request.url }}",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "DestockPro",
+        "url": "{{ request.url_root }}"
+    }
+}
+</script>
+
+<!-- Schema.org Breadcrumb -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "{{ request.url_root }}"
+    },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "FAQ",
+        "item": "{{ request.url }}"
+    }]
+}
+</script>
+
+<style>
+.faq-page {
+    background: var(--surface);
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.faq-hero {
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+    padding-top: 140px;
+}
+
+.faq-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(196, 167, 71, 0.1) 0%, transparent 50%);
+}
+
+.faq-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.faq-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--secondary);
+}
+
+.faq-hero p {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.9);
+}
+
+/* Catégories */
+.faq-categories {
+    padding: 3rem 1rem;
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.category-btn {
+    padding: 0.6rem 1.2rem;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.category-btn:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+@media (min-width: 768px) {
+    .category-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* FAQ Grid */
+.faq-grid-section {
+    padding: 4rem 1rem;
+}
+
+.faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-category-group {
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.faq-category-group.hide {
+    display: none;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--secondary);
+    display: inline-block;
+}
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+    .faq-question {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+.faq-question h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+}
+
+.faq-question i {
+    color: var(--secondary);
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-question {
+    background: var(--surface);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--surface);
+    border-top: 1px solid transparent;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    border-top-color: var(--border);
+}
+
+.faq-answer > div {
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .faq-answer > div {
+        padding: 1.5rem;
+    }
+}
+
+.faq-answer p, 
+.faq-answer ul,
+.faq-answer ol {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.faq-answer ul, 
+.faq-answer ol {
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.3rem;
+}
+
+/* Contact CTA */
+.faq-contact {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, var(--surface), white);
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+}
+
+.contact-box i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.contact-box h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.contact-box p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .contact-box {
+        padding: 3rem;
+    }
+    
+    .contact-box i {
+        font-size: 4rem;
+    }
+    
+    .contact-box h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-links {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid var(--border);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-categories {
+        padding: 2rem 1rem;
+    }
+    
+    .categories-grid {
+        gap: 0.5rem;
+    }
+    
+    .category-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+</style>
+
+<script>
+// Toggle FAQ item
+function toggleFaq(element) {
+    const faqItem = element.closest('.faq-item');
+    faqItem.classList.toggle('active');
+}
+
+// Filtrage par catégorie
+document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Mettre à jour l'état actif des boutons
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const category = btn.dataset.category;
+        
+        // Filtrer les groupes de FAQ
+        document.querySelectorAll('.faq-category-group').forEach(group => {
+            if (category === 'all') {
+                group.classList.remove('hide');
+            } else {
+                if (group.dataset.category === category) {
+                    group.classList.remove('hide');
+                } else {
+                    group.classList.add('hide');
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
