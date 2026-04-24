@@ -2317,6 +2317,19 @@ def euro_destockage_mega_bordeaux():
     return render_template('articles/euro_destockage_mega_bordeaux.html')
 
 
+# ============= NOUVEAUX ARTICLES ULTRA PREMIUM =============
+
+@app.route('/destockage-food-expert-belgique-2026')
+def destockage_food_expert_belgique_2026():
+    """Article ultra premium - Destockage Belgique 2026"""
+    return render_template('articles/destockage_food_expert_belgique_2026.html')
+
+@app.route('/destockage-alimentaire-espagne-mega-offres')
+def destockage_alimentaire_espagne_mega_offres():
+    """Article ultra premium - Destockage Espagne"""
+    return render_template('articles/destockage_alimentaire_espagne_mega_offres.html')
+
+
 
 @app.route('/admin/commandes')
 @login_required
