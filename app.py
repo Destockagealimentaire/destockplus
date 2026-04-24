@@ -514,6 +514,10 @@ def sync_with_data_file():
 def load_user(user_id):
     return Utilisateur.query.get(int(user_id))
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
 # Routes principales
 @app.route('/')
 def index():
