@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
-from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect, csrf_exempt 
 from extensions import db, login_manager
 from flask_login import UserMixin, login_user, login_required, logout_user, current_user
 from datetime import datetime, timedelta
@@ -2455,6 +2455,7 @@ def send_email_contact(nom, prenom, email, telephone, sujet, message):
 # Route contact
 # Route contact - Version CORRIGÉE avec email + Telegram
 @app.route('/contact', methods=['GET', 'POST'])
+@csrf_exempt 
 def contact():
     if request.method == 'POST':
         nom = request.form.get('nom')
