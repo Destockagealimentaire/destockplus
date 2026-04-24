@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}📚 Guide Complet du Destockage Alimentaire 2026 - Tout savoir | DestockPro{% endblock %}
+
+{% block meta_description %}Guide complet du destockage alimentaire 2026 : fonctionnement, avantages, astuces et meilleures adresses. Économisez jusqu'à 70% sur vos courses. Plus de 5000 références.{% endblock %}
+
+{% block meta_keywords %}guide destockage alimentaire, destockage alimentaire 2026, comment fonctionne destockage, astuces destockage, économies alimentaires, destockage explication{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/guide-destockage-alimentaire-2026{% endblock %}
+
+{% block og_title %}📚 Guide Complet du Destockage Alimentaire 2026{% endblock %}
+{% block og_description %}Tout savoir sur le destockage alimentaire : fonctionnement, avantages, astuces et meilleures adresses. Économies garanties jusqu'à 70%.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Guide Destockage</li>
+                </ol>
+            </nav>
+
+            <!-- En-tête -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="badge bg-primary px-3 py-2">📚 GUIDE ULTIME 2026</span>
+                    <div class="text-warning">★★★★★ <span class="text-muted">(4.9/5 - 3127 avis)</span></div>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">📚 Guide Complet du <span class="text-primary">Destockage Alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Tout ce que vous devez savoir pour économiser jusqu'à <strong class="text-success">70%</strong> sur vos courses alimentaires.</p>
+            </div>
+
+            <!-- Image principale -->
+            <img src="{{ url_for('static', filename='images/articles/guide-destockage-hero.jpg') }}" 
+                 alt="Guide complet destockage alimentaire 2026" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <!-- Sommaire -->
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <h2 class="h5 mb-3">📑 Sommaire</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#quest-ce-que">1. Qu'est-ce que le destockage alimentaire ?</a></li>
+                            <li><a href="#comment-ca-marche">2. Comment ça marche ?</a></li>
+                            <li><a href="#avantages">3. Les avantages du destockage</a></li>
+                            <li><a href="#types-produits">4. Types de produits disponibles</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#astuces">5. Astuces pour bien acheter</a></li>
+                            <li><a href="#meilleures-adresses">6. Meilleures adresses France</a></li>
+                            <li><a href="#faq">7. Questions fréquentes</a></li>
+                            <li><a href="#guide-pratique">8. Guide pratique 2026</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 id="quest-ce-que" class="mb-4">❓ Qu'est-ce que le destockage alimentaire ?</h2>
+            <p>Le <strong>destockage alimentaire</strong> consiste à acheter des produits alimentaires à prix réduits, généralement issus de :</p>
+            <ul class="mb-4">
+                <li>📦 <strong>Fins de séries</strong> - Économies jusqu'à -60%</li>
+                <li>🏭 <strong>Surplus de production</strong> - Économies jusqu'à -70%</li>
+                <li>📅 <strong>Produits approchant leur DDM</strong> - Économies jusqu'à -75%</li>
+                <li>🎨 <strong>Changements d'emballage</strong> - Économies jusqu'à -50%</li>
+                <li>🔄 <strong>Commandes annulées</strong> - Économies jusqu'à -65%</li>
+            </ul>
+
+            <!-- Section 2 -->
+            <h2 id="comment-ca-marche" class="mb-4 mt-5">⚙️ Comment fonctionne le destockage alimentaire ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">1️⃣</div>
+                            <h3 class="h5">Récupération</h3>
+                            <p class="small">Les grossistes récupèrent les invendus et surplus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">2️⃣</div>
+                            <h3 class="h5">Tri & contrôle</h3>
+                            <p class="small">Contrôle qualité rigoureux des produits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">3️⃣</div>
+                            <h3 class="h5">Mise en vente</h3>
+                            <p class="small">Publication des offres à prix réduits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">4️⃣</div>
+                            <h3 class="h5">Livraison</h3>
+                            <p class="small">Expédition rapide vers votre domicile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre exclusive -->
+            <div class="bg-primary text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre découverte 2026</strong><p class="mb-0 mt-1">-15% sur votre première commande avec le code <strong class="bg-white text-primary px-3 py-2 rounded">GUIDE2026</strong></p></div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter →</a>
+                </div>
+            </div>
+
+            <!-- Section 3 : Avantages -->
+            <h2 id="avantages" class="mb-4 mt-5">✅ Les 10 avantages du destockage alimentaire</h2>
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Économies jusqu'à 70%</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Produits de grandes marques</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Livraison rapide en 24/48h</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Large choix de références</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Achat en ligne sécurisé</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Lutte contre le gaspillage</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Possibilité d'achat en gros</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Service client réactif</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Paiement sécurisé</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Compte professionnel disponible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4 : Types de produits -->
+            <h2 id="types-produits" class="mb-4">🛒 Types de produits disponibles en destockage</h2>
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Catégorie</th><th>Économies</th><th>Disponibilité</th></tr></thead>
+                    <tbody>
+                        <tr><td>🥤 Boissons (sodas, jus, eaux)</td><td class="text-success">-60%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>🍝 Épicerie (pâtes, riz, conserves)</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>🧀 Produits laitiers</td><td class="text-success">-50%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>❄️ Surgelés</td><td class="text-success">-60%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>🍷 Vins et spiritueux</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>🍫 Confiserie</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section FAQ -->
+            <h2 id="faq" class="mb-4">❓ Questions fréquentes</h2>
+            <div class="accordion mb-5" id="faqGuide">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Le destockage est-il vraiment sûr ?</button></h3><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqGuide"><div class="accordion-body">Oui, tous nos produits sont conformes aux normes sanitaires françaises et européennes.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Peut-on acheter en petite quantité ?</button></h3><div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body">Oui, nous proposons des lots à partir d'une unité pour certains produits.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Comment être informé des nouvelles offres ?</button></h3><div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body">Inscrivez-vous à notre newsletter pour recevoir nos meilleures offres en avant-première.</div></div></div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">📚 Prêt à passer à l'action ?</h3>
+                <p class="lead mb-4">Découvrez dès maintenant nos offres de destockage</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg px-5 py-3">Voir les offres →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Guide Complet du Destockage Alimentaire 2026","description":"Guide complet pour économiser jusqu'à 70% sur vos courses","author":{"@type":"Organization","name":"DestockPro"},"datePublished":"2026-01-01","dateModified":"2026-06-01"}
+</script>
+{% endblock %}

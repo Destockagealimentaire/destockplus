@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Livraison Palettes France et DOM-TOM 2026 - Tarifs et Délais | DestockPro{% endblock %}
+
+{% block meta_description %}Livraison de palettes alimentaires partout en France métropolitaine et DOM-TOM. Tarifs 2026, délais par région, livraison express 24h. Depuis 69€.{% endblock %}
+
+{% block meta_keywords %}livraison palettes, transport palettes, livraison palettes alimentaires, livraison DOM-TOM, livraison France, fret alimentaire, transporteur palettes{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/livraison-palettes-france-dom-tom{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item active">Livraison palettes</li></ol></nav>
+            
+            <div class="mb-4"><span class="badge bg-success px-3 py-2 mb-2">🚚 GUIDE LIVRAISON 2026</span><h1 class="display-4 fw-bold mb-3">🚚 Livraison Palettes <span class="text-success">France et DOM-TOM</span> 2026</h1><p class="lead fs-4">Tarifs, délais et conditions de livraison pour vos palettes alimentaires. Livraison express <strong>24h</strong> en France métropolitaine.</p></div>
+            
+            <div class="alert alert-success mb-4"><strong>🚚 Livraison rapide :</strong> Expédition sous 24h - Suivi en temps réel - Livraison à domicile ou point relais</div>
+            
+            <img src="{{ url_for('static', filename='images/articles/livraison-hero.jpg') }}" class="img-fluid rounded-4 shadow-lg mb-4" loading="eager">
+            
+            <h2 class="mb-4">📦 Tarifs livraison palettes 2026</h2>
+            <div class="table-responsive mb-5"><table class="table table-bordered"><thead class="table-dark"><tr><th>Zone</th><th>Délai</th><th>Tarif 2026</th><th>Offre spéciale</th></tr></thead><tbody>
+                <tr><td>Paris (75)</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 500€</td></tr>
+                <tr><td>Île-de-France (92,93,94,95,77,78,91)</td><td>24h</td><td>79€</td><td class="text-success">Gratuit dès 500€</td></tr>
+                <tr><td>Grandes villes (Lyon, Marseille, Lille, Bordeaux)</td><td>24-48h</td><td>89€</td><td class="text-success">Gratuit dès 600€</td></tr>
+                <tr><td>Régions (Bretagne, Normandie, Grand Est)</td><td>48h</td><td>99€</td><td class="text-success">Gratuit dès 700€</td></tr>
+                <tr><td>Corse</td><td>3-5 jours</td><td>199€</td><td>-</td></tr>
+                <tr><td>DOM-TOM (Guadeloupe, Martinique, La Réunion)</td><td>5-7 jours</td><td>Sur devis</td><td>-</td></tr>
+            </tbody></table></div>
+            
+            <div class="bg-success text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre livraison 2026</strong><p class="mb-0 mt-1">Livraison offerte dès 500€ d'achat en France métropolitaine</p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Commander →</a></div></div>
+            
+            <h2 class="mb-4 mt-5">📍 Délais de livraison détaillés</h2>
+            <div class="row mb-5"><div class="col-md-6"><h3>⏱️ 24h</h3><p>Paris (75) - Île-de-France</p><h3>⏱️ 24-48h</h3><p>Lyon, Marseille, Lille, Bordeaux, Toulouse, Nice, Nantes, Strasbourg, Montpellier</p></div><div class="col-md-6"><h3>⏱️ 48-72h</h3><p>Rennes, Clermont-Ferrand, Dijon, Orléans, Limoges, Amiens</p><h3>⏱️ 3-5 jours</h3><p>Corse, zones rurales isolées</p></div></div>
+            
+            <h2 class="mb-4">✅ Comment se passe la livraison ?</h2>
+            <ul><li>📦 <strong>Expédition</strong> : sous 24h ouvrées</li><li>🔔 <strong>Notification</strong> : SMS et email avec lien de suivi</li><li>🚚 <strong>Transporteur</strong> : Chronopost, DHL, UPS selon volume</li><li>📝 <strong>Signature</strong> : obligatoire à la livraison</li><li>🔄 <strong>Retour</strong> : 14 jours pour retour en cas de problème</li></ul>
+            
+            <h2 class="mb-4">❓ Questions fréquentes livraison</h2>
+            <div class="accordion mb-5"><div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#l1">Livrez-vous en point relais ?</button></h3><div id="l1" class="accordion-collapse collapse show"><div class="accordion-body">Oui, plus de 5000 points relais en France métropolitaine.</div></div></div>
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l2">Puis-je suivre ma commande ?</button></h3><div id="l2" class="accordion-collapse collapse"><div class="accordion-body">Oui, un lien de suivi vous est envoyé par email et SMS.</div></div></div>
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#l3">Livraison en DOM-TOM ?</button></h3><div id="l3" class="accordion-collapse collapse"><div class="accordion-body">Oui, pour la Guadeloupe, Martinique, La Réunion, Mayotte. Contactez-nous pour un devis.</div></div></div></div>
+            
+            <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🚚 Commandez vos palettes dès maintenant !</h3><a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">Voir nos palettes →</a></div>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Livraison Palettes France et DOM-TOM 2026","description":"Tarifs et délais de livraison pour vos palettes alimentaires"}</script>
+{% endblock %}

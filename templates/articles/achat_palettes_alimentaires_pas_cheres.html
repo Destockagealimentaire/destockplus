@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}📦 Achat Palettes Alimentaires Pas Chères 2026 - Jusqu'à -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez des palettes alimentaires pas chères en 2026. Découvrez nos offres sur palettes de boissons, épicerie, surgelés. Économies jusqu'à 70%. Livraison rapide. Qualité garantie.{% endblock %}
+
+{% block meta_keywords %}palettes alimentaires, achat palettes, palette boissons pas chère, palette épicerie, lot alimentaire gros, achat en gros alimentaire, palette destockage{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/achat-palettes-alimentaires-pas-cheres{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item active">Palettes alimentaires</li></ol></nav>
+            <div class="mb-4"><span class="badge bg-success px-3 py-2 mb-2">📦 MEILLEUR RAPPORT QUALITÉ/PRIX 2026</span><h1 class="display-4 fw-bold mb-3">📦 Achat Palettes <span class="text-success">Alimentaires</span> Pas Chères 2026</h1><p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos achats en palette. Livraison rapide partout en France.</p></div>
+            <img src="{{ url_for('static', filename='images/articles/palettes-hero.jpg') }}" class="img-fluid rounded-4 shadow-lg mb-4" loading="eager">
+            
+            <h2 class="mb-4">💰 Pourquoi acheter des palettes alimentaires ?</h2>
+            <p>L'achat en palette permet de réaliser des <strong>économies massives</strong> allant jusqu'à <strong class="text-success">70%</strong>. Idéal pour professionnels (restaurants, bars, commerces) et particuliers (groupement d'achat, famille nombreuse).</p>
+            
+            <div class="table-responsive mb-5"><table class="table table-bordered"><thead class="table-dark"><tr><th>Type de palette</th><th>Contenu</th><th>Prix public</th><th>Prix destocké</th><th>Économie</th></tr></thead><tbody><tr><td>🥤 Boissons</td><td>2592 canettes</td><td>2096€</td><td class="fw-bold text-success">1499€</td><td>-28%</td></tr><tr><td>⚡ Énergisantes</td><td>2592 canettes</td><td>1942€</td><td class="fw-bold text-success">1599€</td><td>-18%</td></tr><tr><td>🍫 Pâte à tartiner</td><td>760 pots</td><td>1936€</td><td class="fw-bold text-success">1599€</td><td>-17%</td></tr></tbody></table></div>
+            
+            <div class="bg-success text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre palette 2026</strong><p class="mb-0 mt-1">-10% sur votre première commande palette avec le code <strong class="bg-white text-success px-3 py-2 rounded">PALETTE10</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Voir les palettes →</a></div></div>
+            
+            <h2 class="mb-4 mt-5">📋 Conseils pour bien choisir sa palette</h2><ul><li>✔️ Vérifiez la DDM des produits</li><li>✔️ Comparez les prix à l'unité</li><li>✔️ Prévoyez l'espace de stockage</li><li>✔️ Groupez vos achats avec d'autres</li><li>✔️ Abonnez-vous aux alertes</li></ul>
+            
+            <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">📦 Prêt à économiser sur vos palettes ?</h3><a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">Voir nos palettes →</a></div>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Achat Palettes Alimentaires Pas Chères 2026","description":"Achetez des palettes alimentaires pas chères jusqu'à -70%"}</script>
+{% endblock %}

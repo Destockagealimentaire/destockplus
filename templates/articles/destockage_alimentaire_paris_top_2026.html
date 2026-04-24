@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}🗼 Destockage Alimentaire Paris 2026 - Top 200 Adresses et Entrepôts | DestockPro{% endblock %}
+
+{% block meta_description %}Top 200 des adresses de destockage alimentaire à Paris et Île-de-France 2026. Découvrez les meilleurs entrepôts à Rungis, Bercy, Chapelle. Économies jusqu'à 75%. Livraison 24h.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Paris 2026, destockage Paris top adresses, grossiste alimentaire Paris, destockage Rungis, destockage Bercy, destockage Chapelle, destockage Île-de-France, meilleur destockage Paris 2026{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/destockage-alimentaire-paris-top-2026{% endblock %}
+
+{% block og_title %}🗼 Destockage Alimentaire Paris 2026 - Top 200 Adresses{% endblock %}
+{% block og_description %}Découvrez le top 200 des adresses de destockage alimentaire à Paris. Économies jusqu'à 75%. Livraison 24h.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Île-de-France</a></li>
+                    <li class="breadcrumb-item active">Paris Top 2026</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🗼 TOP 200 PARIS 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5432 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🗼 Destockage Alimentaire <span class="text-danger">Paris</span> 2026</h1>
+                <p class="lead fs-4">Le top <strong class="text-success">200 adresses</strong> pour économiser jusqu'à <strong class="text-success">75%</strong> en Île-de-France.</p>
+            </div>
+
+            <div class="alert alert-danger mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="display-6">🏆</span>
+                    <div><strong class="fs-5">N°1 du destockage en Île-de-France 2026</strong><br>Plus de 50 000 clients franciliens satisfaits - Livraison express 24h</div>
+                </div>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/paris-top-2026.jpg') }}" 
+                 alt="Destockage alimentaire Paris 2026 top adresses" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <h2 class="h5 mb-3">📑 Sommaire - Paris Top 2026</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul><li><a href="#pourquoi-paris">1. Pourquoi Paris en 2026 ?</a></li><li><a href="#zones-cles">2. Les 20 zones clés du destockage</a></li><li><a href="#produits-stars">3. Produits stars à prix cassés</a></li><li><a href="#comparatif-prix">4. Comparatif Paris/Province</a></li></ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul><li><a href="#meilleures-adresses">5. Top 200 des meilleures adresses</a></li><li><a href="#livraison">6. Livraison express Paris</a></li><li><a href="#faq">7. Questions fréquentes</a></li><li><a href="#temoignages">8. Avis clients</a></li></ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="pourquoi-paris" class="mb-4">🗼 Pourquoi Paris est la capitale française du destockage en 2026 ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-danger mb-2">📊</div><h3 class="h5">Marché +25%</h3><p>Croissance de 25% en 2025-2026</p></div></div></div>
+                <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-danger mb-2">🏭</div><h3 class="h5">+500 grossistes</h3><p>Plus de 500 grossistes en IDF</p></div></div></div>
+                <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-danger mb-2">💰</div><h3 class="h5">-75% d'économies</h3><p>Économies record à Paris</p></div></div></div>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Paris 2026</strong><p class="mb-0 mt-1">-20% sur toute commande + livraison offerte dès 200€ avec <strong class="bg-white text-danger px-3 py-2 rounded">PARIS2026</strong></p></div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter →</a>
+                </div>
+            </div>
+
+            <h2 id="zones-cles" class="mb-4 mt-5">📍 Les 20 zones clés du destockage à Paris et IDF</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark"><tr><th>Zone</th><th>Arrondissement/Ville</th><th>Spécialités</th><th>Économies</th><th>Note</th></tr></thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🏛️ Marché de Rungis</td><td>94 (Val-de-Marne)</td><td>Produits frais, fruits, légumes, viandes, poissons</td><td class="text-success">-40% à -75%</td><td>⭐ 4.9/5</td></tr>
+                        <tr><td class="fw-bold">🏭 Porte de la Chapelle</td><td>18ème</td><td>Grossistes généralistes, palettes, lots massifs</td><td class="text-success">-50% à -75%</td><td>⭐ 4.8/5</td></tr>
+                        <tr><td class="fw-bold">🍷 Bercy</td><td>12ème</td><td>Vins, champagnes, spiritueux</td><td class="text-success">-45% à -70%</td><td>⭐ 4.9/5</td></tr>
+                        <tr><td class="fw-bold">🛒 Quartier de la Roquette</td><td>11ème</td><td>Épicerie fine, produits régionaux</td><td class="text-success">-40% à -65%</td><td>⭐ 4.8/5</td></tr>
+                        <tr><td class="fw-bold">🏭 Saint-Ouen</td><td>93 (Seine-Saint-Denis)</td><td>Grossistes multi-produits</td><td class="text-success">-45% à -70%</td><td>⭐ 4.7/5</td></tr>
+                        <tr><td class="fw-bold">🏭 Aubervilliers</td><td>93 (Seine-Saint-Denis)</td><td>Import-export, lots massifs</td><td class="text-success">-50% à -75%</td><td>⭐ 4.8/5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="livraison" class="mb-4">🚚 Livraison express Paris et IDF - Tarifs 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Zone</th><th>Délai</th><th>Frais</th><th>Offre spéciale</th></tr></thead>
+                    <tbody>
+                        <tr><td>Paris (1er-20ème arrondissements)</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 200€</td></tr>
+                        <tr><td>Petite couronne (92, 93, 94)</td><td>24h</td><td>79€</td><td class="text-success">Gratuit dès 300€</td></tr>
+                        <tr><td>Grande couronne (95, 78, 77, 91)</td><td>24-48h</td><td>89€</td><td class="text-success">Gratuit dès 400€</td></tr>
+                        <tr><td>Région parisienne étendue</td><td>48h</td><td>99€</td><td class="text-success">Gratuit dès 500€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🗼 Paris passe à l'action avec DestockPro !</h3>
+                <p class="lead mb-4">Rejoignez les 50 000 clients franciliens qui nous font confiance</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 py-3">🛒 Voir les offres Paris →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Destockage Alimentaire Paris 2026 - Top 200 Adresses","description":"Top 200 des adresses de destockage alimentaire à Paris","author":{"@type":"Organization","name":"DestockPro"}}
+</script>
+{% endblock %}

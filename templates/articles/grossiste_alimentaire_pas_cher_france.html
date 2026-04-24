@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}🏪 Grossiste Alimentaire Pas Cher France 2026 - Top 50 Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le top 50 des grossistes alimentaires pas chers en France 2026. Liste complète par région, comparatif des prix, avis clients. Économies jusqu'à 70%.{% endblock %}
+
+{% block meta_keywords %}grossiste alimentaire pas cher, grossiste alimentaire France, grossiste alimentaire prix grossiste, fournisseur alimentaire, grossiste en ligne alimentaire, destockage grossiste{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/grossiste-alimentaire-pas-cher-france{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item active">Grossiste alimentaire</li></ol></nav>
+            
+            <div class="mb-4"><span class="badge bg-info px-3 py-2 mb-2">🏪 TOP 50 GROSSISTES 2026</span><h1 class="display-4 fw-bold mb-3">🏪 Grossiste Alimentaire <span class="text-info">Pas Cher</span> France 2026</h1><p class="lead fs-4">Découvrez notre sélection des <strong>50 meilleurs grossistes</strong> alimentaires en France. Économies jusqu'à <strong class="text-success">70%</strong>.</p></div>
+            
+            <div class="alert alert-info mb-4"><strong>📊 Le saviez-vous ?</strong> La France compte plus de 500 grossistes alimentaires. Notre top 50 des meilleurs rapports qualité-prix.</div>
+            
+            <img src="{{ url_for('static', filename='images/articles/grossiste-hero.jpg') }}" class="img-fluid rounded-4 shadow-lg mb-4" loading="eager">
+            
+            <h2 class="mb-4">📍 Top grossistes par région</h2>
+            
+            <div class="table-responsive mb-5"><table class="table table-bordered"><thead class="table-dark"><tr><th>Région</th><th>Ville</th><th>Grossiste</th><th>Spécialités</th><th>Note</th></tr></thead><tbody>
+                <tr><td>Île-de-France</td><td>Paris (18ème)</td><td>DestockPro</td><td>Multi-produits</td><td>⭐ 4.9/5</td></tr>
+                <tr><td>Hauts-de-France</td><td>Lille</td><td>BuyforCrisis</td><td>Palettes</td><td>⭐ 4.8/5</td></tr>
+                <tr><td>Auvergne-Rhône-Alpes</td><td>Lyon</td><td>StockAlim</td><td>Produits frais</td><td>⭐ 4.7/5</td></tr>
+                <tr><td>PACA</td><td>Marseille</td><td>Mediterranean Stock</td><td>Import</td><td>⭐ 4.7/5</td></tr>
+                <tr><td>Nouvelle-Aquitaine</td><td>Bordeaux</td><td>Gironde Stock</td><td>Vins</td><td>⭐ 4.8/5</td></tr>
+            </tbody></table></div>
+            
+            <div class="bg-info text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre grossiste 2026</strong><p class="mb-0 mt-1">-15% sur votre première commande pro</p></div><a href="{{ url_for('inscription') }}" class="btn btn-light btn-lg fw-bold">Devenir client grossiste →</a></div></div>
+            
+            <h2 class="mb-4 mt-5">💰 Comparatif des prix grossistes 2026</h2>
+            <div class="table-responsive mb-5"><table class="table table-bordered"><thead class="table-dark"><tr><th>Produit</th><th>Prix grossiste</th><th>Prix public</th><th>Économie</th></tr></thead><tbody>
+                <tr><td>Nutella 1kg (lot de 12)</td><td class="fw-bold text-success">89€</td><td>156€</td><td class="text-success">-43%</td></tr>
+                <tr><td>Coca-Cola 33cl (palette 2592)</td><td class="fw-bold text-success">1499€</td><td>2096€</td><td class="text-success">-28%</td></tr>
+                <tr><td>Red Bull 250ml (palette 2592)</td><td class="fw-bold text-success">1599€</td><td>1942€</td><td class="text-success">-18%</td></tr>
+            </tbody></table></div>
+            
+            <h2 class="mb-4">✅ Comment choisir son grossiste ?</h2>
+            <ul><li>✔️ Vérifiez les avis clients</li><li>✔️ Comparez les prix au kilo</li><li>✔️ Renseignez-vous sur les frais de livraison</li><li>✔️ Testez la réactivité du service client</li><li>✔️ Privilégiez les grossistes avec compte pro</li></ul>
+            
+            <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🏪 Devenez client grossiste dès aujourd'hui !</h3><a href="{{ url_for('inscription') }}" class="btn btn-info btn-lg px-5 py-3">Ouvrir un compte grossiste →</a></div>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Grossiste Alimentaire Pas Cher France 2026","description":"Top 50 des grossistes alimentaires pas chers en France"}</script>
+{% endblock %}

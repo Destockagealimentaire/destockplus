@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}💼 Devenir Revendeur Alimentaire en Destockage 2026 - Guide Complet | DestockPro{% endblock %}
+
+{% block meta_description %}Devenir revendeur alimentaire en destockage : guide complet 2026. Marge jusqu'à 50%, compte professionnel, fournisseurs fiables. Lancez votre activité de revente alimentaire.{% endblock %}
+
+{% block meta_keywords %}devenir revendeur alimentaire, revente alimentaire destockage, grossiste revente, compte professionnel destockage, marge revente alimentaire, business alimentaire{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/devenir-revendeur-alimentaire-destockage{% endblock %}
+
+{% block og_title %}💼 Devenir Revendeur Alimentaire en Destockage 2026{% endblock %}
+{% block og_description %}Lancez votre activité de revente alimentaire avec DestockPro. Marge jusqu'à 50%, compte professionnel, fournisseurs fiables. Guide complet.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Devenir revendeur</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">💼 GUIDE PROFESSIONNEL 2026</span>
+                <h1 class="display-4 fw-bold mb-3">💼 Devenir Revendeur <span class="text-danger">Alimentaire</span> en Destockage</h1>
+                <p class="lead fs-4">Guide complet pour lancer votre activité de revente avec des marges jusqu'à <strong class="text-success">50%</strong>.</p>
+            </div>
+
+            <div class="alert alert-danger mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="display-6">📊</span>
+                    <div><strong class="fs-5">Le marché de la revente alimentaire explose en 2026</strong><br>+35% de croissance - 150 000€ de CA moyen par revendeur</div>
+                </div>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/revendeur-hero.jpg') }}" 
+                 alt="Devenir revendeur alimentaire" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <h2 class="h5 mb-3">📑 Sommaire</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#pourquoi-revendeur">1. Pourquoi devenir revendeur ?</a></li>
+                            <li><a href="#comment-devenir">2. Comment devenir revendeur ?</a></li>
+                            <li><a href="#marges">3. Marges et rentabilité</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#produits-revente">4. Meilleurs produits à revendre</a></li>
+                            <li><a href="#compte-pro">5. Les avantages compte pro</a></li>
+                            <li><a href="#faq">6. Questions fréquentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="pourquoi-revendeur" class="mb-4">💰 Pourquoi devenir revendeur alimentaire en destockage ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">💶</div>
+                            <h3 class="h5">Investissement faible</h3>
+                            <p>Démarrez avec moins de 500€ de stock</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">📈</div>
+                            <h3 class="h5">Marge jusqu'à 50%</h3>
+                            <p>Revendez vos achats avec une belle marge</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">🏪</div>
+                            <h3 class="h5">Multiples débouchés</h3>
+                            <p>Marchés, Vinted, Leboncoin, votre boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale revendeur 2026</strong><p class="mb-0 mt-1">-20% sur votre première commande pro + livraison offerte</p></div>
+                    <a href="{{ url_for('inscription') }}" class="btn btn-light btn-lg fw-bold">Créer compte pro →</a>
+                </div>
+            </div>
+
+            <h2 id="marges" class="mb-4 mt-5">📊 Marges et rentabilité 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Prix achat revendeur</th><th>Prix revente conseillé</th><th>Marge brute</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>🥤 Palette Coca-Cola (2592 canettes)</td><td class="fw-bold text-success">1399€</td><td>2399€</td><td class="text-success">+1000€ (41%)</td></tr>
+                        <tr><td>🍫 Palette Nutella (760 pots)</td><td class="fw-bold text-success">1499€</td><td>2499€</td><td class="text-success">+1000€ (40%)</td></tr>
+                        <tr><td>⚡ Palette Red Bull (2592 canettes)</td><td class="fw-bold text-success">1499€</td><td>2599€</td><td class="text-success">+1100€ (42%)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="compte-pro" class="mb-4">✅ Les avantages du compte professionnel</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="fas fa-percent fa-2x text-danger mb-2"></i><h3>-15% sur tous les produits</h3><p>Tarifs préférentiels exclusifs</p></div></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="fas fa-credit-card fa-2x text-danger mb-2"></i><h3>Paiement à 30 jours</h3><p>Facilitez votre trésorerie</p></div></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="fas fa-truck fa-2x text-danger mb-2"></i><h3>Livraison prioritaire</h3><p>Expédition en 24h chrono</p></div></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="fas fa-chart-line fa-2x text-danger mb-2"></i><h3>Relevé d'achats mensuel</h3><p>Simplifiez votre comptabilité</p></div></div>
+                </div>
+            </div>
+
+            <h2 id="faq" class="mb-4">❓ Questions fréquentes revendeurs</h2>
+            <div class="accordion mb-5" id="faqRevendeur">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#r1">Quels documents faut-il pour un compte pro ?</button></h3><div id="r1" class="accordion-collapse collapse show" data-bs-parent="#faqRevendeur"><div class="accordion-body">KBis, numéro SIRET/SIREN, RIB professionnel.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r2">Où puis-je revendre mes produits ?</button></h3><div id="r2" class="accordion-collapse collapse" data-bs-parent="#faqRevendeur"><div class="accordion-body">Marchés, Leboncoin, Vinted, Facebook Marketplace, votre boutique en ligne.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r3">Y a-t-il un minimum de commande ?</button></h3><div id="r3" class="accordion-collapse collapse" data-bs-parent="#faqRevendeur"><div class="accordion-body">Minimum 300€ HT pour les pros.</div></div></div>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">💼 Lancez votre activité de revendeur dès aujourd'hui !</h3>
+                <p class="lead mb-4">Rejoignez les 2000+ revendeurs qui nous font confiance</p>
+                <a href="{{ url_for('inscription') }}" class="btn btn-danger btn-lg px-5 py-3">Créer mon compte professionnel →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Devenir Revendeur Alimentaire en Destockage 2026","description":"Guide pour lancer votre activité de revente avec marges jusqu'à 50%"}
+</script>
+{% endblock %}
