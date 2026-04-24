@@ -2286,6 +2286,9 @@ def sitemap():
         {'loc': '/guide-destockage-alimentaire-2026', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/achat-palettes-alimentaires-pas-cheres', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/comment-economiser-courses-alimentaires', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/devenir-revendeur-alimentaire-destockage', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/grossiste-alimentaire-pas-cher-france', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/livraison-palettes-france-dom-tom', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2389,7 +2392,22 @@ def destockage_alimentaire_paris():
 def destockage_alimentaire_lyon():
     """Article SEO destockage Lyon"""
     return render_template('articles/destockage_alimentaire_lyon.html')
+# ============ 3 NOUVEAUX ARTICLES ULTRA REFERENCÉS ============
 
+@app.route('/devenir-revendeur-alimentaire-destockage')
+def devenir_revendeur_alimentaire_destockage():
+    """Article devenir revendeur alimentaire destockage"""
+    return render_template('articles/devenir_revendeur_alimentaire_destockage.html')
+
+@app.route('/grossiste-alimentaire-pas-cher-france')
+def grossiste_alimentaire_pas_cher_france():
+    """Article grossiste alimentaire pas cher France"""
+    return render_template('articles/grossiste_alimentaire_pas_cher_france.html')
+
+@app.route('https://www.destockalimentaire.com/livraison-palettes-france-dom Tom')
+def livraison_palettes_france_dom_tom():
+    """Article livraison palettes France et DOM-TOM"""
+    return render_template('articles/livraison_palettes_france_dom_tom.html')
 
 @app.route('/destockage-alimentaire-belgique')
 def destockage_alimentaire_belgique():
