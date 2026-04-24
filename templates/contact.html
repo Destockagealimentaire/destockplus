@@ -1,23 +1,33 @@
 {% extends "base.html" %}
 
-{% block title %}Contact - Destockage Alimentaire{% endblock %}
+{% block title %}Contact - DestockPro | Destockage Alimentaire Professionnel{% endblock %}
+
+{% block meta_description %}Contactez DestockPro pour toute question sur le destockage alimentaire. Notre équipe est à votre disposition par téléphone, email ou formulaire. Réponse sous 24h.{% endblock %}
+
+{% block meta_keywords %}contact destockage alimentaire, formulaire contact destockpro, téléphone destockage, email destockpro, devis destockage professionnel{% endblock %}
+
+{% block og_title %}Contactez DestockPro - Service client destockage alimentaire{% endblock %}
+{% block og_description %}Une question sur nos produits, une commande ou un partenariat ? Contactez notre équipe. Nous vous répondons sous 24h.{% endblock %}
+
+{% block canonical %}{{ request.url }}{% endblock %}
 
 {% block content %}
 <div class="contact-section">
-    <h1 class="page-title">Contactez-nous</h1>
+    <h1 class="page-title">Contactez-<span class="highlight">nous</span></h1>
     
     <div class="contact-container">
         <!-- Informations de contact -->
         <div class="contact-info">
             <h2>Parlons de votre projet</h2>
-            <p>Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+            <p>Notre équipe est à votre disposition pour répondre à toutes vos questions sur le destockage alimentaire professionnel.</p>
             
             <div class="info-items">
                 <div class="info-item">
                     <div class="info-icon">📍</div>
                     <div class="info-content">
                         <h3>Adresse</h3>
-                        <p>123 Rue du Commerce<br>75001 Paris, France</p>
+                        <p>17 Rue Forlen<br>67100 Geispolsheim, France</p>
+                        <p class="info-note">(Entrepôt - Uniquement sur rendez-vous)</p>
                     </div>
                 </div>
                 
@@ -25,7 +35,8 @@
                     <div class="info-icon">📞</div>
                     <div class="info-content">
                         <h3>Téléphone</h3>
-                        <p>01 23 45 67 89<br>Lun-Ven: 9h-18h</p>
+                        <p><a href="tel:0178451719">01 78 45 17 19</a><br>Lun-Ven: 9h-18h</p>
+                        <p class="info-note">(Service client dédié)</p>
                     </div>
                 </div>
                 
@@ -33,7 +44,8 @@
                     <div class="info-icon">✉️</div>
                     <div class="info-content">
                         <h3>Email</h3>
-                        <p>contact@destockpro.fr<br>support@destockpro.fr</p>
+                        <p><a href="mailto:contact@destockalimentaire.com">contact@destockalimentaire.com</a><br>
+                        <a href="mailto:sav@destockalimentaire.com">sav@destockalimentaire.com</a> (SAV)</p>
                     </div>
                 </div>
                 
@@ -41,7 +53,9 @@
                     <div class="info-icon">🕒</div>
                     <div class="info-content">
                         <h3>Horaires</h3>
-                        <p>Lundi - Vendredi: 9h - 18h<br>Samedi: 10h - 16h</p>
+                        <p>Lundi - Vendredi: 9h00 - 18h00<br>
+                        Samedi: 10h00 - 16h00<br>
+                        Dimanche: Fermé</p>
                     </div>
                 </div>
             </div>
@@ -50,10 +64,18 @@
             <div class="social-section">
                 <h3>Suivez-nous</h3>
                 <div class="social-links">
-                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-                    <a href="#" class="social-link" aria-label="Facebook">f</a>
-                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -61,6 +83,7 @@
         <!-- Formulaire de contact -->
         <div class="contact-form">
             <h2>Envoyez-nous un message</h2>
+            <p class="form-note">Nous vous répondons sous 24h ouvrées</p>
             
             <form method="POST" action="/contact" id="contactForm">
                 <div class="form-row">
@@ -79,14 +102,14 @@
                 
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" class="form-input" required 
-                           placeholder="votre@email.com">
+                    <input type="email" id="contact@destockalimentaire.com" name="email" class="form-input" required 
+                           placeholder="contact@destockalimentaire.com">
                 </div>
                 
                 <div class="form-group">
                     <label for="telephone">Téléphone</label>
                     <input type="tel" id="telephone" name="telephone" class="form-input" 
-                           placeholder="01 23 45 67 89">
+                           placeholder="01 78 45 17 19">
                 </div>
                 
                 <div class="form-group">
@@ -96,7 +119,7 @@
                         <option value="info">Demande d'information</option>
                         <option value="commande">Question sur une commande</option>
                         <option value="produit">Question sur un produit</option>
-                        <option value="partenariat">Partenariat</option>
+                        <option value="partenariat">Partenariat / Devis professionnel</option>
                         <option value="reclamation">Réclamation</option>
                         <option value="autre">Autre</option>
                     </select>
@@ -116,12 +139,12 @@
                 </div>
                 
                 <div class="recaptcha-info">
-                    Ce site est protégé par reCAPTCHA et les règles de confidentialité de Google s'appliquent.
+                    Ce site est protégé par reCAPTCHA et la <a href="/confidentialite" target="_blank">politique de confidentialité</a> de Google s'applique.
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-large">
                     Envoyer le message
-                    <span class="btn-icon">→</span>
+                    <i class="fas fa-arrow-right"></i>
                 </button>
             </form>
         </div>
@@ -130,12 +153,13 @@
     <!-- Carte -->
     <div class="map-container">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.874102182142!2d2.335455315674153!3d48.860814079287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e29e6b3c7f5%3A0x423b9b5a8f3b8f!2sLouvre%20Museum!5e0!3m2!1sen!2sfr!4v1620000000000!5m2!1sen!2sfr" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2640.456789012345!2d7.6500!3d48.5156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796b8e2e2e2e2e2%3A0x123456789abcdef!2s17%20Rue%20Forlen%2C%2067100%20Geispolsheim!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
             width="100%" 
-            height="450" 
+            height="400" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy">
+            loading="lazy"
+            title="Carte DestockPro Geispolsheim">
         </iframe>
     </div>
     
@@ -145,108 +169,93 @@
         <div class="faq-grid">
             <div class="faq-item">
                 <h3>Quels sont les délais de livraison ?</h3>
-                <p>Nos délais de livraison sont de 24 à 48h pour la France métropolitaine.</p>
+                <p>Livraison en 24/48h partout en France métropolitaine. Offerts dès 150€ d'achat.</p>
+                <a href="/faq#livraison" class="faq-link">En savoir plus →</a>
             </div>
             <div class="faq-item">
                 <h3>Comment retourner un produit ?</h3>
-                <p>Vous avez 14 jours pour retourner un produit. Contactez-nous pour plus d'informations.</p>
+                <p>Vous disposez de 14 jours pour retourner les produits non alimentaires. Contactez notre SAV.</p>
+                <a href="/faq#retours" class="faq-link">En savoir plus →</a>
             </div>
             <div class="faq-item">
                 <h3>Les paiements sont-ils sécurisés ?</h3>
-                <p>Tous nos paiements sont 100% sécurisés via Stripe et PayPal.</p>
+                <p>Paiements 100% sécurisés via Stripe et PayPal. Certifié PCI-DSS.</p>
+                <a href="/faq#paiement" class="faq-link">En savoir plus →</a>
             </div>
             <div class="faq-item">
                 <h3>Puis-je commander en gros ?</h3>
-                <p>Oui, contactez-nous pour des devis personnalisés pour les professionnels.</p>
+                <p>Oui, contactez-nous pour des devis personnalisés pour professionnels et collectivités.</p>
+                <a href="/faq#professionnel" class="faq-link">En savoir plus →</a>
             </div>
         </div>
-        <a href="/faq" class="btn btn-outline">Voir toutes les FAQ</a>
+        <a href="/faq" class="btn btn-outline">
+            Voir toutes les FAQ
+            <i class="fas fa-arrow-right"></i>
+        </a>
     </div>
 </div>
 
-<script>
-// Validation du formulaire
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Récupérer les données
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    
-    // Validation simple
-    let isValid = true;
-    let errorMessage = '';
-    
-    if (!data.nom || data.nom.length < 2) {
-        isValid = false;
-        errorMessage = 'Le nom doit contenir au moins 2 caractères';
-    } else if (!data.email || !data.email.includes('@')) {
-        isValid = false;
-        errorMessage = 'Email invalide';
-    } else if (!data.message || data.message.length < 10) {
-        isValid = false;
-        errorMessage = 'Le message doit contenir au moins 10 caractères';
+<!-- Schema.org pour la page contact -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contactez DestockPro",
+    "description": "Page de contact de DestockPro pour toute question sur le destockage alimentaire professionnel",
+    "url": "{{ request.url }}",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "DestockPro",
+        "url": "{{ request.url_root }}"
     }
-    
-    if (!isValid) {
-        showNotification(errorMessage, 'error');
-        return;
-    }
-    
-    // Afficher un indicateur de chargement
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Envoi en cours...';
-    submitBtn.disabled = true;
-    
-    // Envoyer le formulaire
-    fetch('/contact', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            showNotification('Message envoyé avec succès !', 'success');
-            this.reset();
-        } else {
-            showNotification('Erreur lors de l\'envoi', 'error');
-        }
-    })
-    .catch(error => {
-        showNotification('Erreur réseau', 'error');
-    })
-    .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    });
-});
+}
+</script>
 
-// Animation des icônes
-document.querySelectorAll('.info-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.querySelector('.info-icon').style.transform = 'scale(1.1) rotate(5deg)';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-        this.querySelector('.info-icon').style.transform = 'scale(1) rotate(0)';
-    });
-});
+<!-- Schema.org Breadcrumb -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "{{ request.url_root }}"
+    },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "{{ request.url }}"
+    }]
+}
 </script>
 
 <style>
 .contact-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .contact-section {
+        padding: 2rem;
+    }
+}
+
+.highlight {
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
 }
 
 .page-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
+    color: var(--text);
+    font-weight: 800;
 }
 
 .page-title::after {
@@ -260,70 +269,114 @@ document.querySelectorAll('.info-item').forEach(item => {
     background: var(--secondary);
 }
 
+/* Contact Container */
 .contact-container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     background: var(--background);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-lg);
     margin-bottom: 3rem;
 }
 
+@media (min-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 0;
+    }
+}
+
+/* Contact Info */
 .contact-info {
     background: linear-gradient(135deg, var(--primary) 0%, #2a2a2a 100%);
     color: var(--background);
-    padding: 3rem;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contact-info {
+        padding: 3rem;
+    }
 }
 
 .contact-info h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
 }
 
 .contact-info > p {
     opacity: 0.9;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .info-items {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .info-item {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: flex-start;
 }
 
 .info-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: rgba(255,255,255,0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.info-item:hover .info-icon {
+    transform: scale(1.1);
+    background: var(--secondary);
+    color: var(--primary);
 }
 
 .info-content h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.3rem;
+    font-weight: 600;
 }
 
 .info-content p {
     opacity: 0.8;
     line-height: 1.5;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
+.info-content a {
+    color: var(--background);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.info-content a:hover {
+    color: var(--secondary);
+}
+
+.info-note {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 0.2rem !important;
+}
+
+/* Social Section */
 .social-section h3 {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .social-links {
@@ -342,6 +395,7 @@ document.querySelectorAll('.info-item').forEach(item => {
     text-decoration: none;
     color: var(--background);
     transition: var(--transition);
+    font-size: 1.2rem;
 }
 
 .social-link:hover {
@@ -350,40 +404,63 @@ document.querySelectorAll('.info-item').forEach(item => {
     transform: translateY(-3px);
 }
 
+/* Contact Form */
 .contact-form {
-    padding: 3rem;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contact-form {
+        padding: 3rem;
+    }
 }
 
 .contact-form h2 {
-    font-size: 1.8rem;
-    color: var(--primary);
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.form-note {
+    color: var(--text-light);
     margin-bottom: 2rem;
+    font-size: 0.9rem;
 }
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text);
+    font-size: 0.9rem;
 }
 
 .form-input {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.8rem 1rem;
     border: 2px solid var(--border);
-    border-radius: 8px;
+    border-radius: 12px;
     transition: var(--transition);
     font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--background);
 }
 
 .form-input:focus {
@@ -397,91 +474,327 @@ textarea.form-input {
     min-height: 120px;
 }
 
+/* Checkbox */
 .checkbox-label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-light);
 }
 
 .checkbox-label input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
+/* reCAPTCHA info */
 .recaptcha-info {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-light);
-    margin-bottom: 1.5rem;
+    margin: 1rem 0;
+}
+
+.recaptcha-info a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.recaptcha-info a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--primary);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-outline:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .btn-large {
-    width: 100%;
     padding: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
+/* Map */
 .map-container {
-    margin: 3rem 0;
+    margin: 2rem 0;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
 }
 
+/* FAQ Preview */
 .faq-preview {
     text-align: center;
+    margin-top: 3rem;
 }
 
 .faq-preview h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 2rem;
-    color: var(--primary);
+    color: var(--text);
 }
 
 .faq-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .faq-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
 }
 
 .faq-item {
     text-align: left;
     padding: 1.5rem;
     background: var(--surface);
-    border-radius: 12px;
+    border-radius: 16px;
     transition: var(--transition);
+    border: 1px solid var(--border);
 }
 
 .faq-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
 }
 
 .faq-item h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
-    color: var(--primary);
+    color: var(--text);
+    font-weight: 600;
 }
 
 .faq-item p {
     color: var(--text-light);
     line-height: 1.5;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
 }
 
+.faq-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.faq-link:hover {
+    gap: 0.5rem;
+    text-decoration: underline;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    background: var(--success);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .notification {
+        left: auto;
+        min-width: 300px;
+    }
+}
+
+.notification.error {
+    background: var(--danger);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
     .page-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.4rem;
+    }
+    
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 }
 </style>
+
+<script>
+// Validation du formulaire
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Récupérer les données
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Validation simple
+    let isValid = true;
+    let errorMessage = '';
+    
+    if (!data.nom || data.nom.length < 2) {
+        isValid = false;
+        errorMessage = 'Le nom doit contenir au moins 2 caractères';
+    } else if (!data.prenom || data.prenom.length < 2) {
+        isValid = false;
+        errorMessage = 'Le prénom doit contenir au moins 2 caractères';
+    } else if (!data.email || !data.email.includes('@')) {
+        isValid = false;
+        errorMessage = 'Email invalide';
+    } else if (!data.sujet) {
+        isValid = false;
+        errorMessage = 'Veuillez sélectionner un sujet';
+    } else if (!data.message || data.message.length < 10) {
+        isValid = false;
+        errorMessage = 'Le message doit contenir au moins 10 caractères';
+    } else if (!data.consent) {
+        isValid = false;
+        errorMessage = 'Veuillez accepter le traitement de vos données';
+    }
+    
+    if (!isValid) {
+        showNotification(errorMessage, 'error');
+        return;
+    }
+    
+    // Afficher un indicateur de chargement
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+    submitBtn.disabled = true;
+    
+    // Envoyer le formulaire
+    fetch('/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification('✅ Message envoyé avec succès ! Notre équipe vous répondra sous 24h.', 'success');
+            this.reset();
+        } else {
+            showNotification('❌ Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('❌ Erreur réseau. Veuillez vérifier votre connexion.', 'error');
+    })
+    .finally(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    });
+});
+
+// Fonction de notification
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `<span>${message}</span>`;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Animation des icônes
+document.querySelectorAll('.info-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.querySelector('.info-icon').style.transform = 'scale(1.1) rotate(5deg)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.querySelector('.info-icon').style.transform = 'scale(1) rotate(0)';
+    });
+});
+
+// Style pour slideOut
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+</script>
 {% endblock %}
