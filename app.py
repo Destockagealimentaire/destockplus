@@ -2408,7 +2408,7 @@ def grossiste_alimentaire_pas_cher_france():
     """Article grossiste alimentaire pas cher France"""
     return render_template('articles/grossiste_alimentaire_pas_cher_france.html')
 
-@app.route('https://www.destockalimentaire.com/livraison-palettes-france-dom Tom')
+@app.route('/livraison-palettes-france-domTom')
 def livraison_palettes_france_dom_tom():
     """Article livraison palettes France et DOM-TOM"""
     return render_template('articles/livraison_palettes_france_dom_tom.html')
