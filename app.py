@@ -11,6 +11,7 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 from telegram_bot import send_telegram_message, test_telegram_connection, send_order_notification
 import smtplib
+import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -60,6 +61,100 @@ stripe.api_key = app.config['STRIPE_SECRET_KEY']
 # Configuration Telegram
 TELEGRAM_BOT_TOKEN = app.config['TELEGRAM_BOT_TOKEN']
 TELEGRAM_CHAT_ID = app.config['TELEGRAM_CHAT_ID']
+
+
+# ============ FONCTION ENVOI EMAIL ============
+def send_email_contact(nom, prenom, email, telephone, sujet, message):
+    """Envoie un email via SMTP Hostinger"""
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['From'] = SMTP_USER
+        msg['To'] = RECIPIENT_EMAIL
+        msg['Subject'] = f"[DestockPro] Formulaire de contact - {sujet}"
+        
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: Arial, sans-serif;">
+            <h2>📬 Nouveau message de contact</h2>
+            <p><strong>Nom :</strong> {prenom} {nom}</p>
+            <p><strong>Email :</strong> {email}</p>
+            <p><strong>Téléphone :</strong> {telephone or 'Non renseigné'}</p>
+            <p><strong>Sujet :</strong> {sujet}</p>
+            <p><strong>Message :</strong><br>{message}</p>
+            <hr>
+            <small>Message envoyé depuis le site DestockPro</small>
+        </body>
+        </html>
+        """
+        
+        msg.attach(MIMEText(html_content, 'html', 'utf-8'))
+        
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, context=context) as server:
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(msg)
+        
+        return True, "Email envoyé avec succès"
+    
+    except Exception as e:
+        print(f"❌ Erreur SMTP: {str(e)}")
+        return False, str(e)
+
+
+# ============ ROUTE CONTACT - UTILISE @csrf.exempt ============
+@app.route('/contact', methods=['GET', 'POST'])
+@csrf.exempt  # ← Utilisez @csrf.exempt (pas @csrf_exempt)
+def contact():
+    """Page de contact"""
+    if request.method == 'POST':
+        nom = request.form.get('nom')
+        prenom = request.form.get('prenom')
+        email = request.form.get('email')
+        telephone = request.form.get('telephone')
+        sujet = request.form.get('sujet')
+        message = request.form.get('message')
+        
+        print("=" * 60)
+        print(f"📬 FORMULAIRE CONTACT REÇU")
+        print(f"Nom: {prenom} {nom}")
+        print(f"Email: {email}")
+        print("=" * 60)
+        
+        if not all([nom, prenom, email, sujet, message]):
+            return jsonify({'success': False, 'error': 'Veuillez remplir tous les champs obligatoires'})
+        
+        # Envoi email
+        email_success, email_error = send_email_contact(nom, prenom, email, telephone, sujet, message)
+        
+        # Envoi Telegram
+        telegram_success = False
+        try:
+            telegram_message = f"""
+📬 *NOUVEAU MESSAGE CONTACT*
+┃ *Nom:* {prenom} {nom}
+┃ *Email:* {email}
+┃ *Téléphone:* {telephone or 'Non renseigné'}
+┃ *Sujet:* {sujet}
+┃ *Message:* {message}
+┃ *Date:* {datetime.now().strftime('%d/%m/%Y %H:%M')}
+            """
+            response = requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+                json={'chat_id': TELEGRAM_CHAT_ID, 'text': telegram_message, 'parse_mode': 'Markdown'},
+                timeout=10
+            )
+            telegram_success = response.status_code == 200
+        except Exception as e:
+            print(f"Erreur Telegram: {e}")
+        
+        if email_success:
+            return jsonify({'success': True, 'message': 'Message envoyé avec succès'})
+        else:
+            return jsonify({'success': False, 'error': 'Erreur lors de l\'envoi'}), 500
+    
+    return render_template('contact.html')
 
 # Filtres Jinja2 personnalisés
 @app.template_filter('format_price')
@@ -2453,52 +2548,7 @@ def send_email_contact(nom, prenom, email, telephone, sujet, message):
 
 # Route contact
 # Route contact - Version CORRIGÉE avec email + Telegram
-@app.route('/contact', methods=['GET', 'POST'])
-@csrf_exempt 
-def contact():
-    if request.method == 'POST':
-        nom = request.form.get('nom')
-        prenom = request.form.get('prenom')
-        email = request.form.get('email')
-        telephone = request.form.get('telephone')
-        sujet = request.form.get('sujet')
-        message = request.form.get('message')
-        
-        # Validation des champs
-        if not all([nom, prenom, email, sujet, message]):
-            return jsonify({'success': False, 'error': 'Veuillez remplir tous les champs obligatoires'})
-        
-        # 1️⃣ ENVOI PAR EMAIL
-        email_success, email_error = send_email_contact(nom, prenom, email, telephone, sujet, message)
-        
-        # 2️⃣ ENVOI PAR TELEGRAM
-        telegram_success = False
-        try:
-            telegram_message = f"""
-📬 *NOUVEAU MESSAGE CONTACT*
-Nom: {prenom} {nom}
-Email: {email}
-Téléphone: {telephone or 'Non renseigné'}
-Sujet: {sujet}
-Message: {message}
-Date: {datetime.now().strftime('%d/%m/%Y %H:%M')}
-            """
-            requests.post(
-                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-                json={'chat_id': TELEGRAM_CHAT_ID, 'text': telegram_message, 'parse_mode': 'Markdown'},
-                timeout=10
-            )
-            telegram_success = True
-        except Exception as e:
-            print(f"Erreur Telegram: {e}")
-        
-        # 3️⃣ RÉPONSE EN JSON (pour le JavaScript)
-        if email_success:
-            return jsonify({'success': True, 'message': 'Message envoyé avec succès'})
-        else:
-            return jsonify({'success': False, 'error': 'Erreur lors de l\'envoi'}), 500
-    
-    return render_template('contact.html')
+
 
 # Route pour les recherches
 @app.route('/recherche')
