@@ -2455,6 +2455,17 @@ def mentions_legales():
     return render_template('mentions_legales.html')
 
 
+# ============= NOUVEAUX ARTICLES ULTRA PREMIUM =============
+
+@app.route('/discount-alimentaire-mega-2026')
+def discount_alimentaire_mega_2026():
+    """Article ultra premium - Discount alimentaire 2026"""
+    return render_template('articles/discount_alimentaire_mega_2026.html')
+
+@app.route('/lille-destockage-pro-2026')
+def lille_destockage_pro_2026():
+    """Article ultra premium - Destockage Lille 2026"""
+    return render_template('articles/lille_destockage_pro_2026.html')
 
 # Route pour le suivi de commande (invités)
 @app.route('/suivi-commande')
