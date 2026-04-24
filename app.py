@@ -2464,50 +2464,39 @@ def contact():
         sujet = request.form.get('sujet')
         message = request.form.get('message')
         
-        # Validation
+        # Validation des champs
         if not all([nom, prenom, email, sujet, message]):
-            flash('Veuillez remplir tous les champs obligatoires', 'danger')
-            return redirect(url_for('contact'))
+            return jsonify({'success': False, 'error': 'Veuillez remplir tous les champs obligatoires'})
         
-        # 1️⃣ ENVOI PAR EMAIL (NOUVEAU)
+        # 1️⃣ ENVOI PAR EMAIL
         email_success, email_error = send_email_contact(nom, prenom, email, telephone, sujet, message)
         
-        # 2️⃣ ENVOI PAR TELEGRAM (GARDÉ - IDENTIQUE À AVANT)
+        # 2️⃣ ENVOI PAR TELEGRAM
         telegram_success = False
         try:
             telegram_message = f"""
 📬 *NOUVEAU MESSAGE CONTACT*
-┏━━━━━━━━━━━━━━━━━━━━━
-┃ *Nom:* {prenom} {nom}
-┃ *Email:* {email}
-┃ *Téléphone:* {telephone or 'Non renseigné'}
-┃ *Sujet:* {sujet}
-┃ *Message:* 
-┃ {message}
-┃ *Date:* {datetime.now().strftime('%d/%m/%Y %H:%M')}
-┗━━━━━━━━━━━━━━━━━━━━━
+Nom: {prenom} {nom}
+Email: {email}
+Téléphone: {telephone or 'Non renseigné'}
+Sujet: {sujet}
+Message: {message}
+Date: {datetime.now().strftime('%d/%m/%Y %H:%M')}
             """
-            
             requests.post(
                 f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-                json={
-                    'chat_id': TELEGRAM_CHAT_ID,
-                    'text': telegram_message,
-                    'parse_mode': 'Markdown'
-                },
+                json={'chat_id': TELEGRAM_CHAT_ID, 'text': telegram_message, 'parse_mode': 'Markdown'},
                 timeout=10
             )
             telegram_success = True
         except Exception as e:
-            print(f"❌ Erreur Telegram: {e}")
+            print(f"Erreur Telegram: {e}")
         
-        # Gestion des messages
+        # 3️⃣ RÉPONSE EN JSON (pour le JavaScript)
         if email_success:
-            flash('✅ Message envoyé avec succès !', 'success')
+            return jsonify({'success': True, 'message': 'Message envoyé avec succès'})
         else:
-            flash('❌ Erreur technique', 'danger')
-        
-        return redirect(url_for('contact'))
+            return jsonify({'success': False, 'error': 'Erreur lors de l\'envoi'}), 500
     
     return render_template('contact.html')
 
