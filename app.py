@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
 from flask_wtf.csrf import CSRFProtect
-from flask_wtf import CSRFProtect as csrf
 from extensions import db, login_manager
 from flask_login import UserMixin, login_user, login_required, logout_user, current_user
 from datetime import datetime, timedelta
@@ -17,13 +16,12 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-
+# Configuration email
 SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.hostinger.com')
-SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))  # Port 465 pour SSL
+SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))
 SMTP_USER = os.environ.get('SMTP_USER', '')
 SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
 RECIPIENT_EMAIL = os.environ.get('RECIPIENT_EMAIL', '')
-
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'votre-cle-secrete-tres-securisee-2024'
