@@ -1733,19 +1733,73 @@
             background: var(--secondary);
             color: var(--primary);
         }
+        @media (max-width: 992px) {
+    /* Le menu se cache normalement */
+    .nav-menu-modern {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--background);
+        padding: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        box-shadow: var(--shadow-xl);
+        border-top: 1px solid var(--border);
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+        z-index: 1000;
+    }
+    
+    .nav-menu-modern.active {
+        display: flex;
+    }
+    
+    /* Le panier reste visible */
+    .cart-wrapper {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    
+    /* Ajustement du conteneur */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        order: 3;
+    }
+    
+    .cart-wrapper {
+        order: 2;
+    }
+    
+    .logo-modern {
+        order: 1;
+    }
+}
     </style>
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
     <!-- Navigation moderne -->
+   <!-- Navigation moderne - CORRIGÉE -->
     <nav class="navbar-modern" id="navbar">
         <div class="container">
             <div class="nav-container">
+                <!-- Logo -->
                 <a href="/" class="logo-modern">
                     <span class="logo-text">Destock<span class="logo-accent">Pro</span></span>
                 </a>
                 
+                <!-- Menu principal (liens) - CE QUI SE CACHE SUR MOBILE -->
                 <div class="nav-menu-modern" id="navMenu">
                     <a href="/" class="nav-link-modern {% if request.path == '/' %}active{% endif %}">
                         <i class="fas fa-home"></i> Accueil
@@ -1794,41 +1848,43 @@
                             <i class="fas fa-user-plus"></i> Inscription
                         </a>
                     {% endif %}
+                </div>
+                
+                <!-- ✅ PANIER - EN DEHORS DU MENU MOBILE (toujours visible) -->
+                <div class="cart-wrapper">
+                    <a href="/panier" class="cart-link" id="cartLink">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
                     
-                    <div class="cart-wrapper">
-                        <a href="/panier" class="cart-link" id="cartLink">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span class="cart-count" id="cartCount">0</span>
-                        </a>
-                        
-                        <!-- Popup Panier -->
-                        <div class="cart-popup" id="cartPopup">
-                            <div class="cart-popup-header">
-                                <h3><i class="fas fa-shopping-cart"></i> Mon panier</h3>
-                                <button class="cart-popup-close" onclick="hideCartPopup()">
-                                    <i class="fas fa-times"></i>
-                                </button>
+                    <!-- Popup Panier -->
+                    <div class="cart-popup" id="cartPopup">
+                        <div class="cart-popup-header">
+                            <h3><i class="fas fa-shopping-cart"></i> Mon panier</h3>
+                            <button class="cart-popup-close" onclick="hideCartPopup()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="cart-popup-items" id="cartPopupItems">
+                            <div class="cart-popup-empty">
+                                <i class="fas fa-shopping-bag"></i>
+                                <p>Votre panier est vide</p>
                             </div>
-                            <div class="cart-popup-items" id="cartPopupItems">
-                                <div class="cart-popup-empty">
-                                    <i class="fas fa-shopping-bag"></i>
-                                    <p>Votre panier est vide</p>
-                                </div>
+                        </div>
+                        <div class="cart-popup-footer" style="display: none;" id="cartPopupFooter">
+                            <div class="cart-popup-total">
+                                <span>Total:</span>
+                                <span id="cartPopupTotal">0,00 €</span>
                             </div>
-                            <div class="cart-popup-footer" style="display: none;" id="cartPopupFooter">
-                                <div class="cart-popup-total">
-                                    <span>Total:</span>
-                                    <span id="cartPopupTotal">0,00 €</span>
-                                </div>
-                                <div class="cart-popup-buttons">
-                                    <a href="/panier" class="cart-popup-btn">Voir le panier</a>
-                                    <a href="/paiement" class="cart-popup-btn primary">Paiement</a>
-                                </div>
+                            <div class="cart-popup-buttons">
+                                <a href="/panier" class="cart-popup-btn">Voir le panier</a>
+                                <a href="/paiement" class="cart-popup-btn primary">Paiement</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Bouton menu mobile (hamburger) -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span></span>
                     <span></span>
