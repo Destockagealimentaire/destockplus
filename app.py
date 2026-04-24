@@ -2485,12 +2485,12 @@ def guide_destockage_alimentaire_2026():
     """Article guide complet destockage 2026"""
     return render_template('articles/guide_destockage_alimentaire_2026.html')
 
-@app.route('https://www.destockalimentaire.com/achat-palettes-alimentaires-pas-cheres')
+@app.route('/achat-palettes-alimentaires-pas-cheres')
 def achat_palettes_alimentaires_pas_cheres():
     """Article achat palettes alimentaires pas chères"""
     return render_template('articles/achat_palettes_alimentaires_pas_cheres.html')
 
-@app.route('https://www.destockalimentaire.com/comment-economiser-courses-alimentaires')
+@app.route('/comment-economiser-courses-alimentaires')
 def comment_economiser_courses_alimentaires():
     """Article comment économiser sur ses courses alimentaires"""
     return render_template('articles/comment_economiser_courses_alimentaires.html')
