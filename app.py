@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
-from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect, csrf_exempt
 from extensions import db, login_manager
 from flask_login import UserMixin, login_user, login_required, logout_user, current_user
 from datetime import datetime, timedelta
