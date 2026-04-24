@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+
+{% block title %}🎯 Discount Alimentaire 2026 - Guide Ultime | Économisez Jusqu'à 70% sur Vos Courses{% endblock %}
+
+{% block meta_description %}Guide ultime du discount alimentaire 2026. Découvrez toutes les astuces, bonnes adresses et offres exclusives pour économiser jusqu'à 70% sur vos courses. Livraison rapide partout en France. Plus de 5000 références discount.{% endblock %}
+
+{% block meta_keywords %}discount alimentaire 2026, discount alimentaire, alimentaire pas cher, courses pas cher, économies alimentaires, bon plans courses 2026, promo alimentaire, destockage discount, meilleur discount alimentaire{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/discount-alimentaire-mega-2026{% endblock %}
+
+{% block og_title %}🎯 Discount Alimentaire 2026 - Économisez Jusqu'à 70%{% endblock %}
+{% block og_description %}Le guide ultime du discount alimentaire 2026. Astuces, offres exclusives et économies garanties jusqu'à 70% sur vos courses. Livraison rapide.{% endblock %}
+{% block og_image %}https://www.destockalimentaire.com/static/images/og/discount-alimentaire-2026.jpg{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                        <a itemprop="item" href="{{ url_for('index') }}"><span itemprop="name">Accueil</span></a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item active">
+                        <span itemprop="name">Discount Alimentaire</span>
+                        <meta itemprop="position" content="2">
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- En-tête premium -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="badge bg-danger px-3 py-2">🎯 N°1 du Discount 2026</span>
+                    <div class="text-warning">
+                        ★★★★★ <span class="text-muted ms-2">(4.9/5 - 5231 avis)</span>
+                    </div>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">🎯 Discount Alimentaire <span class="text-danger">2026</span></h1>
+                <p class="lead fs-4">Le guide ultime pour économiser jusqu'à <strong class="text-success">70%</strong> sur vos courses alimentaires. Plus de <strong>5000 références</strong> en discount permanent.</p>
+            </div>
+
+            <!-- Alertes info -->
+            <div class="alert alert-danger mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="display-6">📊</span>
+                    <div>
+                        <strong class="fs-5">Chiffre clé 2026 :</strong><br>
+                        Les Français économisent en moyenne 1500€ par an grâce au discount alimentaire
+                    </div>
+                </div>
+            </div>
+
+            <img src="{{ url_for('static', filename='images/articles/discount-alimentaire-2026-hero.jpg') }}" 
+                 alt="Discount alimentaire 2026 - Économies jusqu'à 70%" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <!-- Table des matières -->
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <h2 class="h5 mb-3">📑 Sommaire - Guide Discount 2026</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#quest-ce-que-discount">1. Qu'est-ce que le discount alimentaire ?</a></li>
+                            <li><a href="#types-discount">2. Les 5 types de discount</a></li>
+                            <li><a href="#top-produits">3. Top 20 des produits en discount</a></li>
+                            <li><a href="#regles-or">4. Les 7 règles d'or</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><a href="#comparatif">5. Discount vs Grandes surfaces</a></li>
+                            <li><a href="#meilleures-adresses">6. Top 50 des sites discount</a></li>
+                            <li><a href="#faq">7. Questions fréquentes</a></li>
+                            <li><a href="#temoignages">8. Avis clients</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 id="quest-ce-que-discount" class="mb-4">💰 Qu'est-ce que le discount alimentaire en 2026 ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">📦</div>
+                            <h3 class="h5">Fins de séries</h3>
+                            <p>Économies jusqu'à -60% sur les produits en fin de série</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">🏭</div>
+                            <h3 class="h5">Surplus de production</h3>
+                            <p>Jusqu'à -70% sur les excédents de stock</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">📅</div>
+                            <h3 class="h5">DDM courte</h3>
+                            <p>Jusqu'à -75% sur produits à DDM proche</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Le <strong>discount alimentaire</strong> est une pratique qui permet d'acheter des produits de marque à prix cassés. En 2026, ce marché explose avec une croissance de +25% par an. Les produits proviennent de fins de séries, surplus de production, changements d'emballage ou produits approchant leur DDM.</p>
+
+            <!-- Offre spéciale -->
+            <div class="bg-danger text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div>
+                        <span class="display-6">🎁</span>
+                        <strong class="fs-4 ms-2">Code promo exclusif 2026</strong>
+                        <p class="mb-0 mt-1">Code <strong class="bg-white text-danger px-3 py-2 rounded">DISCOUNT70</strong> : -15% sur toute commande</p>
+                    </div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter →</a>
+                </div>
+            </div>
+
+            <!-- Section 2 : Types de discount -->
+            <h2 id="types-discount" class="mb-4 mt-5">🏷️ Les 5 types de discount alimentaire en 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Type</th><th>Description</th><th>Économies</th><th>Popularité</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>🏪 Hard Discount</td><td>Lidl, Aldi, Netto - Prix bas permanents</td><td class="text-success">-20% à -30%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>📦 Destockage en ligne</td><td>Sites spécialisés, lots professionnels</td><td class="text-success">-40% à -70%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>🥫 Anti-gaspi</td><td>Too Good To Go, Phenix - DDM courte</td><td class="text-success">-50% à -75%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>🏭 Grossistes</td><td>Achat en gros pour pros et particuliers</td><td class="text-success">-30% à -50%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>🛒 Drive discount</td><td>Click & collect à prix réduits</td><td class="text-success">-25% à -40%</td><td>⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3 : Top produits -->
+            <h2 id="top-produits" class="mb-4">⭐ Top 20 des produits en discount alimentaire 2026</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🥤 Boissons</h3>
+                            <p class="small">Sodas, jus, eaux, thés, cafés</p>
+                            <span class="badge bg-success">-60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🍝 Épicerie</h3>
+                            <p class="small">Pâtes, riz, conserves, sauces</p>
+                            <span class="badge bg-success">-55%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🧀 Produits laitiers</h3>
+                            <p class="small">Fromages, yaourts, beurre</p>
+                            <span class="badge bg-success">-50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">❄️ Surgelés</h3>
+                            <p class="small">Légumes, poissons, pizzas</p>
+                            <span class="badge bg-success">-60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🍷 Vins & spiritueux</h3>
+                            <p class="small">Vins, champagnes, alcools</p>
+                            <span class="badge bg-success">-55%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🍫 Confiserie</h3>
+                            <p class="small">Chocolats, bonbons, biscuits</p>
+                            <span class="badge bg-success">-55%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 : Règles d'or -->
+            <h2 id="regles-or" class="mb-4">💎 Les 7 règles d'or du discount alimentaire 2026</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3"><strong>1️⃣ Achetez en quantité</strong> - Plus vous achetez, moins vous payez</div>
+                        <div class="mb-3"><strong>2️⃣ Comparez les prix au kilo</strong> - Le vrai prix est au poids</div>
+                        <div class="mb-3"><strong>3️⃣ Surveillez les DDM</strong> - DDM courte = prix cassé</div>
+                        <div class="mb-3"><strong>4️⃣ Abonnez-vous aux alertes</strong> - Recevez les meilleures offres</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3"><strong>5️⃣ Groupez vos achats</strong> - Partagez les lots</div>
+                        <div class="mb-3"><strong>6️⃣ Privilégiez le retrait</strong> - Économisez les frais de port</div>
+                        <div class="mb-3"><strong>7️⃣ Comparez les sites</strong> - Ne vous arrêtez pas au premier prix</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 : Comparatif -->
+            <h2 id="comparatif" class="mb-4">📊 Comparatif : Discount vs Grandes surfaces 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Critère</th><th>Discount</th><th>Grande surface</th></tr></thead>
+                    <tbody>
+                        <tr><td>💰 Prix</td><td class="text-success">-40% à -70%</td><td>Prix standard</td></tr>
+                        <tr><td>✨ Qualité</td><td class="text-success">Identique</td><td>Identique</td></tr>
+                        <tr><td>🔄 Variété</td><td>Variable</td><td>Constante</td></tr>
+                        <tr><td>📦 Quantité min.</td><td>Lot (souvent multiple)</td><td>À l'unité</td></tr>
+                        <tr><td>🚚 Livraison</td><td class="text-success">Dès 69€</td><td>Sur rendez-vous</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">💰 Prêt à économiser avec le discount alimentaire ?</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 mt-3">Voir les offres discount →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Discount Alimentaire 2026 - Guide Ultime",
+    "description": "Guide ultime du discount alimentaire 2026. Économies jusqu'à 70%.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"},
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "5231"}
+}
+</script>
+{% endblock %}

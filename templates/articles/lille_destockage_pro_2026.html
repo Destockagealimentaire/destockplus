@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}🏭 Destockage Alimentaire Lille 2026 - Guide Pro | Économies jusqu'à 75% dans les Hauts-de-France{% endblock %}
+
+{% block meta_description %}Guide professionnel du destockage alimentaire à Lille et Hauts-de-France 2026. Découvrez les meilleures adresses pour professionnels. Économies jusqu'à 75%. Livraison express 24h. Compte pro avantages.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Lille 2026 pro, destockage Lille professionnel, grossiste alimentaire Lille, destockage Hauts-de-France pro, fournisseur restauration Lille, achat en gros Lille{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/lille-destockage-pro-2026{% endblock %}
+
+{% block og_title %}🏭 Destockage Alimentaire Lille 2026 - Guide Professionnel{% endblock %}
+{% block og_description %}Le guide pro du destockage alimentaire à Lille. Économies jusqu'à 75% pour les professionnels. Compte pro, livraison express.{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Hauts-de-France</a></li>
+                    <li class="breadcrumb-item active">Lille Pro</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🏭 Guide Professionnel 2026</span>
+                <h1 class="display-4 fw-bold mb-3">🏭 Destockage Alimentaire <span class="text-primary">Lille</span> 2026</h1>
+                <p class="lead fs-4">Le guide <strong>professionnel</strong> pour économiser jusqu'à <strong class="text-success">75%</strong> sur vos approvisionnements dans les Hauts-de-France.</p>
+            </div>
+
+            <div class="alert alert-primary mb-4">
+                <strong>💼 Pour les pros :</strong> Compte professionnel, paiement à 30 jours, livraison express 24h, tarifs dégressifs
+            </div>
+
+            <!-- Zones pro -->
+            <h2 class="mb-4">📍 Les zones professionnelles du destockage à Lille</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Zone</th><th>Secteur</th><th>Spécialités</th><th>Économies</th></tr></thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🏭 Lesquin</td><td>Zone de Lesquin</td><td>Palettes, lots massifs</td><td class="text-success">-65% à -75%</td></tr>
+                        <tr><td class="fw-bold">🏭 Roubaix - Tourcoing</td><td>Zone de l'Union</td><td>Grossistes historiques</td><td class="text-success">-60% à -75%</td></tr>
+                        <tr><td class="fw-bold">🏭 Vendeville</td><td>Zone aéroport</td><td>Produits importés</td><td class="text-success">-55% à -70%</td></tr>
+                        <tr><td class="fw-bold">🏭 Villeneuve-d'Ascq</td><td>La Pilaterie</td><td>Épicerie, surgelés</td><td class="text-success">-50% à -65%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre pro -->
+            <div class="bg-primary text-white p-4 rounded-4 my-4 text-center">
+                <h3>🎁 Offre spéciale professionnels Lille 2026</h3>
+                <p>Code <strong class="bg-white text-primary px-3 py-2 rounded">PROLILLE2026</strong> : -20% sur première commande + livraison offerte</p>
+                <a href="{{ url_for('inscription') }}" class="btn btn-light btn-lg mt-2">Créer mon compte pro →</a>
+            </div>
+
+            <!-- Avantages -->
+            <h2 class="mb-4">✅ Avantages du compte professionnel à Lille</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body text-center"><span class="display-6">💰</span><h3>Jusqu'à -15%</h3><p>sur les prix déjà discount</p></div></div></div>
+                <div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body text-center"><span class="display-6">📅</span><h3>Paiement 30 jours</h3><p>sur facture</p></div></div></div>
+                <div class="col-md-4"><div class="card border-0 shadow-sm"><div class="card-body text-center"><span class="display-6">🚚</span><h3>Livraison prioritaire</h3><p>24h chrono</p></div></div></div>
+            </div>
+
+            <!-- Livraison -->
+            <h2 class="mb-4">🚚 Livraison express professionnelle Lille</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Zone</th><th>Délai</th><th>Frais pros</th></tr></thead>
+                    <tbody>
+                        <tr><td>Lille Métropole</td><td>24h</td><td>69€ (gratuit dès 300€)</td></tr>
+                        <tr><td>Arras, Douai, Lens, Valenciennes</td><td>24-48h</td><td>79€ (gratuit dès 400€)</td></tr>
+                        <tr><td>Dunkerque, Calais, Boulogne</td><td>48h</td><td>89€ (gratuit dès 500€)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3>🏭 Rejoignez les professionnels lillois</h3>
+                <p class="lead">Plus de 500 restaurants, brasseries et commerces nous font confiance</p>
+                <a href="{{ url_for('inscription') }}" class="btn btn-primary btn-lg px-5 mt-3">Créer mon compte professionnel →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Destockage Alimentaire Lille 2026 - Guide Professionnel",
+    "description": "Guide pro du destockage alimentaire à Lille pour les professionnels.",
+    "author": {"@type": "Organization", "name": "Destock Alimentaire"}
+}
+</script>
+{% endblock %}
