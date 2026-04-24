@@ -2169,6 +2169,16 @@ def sitemap():
 
         {'loc': '/destockage-food-expert-marseille', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/euro-destockage-mega-bordeaux', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/discount-alimentaire-mega-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+
+        # Lille destockage pro 2026
+        {'loc': '/lille-destockage-pro-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        
+        # Belgique expert 2026
+        {'loc': '/destockage-food-expert-belgique-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        
+        # Espagne mega offres
+        {'loc': '/destockage-alimentaire-espagne-mega-offres', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
