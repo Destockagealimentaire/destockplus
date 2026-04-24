@@ -2289,6 +2289,10 @@ def sitemap():
         {'loc': '/devenir-revendeur-alimentaire-destockage', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/grossiste-alimentaire-pas-cher-france', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/livraison-palettes-france-dom-tom', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-guide-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-paris-top-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/discount-alimentaire-astuces-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-ruinart-blanc-blancs-destocke', 'priority': 0.95, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2418,6 +2422,29 @@ def destockage_alimentaire_belgique():
 def destockage_alimentaire_espagne():
     """Article SEO destockage Espagne"""
     return render_template('articles/destockage_alimentaire_espagne.html')
+
+# ============ 3 NOUVEAUX ARTICLES ULTRA REFERENCÉS ============
+
+@app.route('/destockage-alimentaire-belgique-guide-2026')
+def destockage_alimentaire_belgique_guide_2026():
+    """Article destockage Belgique guide complet 2026"""
+    return render_template('articles/destockage_alimentaire_belgique_guide_2026.html')
+
+@app.route('/destockage-alimentaire-paris-top-2026')
+def destockage_alimentaire_paris_top_2026():
+    """Article destockage Paris top 2026"""
+    return render_template('articles/destockage_alimentaire_paris_top_2026.html')
+
+@app.route('/discount-alimentaire-astuces-2026')
+def discount_alimentaire_astuces_2026():
+    """Article discount alimentaire astuces 2026"""
+    return render_template('articles/discount_alimentaire_astuces_2026.html')
+
+@app.route('/achat-ruinart-blanc-blancs-destocke')
+def achat_ruinart_blanc_blancs_destocke():
+    """Article achat Ruinart Blanc de Blancs déstocké"""
+    return render_template('articles/achat_ruinart_blanc_blancs_destocke.html')
+    
 
 @app.route('/destockage-alimentaire-professionnel')
 def destockage_alimentaire_professionnel():
