@@ -2288,7 +2288,7 @@ def sitemap():
         {'loc': '/comment-economiser-courses-alimentaires', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/devenir-revendeur-alimentaire-destockage', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/grossiste-alimentaire-pas-cher-france', 'priority': 0.9, 'changefreq': 'weekly'},
-        {'loc': '/livraison-palettes-france-dom-tom', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/livraison-palettes-france-domTom', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-guide-2026', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-paris-top-2026', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/discount-alimentaire-astuces-2026', 'priority': 0.95, 'changefreq': 'weekly'},
