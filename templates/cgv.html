@@ -1,0 +1,533 @@
+{% extends "base.html" %}
+
+{% block title %}Conditions Générales de Vente - DestockPro | Destockage Alimentaire{% endblock %}
+
+{% block meta_description %}Conditions Générales de Vente de DestockPro. Commandes, livraison, paiement, rétractation et garanties. Achat de produits en destockage alimentaire.{% endblock %}
+
+{% block meta_keywords %}CGV destockpro, conditions générales de vente, commande destockage, livraison alimentaire, paiement sécurisé, rétractation{% endblock %}
+
+{% block og_title %}CGV - DestockPro | Conditions Générales de Vente{% endblock %}
+{% block og_description %}Consultez nos Conditions Générales de Vente pour vos achats de produits en destockage alimentaire. Livraison, paiement, garanties.{% endblock %}
+
+{% block canonical %}{{ request.url }}{% endblock %}
+
+{% block content %}
+<div class="cgv-page">
+    <!-- Hero Section -->
+    <section class="cgv-hero">
+        <div class="container">
+            <div class="cgv-hero-content">
+                <h1>Conditions Générales <span class="highlight">de Vente</span></h1>
+                <p>CGV applicables aux commandes passées sur le site destockalimentaire.com</p>
+                <div class="cgv-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    Version en vigueur : 24 avril 2026
+                </div>
+            </div>
+        </div>
+        <div class="cgv-hero-pattern"></div>
+    </section>
+
+    <!-- Table des matières -->
+    <section class="cgv-toc">
+        <div class="container">
+            <div class="toc-card">
+                <h3><i class="fas fa-list-ul"></i> Sommaire</h3>
+                <div class="toc-grid">
+                    <a href="#article1">Article 1 - Champ d'application</a>
+                    <a href="#article2">Article 2 - Commandes</a>
+                    <a href="#article3">Article 3 - Prix</a>
+                    <a href="#article4">Article 4 - Paiement</a>
+                    <a href="#article5">Article 5 - Livraison</a>
+                    <a href="#article6">Article 6 - Droit de rétractation</a>
+                    <a href="#article7">Article 7 - Garanties</a>
+                    <a href="#article8">Article 8 - Responsabilité</a>
+                    <a href="#article9">Article 9 - Données personnelles</a>
+                    <a href="#article10">Article 10 - Droit applicable</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu des CGV -->
+    <section class="cgv-content">
+        <div class="container">
+            <div class="cgv-articles">
+                
+                <!-- Article 1 -->
+                <div class="cgv-article" id="article1">
+                    <h2>Article 1 - Champ d'application</h2>
+                    <div class="article-content">
+                        <p>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre la société <strong>DestockPro SAS</strong> et tout client professionnel ou particulier passant commande sur le site <strong>destinalimentaire.com</strong>.</p>
+                        <p>Toute commande implique l'acceptation sans réserve des présentes CGV. DestockPro se réserve le droit de modifier ses CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de la commande.</p>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="cgv-article" id="article2">
+                    <h2>Article 2 - Commandes</h2>
+                    <div class="article-content">
+                        <p>Le client passe commande via le site internet en suivant les étapes suivantes :</p>
+                        <ul>
+                            <li>Sélection des produits et ajout au panier</li>
+                            <li>Validation du panier et identification</li>
+                            <li>Choix du mode de livraison et de paiement</li>
+                            <li>Acceptation des CGV et confirmation de commande</li>
+                        </ul>
+                        <p>Un email de confirmation est envoyé au client. DestockPro se réserve le droit d'annuler toute commande en cas de litige ou de problème de stock.</p>
+                        <p><strong>Stock limité :</strong> Les offres flash et produits en destockage sont soumis à des stocks limités. En cas d'indisponibilité après validation, le client en est informé et remboursé.</p>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="cgv-article" id="article3">
+                    <h2>Article 3 - Prix</h2>
+                    <div class="article-content">
+                        <p>Les prix sont indiqués en euros, toutes taxes comprises (TTC), hors frais de livraison. DestockPro se réserve le droit de modifier ses prix à tout moment, les produits étant facturés sur la base des tarifs en vigueur au moment de la commande.</p>
+                        <p>Les offres promotionnelles et remises sont valables dans la limite des stocks disponibles. Les prix des offres flash sont garantis pour la durée de l'offre.</p>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="cgv-article" id="article4">
+                    <h2>Article 4 - Paiement</h2>
+                    <div class="article-content">
+                        <p>Les moyens de paiement acceptés sont :</p>
+                        <ul>
+                            <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+                            <li>PayPal</li>
+                            <li>Virement bancaire</li>
+                            <li>Paiement en 3x ou 4x sans frais (dès 100€ d'achat)</li>
+                        </ul>
+                        <p>Les paiements sont sécurisés via notre partenaire bancaire certifié PCI-DSS. DestockPro ne stocke aucune donnée bancaire.</p>
+                        <p>En cas de non-paiement, DestockPro se réserve le droit de suspendre ou annuler la commande.</p>
+                    </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="cgv-article" id="article5">
+                    <h2>Article 5 - Livraison</h2>
+                    <div class="article-content">
+                        <p><strong>Délais de livraison :</strong></p>
+                        <ul>
+                            <li>France métropolitaine : 24 à 48h ouvrées</li>
+                            <li>Corse et DOM-TOM : 3 à 5 jours</li>
+                        </ul>
+                        <p><strong>Frais de livraison :</strong></p>
+                        <ul>
+                            <li>Offerts dès 150€ d'achat</li>
+                            <li>Point relais : 6,90€</li>
+                            <li>Livraison à domicile : 9,90€</li>
+                        </ul>
+                        <p>Les risques liés au transport sont supportés par DestockPro jusqu'à la livraison. Le client doit vérifier l'état des produits à réception et émettre d'éventuelles réserves dans les 48h.</p>
+                    </div>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="cgv-article" id="article6">
+                    <h2>Article 6 - Droit de rétractation</h2>
+                    <div class="article-content">
+                        <p>Conformément à la loi, le client dispose d'un délai de rétractation de 14 jours pour les produits non alimentaires.</p>
+                        <p><strong>Exception :</strong> Conformément à l'article L.221-28 du Code de la consommation, les produits alimentaires périssables ou susceptibles de se détériorer rapidement ne peuvent pas être retournés.</p>
+                        <p>Pour les produits éligibles, le retour est à la charge du client. DestockPro procède au remboursement sous 14 jours.</p>
+                    </div>
+                </div>
+
+                <!-- Article 7 -->
+                <div class="cgv-article" id="article7">
+                    <h2>Article 7 - Garanties</h2>
+                    <div class="article-content">
+                        <p>Tous les produits vendus par DestockPro bénéficient :</p>
+                        <ul>
+                            <li>De la garantie légale de conformité (articles L.217-4 à L.217-14 du Code de la consommation)</li>
+                            <li>De la garantie des vices cachés (articles 1641 à 1649 du Code civil)</li>
+                        </ul>
+                        <p>Les produits sont rigoureusement contrôlés avant expédition. En cas de produit défectueux, le client doit contacter DestockPro sous 48h.</p>
+                    </div>
+                </div>
+
+                <!-- Article 8 -->
+                <div class="cgv-article" id="article8">
+                    <h2>Article 8 - Responsabilité</h2>
+                    <div class="article-content">
+                        <p>DestockPro met tout en œuvre pour assurer la qualité des produits et la fiabilité des informations. Toutefois, la responsabilité de DestockPro ne saurait être engagée en cas de :</p>
+                        <ul>
+                            <li>Force majeure (grève, catastrophe naturelle, pandémie)</li>
+                            <li>Utilisation non conforme des produits</li>
+                            <li>Dommages indirects liés à l'utilisation du site</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Article 9 -->
+                <div class="cgv-article" id="article9">
+                    <h2>Article 9 - Données personnelles</h2>
+                    <div class="article-content">
+                        <p>Conformément au RGPD, DestockPro collecte les données nécessaires à la gestion des commandes et à la relation client. Le client dispose d'un droit d'accès, de rectification et d'opposition.</p>
+                        <p>Pour exercer ces droits : <a href="mailto:rgpd@destockalimentaire.com">rgpd@destockalimentaire.com</a></p>
+                        <p>Consultez notre <a href="/confidentialite">Politique de confidentialité</a> pour plus d'informations.</p>
+                    </div>
+                </div>
+
+                <!-- Article 10 -->
+                <div class="cgv-article" id="article10">
+                    <h2>Article 10 - Droit applicable et litiges</h2>
+                    <div class="article-content">
+                        <p>Les présentes CGV sont régies par le droit français. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire.</p>
+                        <p>Le client peut recourir à une médiation conventionnelle :</p>
+                        <p><strong>Centre de Médiation et d'Arbitrage de Paris (CMAP)</strong><br>
+                        39 avenue Franklin D. Roosevelt, 75008 Paris<br>
+                        <a href="mailto:mediateur@cmap.fr">mediateur@cmap.fr</a></p>
+                        <p>À défaut d'accord amiable, les tribunaux français sont seuls compétents.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acceptation des CGV -->
+            <div class="cgv-acceptance">
+                <div class="acceptance-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>En passant commande sur destockalimentaire.com</h3>
+                    <p>le client reconnaît avoir pris connaissance et accepté sans réserve les présentes Conditions Générales de Vente.</p>
+                    <div class="acceptance-date">
+                        <i class="fas fa-calendar-check"></i>
+                        Dernière mise à jour : 24 avril 2026
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coordonnées -->
+            <div class="cgv-contact">
+                <h3><i class="fas fa-envelope"></i> Nous contacter</h3>
+                <div class="contact-info">
+                    <p><strong>DestockPro SAS</strong></p>
+                    <p>17 Rue Forlen, 67100 Geispolsheim</p>
+                    <p>Email : <a href="mailto:contact@destockalimentaire.com">contact@destockalimentaire.com</a></p>
+                    <p>Téléphone : <a href="tel:0178451719">01 78 45 17 19</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Conditions Générales de Vente",
+    "description": "Conditions Générales de Vente de DestockPro - Commandes, livraison, paiement, rétractation",
+    "url": "{{ request.url }}",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "DestockPro",
+        "url": "{{ request.url_root }}"
+    }
+}
+</script>
+
+<style>
+.cgv-page {
+    background: var(--surface);
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.cgv-hero {
+    background: linear-gradient(135deg, var(--primary), #2a2a2a);
+    color: white;
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+    padding-top: 140px;
+}
+
+.cgv-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 30% 50%, rgba(196, 167, 71, 0.1) 0%, transparent 50%);
+}
+
+.cgv-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cgv-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--secondary);
+}
+
+.cgv-hero p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+}
+
+.cgv-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Table des matières */
+.cgv-toc {
+    padding: 2rem 1rem;
+}
+
+.toc-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.toc-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc-card h3 i {
+    color: var(--secondary);
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5rem;
+}
+
+.toc-grid a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc-grid a:hover {
+    background: var(--surface);
+    transform: translateX(5px);
+}
+
+.toc-grid a::before {
+    content: "→";
+    color: var(--secondary);
+}
+
+/* Contenu des CGV */
+.cgv-content {
+    padding: 2rem 1rem 4rem;
+}
+
+.cgv-articles {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cgv-article {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.cgv-article:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--secondary);
+}
+
+.cgv-article h2 {
+    background: linear-gradient(135deg, var(--surface), var(--background));
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-content {
+    padding: 1.5rem;
+}
+
+.article-content p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.article-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.article-content li {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.article-content strong {
+    color: var(--text);
+}
+
+.article-content a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.article-content a:hover {
+    text-decoration: underline;
+}
+
+/* Acceptation */
+.cgv-acceptance {
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.acceptance-card {
+    background: linear-gradient(135deg, var(--surface), var(--background));
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid var(--secondary);
+}
+
+.acceptance-card i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.acceptance-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.acceptance-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.acceptance-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Contact */
+.cgv-contact {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.cgv-contact h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cgv-contact h3 i {
+    color: var(--secondary);
+}
+
+.contact-info p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cgv-article h2 {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .article-content {
+        padding: 1rem;
+    }
+    
+    .article-content p,
+    .article-content li {
+        font-size: 0.85rem;
+    }
+    
+    .toc-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .acceptance-card {
+        padding: 1.5rem;
+    }
+    
+    .acceptance-card i {
+        font-size: 2.5rem;
+    }
+    
+    .acceptance-card h3 {
+        font-size: 1.1rem;
+    }
+}
+</style>
+{% endblock %}
