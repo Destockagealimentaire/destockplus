@@ -2441,15 +2441,7 @@ def mentions_legales():
     """Page des mentions légales"""
     return render_template('mentions_legales.html')
 
-@app.route('/cgv')
-def cgv():
-    """Page des conditions générales de vente"""
-    return render_template('cgv.html')
 
-@app.route('/confidentialite')
-def confidentialite():
-    """Page de politique de confidentialité"""
-    return render_template('confidentialite.html')
 
 # Route pour le suivi de commande (invités)
 @app.route('/suivi-commande')
@@ -2577,6 +2569,15 @@ def test_paiement():
     </form>
     '''
 
+
+@app.route('/cgv')
+def cgv():
+    return render_template('cgv.html')
+
+@app.route('/confidentialite')
+def confidentialite():
+    return render_template('confidentialite.html')
+    
 @app.route('/admin')
 @login_required
 def admin_redirect():
