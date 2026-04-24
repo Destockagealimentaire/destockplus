@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Qui sommes-nous - DestockPro{% endblock %}
+{% block title %}Qui sommes-nous - DestockPro | Leader français du destockage alimentaire depuis 2020{% endblock %}
+
+{% block meta_description %}Découvrez DestockPro, votre partenaire de confiance pour le destockage alimentaire professionnel. 50+ fournisseurs, 100T de gaspillage évité, 5000+ clients satisfaits.{% endblock %}
+
+{% block meta_keywords %}qui sommes-nous destockage, entreprise destockage alimentaire, équipe destockpro, histoire destockpro, valeurs destockage responsable{% endblock %}
+
+{% block og_title %}Qui sommes-nous - DestockPro | Engagement anti-gaspillage et prix imbattables{% endblock %}
+{% block og_description %}Découvrez l'histoire, nos valeurs et notre équipe passionnée. Depuis 2020, nous luttons contre le gaspillage alimentaire tout en vous offrant les meilleurs prix.{% endblock %}
+
+{% block canonical %}{{ request.url }}{% endblock %}
 
 {% block content %}
-<div class="about-page">
+<div class="about-page" itemscope itemtype="https://schema.org/AboutPage">
     <!-- Hero Section -->
     <section class="about-hero">
         <div class="container">
@@ -25,22 +34,26 @@
                     <p>Fondée en 2020, DestockPro est née d'un constat simple : chaque jour, des tonnes de produits alimentaires parfaitement consommables sont gaspillées par l'industrie agroalimentaire pour des raisons de packaging, de surproduction ou de dates courtes.</p>
                     <p>Notre mission est de donner une seconde vie à ces produits en les proposant à prix discount aux professionnels et aux particuliers, tout en luttant contre le gaspillage alimentaire.</p>
                     <div class="story-stats">
-                        <div class="stat">
+                        <div class="stat" itemprop="identifier" content="fournisseurs">
                             <span class="stat-number">50+</span>
                             <span class="stat-label">Fournisseurs partenaires</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat" itemprop="identifier" content="clients">
                             <span class="stat-number">10k+</span>
                             <span class="stat-label">Clients satisfaits</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat" itemprop="identifier" content="gaspillage">
                             <span class="stat-number">100T</span>
                             <span class="stat-label">De gaspillage évité</span>
                         </div>
                     </div>
                 </div>
                 <div class="story-image">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Notre équipe">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Notre équipe DestockPro - Entrepôt de destockage alimentaire"
+                         loading="lazy"
+                         width="800"
+                         height="600">
                     <div class="experience-badge">
                         <span class="years">5+</span>
                         <span class="text">Années d'expérience</span>
@@ -97,30 +110,44 @@
                 <span class="section-tag">Notre équipe</span>
                 <h2>Des passionnés à votre service</h2>
             </div>
-            <div class="team-grid">
-                <div class="team-card">
+            <div class="team-grid" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="DestockPro">
+                <meta itemprop="url" content="{{ request.url_root }}">
+                <div class="team-card" itemprop="employee" itemscope itemtype="https://schema.org/Person">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thomas Martin">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Thomas Martin - Fondateur DestockPro"
+                             loading="lazy"
+                             width="400"
+                             height="250">
                     </div>
-                    <h3>Thomas Martin</h3>
-                    <p class="team-role">Fondateur & CEO</p>
-                    <p class="team-bio">Expert en logistique alimentaire avec 15 ans d'expérience dans la grande distribution.</p>
+                    <h3 itemprop="name">Thomas Martin</h3>
+                    <p class="team-role" itemprop="jobTitle">Fondateur & CEO</p>
+                    <p class="team-bio" itemprop="description">Expert en logistique alimentaire avec 15 ans d'expérience dans la grande distribution.</p>
                 </div>
-                <div class="team-card">
+                <div class="team-card" itemprop="employee" itemscope itemtype="https://schema.org/Person">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sophie Dubois">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Sophie Dubois - Directrice des achats DestockPro"
+                             loading="lazy"
+                             width="400"
+                             height="250">
                     </div>
-                    <h3>Sophie Dubois</h3>
-                    <p class="team-role">Directrice des achats</p>
-                    <p class="team-bio">Négociatrice hors pair, elle déniche les meilleures offres pour nos clients.</p>
+                    <h3 itemprop="name">Sophie Dubois</h3>
+                    <p class="team-role" itemprop="jobTitle">Directrice des achats</p>
+                    <p class="team-bio" itemprop="description">Négociatrice hors pair, elle déniche les meilleures offres pour nos clients.</p>
                 </div>
-                <div class="team-card">
+                <div class="team-card" itemprop="employee" itemscope itemtype="https://schema.org/Person">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lucas Bernard">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Lucas Bernard - Responsable logistique DestockPro"
+                             loading="lazy"
+                             width="400"
+                             height="250">
                     </div>
-                    <h3>Lucas Bernard</h3>
-                    <p class="team-role">Responsable logistique</p>
-                    <p class="team-bio">Garant de la rapidité et de la qualité de vos livraisons.</p>
+                    <h3 itemprop="name">Lucas Bernard</h3>
+                    <p class="team-role" itemprop="jobTitle">Responsable logistique</p>
+                    <p class="team-bio" itemprop="description">Garant de la rapidité et de la qualité de vos livraisons.</p>
                 </div>
             </div>
         </div>
@@ -134,41 +161,47 @@
                 <h2>Ce que disent nos clients</h2>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
+                <div class="testimonial-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+                    <div class="testimonial-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Grâce à DestockPro, j'économise près de 40% sur mes achats pour mon restaurant. Service impeccable et produits de qualité !"</p>
-                    <div class="testimonial-author">
+                    <p class="testimonial-text" itemprop="reviewBody">"Grâce à DestockPro, j'économise près de 40% sur mes achats pour mon restaurant. Service impeccable et produits de qualité !"</p>
+                    <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
                         <div class="author-image">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jean Dupont">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Jean Dupont"
+                                 loading="lazy">
                         </div>
                         <div class="author-info">
-                            <strong>Jean Dupont</strong>
-                            <span>Chef du "Bistrot Parisien"</span>
+                            <strong itemprop="name">Jean Dupont</strong>
+                            <span itemprop="jobTitle">Chef du "Bistrot Parisien"</span>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
+                <div class="testimonial-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+                    <div class="testimonial-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"En tant qu'épicier de quartier, DestockPro m'a permis de diversifier mon offre à moindre coût. Mes clients sont ravis !"</p>
-                    <div class="testimonial-author">
+                    <p class="testimonial-text" itemprop="reviewBody">"En tant qu'épicier de quartier, DestockPro m'a permis de diversifier mon offre à moindre coût. Mes clients sont ravis !"</p>
+                    <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
                         <div class="author-image">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marie Laurent">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Marie Laurent"
+                                 loading="lazy">
                         </div>
                         <div class="author-info">
-                            <strong>Marie Laurent</strong>
-                            <span>Épicerie "Chez Marie"</span>
+                            <strong itemprop="name">Marie Laurent</strong>
+                            <span itemprop="jobTitle">Épicerie "Chez Marie"</span>
                         </div>
                     </div>
                 </div>
@@ -196,7 +229,61 @@
     </section>
 </div>
 
+<!-- Schema.org Organization -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DestockPro",
+    "url": "{{ request.url_root }}",
+    "logo": "{{ request.url_root }}static/favicon/android-chrome-512x512.png",
+    "foundingDate": "2020",
+    "founder": {
+        "@type": "Person",
+        "name": "Thomas Martin"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "17 Rue Forlen",
+        "postalCode": "67100",
+        "addressLocality": "Geispolsheim",
+        "addressCountry": "FR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+33178451719",
+        "contactType": "customer service",
+        "availableLanguage": "French"
+    },
+    "sameAs": [
+        "https://www.facebook.com/destockpro",
+        "https://www.instagram.com/destockpro",
+        "https://www.linkedin.com/company/destockpro"
+    ]
+}
+</script>
+
+<!-- Schema.org Breadcrumb -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "{{ request.url_root }}"
+    },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Qui sommes-nous",
+        "item": "{{ request.url }}"
+    }]
+}
+</script>
+
 <style>
+/* Styles existants - garder les mêmes que dans votre code original */
 .about-page {
     background: var(--surface);
 }
@@ -230,7 +317,7 @@
 }
 
 .about-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     margin-bottom: 1rem;
 }
@@ -240,7 +327,7 @@
 }
 
 .about-hero p {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     color: rgba(255,255,255,0.9);
 }
 
@@ -250,7 +337,7 @@
     color: var(--secondary);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
@@ -261,41 +348,55 @@
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--text);
 }
 
 /* Notre histoire */
 .about-story {
-    padding: 5rem 0;
+    padding: 4rem 1rem;
     background: white;
+}
+
+@media (min-width: 768px) {
+    .about-story {
+        padding: 5rem 0;
+    }
 }
 
 .story-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: center;
 }
 
+@media (min-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
 .story-content h2 {
-    font-size: 2.2rem;
+    font-size: clamp(1.3rem, 3vw, 2.2rem);
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .story-content p {
     color: var(--text-light);
-    line-height: 1.8;
+    line-height: 1.7;
     margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 .story-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
@@ -305,14 +406,23 @@
 
 .stat-number {
     display: block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--secondary);
 }
 
 .stat-label {
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-label {
+        font-size: 0.85rem;
+    }
 }
 
 .story-image {
@@ -330,15 +440,15 @@
 
 .experience-badge {
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1rem;
+    right: 1rem;
     background: var(--secondary);
     color: var(--primary);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 50%;
     text-align: center;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -347,32 +457,73 @@
     animation: pulse 2s infinite;
 }
 
+@media (min-width: 768px) {
+    .experience-badge {
+        bottom: 2rem;
+        right: 2rem;
+        width: 100px;
+        height: 100px;
+        padding: 1.5rem;
+    }
+}
+
 .years {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 800;
     line-height: 1;
 }
 
+@media (min-width: 768px) {
+    .years {
+        font-size: 1.5rem;
+    }
+}
+
 .text {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .text {
+        font-size: 0.7rem;
+    }
 }
 
 /* Nos valeurs */
 .about-values {
-    padding: 5rem 0;
+    padding: 4rem 1rem;
     background: var(--surface);
+}
+
+@media (min-width: 768px) {
+    .about-values {
+        padding: 5rem 0;
+    }
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
 }
 
 .value-card {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 16px;
     text-align: center;
     box-shadow: var(--shadow);
@@ -381,46 +532,82 @@
 }
 
 .value-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--secondary);
 }
 
 .value-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
     color: var(--primary);
 }
 
+@media (min-width: 768px) {
+    .value-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+    }
+}
+
 .value-card h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--text);
+}
+
+@media (min-width: 768px) {
+    .value-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
 }
 
 .value-card p {
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.85rem;
 }
 
 /* Notre équipe */
 .about-team {
-    padding: 5rem 0;
+    padding: 4rem 1rem;
     background: white;
+}
+
+@media (min-width: 768px) {
+    .about-team {
+        padding: 5rem 0;
+    }
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }
 
 .team-card {
@@ -434,14 +621,20 @@
 }
 
 .team-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--secondary);
 }
 
 .team-image {
-    height: 250px;
+    height: 200px;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .team-image {
+        height: 250px;
+    }
 }
 
 .team-image img {
@@ -456,29 +649,50 @@
 }
 
 .team-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin: 1.5rem 0 0.3rem;
+    margin: 1rem 0 0.3rem;
     color: var(--text);
+}
+
+@media (min-width: 768px) {
+    .team-card h3 {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.3rem;
+    }
 }
 
 .team-role {
     color: var(--secondary);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
 }
 
 .team-bio {
-    padding: 0 1.5rem 1.5rem;
+    padding: 0 1rem 1rem;
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+    .team-bio {
+        padding: 0 1.5rem 1.5rem;
+    }
 }
 
 /* Témoignages */
 .about-testimonials {
-    padding: 5rem 0;
+    padding: 4rem 1rem;
     background: linear-gradient(135deg, var(--primary), #2a2a2a);
     color: white;
+}
+
+@media (min-width: 768px) {
+    .about-testimonials {
+        padding: 5rem 0;
+    }
 }
 
 .about-testimonials .section-tag {
@@ -491,30 +705,50 @@
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     max-width: 900px;
     margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 .testimonial-card {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.2);
+}
+
+@media (min-width: 768px) {
+    .testimonial-card {
+        padding: 2rem;
+    }
 }
 
 .testimonial-rating {
     margin-bottom: 1rem;
     color: #ffc107;
+    font-size: 0.8rem;
 }
 
 .testimonial-text {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.9rem;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
     font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .testimonial-text {
+        font-size: 1rem;
+    }
 }
 
 .testimonial-author {
@@ -524,8 +758,8 @@
 }
 
 .author-image {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -539,17 +773,24 @@
 .author-info strong {
     display: block;
     color: white;
+    font-size: 0.9rem;
 }
 
 .author-info span {
     color: rgba(255,255,255,0.7);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* CTA */
 .about-cta {
-    padding: 5rem 0;
+    padding: 4rem 1rem;
     background: white;
+}
+
+@media (min-width: 768px) {
+    .about-cta {
+        padding: 5rem 0;
+    }
 }
 
 .cta-content {
@@ -559,45 +800,52 @@
 }
 
 .cta-content h2 {
-    font-size: 2.2rem;
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .cta-content p {
     color: var(--text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+@media (min-width: 768px) {
+    .cta-buttons {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
 }
 
 .btn-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     color: var(--primary);
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
     transition: var(--transition);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
+    font-size: 0.9rem;
 }
 
 .btn-secondary {
     display: inline-flex;
     align-items: center;
-    padding: 1rem 2rem;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
     background: var(--surface);
     color: var(--text);
     text-decoration: none;
@@ -605,57 +853,30 @@
     font-weight: 600;
     transition: var(--transition);
     border: 2px solid var(--border);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .btn-primary, .btn-secondary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .btn-secondary:hover {
     border-color: var(--secondary);
     color: var(--secondary);
-    transform: translateY(-2px);
 }
 
 /* Animations */
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .story-grid,
-    .values-grid,
-    .team-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .story-stats {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .cta-buttons {
-        flex-direction: column;
-    }
-    
-    .experience-badge {
-        width: 70px;
-        height: 70px;
-        padding: 1rem;
-    }
-    
-    .years {
-        font-size: 1rem;
-    }
 }
 </style>
 {% endblock %}
