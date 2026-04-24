@@ -17,13 +17,12 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 
 
-
-# Configuration email (à ajouter en haut du fichier avec les autres imports)
-SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
-SMTP_PORT = int(os.environ.get('SMTP_PORT', 587))
+SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.hostinger.com')
+SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))  # Port 465 pour SSL
 SMTP_USER = os.environ.get('SMTP_USER', '')
 SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
-RECIPIENT_EMAIL = os.environ.get('RECIPIENT_EMAIL', 'contact@destockalimentaire.com')
+RECIPIENT_EMAIL = os.environ.get('RECIPIENT_EMAIL', '')
+
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'votre-cle-secrete-tres-securisee-2024'
@@ -2412,7 +2411,7 @@ def lille_destockage_maxi_2026():
 
 
 def send_email_contact(nom, prenom, email, telephone, sujet, message):
-    """Envoie un email de contact"""
+    """Envoie un email via SMTP Hostinger"""
     try:
         # Création du message
         msg = MIMEMultipart('alternative')
@@ -2420,107 +2419,43 @@ def send_email_contact(nom, prenom, email, telephone, sujet, message):
         msg['To'] = RECIPIENT_EMAIL
         msg['Subject'] = f"[DestockPro] Formulaire de contact - {sujet}"
         
-        # Version texte
-        text_content = f"""
-Nouvelle demande de contact sur DestockPro
-==========================================
-
-Nom complet : {prenom} {nom}
-Email : {email}
-Téléphone : {telephone or 'Non renseigné'}
-Sujet : {sujet}
-Date : {datetime.now().strftime('%d/%m/%Y à %H:%M')}
-
-Message :
-{message}
-
----
-Cet email a été envoyé automatiquement depuis le site DestockPro.
-        """
-        
-        # Version HTML
+        # Version HTML du message
         html_content = f"""
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <style>
-        body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
-        .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
-        .header {{ background: linear-gradient(135deg, #1a1a1a, #2a2a2a); color: #c4a747; padding: 20px; text-align: center; border-radius: 10px 10px 0 0; }}
-        .content {{ background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px; }}
-        .field {{ margin-bottom: 15px; }}
-        .field-label {{ font-weight: bold; color: #1a1a1a; }}
-        .field-value {{ color: #666; margin-top: 5px; }}
-        .message-box {{ background: white; padding: 15px; border-left: 4px solid #c4a747; margin: 20px 0; }}
-        .footer {{ text-align: center; font-size: 12px; color: #999; margin-top: 20px; }}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: Arial, sans-serif;">
             <h2>📬 Nouveau message de contact</h2>
-            <p>DestockPro</p>
-        </div>
-        <div class="content">
-            <div class="field">
-                <div class="field-label">👤 Nom complet :</div>
-                <div class="field-value">{prenom} {nom}</div>
-            </div>
-            <div class="field">
-                <div class="field-label">📧 Email :</div>
-                <div class="field-value">{email}</div>
-            </div>
-            <div class="field">
-                <div class="field-label">📞 Téléphone :</div>
-                <div class="field-value">{telephone or 'Non renseigné'}</div>
-            </div>
-            <div class="field">
-                <div class="field-label">📝 Sujet :</div>
-                <div class="field-value">{sujet}</div>
-            </div>
-            <div class="field">
-                <div class="field-label">📅 Date :</div>
-                <div class="field-value">{datetime.now().strftime('%d/%m/%Y à %H:%M')}</div>
-            </div>
-            <div class="message-box">
-                <div class="field-label">💬 Message :</div>
-                <div class="field-value">{message.replace(chr(10), '<br>')}</div>
-            </div>
-        </div>
-        <div class="footer">
-            <p>Cet email a été envoyé automatiquement depuis le formulaire de contact du site DestockPro.</p>
-        </div>
-    </div>
-</body>
-</html>
+            <p><strong>Nom :</strong> {prenom} {nom}</p>
+            <p><strong>Email :</strong> {email}</p>
+            <p><strong>Téléphone :</strong> {telephone or 'Non renseigné'}</p>
+            <p><strong>Sujet :</strong> {sujet}</p>
+            <p><strong>Message :</strong><br>{message}</p>
+            <hr>
+            <small>Message envoyé depuis le site DestockPro</small>
+        </body>
+        </html>
         """
         
-        # Attacher les deux versions
-        part_text = MIMEText(text_content, 'plain', 'utf-8')
-        part_html = MIMEText(html_content, 'html', 'utf-8')
-        msg.attach(part_text)
-        msg.attach(part_html)
+        msg.attach(MIMEText(html_content, 'html', 'utf-8'))
         
-        # Envoi de l'email
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
+        # Connexion SMTP Hostinger avec SSL
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, context=context) as server:
             server.login(SMTP_USER, SMTP_PASSWORD)
             server.send_message(msg)
         
         return True, "Email envoyé avec succès"
     
     except Exception as e:
-        print(f"Erreur email: {str(e)}")
+        print(f"❌ Erreur SMTP Hostinger: {str(e)}")
         return False, str(e)
-
 
 
 # Route contact
 # Route contact - Version CORRIGÉE avec email + Telegram
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    """Page de contact - Envoi par EMAIL et TELEGRAM"""
     if request.method == 'POST':
         nom = request.form.get('nom')
         prenom = request.form.get('prenom')
@@ -2529,15 +2464,15 @@ def contact():
         sujet = request.form.get('sujet')
         message = request.form.get('message')
         
-        # Validation des champs obligatoires
+        # Validation
         if not all([nom, prenom, email, sujet, message]):
             flash('Veuillez remplir tous les champs obligatoires', 'danger')
             return redirect(url_for('contact'))
         
-        # 1️⃣ ENVOI PAR EMAIL (en priorité)
+        # 1️⃣ ENVOI PAR EMAIL (NOUVEAU)
         email_success, email_error = send_email_contact(nom, prenom, email, telephone, sujet, message)
         
-        # 2️⃣ ENVOI PAR TELEGRAM (en parallèle)
+        # 2️⃣ ENVOI PAR TELEGRAM (GARDÉ - IDENTIQUE À AVANT)
         telegram_success = False
         try:
             telegram_message = f"""
@@ -2553,7 +2488,7 @@ def contact():
 ┗━━━━━━━━━━━━━━━━━━━━━
             """
             
-            response = requests.post(
+            requests.post(
                 f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
                 json={
                     'chat_id': TELEGRAM_CHAT_ID,
@@ -2562,19 +2497,15 @@ def contact():
                 },
                 timeout=10
             )
-            telegram_success = response.status_code == 200
+            telegram_success = True
         except Exception as e:
             print(f"❌ Erreur Telegram: {e}")
         
-        # 3️⃣ GESTION DES MESSAGES FLASH
+        # Gestion des messages
         if email_success:
-            flash('✅ Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.', 'success')
+            flash('✅ Message envoyé avec succès !', 'success')
         else:
-            flash(f'❌ Erreur lors de l\'envoi par email. Veuillez réessayer ou nous contacter par téléphone.', 'danger')
-            print(f"Erreur email détaillée: {email_error}")
-        
-        # Log pour suivi
-        print(f"📬 Statut envoi - Email: {email_success}, Telegram: {telegram_success}")
+            flash('❌ Erreur technique', 'danger')
         
         return redirect(url_for('contact'))
     
