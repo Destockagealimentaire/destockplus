@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}🇪🇸 Destockage Alimentaire Espagne 2026 - Top 100 Meilleures Adresses | DestockPro{% endblock %}
+
+{% block meta_description %}Top 100 des meilleures adresses de destockage alimentaire en Espagne 2026. Madrid, Barcelone, Valence. Économies jusqu'à 70%. Livraison express 48h. Guide gratuit.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Espagne 2026, grossiste alimentaire Espagne, destockage Madrid, destockage Barcelone, alimentaire pas cher Espagne, destockage Valence{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/destockage-alimentaire-espagne-meilleures-adresses{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Espagne</a></li><li class="breadcrumb-item active">Top 2026</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-success px-3 py-2 mb-2">🇪🇸 TOP 100 ESPAGNE 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 2541 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🇪🇸 Destockage Alimentaire <span class="text-success">Espagne</span> 2026</h1>
+        <p class="lead fs-4">Le <strong class="text-primary">TOP 100</strong> des meilleures adresses pour économiser jusqu'à <strong class="text-success">70%</strong> en Espagne.</p></div>
+        <div class="alert alert-success mb-4"><strong>🍷 L'Espagne, eldorado du destockage :</strong> Marché en croissance de +25% - Plus de 12 000 clients espagnols satisfaits</div>
+        <div class="bg-success text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo Espagne 2026</strong><p class="mb-0 mt-1">-20% sur votre première commande avec le code <strong class="bg-white text-success px-3 py-2 rounded">ESPAGNE2026</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">J'en profite →</a></div></div>
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🇪🇸 L'Espagne économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 Voir les offres Espagne →</a></div>
+    </div></div>
+</div>
+{% endblock %}

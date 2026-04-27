@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}🗼 Destockage Alimentaire Paris 2026 - Top 200 Entrepôts & Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Top 200 des entrepôts de destockage alimentaire à Paris et Île-de-France 2026. Rungis, Bercy, Chapelle. Économies jusqu'à 75%. Livraison 24h. Guide gratuit.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Paris 2026, entrepôt destockage Paris, grossiste alimentaire Paris, destockage Rungis, destockage Bercy, destockage Île-de-France, meilleur destockage Paris 2026{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/paris-destockage-alimentaire-entrepots-2026{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Île-de-France</a></li><li class="breadcrumb-item active">Paris Top 2026</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-danger px-3 py-2 mb-2">🗼 TOP 200 PARIS 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5432 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🗼 Destockage Alimentaire <span class="text-danger">Paris</span> 2026</h1>
+        <p class="lead fs-4">Le <strong class="text-primary">TOP 200</strong> des entrepôts et grossistes pour économiser jusqu'à <strong class="text-success">75%</strong> en Île-de-France.</p></div>
+        <div class="alert alert-danger mb-4"><strong>🗼 Paris, capitale du destockage :</strong> Plus de 500 grossistes - 50 000 clients franciliens satisfaits</div>
+        <div class="bg-danger text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo Paris 2026</strong><p class="mb-0 mt-1">-20% sur toute commande + livraison offerte avec <strong class="bg-white text-danger px-3 py-2 rounded">PARIS2026</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">J'en profite →</a></div></div>
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🗼 Paris économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 py-3">🛒 Voir les offres Paris →</a></div>
+    </div></div>
+</div>
+{% endblock %}
