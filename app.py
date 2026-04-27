@@ -2486,6 +2486,28 @@ def euro_destockage_mega_bordeaux():
     """Article ultra premium - Destockage Bordeaux 2026"""
     return render_template('articles/euro_destockage_mega_bordeaux.html')
 
+# ============ 4 ARTICLES ULTRA CONVERSION (PRODUITS STAR) ============
+
+@app.route('/achat-ruinart-blanc-blancs-palette-prix')
+def achat_ruinart_blanc_blancs_palette_prix():
+    """Article conversion - Ruinart Blanc de Blancs prix palette"""
+    return render_template('articles/achat_ruinart_blanc_blancs_palette_prix.html')
+
+@app.route('/achat-nutella-palette-1kg-prix-destock')
+def achat_nutella_palette_1kg_prix_destock():
+    """Article conversion - Nutella palette 1kg prix destock"""
+    return render_template('articles/achat_nutella_palette_1kg_prix_destock.html')
+
+@app.route('/achat-coca-cola-palette-33cl-pas-cher')
+def achat_coca_cola_palette_33cl_pas_cher():
+    """Article conversion - Coca-Cola palette 33cl pas cher"""
+    return render_template('articles/achat_coca_cola_palette_33cl_pas_cher.html')
+
+@app.route('/achat-red-bull-palette-250ml-promo')
+def achat_red_bull_palette_250ml_promo():
+    """Article conversion - Red Bull palette 250ml promo"""
+    return render_template('articles/achat_red_bull_palette_250ml_promo.html')
+    
 # ============ 3 NOUVEAUX ARTICLES ULTRA REFERENCÉS ============
 
 @app.route('/guide-destockage-alimentaire-2026')
