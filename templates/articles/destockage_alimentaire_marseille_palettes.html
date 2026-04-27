@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}🌊 Destockage Alimentaire Marseille 2026 - Top 50 Palettes & Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Top 50 des grossistes de destockage alimentaire à Marseille 2026. Grand Port Maritime, Vitrolles, Aubagne. Palettes et lots massifs. Économies jusqu'à 75%. Livraison 24h.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Marseille 2026, grossiste alimentaire Marseille, destockage Marseille, palettes alimentaires Marseille, destockage Grand Port Maritime, destockage Vitrolles, destockage Aubagne, destockage PACA{% endblock %}
+
+{% block canonical %}https://www.destockalimentaire.com/destockage-alimentaire-marseille-palettes{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">PACA</a></li><li class="breadcrumb-item active">Marseille Top 2026</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-info px-3 py-2 mb-2">🌊 N°1 DESTOCKAGE MARSEILLE 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 987 avis clients)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🌊 Destockage Alimentaire <span class="text-info">Marseille</span> 2026</h1>
+        <p class="lead fs-4">Le guide <strong class="text-primary">ultime</strong> pour économiser jusqu'à <strong class="text-success">75%</strong> sur vos courses dans la métropole marseillaise et la région PACA.</p></div>
+        
+        <div class="row mb-4"><div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-info mb-2">⚓</div><h3 class="h5">Port majeur</h3><p>Accès direct aux produits importés</p></div></div></div>
+        <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-info mb-2">🏭</div><h3 class="h5">100+ grossistes</h3><p>Plus de 100 professionnels du destockage</p></div></div></div>
+        <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-info mb-2">💰</div><h3 class="h5">-75% d'économies</h3><p>Jusqu'à 75% de réduction</p></div></div></div></div>
+
+        <h2 class="mb-4">📍 Les 5 zones incontournables du destockage à Marseille</h2>
+        <div class="table-responsive mb-5"><table class="table table-bordered table-hover"><thead class="table-dark"><tr><th>Zone</th><th>Secteur</th><th>Spécialités</th><th>Économies</th></tr></thead><tbody>
+            <tr><td class="fw-bold">⚓ Grand Port Maritime</td><td>2ème, 15ème</td><td>Produits importés, palettes massives</td><td class="text-success">-65% à -75%</td></tr>
+            <tr><td class="fw-bold">🏭 Vitrolles - Anjoly</td><td>Vitrolles (13127)</td><td>Surgelés, frais, produits laitiers</td><td class="text-success">-55% à -70%</td></tr>
+            <tr><td class="fw-bold">🏘️ Aubagne - Les Paluds</td><td>Aubagne (13400)</td><td>Vins, spiritueux, chocolats</td><td class="text-success">-50% à -65%</td></tr>
+        </tbody></table></div>
+
+        <div class="bg-info text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Marseillaise 2026</strong><p class="mb-0 mt-1">-20% sur votre première commande + livraison offerte dès 250€ avec le code <strong class="bg-white text-info px-3 py-2 rounded">MARSEILLE2026</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">J'en profite →</a></div></div>
+
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🌊 Marseille économise avec DestockPro !</h3><p class="lead mb-4">Rejoignez les 10 000 clients marseillais qui nous font confiance</p><a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">🛒 Voir les offres Marseille →</a></div>
+    </div></div>
+</div>
+{% endblock %}
