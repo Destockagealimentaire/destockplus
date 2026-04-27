@@ -2297,6 +2297,10 @@ def sitemap():
         {'loc': '/destockage-bruxelles-grossistes-pas-chers', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-espagne-meilleures-adresses', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/paris-destockage-alimentaire-entrepots-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lille-top-entrepots', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lyon-grossistes-prix', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-marseille-palettes', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/discount-alimentaire-guide-pratique-2026', 'priority': 0.95, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2512,6 +2516,27 @@ def destockage_alimentaire_espagne_mega_offres():
     return render_template('articles/destockage_alimentaire_espagne_mega_offres.html')
 
 
+# ============ 4 ARTICLES ULTRA RICHES SEO ============
+
+@app.route('/destockage-alimentaire-lille-top-entrepots')
+def destockage_alimentaire_lille_top_entrepots():
+    """Article ultra riche - Destockage Lille 2026"""
+    return render_template('articles/destockage_alimentaire_lille_top_entrepots.html')
+
+@app.route('/destockage-alimentaire-lyon-grossistes-prix')
+def destockage_alimentaire_lyon_grossistes_prix():
+    """Article ultra riche - Destockage Lyon 2026"""
+    return render_template('articles/destockage_alimentaire_lyon_grossistes_prix.html')
+
+@app.route('/destockage-alimentaire-marseille-palettes')
+def destockage_alimentaire_marseille_palettes():
+    """Article ultra riche - Destockage Marseille 2026"""
+    return render_template('articles/destockage_alimentaire_marseille_palettes.html')
+
+@app.route('/discount-alimentaire-guide-pratique-2026')
+def discount_alimentaire_guide_pratique_2026():
+    """Article ultra riche - Discount alimentaire pratique 2026"""
+    return render_template('articles/discount_alimentaire_guide_pratique_2026.html')
 
 @app.route('/admin/commandes')
 @login_required
