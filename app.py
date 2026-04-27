@@ -2301,6 +2301,10 @@ def sitemap():
         {'loc': '/destockage-alimentaire-lyon-grossistes-prix', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-marseille-palettes', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/discount-alimentaire-guide-pratique-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-ruinart-blanc-blancs-palette-prix', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-nutella-palette-1kg-prix-destock', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-coca-cola-palette-33cl-pas-cher', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-red-bull-palette-250ml-promo', 'priority': 0.95, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
