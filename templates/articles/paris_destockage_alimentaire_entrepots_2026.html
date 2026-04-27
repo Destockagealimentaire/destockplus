@@ -1,23 +1,96 @@
 {% extends "base.html" %}
 
-{% block title %}🗼 Destockage Alimentaire Paris 2026 - Top 200 Entrepôts & Grossistes | DestockPro{% endblock %}
+{% block title %}🏭 Destockage Alimentaire Lille 2026 - Top 50 Entrepôts & Grossistes | DestockPro{% endblock %}
 
-{% block meta_description %}Top 200 des entrepôts de destockage alimentaire à Paris et Île-de-France 2026. Rungis, Bercy, Chapelle. Économies jusqu'à 75%. Livraison 24h. Guide gratuit.{% endblock %}
+{% block meta_description %}Découvrez le top 50 des entrepôts et grossistes de destockage alimentaire à Lille et Hauts-de-France 2026. Lesquin, Roubaix, Tourcoing. Économies jusqu'à 75%. Livraison 24h.{% endblock %}
 
-{% block meta_keywords %}destockage alimentaire Paris 2026, entrepôt destockage Paris, grossiste alimentaire Paris, destockage Rungis, destockage Bercy, destockage Île-de-France, meilleur destockage Paris 2026{% endblock %}
+{% block meta_keywords %}destockage alimentaire Lille 2026, entrepôt destockage Lille, grossiste alimentaire Lille, destockage Lesquin, destockage Roubaix, destockage Tourcoing, destockage Villeneuve-dAscq, destockage Hauts-de-France, palettes alimentaires Lille{% endblock %}
 
-{% block canonical %}https://www.destockalimentaire.com/paris-destockage-alimentaire-entrepots-2026{% endblock %}
+{% block canonical %}https://www.destockalimentaire.com/destockage-alimentaire-lille-top-entrepots{% endblock %}
+
+{% block og_title %}🏭 Destockage Alimentaire Lille 2026 - Top 50 Entrepôts & Grossistes{% endblock %}
+{% block og_description %}Le top 50 des entrepôts de destockage à Lille. Lesquin, Roubaix, Tourcoing. Économies jusqu'à 75%. Livraison 24h.{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <div class="row"><div class="col-lg-8 mx-auto">
-        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Île-de-France</a></li><li class="breadcrumb-item active">Paris Top 2026</li></ol></nav>
-        <div class="mb-4"><span class="badge bg-danger px-3 py-2 mb-2">🗼 TOP 200 PARIS 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5432 avis)</span></div>
-        <h1 class="display-4 fw-bold mb-3">🗼 Destockage Alimentaire <span class="text-danger">Paris</span> 2026</h1>
-        <p class="lead fs-4">Le <strong class="text-primary">TOP 200</strong> des entrepôts et grossistes pour économiser jusqu'à <strong class="text-success">75%</strong> en Île-de-France.</p></div>
-        <div class="alert alert-danger mb-4"><strong>🗼 Paris, capitale du destockage :</strong> Plus de 500 grossistes - 50 000 clients franciliens satisfaits</div>
-        <div class="bg-danger text-white p-4 rounded-4 my-4"><div class="d-flex flex-wrap align-items-center justify-content-between gap-3"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo Paris 2026</strong><p class="mb-0 mt-1">-20% sur toute commande + livraison offerte avec <strong class="bg-white text-danger px-3 py-2 rounded">PARIS2026</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">J'en profite →</a></div></div>
-        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🗼 Paris économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 py-3">🛒 Voir les offres Paris →</a></div>
-    </div></div>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Lille Destockage</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🏭 N°1 DESTOCKAGE LILLE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 2341 avis clients)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🏭 Destockage Alimentaire <span class="text-danger">Lille</span> 2026</h1>
+                <p class="lead fs-4">Le guide <strong class="text-primary">ultime</strong> pour économiser jusqu'à <strong class="text-success">75%</strong> sur vos courses dans la métropole lilloise et les Hauts-de-France.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">🏭</div>
+                            <h3 class="h5">150+ grossistes</h3>
+                            <p class="small">Plus de 150 professionnels du destockage dans la métropole lilloise</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">📊</div>
+                            <h3 class="h5">+35% de croissance</h3>
+                            <p class="small">Le marché du destockage à Lille progresse de 35% par an</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-danger mb-2">💰</div>
+                            <h3 class="h5">-75% d'économies</h3>
+                            <p class="small">Jusqu'à 75% de réduction sur les marques premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mb-4">📍 Les 5 zones incontournables du destockage à Lille</h2>
+
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Secteur</th><th>Spécialités</th><th>Économies</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🏭 Zone de Lesquin</td><td>Lesquin (59810)</td><td>Grossistes généralistes, palettes, lots massifs</td><td class="text-success">-60% à -75%</td></tr>
+                        <tr><td class="fw-bold">🏪 EuraTechnologies</td><td>Lomme (59160)</td><td>Produits innovants, startups alimentaires</td><td class="text-success">-50% à -65%</td></tr>
+                        <tr><td class="fw-bold">🏘️ Roubaix - Tourcoing</td><td>Roubaix (59100), Tourcoing (59200)</td><td>Grossistes historiques, produits du terroir</td><td class="text-success">-55% à -70%</td></tr>
+                        <tr><td class="fw-bold">🚚 Zone de Vendeville</td><td>Vendeville (59175)</td><td>Produits importés, bières belges</td><td class="text-success">-50% à -65%</td></tr>
+                        <tr><td class="fw-bold">🏭 Zone de la Pilaterie</td><td>Villeneuve-d'Ascq (59650)</td><td>Épicerie, boissons, surgelés</td><td class="text-success">-45% à -60%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 my-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Lilloise 2026</strong><p class="mb-0 mt-1">-20% sur votre première commande + livraison offerte dès 250€ avec le code <strong class="bg-white text-danger px-3 py-2 rounded">LILLE2026</strong></p></div>
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">J'en profite →</a>
+                </div>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🏭 Lille économise avec DestockPro !</h3>
+                <p class="lead mb-4">Rejoignez les 15 000 clients nordistes qui nous font confiance</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 py-3">🛒 Voir les offres Lille →</a>
+            </div>
+
+        </div>
+    </div>
 </div>
 {% endblock %}
