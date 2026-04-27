@@ -2293,6 +2293,10 @@ def sitemap():
         {'loc': '/destockage-alimentaire-paris-top-2026', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/discount-alimentaire-astuces-2026', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/achat-ruinart-blanc-blancs-destocke', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-top-2026', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-bruxelles-grossistes-pas-chers', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-espagne-meilleures-adresses', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/paris-destockage-alimentaire-entrepots-2026', 'priority': 0.95, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2565,7 +2569,27 @@ def lille_destockage_maxi_2026():
     """Article ultra premium - Destockage Lille"""
     return render_template('articles/lille_destockage_maxi_2026.html')
 
+# ============ 4 ARTICLES ULTRA BOOSTÉS SEO ============
 
+@app.route('/destockage-alimentaire-belgique-top-2026')
+def destockage_alimentaire_belgique_top_2026():
+    """Article ultra boosté - Destockage Belgique 2026"""
+    return render_template('articles/destockage_alimentaire_belgique_top_2026.html')
+
+@app.route('/destockage-bruxelles-grossistes-pas-chers')
+def destockage_bruxelles_grossistes_pas_chers():
+    """Article ultra boosté - Destockage Bruxelles"""
+    return render_template('articles/destockage_bruxelles_grossistes_pas_chers.html')
+
+@app.route('/destockage-alimentaire-espagne-meilleures-adresses')
+def destockage_alimentaire_espagne_meilleures_adresses():
+    """Article ultra boosté - Destockage Espagne"""
+    return render_template('articles/destockage_alimentaire_espagne_meilleures_adresses.html')
+
+@app.route('/paris-destockage-alimentaire-entrepots-2026')
+def paris_destockage_alimentaire_entrepots_2026():
+    """Article ultra boosté - Destockage Paris 2026"""
+    return render_template('articles/paris_destockage_alimentaire_entrepots_2026.html')
 
 
 def send_email_contact(nom, prenom, email, telephone, sujet, message):
