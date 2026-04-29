@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}🛳️ Destockage Alimentaire Nantes 2026 - Top Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Nantes et en Pays de la Loire 2026. Meilleurs grossistes, entrepôts et bonnes adresses. Économies jusqu'à 70%. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Nantes, destockage Pays de la Loire, grossiste alimentaire Nantes, alimentaire pas cher Nantes, destockage 44{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Pays de la Loire</a></li><li class="breadcrumb-item active">Nantes</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-info px-3 py-2 mb-2">🛳️ PAYS DE LA LOIRE 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 754 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🛳️ Destockage Alimentaire <span class="text-info">Nantes</span> 2026</h1>
+        <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses dans la région nantaise.</p></div>
+
+        <div class="alert alert-info mb-4"><strong>📍 Nantes, porte de l'Atlantique :</strong> Accès aux produits importés - Zone logistique dynamique</div>
+
+        <div class="bg-info text-white p-4 rounded-4 my-4"><div class="text-center"><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Nantes 2026</strong><p class="mb-0 mt-1">Code <strong class="bg-white text-info px-3 py-2 rounded">NANTES2026</strong> : -15% sur première commande</p></div><div class="text-center mt-3"><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter →</a></div></div>
+
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🛳️ Nantes économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">Voir les offres →</a></div>
+    </div></div>
+</div>
+{% endblock %}

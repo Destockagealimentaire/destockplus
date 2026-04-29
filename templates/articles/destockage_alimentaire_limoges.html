@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}🍽️ Destockage Alimentaire Limoges 2026 - Top Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Limoges et en Nouvelle-Aquitaine 2026. Meilleurs grossistes, entrepôts et bonnes adresses. Économies jusqu'à 70%.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Limoges, destockage Nouvelle-Aquitaine, grossiste alimentaire Limoges, alimentaire pas cher Limoges, destockage 87{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Nouvelle-Aquitaine</a></li><li class="breadcrumb-item active">Limoges</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-success px-3 py-2 mb-2">🍽️ LIMOGES 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 567 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🍽️ Destockage Alimentaire <span class="text-success">Limoges</span> 2026</h1>
+        <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses dans la région limousine.</p></div>
+        <div class="alert alert-success mb-4"><strong>📍 Limoges, cœur du Limousin :</strong> Produits du terroir - Viande Limousine - Prix attractifs</div>
+        <div class="bg-success text-white p-4 rounded-4 my-4 text-center"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Limoges 2026</strong><p class="mb-0 mt-1">Code <strong class="bg-white text-success px-3 py-2 rounded">LIMOGES2026</strong> : -15% sur première commande</p></div><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">Profiter →</a></div>
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🍽️ Limoges économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">Voir les offres →</a></div>
+    </div></div>
+</div>
+{% endblock %}

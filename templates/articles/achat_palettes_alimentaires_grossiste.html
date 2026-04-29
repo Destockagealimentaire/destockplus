@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}📦 Achat Palettes Alimentaires Grossiste 2026 - Jusqu'à -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez vos palettes alimentaires au meilleur prix grossiste. Palettes de boissons, épicerie, surgelés. Livraison rapide partout en France. Économies jusqu'à 70%. Devis gratuit.{% endblock %}
+
+{% block meta_keywords %}achat palettes alimentaires, palette grossiste, palette boissons pas chère, palette épicerie, palette coca cola, palette red bull, achat en gros alimentaire{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Achat palettes grossiste</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">📦 GROSSISTE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">📦 Achat Palettes Alimentaires <span class="text-primary">Grossiste</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos achats en palette. Livraison rapide partout en France.</p>
+            </div>
+
+            <div class="alert alert-primary mb-4">
+                <strong>📊 Pourquoi acheter en palette ?</strong> Économies massives - Stockage optimisé - Revente possible - Idéal pour professionnels et particuliers
+            </div>
+
+            <!-- Tableau des palettes populaires -->
+            <h2 class="mb-4">🔥 Palettes les plus vendues en 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th>Prix grossiste</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🥤 Coca-Cola 33cl</th>
+                            <td>2592 canettes</th>
+                            <td class="text-muted">2 096€</td>
+                            <td class="fw-bold text-success">1 499€</td>
+                            <td class="text-success">-28%</td>
+                        </tr>
+                        <tr>
+                            <td>⚡ Red Bull 250ml</th>
+                            <td>2592 canettes</th>
+                            <td class="text-muted">1 942€</td>
+                            <td class="fw-bold text-success">1 599€</td>
+                            <td class="text-success">-18%</td>
+                        </tr>
+                        <tr>
+                            <td>🍫 Nutella 1kg</th>
+                            <td>760 pots</th>
+                            <td class="text-muted">1 936€</td>
+                            <td class="fw-bold text-success">1 599€</td>
+                            <td class="text-success">-17%</td>
+                        </tr>
+                        <tr>
+                            <td>🍺 Heineken 33cl</th>
+                            <td>2592 canettes</th>
+                            <td class="text-muted">1 899€</td>
+                            <td class="fw-bold text-success">1 499€</td>
+                            <td class="text-success">-21%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-primary text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre grossiste 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première palette avec le code <strong class="bg-white text-primary px-3 py-2 rounded">PALETTE10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">Voir toutes les palettes →</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">📦 Prêt à économiser sur vos palettes ?</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg px-5 py-3">Voir nos palettes →</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

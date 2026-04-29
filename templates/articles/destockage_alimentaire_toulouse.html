@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}🌞 Destockage Alimentaire Toulouse 2026 - Top Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Toulouse et en Occitanie 2026. Meilleurs grossistes, entrepôts et bonnes adresses. Économies jusqu'à 70%. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Toulouse, destockage Occitanie, grossiste alimentaire Toulouse, alimentaire pas cher Toulouse, destockage 31{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Occitanie</a></li><li class="breadcrumb-item active">Toulouse</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-warning px-3 py-2 mb-2">🌞 OCCITANIE 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 892 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🌞 Destockage Alimentaire <span class="text-warning">Toulouse</span> 2026</h1>
+        <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses dans la région toulousaine.</p></div>
+
+        <div class="alert alert-warning mb-4"><strong>📍 Toulouse, capitale du Sud-Ouest :</strong> Marché dynamique - Produits régionaux - Prix attractifs</div>
+
+        <div class="bg-warning text-dark p-4 rounded-4 my-4"><div class="text-center"><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Toulouse 2026</strong><p class="mb-0 mt-1">Code <strong class="bg-dark text-warning px-3 py-2 rounded">TOULOUSE2026</strong> : -15% sur première commande</p></div><div class="text-center mt-3"><a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg fw-bold">Profiter →</a></div></div>
+
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🌞 Toulouse économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">Voir les offres →</a></div>
+    </div></div>
+</div>
+{% endblock %}

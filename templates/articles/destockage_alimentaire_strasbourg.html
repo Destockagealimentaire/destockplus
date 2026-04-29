@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}🥨 Destockage Alimentaire Strasbourg 2026 - Top Grossistes | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Strasbourg et en Alsace 2026. Meilleurs grossistes, entrepôts et bonnes adresses. Économies jusqu'à 70%. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Strasbourg, destockage Alsace, grossiste alimentaire Strasbourg, alimentaire pas cher Strasbourg, destockage 67, destockage 68{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li><li class="breadcrumb-item"><a href="#">Grand Est</a></li><li class="breadcrumb-item active">Strasbourg</li></ol></nav>
+        <div class="mb-4"><span class="badge bg-success px-3 py-2 mb-2">🥨 ALSACE 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 876 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🥨 Destockage Alimentaire <span class="text-success">Strasbourg</span> 2026</h1>
+        <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses dans la région strasbourgeoise.</p></div>
+
+        <div class="alert alert-success mb-4"><strong>📍 Strasbourg, carrefour européen :</strong> Proximité avec l'Allemagne et la Suisse - Accès à des produits variés</div>
+
+        <div class="row mb-4"><div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-success mb-2">🏭</div><h3>50+ grossistes</h3><p>dans la région</p></div></div></div>
+        <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-success mb-2">📊</div><h3>-70%</h3><p>d'économies</p></div></div></div>
+        <div class="col-md-4 mb-3"><div class="card h-100 border-0 shadow-sm text-center"><div class="card-body"><div class="display-4 text-success mb-2">🚚</div><h3>24h</h3><p>livraison</p></div></div></div></div>
+
+        <div class="bg-success text-white p-4 rounded-4 my-4"><div class="text-center"><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Strasbourg 2026</strong><p class="mb-0 mt-1">Code <strong class="bg-white text-success px-3 py-2 rounded">STRAS2026</strong> : -15% sur première commande</p></div><div class="text-center mt-3"><a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">Profiter →</a></div></div>
+
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🥨 Strasbourg économise avec DestockPro !</h3><a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">Voir les offres →</a></div>
+    </div></div>
+</div>
+{% endblock %}
