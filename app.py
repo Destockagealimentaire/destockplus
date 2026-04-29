@@ -2305,6 +2305,18 @@ def sitemap():
         {'loc': '/achat-nutella-palette-1kg-prix-destock', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/achat-coca-cola-palette-33cl-pas-cher', 'priority': 0.95, 'changefreq': 'weekly'},
         {'loc': '/achat-red-bull-palette-250ml-promo', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/achat-palettes-alimentaires-grossiste', 'priority': 0.95, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-strasbourg', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-nantes', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-toulouse', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-bordeaux', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-nice', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-rennes', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-montpellier', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/discount-alimentaire-guide-2026', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-grenoble', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-dijon', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-limoges', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2398,6 +2410,74 @@ Sitemap: https://www.destockalimentaire.com/sitemap-produits.xml
 Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 """, 200, {'Content-Type': 'text/plain'}
 
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ULTRA BOOSTÉS ============
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/discount-alimentaire-guide-2026')
+def discount_alimentaire_guide_2026():
+    """Article - Guide complet discount alimentaire 2026"""
+    return render_template('articles/discount_alimentaire_guide_2026.html')
+
+@app.route('/destockage-alimentaire-grenoble')
+def destockage_alimentaire_grenoble():
+    """Article - Destockage alimentaire Grenoble"""
+    return render_template('articles/destockage_alimentaire_grenoble.html')
+
+@app.route('/destockage-alimentaire-dijon')
+def destockage_alimentaire_dijon():
+    """Article - Destockage alimentaire Dijon"""
+    return render_template('articles/destockage_alimentaire_dijon.html')
+
+@app.route('/destockage-alimentaire-limoges')
+def destockage_alimentaire_limoges():
+    """Article - Destockage alimentaire Limoges"""
+    return render_template('articles/destockage_alimentaire_limoges.html')
+
+
+@app.route('/destockage-alimentaire-bordeaux')
+def destockage_alimentaire_bordeaux():
+    """Article - Destockage alimentaire Bordeaux"""
+    return render_template('articles/destockage_alimentaire_bordeaux.html')
+
+@app.route('/destockage-alimentaire-nice')
+def destockage_alimentaire_nice():
+    """Article - Destockage alimentaire Nice"""
+    return render_template('articles/destockage_alimentaire_nice.html')
+
+@app.route('/destockage-alimentaire-rennes')
+def destockage_alimentaire_rennes():
+    """Article - Destockage alimentaire Rennes"""
+    return render_template('articles/destockage_alimentaire_rennes.html')
+
+@app.route('/destockage-alimentaire-montpellier')
+def destockage_alimentaire_montpellier():
+    """Article - Destockage alimentaire Montpellier"""
+    return render_template('articles/destockage_alimentaire_montpellier.html')
+@app.route('/achat-palettes-alimentaires-grossiste')
+def achat_palettes_alimentaires_grossiste():
+    """Article - Achat palettes alimentaires grossiste"""
+    return render_template('articles/achat_palettes_alimentaires_grossiste.html')
+
+@app.route('/destockage-alimentaire-strasbourg')
+def destockage_alimentaire_strasbourg():
+    """Article - Destockage alimentaire Strasbourg"""
+    return render_template('articles/destockage_alimentaire_strasbourg.html')
+
+@app.route('/destockage-alimentaire-nantes')
+def destockage_alimentaire_nantes():
+    """Article - Destockage alimentaire Nantes"""
+    return render_template('articles/destockage_alimentaire_nantes.html')
+
+@app.route('/destockage-alimentaire-toulouse')
+def destockage_alimentaire_toulouse():
+    """Article - Destockage alimentaire Toulouse"""
+    return render_template('articles/destockage_alimentaire_toulouse.html')
+    
 # Routes pour les articles SEO
 @app.route('/destockage-alimentaire-paris')
 def destockage_alimentaire_paris():
