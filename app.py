@@ -2325,6 +2325,10 @@ def sitemap():
         {'loc': '/achat-palette-red-bull-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/comment-revendre-palettes-alimentaires', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-avantages-inconvenients', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-1-palette-cout', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/palette-coca-cola-33cl-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-frais-port', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/ou-trouver-palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2447,7 +2451,27 @@ def destockage_alimentaire_limoges():
     return render_template('articles/destockage_alimentaire_limoges.html')
 
 
+# ============ 4 ARTICLES ULTRA PUISSANTS SEO ============
 
+@app.route('/destockage-alimentaire-1-palette-cout')
+def destockage_alimentaire_1_palette_cout():
+    """Article - Combien coûte une palette de destockage"""
+    return render_template('articles/destockage_alimentaire_1_palette_cout.html')
+
+@app.route('/palette-coca-cola-33cl-prix-grossiste')
+def palette_coca_cola_33cl_prix_grossiste():
+    """Article - Prix palette Coca-Cola 33cl grossiste"""
+    return render_template('articles/palette_coca_cola_33cl_prix_grossiste.html')
+
+@app.route('/destockage-alimentaire-frais-port')
+def destockage_alimentaire_frais_port():
+    """Article - Frais de port destockage alimentaire"""
+    return render_template('articles/destockage_alimentaire_frais_port.html')
+
+@app.route('/ou-trouver-palettes-alimentaires-pas-cheres')
+def ou_trouver_palettes_alimentaires_pas_cheres():
+    """Article - Où trouver des palettes alimentaires pas chères"""
+    return render_template('articles/ou_trouver_palettes_alimentaires_pas_cheres.html')
 # ============ 4 ARTICLES ULTRA RICHES EN CONTENU ============
 
 @app.route('/guide-complet-destockage-alimentaire-2026')
