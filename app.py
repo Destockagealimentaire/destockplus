@@ -2317,6 +2317,14 @@ def sitemap():
         {'loc': '/destockage-alimentaire-grenoble', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-dijon', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-limoges', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/ou-acheter-palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/prix-palette-coca-cola-33cl-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/meilleur-site-destockage-alimentaire-avis', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/palette-nutella-1kg-prix-livraison-offerte', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/guide-complet-destockage-alimentaire-2026', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/achat-palette-red-bull-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/comment-revendre-palettes-alimentaires', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-avantages-inconvenients', 'priority': 1.0, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2437,6 +2445,30 @@ def destockage_alimentaire_dijon():
 def destockage_alimentaire_limoges():
     """Article - Destockage alimentaire Limoges"""
     return render_template('articles/destockage_alimentaire_limoges.html')
+
+
+
+# ============ 4 ARTICLES ULTRA RICHES EN CONTENU ============
+
+@app.route('/guide-complet-destockage-alimentaire-2026')
+def guide_complet_destockage_alimentaire():
+    """Article ultra riche - Guide complet destockage alimentaire"""
+    return render_template('articles/guide_complet_destockage_alimentaire_2026.html')
+
+@app.route('/achat-palette-red-bull-grossiste')
+def achat_palette_red_bull_grossiste():
+    """Article ultra riche - Achat palette Red Bull grossiste"""
+    return render_template('articles/achat_palette_red_bull_grossiste.html')
+
+@app.route('/comment-revendre-palettes-alimentaires')
+def comment_revendre_palettes_alimentaires():
+    """Article ultra riche - Comment revendre des palettes alimentaires"""
+    return render_template('articles/comment_revendre_palettes_alimentaires.html')
+
+@app.route('/destockage-alimentaire-avantages-inconvenients')
+def destockage_alimentaire_avantages_inconvenients():
+    """Article ultra riche - Avantages et inconvénients du destockage"""
+    return render_template('articles/destockage_alimentaire_avantages_inconvenients.html')
 
 
 @app.route('/destockage-alimentaire-bordeaux')
@@ -2609,6 +2641,28 @@ def comment_economiser_courses_alimentaires():
     """Article comment économiser sur ses courses alimentaires"""
     return render_template('articles/comment_economiser_courses_alimentaires.html')
 
+
+# ============ 4 ARTICLES ULTRA CONVERSION DESTOCKAGE ============
+
+@app.route('/ou-acheter-palettes-alimentaires-pas-cheres')
+def ou_acheter_palettes_alimentaires_pas_cheres():
+    """Article conversion - Où acheter des palettes alimentaires pas chères"""
+    return render_template('articles/ou_acheter_palettes_alimentaires_pas_cheres.html')
+
+@app.route('/prix-palette-coca-cola-33cl-grossiste')
+def prix_palette_coca_cola_33cl_grossiste():
+    """Article conversion - Prix palette Coca-Cola 33cl grossiste"""
+    return render_template('articles/prix_palette_coca_cola_33cl_grossiste.html')
+
+@app.route('/meilleur-site-destockage-alimentaire-avis')
+def meilleur_site_destockage_alimentaire_avis():
+    """Article conversion - Meilleur site de destockage alimentaire avis"""
+    return render_template('articles/meilleur_site_destockage_alimentaire_avis.html')
+
+@app.route('/palette-nutella-1kg-prix-livraison-offerte')
+def palette_nutella_1kg_prix_livraison_offerte():
+    """Article conversion - Palette Nutella 1kg prix livraison offerte"""
+    return render_template('articles/palette_nutella_1kg_prix_livraison_offerte.html')
 # ============= NOUVEAUX ARTICLES ULTRA PREMIUM =============
 
 @app.route('/destockage-food-expert-belgique-2026')
