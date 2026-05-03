@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}📍 Où acheter des palettes alimentaires pas chères ? Top 10 des grossistes 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez où acheter des palettes alimentaires pas chères en 2026. Comparatif des 10 meilleurs grossistes, prix et conditions. Économies jusqu'à 70%. Livraison France.{% endblock %}
+
+{% block meta_keywords %}où acheter palettes alimentaires, palette pas chère, grossiste alimentaire, acheter palette coca, acheter palette nutella, meilleur prix palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Où acheter des palettes</li>
+                </ol>
+            </nav>
+
+            <!-- Bandeau promo -->
+            <div class="bg-danger text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-tag me-2"></i> LIVRAISON OFFERTE DÈS 500€ - CODE : <strong class="bg-white text-danger px-2 py-1 rounded">PALETTE2026</strong> <i class="fas fa-gift ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">📍 GUIDE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">📍 Où acheter des palettes alimentaires <span class="text-primary">pas chères</span> ?</h1>
+                <p class="lead fs-4">Le <strong class="text-primary">comparatif des 10 meilleurs grossistes</strong> pour acheter vos palettes au meilleur prix. Économies jusqu'à <strong class="text-success">70%</strong>.</p>
+            </div>
+
+            <!-- Tableau comparatif -->
+            <h2 class="mb-4">📊 Comparatif des meilleurs grossistes 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Grossiste</th>
+                            <th>Palette Coca-Cola</th>
+                            <th>Palette Nutella</th>
+                            <th>Livraison</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-primary">DestockPro</td>
+                            <td class="fw-bold text-success">1 499€</td>
+                            <td class="fw-bold text-success">1 599€</td>
+                            <td>24h offerte dès 500€</td>
+                            <td>⭐⭐⭐⭐⭐ (4.9)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">GrossisteMarket</td>
+                            <td>1 699€</td>
+                            <td>1 799€</td>
+                            <td>48h dès 800€</td>
+                            <td>⭐⭐⭐⭐ (4.2)</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">PaletteDirect</td>
+                            <td>1 599€</td>
+                            <td>1 699€</td>
+                            <td>48h dès 600€</td>
+                            <td>⭐⭐⭐⭐ (4.3)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pourquoi DestockPro -->
+            <h2 class="mb-4">🏆 Pourquoi DestockPro est le meilleur choix ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h3 class="h5">Prix les plus bas</h3>
+                            <p>Garantis sur toutes nos palettes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Livraison 24h</h3>
+                            <p>Partout en France</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Qualité garantie</h3>
+                            <p>Produits sous garantie</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-headset fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Support 7j/7</h3>
+                            <p>Service client dédié</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignages -->
+            <h2 class="mb-4">💬 Ce que disent nos clients</h2>
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Palette Coca reçue en 24h. Prix imbattable, je recommande DestockPro !"</p>
+                            <footer class="blockquote-footer">Thomas, <cite>Restaurateur Paris</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Service client réactif et qualité au rendez-vous. Je commande régulièrement."</p>
+                            <footer class="blockquote-footer">Sophie, <cite>Épicerie Lyon</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA principal -->
+            <div class="bg-primary text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Prêt à économiser sur vos palettes ?</strong>
+                <p class="mb-0 mt-1">Code <strong class="bg-white text-primary px-3 py-2 rounded">PALETTE10</strong> : -10% sur votre première commande</p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 JE COMMANDE MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">📍 Ne cherchez plus, DestockPro est la solution !</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg px-5 py-3">🛒 Voir nos palettes →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

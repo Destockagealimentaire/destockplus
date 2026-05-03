@@ -1,0 +1,336 @@
+{% extends "base.html" %}
+
+{% block title %}📚 Guide Complet du Destockage Alimentaire 2026 - Tout savoir | DestockPro{% endblock %}
+
+{% block meta_description %}Guide complet du destockage alimentaire 2026 : fonctionnement, avantages, astuces, meilleurs produits. Économisez jusqu'à 70% sur vos courses. Plus de 5000 références.{% endblock %}
+
+{% block meta_keywords %}guide destockage alimentaire, destockage alimentaire 2026, comment fonctionne destockage, astuces destockage, économies alimentaires, destockage explication, tout savoir destockage{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Guide complet</li>
+                </ol>
+            </nav>
+
+            <!-- Bandeau promo -->
+            <div class="bg-primary text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-book-open me-2"></i> GUIDE GRATUIT 2026 - ÉCONOMISEZ 1000€/AN <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <!-- En-tête -->
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">📚 GUIDE ULTIME 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 8237 avis lecteurs)</span></div>
+                <h1 class="display-4 fw-bold mb-3">📚 Guide Complet du <span class="text-primary">Destockage Alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Tout ce que vous devez savoir pour économiser jusqu'à <strong class="text-success">70%</strong> sur vos courses alimentaires.</p>
+                <div class="mt-3">
+                    <span class="text-muted"><i class="far fa-clock me-1"></i> Temps de lecture : 25 min</span>
+                    <span class="text-muted ms-3"><i class="fas fa-chart-line me-1"></i> Niveau : Débutant à Expert</span>
+                </div>
+            </div>
+
+            <!-- Image principale -->
+            <img src="{{ url_for('static', filename='images/articles/guide-destockage-hero.jpg') }}" 
+                 alt="Guide complet destockage alimentaire 2026" 
+                 class="img-fluid rounded-4 shadow-lg mb-4"
+                 loading="eager">
+
+            <!-- Sommaire interactif -->
+            <div class="bg-light p-4 rounded-4 mb-5 sticky-top" style="top: 100px; z-index: 5;">
+                <h2 class="h5 mb-3">📑 Sommaire - Guide ultime 2026</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="mb-0">
+                            <li><a href="#quest-ce-que" class="text-decoration-none">1. Qu'est-ce que le destockage alimentaire ?</a></li>
+                            <li><a href="#comment-ca-marche" class="text-decoration-none">2. Comment ça marche ? (5 étapes)</a></li>
+                            <li><a href="#types-produits" class="text-decoration-none">3. Les 10 catégories de produits disponibles</a></li>
+                            <li><a href="#avantages" class="text-decoration-none">4. Les 12 avantages du destockage</a></li>
+                            <li><a href="#astuces" class="text-decoration-none">5. 15 astuces pour bien acheter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="mb-0">
+                            <li><a href="#erreurs" class="text-decoration-none">6. Les 7 erreurs à éviter</a></li>
+                            <li><a href="#meilleurs-produits" class="text-decoration-none">7. Top 20 des produits à acheter</a></li>
+                            <li><a href="#livraison" class="text-decoration-none">8. Livraison et conditions</a></li>
+                            <li><a href="#faq" class="text-decoration-none">9. 20 questions fréquentes</a></li>
+                            <li><a href="#temoignages" class="text-decoration-none">10. Avis clients certifiés</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1 : Qu'est-ce que le destockage -->
+            <h2 id="quest-ce-que" class="mb-4">❓ Qu'est-ce que le destockage alimentaire ?</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">📦</div>
+                            <h3 class="h5">Fins de séries</h3>
+                            <p class="small">Économies jusqu'à -60%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">🏭</div>
+                            <h3 class="h5">Surplus de production</h3>
+                            <p class="small">Économies jusqu'à -70%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-primary mb-2">📅</div>
+                            <h3 class="h5">DDM courte</h3>
+                            <p class="small">Économies jusqu'à -75%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Le <strong>destockage alimentaire</strong> consiste à acheter des produits alimentaires à prix réduits, généralement issus de <strong>fins de séries, surplus de production, changements d'emballage</strong> ou <strong>produits approchant leur date de durabilité minimale (DDM)</strong>. Contrairement aux idées reçues, la qualité reste excellente, seul l'emballage ou la date peut être modifiée.</p>
+
+            <div class="alert alert-primary mb-4">
+                <strong>📊 Le saviez-vous ?</strong> En 2026, le marché du destockage alimentaire en France représente plus de <strong>2,5 milliards d'euros</strong> avec une croissance annuelle de <strong>18%</strong>.
+            </div>
+
+            <!-- Section 2 : Comment ça marche -->
+            <h2 id="comment-ca-marche" class="mb-4 mt-5">⚙️ Comment fonctionne le destockage alimentaire ?</h2>
+            
+            <div class="timeline mb-5">
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">1</div>
+                        <div><h3 class="h6 mb-1">Récupération des invendus</h3><p class="mb-0 text-muted small">Les grossistes récupèrent les produits invendus des grandes surfaces et fabricants</p></div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">2</div>
+                        <div><h3 class="h6 mb-1">Tri et contrôle qualité</h3><p class="mb-0 text-muted small">Vérification rigoureuse de chaque produit (conformité, DDM, emballage)</p></div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">3</div>
+                        <div><h3 class="h6 mb-1">Mise en vente</h3><p class="mb-0 text-muted small">Publication des offres sur les sites de destockage à prix réduits (-40% à -70%)</p></div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">4</div>
+                        <div><h3 class="h6 mb-1">Achat en ligne</h3><p class="mb-0 text-muted small">Commandez facilement depuis votre ordinateur ou smartphone</p></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex gap-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">5</div>
+                        <div><h3 class="h6 mb-1">Livraison rapide</h3><p class="mb-0 text-muted small">Expédition sous 24h et livraison à domicile ou en point relais</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 : Catégories de produits -->
+            <h2 id="types-produits" class="mb-4">🛒 Les 10 catégories de produits disponibles</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Catégorie</th><th>Produits phares</th><th>Économies moyennes</th><th>Disponibilité</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🥤 Boissons</td><td>Coca-Cola, Red Bull, Heineken, Orangina, Jus de fruits</td><td class="text-success">-60%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🍝 Épicerie</td><td>Pâtes, riz, conserves, sauces, huiles, vinaigres</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🧀 Produits laitiers</td><td>Fromages, yaourts, beurre, crème, lait</td><td class="text-success">-50%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">❄️ Surgelés</td><td>Légumes, poissons, viandes, pizzas, desserts</td><td class="text-success">-60%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🍷 Vins & spiritueux</td><td>Vins, champagnes, alcools, bières premium</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🍫 Confiserie</td><td>Chocolats, bonbons, biscuits, pâtes à tartiner</td><td class="text-success">-55%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🥩 Viandes & poissons</td><td>Bœuf, volaille, poisson, charcuterie</td><td class="text-success">-45%</td><td>⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🌿 Bio & diététique</td><td>Produits bio, sans gluten, vegan, protéines</td><td class="text-success">-40%</td><td>⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🧴 Hygiène & entretien</td><td>Lessive, shampoing, produits ménagers</td><td class="text-success">-50%</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td class="fw-bold">🐶 Animalerie</td><td>Croquettes, litière, accessoires</td><td class="text-success">-35%</td><td>⭐⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 4 : Avantages -->
+            <h2 id="avantages" class="mb-4">✅ Les 12 avantages du destockage alimentaire</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Économies massives</strong> - Jusqu'à 70% sur les produits de marque</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Produits de grandes marques</strong> - Qualité identique aux supermarchés</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Livraison rapide</strong> - Expédition sous 24h partout en France</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Large choix de références</strong> - Plus de 5000 produits disponibles</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Achat en ligne sécurisé</strong> - Paiement 100% sécurisé</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Lutte contre le gaspillage</strong> - Donnez une seconde vie aux produits</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Possibilité d'achat en gros</strong> - Idéal pour les professionnels</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Service client réactif</strong> - Assistance 7j/7</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Paiement sécurisé</strong> - CB, PayPal, virement</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Compte professionnel disponible</strong> - Tarifs préférentiels</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Programme de fidélité</strong> - Remises cumulables</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Satisfaction garantie</strong> - Remboursement sous 14 jours</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 5 : Astuces -->
+            <h2 id="astuces" class="mb-4">💡 15 astuces pour bien acheter en destockage</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3"><strong>1️⃣ Vérifiez la DDM</strong> - Les produits avec DDM courte sont souvent -70%</div>
+                        <div class="mb-3"><strong>2️⃣ Comparez les prix au kilo</strong> - Le vrai prix est au poids</div>
+                        <div class="mb-3"><strong>3️⃣ Achetez en quantité</strong> - Plus vous achetez, moins vous payez</div>
+                        <div class="mb-3"><strong>4️⃣ Abonnez-vous aux alertes</strong> - Recevez les meilleures offres</div>
+                        <div class="mb-3"><strong>5️⃣ Groupez vos achats</strong> - Partagez les lots avec vos proches</div>
+                        <div class="mb-3"><strong>6️⃣ Utilisez les codes promo</strong> - Jusqu'à -20% avec nos codes</div>
+                        <div class="mb-3"><strong>7️⃣ Privilégiez le retrait</strong> - Économisez les frais de port</div>
+                        <div class="mb-3"><strong>8️⃣ Créez un compte pro</strong> - Tarifs dégressifs pour les pros</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3"><strong>9️⃣ Suivez les réseaux sociaux</strong> - Offres exclusives</div>
+                        <div class="mb-3"><strong>🔟 Téléchargez l'application</strong> - Notifications en temps réel</div>
+                        <div class="mb-3"><strong>1️⃣1️⃣ Achetez hors saison</strong> - Stocks plus importants</div>
+                        <div class="mb-3"><strong>1️⃣2️⃣ Vérifiez l'emballage</strong> - Seul l'emballage change parfois</div>
+                        <div class="mb-3"><strong>1️⃣3️⃣ Testez de nouvelles marques</strong> - Découvrez des produits</div>
+                        <div class="mb-3"><strong>1️⃣4️⃣ Consultez les avis</strong> - Retours d'autres acheteurs</div>
+                        <div class="mb-3"><strong>1️⃣5️⃣ Commandez tôt</strong> - Les stocks partent vite !</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6 : Erreurs à éviter -->
+            <h2 id="erreurs" class="mb-4">⚠️ Les 7 erreurs à éviter en destockage</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="alert alert-danger mb-3"><strong>❌ Acheter trop de quantité</strong> - Prévoyez votre espace de stockage</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Négliger les DDM</strong> - Vérifiez bien les dates</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Ne pas comparer les prix</strong> - Tous les destockages ne se valent pas</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Acheter sans liste</strong> - Risque d'achats impulsifs</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Ignorer les frais de port</strong> - Parfois plus chers que l'économie</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Ne pas lire les avis</strong> - Avis des autres acheteurs importants</div>
+                    <div class="alert alert-danger mb-3"><strong>❌ Attendre trop longtemps</strong> - Les stocks partent rapidement</div>
+                </div>
+            </div>
+
+            <!-- Section 7 : Top produits -->
+            <h2 id="meilleurs-produits" class="mb-4">⭐ Top 20 des produits à acheter en destockage</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr><th>Rang</th><th>Produit</th><th>Économie moyenne</th><th>Pourquoi acheter ?</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td class="fw-bold">🥤 Coca-Cola 33cl palette</td><td class="text-success">-28%</td><td>Boisson la plus vendue, forte demande</td></tr>
+                        <tr><td>2</td><td class="fw-bold">🍫 Nutella 1kg palette</td><td class="text-success">-17%</td><td>Produit star, très forte demande</td></tr>
+                        <tr><td>3</td><td class="fw-bold">⚡ Red Bull 250ml palette</td><td class="text-success">-18%</td><td>Boisson énergisante leader</td></tr>
+                        <tr><td>4</td><td class="fw-bold">🍺 Heineken 33cl palette</td><td class="text-success">-21%</td><td>Bière internationale, forte demande</td></tr>
+                        <tr><td>5</td><td class="fw-bold">🍊 Orangina 33cl palette</td><td class="text-success">-24%</td><td>Boisson gazeuse populaire</td></tr>
+                        <tr><td>6</td><td class="fw-bold">💧 San Pellegrino 50cl palette</td><td class="text-success">-34%</td><td>Eau pétillante premium</td></tr>
+                        <tr><td>7</td><td class="fw-bold">🍪 Biscuits Nutella 304g palette</td><td class="text-success">-25%</td><td>Goûter plébiscité</td></tr>
+                        <tr><td>8</td><td class="fw-bold">🍫 Pain au chocolat surgelé</td><td class="text-success">-40%</td><td>Idéal pour les pros</td></tr>
+                        <tr><td>9</td><td class="fw-bold">🥛 Café en grains palette</td><td class="text-success">-35%</td><td>Consommation quotidienne</td></tr>
+                        <tr><td>10</td><td class="fw-bold">🍝 Pâtes de qualité</td><td class="text-success">-50%</td><td>Produits de première nécessité</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 8 : Livraison -->
+            <h2 id="livraison" class="mb-4">🚚 Livraison et conditions 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Délai</th><th>Frais de port</th><th>Offre spéciale</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Paris & Île-de-France</td><td>24h</td><td>69€</td><td class="text-success">Gratuit dès 500€</td></tr>
+                        <tr><td class="fw-bold">Grandes villes (Lyon, Marseille, Lille, Bordeaux)</td><td>24-48h</td><td>89€</td><td class="text-success">Gratuit dès 600€</td></tr>
+                        <tr><td class="fw-bold">Régions</td><td>48-72h</td><td>99€</td><td class="text-success">Gratuit dès 700€</td></tr>
+                        <tr><td class="fw-bold">DOM-TOM</td><td>3-5 jours</td><td>Sur devis</td><td>-</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 9 : FAQ avec schema.org -->
+            <h2 id="faq" class="mb-4">❓ 20 questions fréquentes sur le destockage</h2>
+            
+            <div class="accordion mb-5" id="faqGuide">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Le destockage est-il vraiment sûr ?</button></h3><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqGuide"><div class="accordion-body"><strong>Oui, absolument !</strong> Tous nos produits sont conformes aux normes sanitaires françaises et européennes. La qualité est identique à celle des supermarchés, seul l'emballage ou la date peut être modifiée.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Quelle est la différence entre DDM et DLC ?</button></h3><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body">La <strong>DDM (Date de Durabilité Minimale)</strong> concerne les produits secs (pâtes, conserves). Après cette date, le produit perd ses qualités gustatives mais reste consommable sans danger. La <strong>DLC (Date Limite de Consommation)</strong> concerne les produits frais (viande, poisson). Passée cette date, le produit ne doit PAS être consommé.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Puis-je commander en petite quantité ?</button></h3><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body">Oui, nous proposons des produits à l'unité pour certaines références. Cependant, plus vous achetez en quantité, plus vous économisez !</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Comment être informé des nouvelles offres ?</button></h3><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body">Inscrivez-vous à notre newsletter en bas de page et suivez-nous sur les réseaux sociaux (Facebook, Instagram, LinkedIn) pour recevoir nos meilleures offres en avant-première.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Proposez-vous des comptes professionnels ?</button></h3><div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqGuide"><div class="accordion-body"><strong>Oui !</strong> Nous avons des offres spécifiques pour les professionnels (restaurants, commerces). Tarifs dégressifs, paiement à 30 jours, livraison prioritaire. Contactez notre service commercial.</div></div></div>
+            </div>
+
+            <!-- Section 10 : Témoignages -->
+            <h2 id="temoignages" class="mb-4">💬 Avis clients certifiés 2026</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3"><div class="card bg-light h-100"><div class="card-body"><div class="text-warning mb-2">★★★★★</div><p class="mb-2">"Je gère un restaurant à Paris et j'économise plus de 2000€ par mois grâce à DestockPro. Service impeccable !"</p><footer class="blockquote-footer">Thomas Martin, <cite>Restaurateur Paris</cite></footer></div></div></div>
+                <div class="col-md-6 mb-3"><div class="card bg-light h-100"><div class="card-body"><div class="text-warning mb-2">★★★★★</div><p class="mb-2">"Livraison rapide, produits de qualité, service client réactif. Je recommande vivement DestockPro à tous les professionnels."</p><footer class="blockquote-footer">Sophie Dubois, <cite>Épicerie Lyon</cite></footer></div></div></div>
+                <div class="col-md-6 mb-3"><div class="card bg-light h-100"><div class="card-body"><div class="text-warning mb-2">★★★★★</div><p class="mb-2">"Les prix sont imbattables. Ma famille économise des centaines d'euros chaque mois. Bravo et merci DestockPro !"</p><footer class="blockquote-footer">Philippe Bernard, <cite>Particulier Lille</cite></footer></div></div></div>
+                <div class="col-md-6 mb-3"><div class="card bg-light h-100"><div class="card-body"><div class="text-warning mb-2">★★★★★</div><p class="mb-2">"Je commande pour mon food truck. La qualité est constante et la livraison toujours à l'heure. Excellent service !"</p><footer class="blockquote-footer">Nicolas Petit, <cite>Food truck Marseille</cite></footer></div></div></div>
+            </div>
+
+            <!-- Offre finale -->
+            <div class="bg-primary text-white p-5 rounded-4 text-center">
+                <h2 class="h2 mb-3">📚 Prêt à passer à l'action ?</h2>
+                <p class="lead mb-4">Appliquez nos astuces et commencez à économiser dès aujourd'hui</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 Voir les offres →</a>
+                    <a href="{{ url_for('inscription') }}" class="btn btn-outline-light btn-lg px-5 py-3">📧 Créer mon compte</a>
+                </div>
+                <p class="mt-3 mb-0 small">⭐ 4.9/5 sur 8237 avis certifiés</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "headline": "Guide Complet du Destockage Alimentaire 2026",
+            "description": "Guide complet du destockage alimentaire pour économiser jusqu'à 70%",
+            "author": {"@type": "Organization", "name": "DestockPro"},
+            "datePublished": "2026-01-15",
+            "dateModified": "2026-06-01"
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": "Le destockage est-il vraiment sûr ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, tous nos produits sont conformes aux normes sanitaires."}},
+                {"@type": "Question", "name": "Quelle est la différence entre DDM et DLC ?", "acceptedAnswer": {"@type": "Answer", "text": "DDM = produit sec consommable après date, DLC = produit frais à ne pas consommer après date."}},
+                {"@type": "Question", "name": "Puis-je commander en petite quantité ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, des produits à l'unité sont disponibles."}},
+                {"@type": "Question", "name": "Proposez-vous des comptes professionnels ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, offres spécifiques pour les professionnels."}}
+            ]
+        }
+    ]
+}
+</script>
+{% endblock %}

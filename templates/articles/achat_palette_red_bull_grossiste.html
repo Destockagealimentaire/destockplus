@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}⚡ Achat Palette Red Bull Grossiste 2026 - Prix Promo - Livraison Offerte | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette Red Bull 250ml au meilleur prix grossiste. 2592 canettes - Économies jusqu'à 25% - Livraison rapide France. Stock limité. Code promo exclusif.{% endblock %}
+
+{% block meta_keywords %}palette red bull, prix red bull palette, red bull pas cher grossiste, acheter red bull en palette, promotion red bull, destock red bull, red bull prix grossiste{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Red Bull palette</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-fire me-2"></i> PROMO FLASH : -25% SUR LA PALETTE RED BULL + LIVRAISON OFFERTE <i class="fas fa-truck ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">⚡ BEST SELLER 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 4127 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">⚡ Achat Palette Red Bull <span class="text-info">Grossiste</span> 2026</h1>
+                <p class="lead fs-4">La boisson énergisante originale - <strong class="text-success">Économisez jusqu'à 500€ par palette</strong>.</p>
+            </div>
+
+            <!-- Carte produit -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/redbull-palette.jpg') }}" 
+                             alt="Palette Red Bull 250ml" 
+                             class="img-fluid rounded-3">
+                        <div class="mt-3">
+                            <span class="badge bg-info px-3 py-2">🔥 Stock limité (8 palettes)</span>
+                            <span class="badge bg-warning text-dark ms-2 px-3 py-2">⭐ Meilleure vente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Red Bull Energy Drink - Palette 2592 canettes (250ml)</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 1 942€</span>
+                            <span class="text-info fs-2 fw-bold ms-3">1 599€</span>
+                            <span class="badge bg-success ms-2">-18%</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>2592 canettes</strong> de 250ml</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Format palette complète</strong> sur palette bois</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Livraison offerte</strong> dès 500€</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Garantie satisfait</strong> ou remboursé</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>Expédition sous 24h</strong> partout en France</li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg py-3 fw-bold text-white">🛒 AJOUTER AU PANIER</a>
+                            <a href="/contact" class="btn btn-outline-secondary">📧 Besoin d'un devis pro ?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des prix -->
+            <h2 class="mb-4">📊 Nos offres Red Bull 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Format</th><th>Quantité</th><th>Prix unitaire</th><th>Prix total</th><th>Économie</th><th>Stock</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Canette 250ml</td><td>1</td><td>2,50€</td><td>2,50€</td><td>-</td><td>✅ 5000+</td></tr>
+                        <tr><td class="fw-bold">Pack de 24 canettes</td><td>24</td><td>2,20€</td><td>52,80€</td><td class="text-success">-12%</td><td>✅ 500+</td></tr>
+                        <tr><td class="fw-bold">Pack de 144 canettes</td><td>144</td><td>2,00€</td><td>288€</td><td class="text-success">-20%</td><td>✅ 50+</td></tr>
+                        <tr><td class="fw-bold">Palette complète</td><td>2592</td><td>0,62€</td><td class="fw-bold text-success">1 599€</td><td class="text-success">-75% vs unité</td><td>🔥 8 restantes</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-muted small mt-2">*Prix TTC - Livraison offerte dès 500€ d'achat</p>
+            </div>
+
+            <!-- Pourquoi Red Bull -->
+            <h2 class="mb-4">🏆 Pourquoi choisir Red Bull ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🏆</div>
+                            <h3 class="h5">Leader mondial</h3>
+                            <p class="small">N°1 des boissons énergisantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">⚡</div>
+                            <h3 class="h5">Taurine & caféine</h3>
+                            <p class="small">Boost d'énergie immédiat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">📈</div>
+                            <h3 class="h5">Forte demande</h3>
+                            <p class="small">Produit très recherché</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🔄</div>
+                            <h3 class="h5">Revente facile</h3>
+                            <p class="small">Idéal pour les professionnels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avis clients -->
+            <h2 class="mb-4">💬 Avis clients Red Bull</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Palette Red Bull reçue en 24h. Prix imbattable, mes clients au bar sont ravis !"</p>
+                            <footer class="blockquote-footer">Marc, <cite>Cafetier Bordeaux</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Commandé pour mon food truck. Qualité parfaite, livraison rapide. Je recommande !"</p>
+                            <footer class="blockquote-footer">Julie, <cite>Food truck Nantes</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Meilleur prix trouvé sur le marché. Stock reçu rapidement. Service client top."</p>
+                            <footer class="blockquote-footer">Karim, <cite>Épicier Lille</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Je commande régulièrement. Produit frais, DDM longue. DestockPro est fiable"</p>
+                            <footer class="blockquote-footer">Laurent, <cite>Restaurateur Lyon</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre exclusive -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo exclusif Red Bull 2026</strong>
+                <p class="mb-0 mt-1">-10% supplémentaire sur toute commande avec le code <strong class="bg-white text-info px-3 py-2 rounded">REDBULL10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 J'EN PROFITE MAINTENANT 👈</a>
+            </div>
+
+            <!-- FAQ -->
+            <h2 class="mb-4">❓ Questions fréquentes sur Red Bull</h2>
+            
+            <div class="accordion mb-5" id="faqRedBull">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#rb1">Quelle est la date de péremption de la palette Red Bull ?</button></h3><div id="rb1" class="accordion-collapse collapse show"><div class="accordion-body">Les palettes que nous proposons ont une DDM d'au moins 6 mois. Vous pouvez les conserver sans problème.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rb2">Puis-je commander une demi-palette ?</button></h3><div id="rb2" class="accordion-collapse collapse"><div class="accordion-body">Oui, nous proposons des packs de 144 canettes. Contactez notre service commercial pour les quantités intermédiaires.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rb3">Proposez-vous d'autres boissons énergisantes ?</button></h3><div id="rb3" class="accordion-collapse collapse"><div class="accordion-body">Oui, nous avons aussi Monster Energy, Burn et d'autres marques. Consultez notre catalogue en ligne.</div></div></div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">⚡ Commandez votre palette Red Bull maintenant !</h3>
+                <p class="lead mb-4">Stock limité - Plus que 8 palettes disponibles - Livraison offerte</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3 text-white">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Red Bull Palette 250ml",
+    "description": "Palette de 2592 canettes de Red Bull 250ml",
+    "brand": {"@type": "Brand", "name": "Red Bull"},
+    "offers": {"@type": "Offer", "price": "1599", "priceCurrency": "EUR", "availability": "https://schema.org/LimitedAvailability"},
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "4127"}
+}
+</script>
+{% endblock %}

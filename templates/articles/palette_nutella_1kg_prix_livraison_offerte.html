@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}🍫 Palette Nutella 1kg Prix Livraison Offerte 2026 - Jusqu'à -30% | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette Nutella 1kg au meilleur prix. 760 pots - Livraison offerte dès 500€ - Économies jusqu'à 30%. Stock limité. Vendu par DestockPro.{% endblock %}
+
+{% block meta_keywords %}palette nutella 1kg, prix nutella palette, nutella pas cher, acheter nutella en gros, promotion nutella palette, destock nutella{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row"><div class="col-lg-8 mx-auto">
+        <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4"><i class="fas fa-fire me-2"></i> PROMO EXCEPTIONNELLE : LIVRAISON OFFERTE SUR LA PALETTE NUTELLA <i class="fas fa-gift ms-2"></i></div>
+        <div class="mb-4"><span class="badge bg-warning px-3 py-2 mb-2">🍫 BEST SELLER 2026</span><div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3127 avis)</span></div>
+        <h1 class="display-4 fw-bold mb-3">🍫 Palette Nutella 1kg - <span class="text-warning">Prix et Livraison Offerte</span> 2026</h1>
+        <p class="lead fs-4">La pâte à tartiner préférée des français - <strong class="text-success">Économisez jusqu'à 500€ par palette</strong>.</p></div>
+        
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5"><div class="row g-0"><div class="col-md-5 bg-light p-4 text-center"><img src="{{ url_for('static', filename='images/produits/nutella-palette.jpg') }}" alt="Palette Nutella" class="img-fluid rounded-3"><div class="mt-3"><span class="badge bg-warning text-dark px-3 py-2">🔥 Stock limité</span></div></div>
+        <div class="col-md-7 p-4"><h2 class="h3 fw-bold mb-3">Nutella - Palette 760 pots (1kg)</h2><div class="mb-3"><span class="text-decoration-line-through text-muted fs-5">Prix public : 1 936€</span><span class="text-warning fs-2 fw-bold ms-3">1 599€</span><span class="badge bg-success ms-2">-17%</span></div>
+        <ul class="list-unstyled mb-4"><li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 760 pots de Nutella 1kg</li><li class="mb-2"><i class="fas fa-truck text-success me-2"></i> Livraison OFFERTE</li><li class="mb-2"><i class="fas fa-box text-success me-2"></i> Emballage soigné</li></ul>
+        <div class="d-grid gap-2"><a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg py-3 fw-bold">🛒 AJOUTER AU PANIER</a></div></div></div></div>
+
+        <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center"><div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo exclusif Nutella</strong><p class="mb-0 mt-1">-10% supplémentaire avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">NUTELLA10</strong></p></div><a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 JE PROFITE DE L'OFFRE 👈</a></div>
+
+        <div class="bg-dark text-white p-5 rounded-4 text-center"><h3 class="h2 mb-3">🍫 Commandez votre palette Nutella maintenant !</h3><p class="lead mb-4">Stock limité - Livraison offerte</p><a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">🛒 COMMANDER →</a></div>
+    </div></div>
+</div>
+{% endblock %}

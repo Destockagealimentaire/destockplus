@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Frais de port destockage alimentaire - Tarifs 2026 et Livraison Offerte | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez les frais de port pour le destockage alimentaire en 2026. Tarifs par zone, livraison offerte dès 500€. Délais et conditions. Guide complet pour économiser.{% endblock %}
+
+{% block meta_keywords %}frais de port destockage, tarif livraison palette, livraison offerte destockage, transport palette alimentaire, coût livraison palette, destockage livraison gratuite{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Frais de port</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-truck me-2"></i> GUIDE DES FRAIS DE PORT 2026 - LIVRAISON OFFERTE DÈS 500€ <i class="fas fa-gift ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">🚚 GUIDE LIVRAISON 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🚚 Frais de port <span class="text-info">destockage alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Découvrez tous les tarifs de livraison et comment bénéficier de la <strong class="text-primary">livraison offerte</strong>.</p>
+            </div>
+
+            <!-- Tableau des frais de port -->
+            <h2 class="mb-4">📊 Frais de port par zone géographique</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Départements</th>
+                            <th>Délai</th>
+                            <th>Tarif standard</th>
+                            <th class="bg-success text-white">Offre DestockPro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Paris (75)</td>
+                            <td>Paris intra-muros</td>
+                            <td>24h</td>
+                            <td>89€</td>
+                            <td class="fw-bold text-success bg-light">69€ ou GRATUIT dès 500€</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Petite couronne</td>
+                            <td>92, 93, 94</td>
+                            <td>24h</td>
+                            <td>89€</td>
+                            <td class="fw-bold text-success bg-light">69€ ou GRATUIT dès 500€</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Grande couronne</td>
+                            <td>95, 77, 78, 91</td>
+                            <td>24-48h</td>
+                            <td>99€</td>
+                            <td class="fw-bold text-success bg-light">79€ ou GRATUIT dès 600€</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Grandes villes</td>
+                            <td>Lyon, Marseille, Lille, Bordeaux, Toulouse, Nantes, Nice, Strasbourg</td>
+                            <td>24-48h</td>
+                            <td>99€</td>
+                            <td class="fw-bold text-success bg-light">79€ ou GRATUIT dès 600€</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Régions</td>
+                            <td>Autres départements</td>
+                            <td>48-72h</td>
+                            <td>119€</td>
+                            <td class="fw-bold text-success bg-light">99€ ou GRATUIT dès 700€</td>
+                        </tr>
+                    </tbody>
+                <td>
+                <p class="text-muted small mt-2">*Les frais de port s'entendent TTC pour une palette standard (jusqu'à 500kg).</p>
+            </div>
+
+            <!-- Livraison offerte -->
+            <h2 class="mb-4">🎁 Comment bénéficier de la livraison offerte ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="display-6 text-success">💰</div>
+                                <div><strong class="h5 mb-0">Atteignez le montant minimum</strong></div>
+                            </div>
+                            <ul class="mb-0">
+                                <li>Paris & petite couronne : <strong>500€</strong></li>
+                                <li>Grandes villes : <strong>600€</strong></li>
+                                <li>Régions : <strong>700€</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="display-6 text-success">🏷️</div>
+                                <div><strong class="h5 mb-0">Utilisez notre code promo</strong></div>
+                            </div>
+                            <p>Code <strong class="text-primary">LIVRAISONOFFERTE</strong> valable sur toute commande de palette</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemples concrets -->
+            <h2 class="mb-4">📦 Exemples concrets de coûts de livraison</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">1</div>
+                            <h3 class="h6">Restaurant à Paris</h3>
+                            <p>Commande : 1 palette Coca (1 499€)<br>Frais de port : <strong class="text-success">OFFERTS</strong><br>Total : <strong>1 499€</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">2</div>
+                            <h3 class="h6">Épicerie à Lyon</h3>
+                            <p>Commande : 1 palette Nutella (1 599€)<br>Frais de port : <strong class="text-success">OFFERTS</strong><br>Total : <strong>1 599€</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">3</div>
+                            <h3 class="h6">Particulier à Bordeaux</h3>
+                            <p>Commande : 5 packs de 144 canettes (415€)<br>Frais de port : <strong>79€</strong><br>Total : <strong>494€</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livraison pour professionnels -->
+            <h2 class="mb-4">🏭 Livraison pour professionnels (compte pro)</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Volume mensuel</th><th>Réduction sur frais de port</th><th>Avantages supplémentaires</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">1-5 palettes/mois</th><td class="text-success">-10%</td><td>Livraison prioritaire</td></tr>
+                        <tr><td class="fw-bold">6-20 palettes/mois</th><td class="text-success">-20%</td><td>+ Paiement à 30 jours</td></tr>
+                        <tr><td class="fw-bold">21+ palettes/mois</th><td class="text-success">-30%</td><td>+ Compte manager dédié</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQs -->
+            <h2 class="mb-4">❓ Questions fréquentes sur la livraison</h2>
+            
+            <div class="accordion mb-5" id="faqLivraison">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#liv1">Combien de temps pour recevoir ma palette ?</button></h3><div id="liv1" class="accordion-collapse collapse show"><div class="accordion-body">Expédition sous 24h ouvrées. Livraison sous 24-72h selon votre zone géographique.</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#liv2">Comment se passe la livraison ?</button></h3><div id="liv2" class="accordion-collapse collapse"><div class="accordion-body">Le transporteur vous contacte la veille pour convenir du créneau horaire. Livraison à quai ou avec hayon (précisez lors de la commande).</div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#liv3">Puis-je me faire livrer en point relais ?</button></h3><div id="liv3" class="accordion-collapse collapse"><div class="accordion-body">Pour les palettes, la livraison se fait à domicile ou en entrepôt. Les points relais ne peuvent pas accueillir des palettes complètes.</div></div></div>
+            </div>
+
+            <!-- Offre spéciale -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo livraison offerte</strong>
+                <p class="mb-0 mt-1">Utilisez le code <strong class="bg-white text-info px-3 py-2 rounded">LIVRAISONOFFERTE</strong> pour bénéficier des frais de port gratuits dès 500€</p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 VOIR LES PRODUITS ÉLIGIBLES 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🚚 Commandez et bénéficiez de la livraison offerte !</h3>
+                <p class="lead mb-4">Plus que 500€ d'achat pour en profiter</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
