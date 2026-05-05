@@ -2329,6 +2329,19 @@ def sitemap():
         {'loc': '/palette-coca-cola-33cl-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-frais-port', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/ou-trouver-palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly'},
+        # ============ 12 DERNIERS ARTICLES DESTOCKPRO (FORMAT SITEMAP) ============
+        {'loc': '/destockage-alimentaire-leclerc-promo', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/palette-cafe-pas-chere', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-sans-frais-port', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-famille-nombreuse', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-auchan-promo', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/palette-eau-minerale-prix', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-paiement-securise', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-cooperative-achat', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-casino-promo', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-livraison-gratuite', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/palette-boisson-energisante-prix', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-occasion', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2450,7 +2463,72 @@ def destockage_alimentaire_limoges():
     """Article - Destockage alimentaire Limoges"""
     return render_template('articles/destockage_alimentaire_limoges.html')
 
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 
+@app.route('/destockage-alimentaire-leclerc-promo')
+def destockage_alimentaire_leclerc_promo():
+    """Article - Destockage alimentaire Leclerc et promotions"""
+    return render_template('articles/destockage_alimentaire_leclerc_promo.html')
+
+@app.route('/destockage-alimentaire-livraison-gratuite')
+def destockage_alimentaire_livraison_gratuite():
+    """Article - Livraison gratuite destockage alimentaire"""
+    return render_template('articles/destockage_alimentaire_livraison_gratuite.html')
+
+@app.route('/palette-boisson-energisante-prix')
+def palette_boisson_energisante_prix():
+    """Article - Palette boisson énergisante prix 2026"""
+    return render_template('articles/palette_boisson_energisante_prix.html')
+
+@app.route('/destockage-alimentaire-occasion')
+def destockage_alimentaire_occasion():
+    """Article - Destockage alimentaire occasion et seconde main"""
+    return render_template('articles/destockage_alimentaire_occasion.html')
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-casino-promo')
+def destockage_alimentaire_casino_promo():
+    """Article - Destockage alimentaire Casino promotions"""
+    return render_template('articles/destockage_alimentaire_casino_promo.html')
+
+@app.route('/palette-cafe-pas-chere')
+def palette_cafe_pas_chere():
+    """Article - Palette café pas chère grossiste"""
+    return render_template('articles/palette_cafe_pas_chere.html')
+
+@app.route('/destockage-alimentaire-sans-frais-port')
+def destockage_alimentaire_sans_frais_port():
+    """Article - Destockage alimentaire sans frais de port"""
+    return render_template('articles/destockage_alimentaire_sans_frais_port.html')
+
+@app.route('/destockage-alimentaire-famille-nombreuse')
+def destockage_alimentaire_famille_nombreuse():
+    """Article - Destockage alimentaire pour famille nombreuse"""
+    return render_template('articles/destockage_alimentaire_famille_nombreuse.html')
+
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-auchan-promo')
+def destockage_alimentaire_auchan_promo():
+    """Article - Destockage alimentaire Auchan promotions"""
+    return render_template('articles/destockage_alimentaire_auchan_promo.html')
+
+@app.route('/palette-eau-minerale-prix')
+def palette_eau_minerale_prix():
+    """Article - Palette eau minérale prix grossiste"""
+    return render_template('articles/palette_eau_minerale_prix.html')
+
+@app.route('/destockage-alimentaire-paiement-securise')
+def destockage_alimentaire_paiement_securise():
+    """Article - Paiement sécurisé destockage alimentaire"""
+    return render_template('articles/destockage_alimentaire_paiement_securise.html')
+
+@app.route('/destockage-alimentaire-cooperative-achat')
+def destockage_alimentaire_cooperative_achat():
+    """Article - Coopérative d'achat destockage alimentaire"""
+    return render_template('articles/destockage_alimentaire_cooperative_achat.html')
 # ============ 4 ARTICLES ULTRA PUISSANTS SEO ============
 
 @app.route('/destockage-alimentaire-1-palette-cout')
