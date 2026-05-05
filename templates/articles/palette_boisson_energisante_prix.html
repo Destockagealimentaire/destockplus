@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}⚡ Palette Boisson Énergisante Prix 2026 - Red Bull, Monster | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez les prix des palettes de boissons énergisantes en 2026. Red Bull, Monster Energy, Burn. Économies jusqu'à 18% sur vos palettes. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}palette boisson énergisante, prix palette Red Bull, Monster palette prix, boisson énergisante grossiste, acheter Red Bull palette, Monster Energy destock{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Boissons énergisantes</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-bolt me-2"></i> MEILLEURS PRIX 2026 - PALETTES DE BOISSONS ÉNERGISANTES <i class="fas fa-chart-line ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">⚡ BOISSONS ÉNERGISANTES 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 4127 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">⚡ Palette Boisson Énergisante - <span class="text-info">Prix 2026</span></h1>
+                <p class="lead fs-4">Les meilleurs prix sur <strong class="text-primary">Red Bull, Monster Energy et autres boissons énergisantes</strong>.</p>
+            </div>
+
+            <!-- Tableau des prix -->
+            <h2 class="mb-4">📊 Prix des palettes énergisantes</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th class="bg-primary text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">⚡ Red Bull 250ml</th><td>2592 canettes</th><td>1 942€</th><td>1 599€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                        <tr><td class="fw-bold">🔥 Monster Energy 500ml</th><td>2592 canettes</th><td>2 156€</th><td>1 756€</th><td><span class="badge bg-success">-19%</span></th></tr>
+                        <tr><td class="fw-bold">💪 Burn 250ml</th><td>2592 canettes</th><td>1 899€</th><td>1 499€</th><td><span class="badge bg-success">-21%</span></th></tr>
+                        <tr><td class="fw-bold">⚡ Red Bull Sugarfree</th><td>2592 canettes</th><td>1 942€</th><td>1 599€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                    </tbody>
+                <td>
+            </div>
+
+            <!-- Détail Red Bull -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/redbull-palette.jpg') }}" alt="Palette Red Bull" class="img-fluid rounded-3">
+                        <div class="mt-3">
+                            <span class="badge bg-info px-3 py-2">🔥 Stock limité</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Red Bull - Palette 2592 canettes (250ml)</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 1 942€</span>
+                            <span class="text-info fs-2 fw-bold ms-3">1 599€</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>0,62€/canette</strong> (contre 1,15€ en supermarché)</li>
+                            <li class="mb-2"><i class="fas fa-truck text-success me-2"></i> Livraison offerte</li>
+                            <li class="mb-2"><i class="fas fa-clock text-success me-2"></i> DDM longue (+6 mois)</li>
+                        </ul>
+                        <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg w-100 text-white">🛒 AJOUTER AU PANIER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparatif par canette -->
+            <h2 class="mb-4">📊 Comparatif prix par canette</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Marque</th><th>Supermarché</th><th>DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Red Bull</th><td>1,15€</th><td>0,62€</th><td><span class="badge bg-success">-46%</span></th></tr>
+                        <tr><td class="fw-bold">Monster</th><td>1,35€</th><td>0,68€</th><td><span class="badge bg-success">-50%</span></th></tr>
+                        <tr><td class="fw-bold">Burn</th><td>1,05€</th><td>0,58€</th><td><span class="badge bg-success">-45%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo Red Bull 2026</strong>
+                <p class="mb-0 mt-1">-10% supplémentaire avec le code <strong class="bg-white text-info px-3 py-2 rounded">ENERGY10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 J'EN PROFITE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">⚡ Commandez votre palette énergisante au meilleur prix !</h3>
+                <p class="lead mb-4">Stock limité - Livraison offerte</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3 text-white">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

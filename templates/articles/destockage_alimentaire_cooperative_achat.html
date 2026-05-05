@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}🤝 Coopérative d'Achat Destockage Alimentaire - Économies en Groupe 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Créez ou rejoignez une coopérative d'achat pour le destockage alimentaire. Économisez jusqu'à 70% en achetant à plusieurs. Guide complet et astuces.{% endblock %}
+
+{% block meta_keywords %}coopérative d'achat, achat groupé, destockage en groupe, économies groupe, commande groupée, achat solidaire, groupement d'achat{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Coopérative d'achat</li>
+                </ol>
+            </nav>
+
+            <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-handshake me-2"></i> ACHAT EN GROUPE - ÉCONOMIES JUSQU'À 70% <i class="fas fa-users ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning px-3 py-2 mb-2">🤝 COOPÉRATIVE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 1256 groupes)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🤝 Coopérative d'Achat <span class="text-warning">Destockage Alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Créez ou rejoignez un <strong class="text-primary">groupe d'achat</strong> pour économiser jusqu'à <strong class="text-success">70%</strong>.</p>
+            </div>
+
+            <!-- Pourquoi une coopérative -->
+            <h2 class="mb-4">🤝 Pourquoi créer une coopérative d'achat ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">💰</div>
+                            <h3 class="h5">Économies massives</h3>
+                            <p>Jusqu'à 70% de réduction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">📦</div>
+                            <h3 class="h5">Palettes complètes</h3>
+                            <p>Partagez les quantités</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">🚚</div>
+                            <h3 class="h5">Livraison mutualisée</h3>
+                            <p>Réduisez les frais de port</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comment créer une coopérative -->
+            <h2 class="mb-4">📋 Comment créer votre coopérative d'achat ?</h2>
+            
+            <div class="timeline mb-5">
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">1</div>
+                        <div><h3 class="h6 mb-1">Rassemblez un groupe</h3><p class="mb-0 text-muted">Famille, amis, voisins, collègues</p></div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">2</div>
+                        <div><h3 class="h6 mb-1">Définissez les besoins</h3><p class="mb-0 text-muted">Listez les produits et quantités souhaitées</p></div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-3 border-bottom">
+                    <div class="d-flex gap-3">
+                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">3</div>
+                        <div><h3 class="h6 mb-1">Collectez les fonds</h3><p class="mb-0 text-muted">Centralisez les paiements</p></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex gap-3">
+                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">4</div>
+                        <div><h3 class="h6 mb-1">Commandez et partagez</h3><p class="mb-0 text-muted">Une personne commande, tout le monde répartit</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemple d'économie -->
+            <h2 class="mb-4">📊 Exemple d'économie en groupe</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix total</th>
+                            <th>5 familles</th>
+                            <th>Économie par famille</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola palette</th><td>2 592 canettes</th><td>1 499€</th><td>299,80€</th><td><span class="badge bg-success">-280€</span></th></tr>
+                        <tr><td class="fw-bold">Nutella palette</th><td>760 pots</th><td>1 599€</th><td>319,80€</th><td><span class="badge bg-success">-320€</span></th></tr>
+                    </tbody>
+                </table>
+                <p class="text-muted small mt-2">*Comparé au prix unitaire en supermarché</p>
+            </div>
+
+            <!-- Outils pour coopératives -->
+            <h2 class="mb-4">🛠️ Outils pour votre coopérative</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-calculator fa-3x text-primary mb-2"></i>
+                            <h3 class="h5">Calculateur d'économies</h3>
+                            <p>Estimez vos économies en groupe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-file-excel fa-3x text-primary mb-2"></i>
+                            <h3 class="h5">Template de répartition</h3>
+                            <p>Téléchargez notre modèle Excel</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-comments fa-3x text-primary mb-2"></i>
+                            <h3 class="h5">Groupe WhatsApp</h3>
+                            <p>Rejoignez notre communauté</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale groupe -->
+            <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🤝</span><strong class="fs-4 ms-2">Offre spéciale groupes d'achat</strong>
+                <p class="mb-0 mt-1">-15% sur votre première commande groupée avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">GROUPE15</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 COMMANDER EN GROUPE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🤝 Lancez votre coopérative d'achat dès maintenant !</h3>
+                <p class="lead mb-4">Économies garanties en achetant à plusieurs</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">🛒 VOIR LES PRODUITS →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

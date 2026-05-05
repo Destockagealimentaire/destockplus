@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}👨‍👩‍👧‍👦 Destockage Alimentaire pour Famille Nombreuse - Économies 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez en destockage pour votre famille nombreuse et économisez jusqu'à 70% sur vos courses. Palettes, lots familiaux, livraison à domicile. Guide complet.{% endblock %}
+
+{% block meta_keywords %}destockage famille nombreuse, économies courses famille, achat en gros famille, palette familiale, courses pas chères famille nombreuse, destockage particulier{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Famille nombreuse</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-users me-2"></i> SPÉCIAL FAMILLE NOMBREUSE - ÉCONOMISEZ JUSQU'À 1000€/AN <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">👨‍👩‍👧‍👦 FAMILLE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 2451 avis familles)</span></div>
+                <h1 class="display-4 fw-bold mb-3">👨‍👩‍👧‍👦 Destockage Alimentaire pour <span class="text-info">Famille Nombreuse</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">1000€ par an</strong> sur vos courses en famille.</p>
+            </div>
+
+            <!-- Économies potentielles -->
+            <h2 class="mb-4">💰 Économies potentielles pour une famille</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🥤</div>
+                            <h3 class="h5">Boissons</h3>
+                            <p>Économie : <span class="fw-bold text-success">-50%</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🍫</div>
+                            <h3 class="h5">Goûters</h3>
+                            <p>Économie : <span class="fw-bold text-success">-60%</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🧃</div>
+                            <h3 class="h5">Jus & eaux</h3>
+                            <p>Économie : <span class="fw-bold text-success">-55%</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-info mb-2">🍝</div>
+                            <h3 class="h5">Épicerie</h3>
+                            <p>Économie : <span class="fw-bold text-success">-45%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meilleurs produits pour familles -->
+            <h2 class="mb-4">⭐ Top 5 des produits pour familles nombreuses</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix public</th>
+                            <th>Prix DestockPro</th>
+                            <th>Économie</th>
+                            <th>Durée de consommation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola 33cl (144 canettes)</th><td>165€</th><td>119€</th><td><span class="badge bg-success">-28%</span></th><td>2 mois</th></tr>
+                        <tr><td class="fw-bold">Nutella 1kg (6 pots)</th><td>29,70€</th><td>23,90€</th><td><span class="badge bg-success">-20%</span></th><td>1 mois</th></tr>
+                        <tr><td class="fw-bold">Jus de fruits (24 bouteilles)</th><td>36€</th><td>25€</th><td><span class="badge bg-success">-31%</span></th><td>1 mois</th></tr>
+                        <tr><td class="fw-bold">Pâtes (10kg)</th><td>25€</th><td>18€</th><td><span class="badge bg-success">-28%</span></th><td>2 mois</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Conseils pour familles -->
+            <h2 class="mb-4">💡 10 conseils pour les familles nombreuses</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Achetez en lot ou en palette</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Regroupez-vous avec d'autres familles</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Privilégiez les DDM longues</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Planifiez vos menus à l'avance</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Utilisez un congélateur pour les surplus</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Abonnez-vous aux alertes promo</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Comparez les prix au kilo/unité</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Profitez de la livraison à domicile</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Créez un compte professionnel</div>
+                        <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Utilisez les codes promo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignages familles -->
+            <h2 class="mb-4">💬 Témoignages de familles</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Avec 3 enfants, DestockPro nous fait économiser plus de 1000€ par an. Les produits sont de qualité, livraison rapide."</p>
+                            <footer class="blockquote-footer"><cite>Famille Legrand, Lyon</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Nous nous regroupons avec des voisins pour commander. Les prix sont imbattables !"</p>
+                            <footer class="blockquote-footer"><cite>Famille Martin, Paris</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre famille -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">👨‍👩‍👧‍👦</span><strong class="fs-4 ms-2">Code promo famille nombreuse</strong>
+                <p class="mb-0 mt-1">-15% sur votre première commande avec le code <strong class="bg-white text-info px-3 py-2 rounded">FAMILLE15</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">👨‍👩‍👧‍👦 Votre famille mérite des économies !</h3>
+                <p class="lead mb-4">Jusqu'à 1000€ d'économies par an</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">🛒 VOIR LES OFFRES FAMILLE →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

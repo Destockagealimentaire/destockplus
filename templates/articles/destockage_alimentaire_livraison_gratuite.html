@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Livraison Gratuite Destockage Alimentaire 2026 - Offres et Conditions | DestockPro{% endblock %}
+
+{% block meta_description %}Profitez de la livraison gratuite sur votre commande de destockage alimentaire dès 500€. Découvrez les conditions, zones livrées et offres exceptionnelles DestockPro.{% endblock %}
+
+{% block meta_keywords %}livraison gratuite destockage, destockage livraison offerte, palette livraison gratuite, transport gratuit destockage, frais de port offerts{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Livraison gratuite</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-truck me-2"></i> LIVRAISON GRATUITE DÈS 500€ <i class="fas fa-gift ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🚚 LIVRAISON 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🚚 Livraison Gratuite <span class="text-success">Destockage Alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Profitez de la <strong class="text-primary">livraison offerte</strong> sur votre commande dès 500€ d'achat.</p>
+            </div>
+
+            <!-- Conditions livraison gratuite -->
+            <h2 class="mb-4">📋 Conditions de la livraison gratuite</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Montant minimum</th>
+                            <th>Délai</th>
+                            <th>Transporteur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Paris & Île-de-France</th><td>500€</th><td>24h</th><td>Chronopost</th></tr>
+                        <tr><td class="fw-bold">Lyon, Marseille, Lille, Bordeaux</th><td>600€</th><td>24-48h</th><td>DHL</th></tr>
+                        <tr><td class="fw-bold">Autres grandes villes</th><td>700€</th><td>48h</th><td>UPS</th></tr>
+                        <tr><td class="fw-bold">Zones rurales</th><td>800€</th><td>48-72h</th><td>Transporteur local</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Produits éligibles -->
+            <h2 class="mb-4">📦 Produits éligibles à la livraison gratuite</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🥤 Palettes de boissons</h3>
+                            <p>Coca-Cola, Red Bull, Heineken, Orangina, Monster</p>
+                            <span class="badge bg-success">Éligible</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🍫 Palettes d'épicerie</h3>
+                            <p>Nutella, biscuits, pâtes, conserves, huiles</p>
+                            <span class="badge bg-success">Éligible</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">❄️ Surgelés</h3>
+                            <p>Frites, légumes, poissons, pizzas</p>
+                            <span class="badge bg-warning">Sur devis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">🍷 Vins et spiritueux</h3>
+                            <p>Champagne, vin, whisky</p>
+                            <span class="badge bg-success">Éligible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemples concrets -->
+            <h2 class="mb-4">💡 Exemples de commandes avec livraison gratuite</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">1</div>
+                            <h3 class="h6">Restaurant à Paris</h3>
+                            <p>1 palette Coca-Cola<br>1 palette Heineken<br><strong>Total : 2 998€</strong><br><span class="text-success">Livraison OFFERTE</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">2</div>
+                            <h3 class="h6">Épicerie à Lyon</h3>
+                            <p>1 palette Nutella<br>1 palette Coca-Cola<br><strong>Total : 3 098€</strong><br><span class="text-success">Livraison OFFERTE</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 50px; height: 50px;">3</div>
+                            <h3 class="h6">Particulier à Bordeaux</h3>
+                            <p>1 palette Red Bull<br><strong>Total : 1 599€</strong><br><span class="text-success">Livraison OFFERTE</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo livraison offerte</strong>
+                <p class="mb-0 mt-1">Utilisez le code <strong class="bg-white text-success px-3 py-2 rounded">LIVRAISONOFFERTE</strong> pour bénéficier des frais de port gratuits dès 500€</p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 VOIR LES PRODUITS ÉLIGIBLES 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🚚 Commandez et bénéficiez de la livraison offerte !</h3>
+                <p class="lead mb-4">Plus que 500€ d'achat pour en profiter</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

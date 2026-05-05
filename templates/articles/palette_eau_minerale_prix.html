@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}💧 Palette Eau Minérale Pas Chère - Prix Grossiste 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette d'eau minérale au meilleur prix grossiste. Cristalline, Vittel, Evian, Perrier. Économies jusqu'à 40%. Livraison rapide partout en France.{% endblock %}
+
+{% block meta_keywords %}palette eau minérale, eau pas chère grossiste, prix eau en palette, cristalline palette, vittel palette, evian palette, perrier palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Palette eau</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-tint me-2"></i> MEILLEUR PRIX GROSSISTE 2026 - PALETTES D'EAU MINÉRALE <i class="fas fa-chart-line ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">💧 EAU 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 1876 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">💧 Palette Eau Minérale Pas Chère - <span class="text-info">Prix Grossiste</span> 2026</h1>
+                <p class="lead fs-4">Les meilleurs prix sur <strong class="text-primary">vos palettes d'eau minérale</strong> pour professionnels et particuliers.</p>
+            </div>
+
+            <!-- Tableau des prix -->
+            <h2 class="mb-4">📊 Prix des palettes d'eau</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th class="bg-info text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">💧 Cristalline 1,5L</th><td>800 bouteilles</th><td>360€</th><td>249€</th><td><span class="badge bg-success">-31%</span></th></tr>
+                        <tr><td class="fw-bold">💧 Vittel 1,5L</th><td>800 bouteilles</th><td>480€</th><td>339€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                        <tr><td class="fw-bold">💧 Evian 1,5L</th><td>800 bouteilles</th>知道自己640€</th><td>449€</th><td><span class="badge bg-success">-30%</span></th></tr>
+                        <tr><td class="fw-bold">💧 Perrier 1L</th><td>960 bouteilles</th><td>580€</th><td>399€</th><td><span class="badge bg-success">-31%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Carte produit phare -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/eau-palette.jpg') }}" alt="Palette eau minérale" class="img-fluid rounded-3" onerror="this.src='https://images.unsplash.com/photo-1560028495-af86c36b43d0?w=300'">
+                        <div class="mt-3">
+                            <span class="badge bg-info px-3 py-2">🔥 Meilleure vente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Cristalline - Palette 800 bouteilles (1,5L)</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 360€</span>
+                            <span class="text-info fs-2 fw-bold ms-3">249€</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>800 bouteilles</strong> de 1,5L</li>
+                            <li class="mb-2"><i class="fas fa-truck text-success me-2"></i> Livraison offerte dès 500€</li>
+                            <li class="mb-2"><i class="fas fa-clock text-success me-2"></i> DDM longue (+18 mois)</li>
+                        </ul>
+                        <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg w-100 text-white">🛒 AJOUTER AU PANIER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparatif prix par litre -->
+            <h2 class="mb-4">📊 Comparatif prix par litre</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Marque</th><th>Supermarché</th><th>DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Cristalline</th><td>0,45€/L</th><td>0,22€/L</th><td><span class="badge bg-success">-51%</span></th></tr>
+                        <tr><td class="fw-bold">Vittel</th><td>0,60€/L</th><td>0,28€/L</th><td><span class="badge bg-success">-53%</span></th></tr>
+                        <tr><td class="fw-bold">Evian</th><td>0,80€/L</th><td>0,37€/L</th><td><span class="badge bg-success">-54%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">💧</span><strong class="fs-4 ms-2">Code promo eau 2026</strong>
+                <p class="mb-0 mt-1">-10% supplémentaire avec le code <strong class="bg-white text-info px-3 py-2 rounded">EAU10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 J'EN PROFITE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">💧 Commandez votre palette d'eau au meilleur prix !</h3>
+                <p class="lead mb-4">Stock limité - Livraison offerte</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3 text-white">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

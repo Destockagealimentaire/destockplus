@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}🔒 Paiement Sécurisé Destockage Alimentaire - Moyens de Paiement 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Commandez en toute sécurité sur DestockPro avec nos moyens de paiement sécurisés. Carte bancaire, PayPal, virement, paiement en plusieurs fois. Protection des données.{% endblock %}
+
+{% block meta_keywords %}paiement sécurisé destockage, moyen de paiement, carte bancaire, PayPal sécurisé, paiement en plusieurs fois, virement bancaire, acheter en toute sécurité{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Paiement sécurisé</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-lock me-2"></i> PAIEMENT 100% SÉCURISÉ - VOS DONNÉES PROTÉGÉES <i class="fas fa-shield-alt ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🔒 SÉCURITÉ 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5231 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🔒 Paiement Sécurisé <span class="text-success">Destockage Alimentaire</span> 2026</h1>
+                <p class="lead fs-4">Commandez en toute <strong class="text-primary">sécurité</strong> sur DestockPro avec nos moyens de paiement certifiés.</p>
+            </div>
+
+            <!-- Moyens de paiement -->
+            <h2 class="mb-4">💳 Moyens de paiement acceptés</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fab fa-cc-visa fa-4x text-primary mb-2"></i>
+                            <i class="fab fa-cc-mastercard fa-4x text-primary mb-2"></i>
+                            <i class="fab fa-cc-amex fa-4x text-primary mb-2"></i>
+                            <h3 class="h5 mt-2">Carte bancaire</h3>
+                            <p>Visa, Mastercard, American Express, CB</p>
+                            <span class="badge bg-success">✓ Sécurisé 3D Secure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fab fa-paypal fa-4x text-primary mb-2"></i>
+                            <h3 class="h5 mt-2">PayPal</h3>
+                            <p>Paiement sans partager vos données bancaires</p>
+                            <span class="badge bg-success">✓ Protection acheteur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-university fa-4x text-primary mb-2"></i>
+                            <h3 class="h5 mt-2">Virement bancaire</h3>
+                            <p>Paiement par virement classique</p>
+                            <span class="badge bg-info">✓ Réservé aux pros</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sécurité des données -->
+            <h2 class="mb-4">🛡️ Nos engagements sécurité</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Engagement</th>
+                            <th>Description</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🔒 Chiffrement SSL</th><td>Toutes les données sont chiffrées</th><tr><span class="badge bg-success">Actif</span></th></tr>
+                        <tr><td class="fw-bold">🛡️ PCI DSS</th><td>Conformité aux normes bancaires</th><td><span class="badge bg-success">Certifié</span></th></tr>
+                        <tr><td class="fw-bold">🔑 Authentification 3D Secure</th><td>Double authentification pour les cartes</th><td><span class="badge bg-success">Obligatoire</span></th></tr>
+                        <tr><td class="fw-bold">📧 Confidentialité</th><td>Vos données ne sont jamais partagées</th><td><span class="badge bg-success">Garanti</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paiement en plusieurs fois -->
+            <h2 class="mb-4">💰 Paiement en plusieurs fois</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <h3 class="h4">3x sans frais</h3>
+                            <p>Dès 300€ d'achat</p>
+                            <span class="badge bg-success">✓ Disponible</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <h3 class="h4">4x sans frais</h3>
+                            <p>Dès 500€ d'achat</p>
+                            <span class="badge bg-success">✓ Disponible</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <h3 class="h4">Sur devis</h3>
+                            <p>Pour les professionnels</p>
+                            <span class="badge bg-info">Sur demande</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🔒</span><strong class="fs-4 ms-2">Commandez en toute sécurité</strong>
+                <p class="mb-0 mt-1">Paiement 100% sécurisé - Livraison offerte dès 500€</p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🔒 Achetez en toute confiance sur DestockPro</h3>
+                <p class="lead mb-4">Paiement sécurisé - Données protégées - Livraison rapide</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 VOIR LES PRODUITS →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

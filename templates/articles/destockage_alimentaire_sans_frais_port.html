@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Destockage Alimentaire Sans Frais de Port - Livraison Offerte 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Profitez du destockage alimentaire sans frais de port. Livraison offerte dès 500€ d'achat. Économisez sur vos palettes et sur les frais de livraison. Toutes zones.{% endblock %}
+
+{% block meta_keywords %}destockage sans frais de port, livraison gratuite destockage, palette livraison offerte, frais de port gratuits, destockage livraison gratuite{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Sans frais de port</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-truck me-2"></i> DESTOCKAGE SANS FRAIS DE PORT - LIVRAISON OFFERTE <i class="fas fa-gift ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🚚 LIVRAISON 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🚚 Destockage Alimentaire <span class="text-success">Sans Frais de Port</span> 2026</h1>
+                <p class="lead fs-4">Profitez de la <strong class="text-primary">livraison offerte</strong> sur votre commande dès 500€ d'achat.</p>
+            </div>
+
+            <!-- Grille tarifaire -->
+            <h2 class="mb-4">📊 Grille des frais de port</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Montant minimum pour livraison gratuite</th>
+                            <th>Délai</th>
+                            <th>Tarif standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Paris & IDF</th><td>500€</th><td>24h</th><td>69€</th></tr>
+                        <tr><td class="fw-bold">Lyon, Marseille, Lille, Bordeaux</th><td>600€</th><td>24-48h</th><td>89€</th></tr>
+                        <tr><td class="fw-bold">Autres grandes villes</th><td>700€</th><td>48h</th><td>99€</th></tr>
+                        <tr><td class="fw-bold">Zones rurales</th><td>800€</th><td>48-72h</th><td>119€</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Commandes éligibles -->
+            <h2 class="mb-4">📦 Exemples de commandes éligibles à la livraison gratuite</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">1 palette Coca-Cola</h3>
+                            <p>Montant : <strong>1 499€</strong><br>Frais de port : <span class="text-success">OFFERTS</span><br>Total : <strong>1 499€</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">1 palette Nutella</h3>
+                            <p>Montant : <strong>1 599€</strong><br>Frais de port : <span class="text-success">OFFERTS</span><br>Total : <strong>1 599€</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h6">1 palette Red Bull</h3>
+                            <p>Montant : <strong>1 599€</strong><br>Frais de port : <span class="text-success">OFFERTS</span><br>Total : <strong>1 599€</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Code promo exclusif</strong>
+                <p class="mb-0 mt-1">Utilisez le code <strong class="bg-white text-success px-3 py-2 rounded">SANSFRAIS</strong> pour bénéficier de la livraison gratuite dès 400€</p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🚚 Commandez sans frais de port dès aujourd'hui !</h3>
+                <p class="lead mb-4">Plus que 500€ d'achat pour en profiter</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 VOIR LES PRODUITS →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

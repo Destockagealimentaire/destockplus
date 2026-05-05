@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}☕ Palette Café Pas Chère - Prix Grossiste 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette de café au meilleur prix grossiste. Café en grains, moulu, dosettes. Économies jusqu'à 35%. Livraison rapide partout en France.{% endblock %}
+
+{% block meta_keywords %}palette café pas chère, café grossiste, prix café en palette, café dosettes palette, café grains grossiste, acheter café en gros{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Palette café</li>
+                </ol>
+            </nav>
+
+            <div class="bg-dark text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-mug-hot me-2"></i> MEILLEUR PRIX GROSSISTE 2026 - PALETTES DE CAFÉ <i class="fas fa-chart-line ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-dark px-3 py-2 mb-2">☕ CAFÉ 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 1856 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">☕ Palette Café Pas Chère - <span class="text-dark">Prix Grossiste</span> 2026</h1>
+                <p class="lead fs-4">Les meilleurs prix sur <strong class="text-primary">vos palettes de café</strong> pour professionnels et particuliers.</p>
+            </div>
+
+            <!-- Tableau des prix -->
+            <h2 class="mb-4">📊 Prix des palettes de café</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th class="bg-dark text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">☕ Café grains Lavazza</th><td>200kg</th><td>1 200€</th><td>849€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                        <tr><td class="fw-bold">☕ Café moulu Carte Noire</th><td>240kg</th><td>1 100€</th><td>799€</th><td><span class="badge bg-success">-27%</span></th></tr>
+                        <tr><td class="fw-bold">☕ Dosettes Senseo</th><td>20 000 dosettes</th>得到了950€</th><td>699€</th><td><span class="badge bg-success">-26%</span></th></tr>
+                        <tr><td class="fw-bold">☕ Dosettes Nespresso</th><td>15 000 dosettes</th><td>1 200€</th><td>849€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Carte produit phare -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/cafe-palette.jpg') }}" alt="Palette café" class="img-fluid rounded-3" onerror="this.src='https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=300'">
+                        <div class="mt-3">
+                            <span class="badge bg-dark px-3 py-2">🔥 Meilleure vente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Café Lavazza Qualità Rossa - Palette 200kg</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 1 200€</span>
+                            <span class="text-dark fs-2 fw-bold ms-3">849€</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>200kg</strong> de café en grains</li>
+                            <li class="mb-2"><i class="fas fa-truck text-success me-2"></i> Livraison offerte dès 500€</li>
+                            <li class="mb-2"><i class="fas fa-clock text-success me-2"></i> DDM longue (+12 mois)</li>
+                        </ul>
+                        <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg w-100">🛒 AJOUTER AU PANIER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparatif prix par kg -->
+            <h2 class="mb-4">📊 Comparatif prix par kg</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Marque</th><th>Supermarché</th><th>DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Lavazza</th><td>8€/kg</th><td>4,25€/kg</th><td><span class="badge bg-success">-47%</span></th></tr>
+                        <tr><td class="fw-bold">Carte Noire</th><td>7€/kg</th><td>3,33€/kg</th><td><span class="badge bg-success">-52%</span></th></tr>
+                        <tr><td class="fw-bold">Nespresso (dosette)</th><td>0,45€/dosette</th><td>0,17€/dosette</th><td><span class="badge bg-success">-62%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-dark text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">☕</span><strong class="fs-4 ms-2">Code promo café 2026</strong>
+                <p class="mb-0 mt-1">-10% supplémentaire avec le code <strong class="bg-white text-dark px-3 py-2 rounded">CAFE10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 J'EN PROFITE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">☕ Commandez votre palette de café au meilleur prix !</h3>
+                <p class="lead mb-4">Stock limité - Livraison offerte</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}♻️ Destockage Alimentaire Occasion - Guide 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez des produits alimentaires d'occasion ou en fin de série. DDM courte, invendus, surplus. Économies jusqu'à 70%. Livraison rapide partout en France.{% endblock %}
+
+{% block meta_keywords %}destockage occasion, alimentaire occasion, produits fin de série, DDM courte, invendus alimentaires, surplus production, destockage pas cher{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage occasion</li>
+                </ol>
+            </nav>
+
+            <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-recycle me-2"></i> PRODUITS D'OCCASION - FIN DE SÉRIE - INVENDUS <i class="fas fa-tag ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning px-3 py-2 mb-2">♻️ OCCASION 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 2156 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">♻️ Destockage Alimentaire <span class="text-warning">Occasion</span> - Guide 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur les produits en fin de série, invendus et surplus de production.</p>
+            </div>
+
+            <!-- Types de produits occasion -->
+            <h2 class="mb-4">📦 Qu'est-ce que le destockage occasion ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">📅</div>
+                            <h3 class="h5">DDM courte</h3>
+                            <p>Produits avec date de durabilité minimale proche</p>
+                            <span class="badge bg-danger">-70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">🎨</div>
+                            <h3 class="h5">Changement d'emballage</h3>
+                            <p>Même produit, nouvel emballage</p>
+                            <span class="badge bg-danger">-50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-warning mb-2">🏭</div>
+                            <h3 class="h5">Surplus de production</h3>
+                            <p>Excédents de fabrication</p>
+                            <span class="badge bg-danger">-60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemples d'offres -->
+            <h2 class="mb-4">🔥 Offres occasions du moment</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Type</th>
+                            <th>Prix original</th>
+                            <th>Prix occasion</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola (DDM 2 mois)</th><td>DDM courte</th><td>2 096€</th><td>1 049€</th><td><span class="badge bg-danger">-50%</span></th></tr>
+                        <tr><td class="fw-bold">Nutella (emballage ancien)</th><td>Changement emballage</th><td>1 936€</th><td>1 299€</th><td><span class="badge bg-danger">-33%</span></th></tr>
+                        <tr><td class="fw-bold">Heineken (surplus)</th><td>Surplus production</th><td>1 899€</th><td>1 199€</th><td><span class="badge bg-danger">-37%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Avantages -->
+            <h2 class="mb-4">✅ Pourquoi acheter de l'occasion ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-euro-sign fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Économies massives</h3>
+                            <p>Jusqu'à 70% de réduction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-leaf fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Anti-gaspillage</h3>
+                            <p>Luttez contre le gaspillage alimentaire</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Qualité identique</h3>
+                            <p>Seule la date ou l'emballage change</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-2x text-success mb-2"></i>
+                            <h3 class="h5">Livraison rapide</h3>
+                            <p>Expédition sous 24h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conseils -->
+            <h2 class="mb-4">💡 Conseils pour bien acheter en occasion</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <ul class="mb-0">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Vérifiez la DDM (Date de Durabilité Minimale)</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Calculez votre consommation avant la date</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Prévoyez l'espace de stockage</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Groupez vos achats avec d'autres</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Abonnez-vous aux alertes pour les nouvelles occasions</li>
+                </ul>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">♻️</span><strong class="fs-4 ms-2">Offre spéciale occasion 2026</strong>
+                <p class="mb-0 mt-1">-15% sur votre première commande d'occasion avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">OCCASION15</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 VOIR LES OFFRES OCCASION 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">♻️ Faites des économies et soyez éco-responsable !</h3>
+                <p class="lead mb-4">Jusqu'à 70% sur les produits occasion</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
