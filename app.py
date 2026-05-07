@@ -2342,6 +2342,18 @@ def sitemap():
         {'loc': '/destockage-alimentaire-livraison-gratuite', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/palette-boisson-energisante-prix', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-occasion', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-alsace', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-paca', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/ruinart-blanc-blancs-palette-prix-destock-2026', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/guide-ultime-discount-alimentaire-2026', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-wallonie', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-flandre', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/comparatif-prix-destockage-belgique-france', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-livraison', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-carrefour-promo', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/palette-jus-fruits-prix', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-livraison-point-relais', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-ete-2026', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2438,6 +2450,70 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ULTRA BOOSTÉS ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-alsace')
+def destockage_alimentaire_alsace():
+    """Article - Destockage alimentaire Alsace (Strasbourg, Colmar, Mulhouse)"""
+    return render_template('articles/destockage_alimentaire_alsace.html')
+
+@app.route('/destockage-alimentaire-paca')
+def destockage_alimentaire_paca():
+    """Article - Destockage alimentaire PACA (Marseille, Nice, Toulon, Avignon)"""
+    return render_template('articles/destockage_alimentaire_paca.html')
+
+@app.route('/ruinart-blanc-blancs-palette-prix-destock-2026')
+def ruinart_blanc_blancs_palette_prix_destock_2026():
+    """Article - Ruinart Blanc de Blancs palette prix destock 2026"""
+    return render_template('articles/ruinart_blanc_blancs_palette_prix_destock_2026.html')
+
+@app.route('/guide-ultime-discount-alimentaire-2026')
+def guide_ultime_discount_alimentaire_2026():
+    """Article - Guide ultime discount alimentaire 2026"""
+    return render_template('articles/guide_ultime_discount_alimentaire_2026.html')
+# ============ 4 ARTICLES DESTOCKAGE BELGIQUE ============
+
+@app.route('/destockage-alimentaire-belgique-wallonie')
+def destockage_alimentaire_belgique_wallonie():
+    """Article - Destockage alimentaire Wallonie (Liège, Namur, Charleroi)"""
+    return render_template('articles/destockage_alimentaire_belgique_wallonie.html')
+
+@app.route('/destockage-alimentaire-belgique-flandre')
+def destockage_alimentaire_belgique_flandre():
+    """Article - Destockage alimentaire Flandre (Anvers, Gand, Bruges)"""
+    return render_template('articles/destockage_alimentaire_belgique_flandre.html')
+
+@app.route('/comparatif-prix-destockage-belgique-france')
+def comparatif_prix_destockage_belgique_france():
+    """Article - Comparatif prix destockage Belgique vs France"""
+    return render_template('articles/comparatif_prix_destockage_belgique_france.html')
+
+@app.route('/destockage-alimentaire-belgique-livraison')
+def destockage_alimentaire_belgique_livraison():
+    """Article - Livraison destockage alimentaire Belgique"""
+    return render_template('articles/destockage_alimentaire_belgique_livraison.html')
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-carrefour-promo')
+def destockage_alimentaire_carrefour_promo():
+    """Article - Destockage alimentaire Carrefour promotions"""
+    return render_template('articles/destockage_alimentaire_carrefour_promo.html')
+
+@app.route('/palette-jus-fruits-prix')
+def palette_jus_fruits_prix():
+    """Article - Palette jus de fruits prix grossiste"""
+    return render_template('articles/palette_jus_fruits_prix.html')
+
+@app.route('/destockage-alimentaire-livraison-point-relais')
+def destockage_alimentaire_livraison_point_relais():
+    """Article - Livraison point relais destockage alimentaire"""
+    return render_template('articles/destockage_alimentaire_livraison_point_relais.html')
+
+@app.route('/destockage-alimentaire-ete-2026')
+def destockage_alimentaire_ete_2026():
+    """Article - Destockage alimentaire été 2026 - Idées et bons plans"""
+    return render_template('articles/destockage_alimentaire_ete_2026.html')
 
 
 
