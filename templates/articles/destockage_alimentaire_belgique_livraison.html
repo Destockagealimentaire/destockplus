@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Livraison Destockage Alimentaire Belgique - Tarifs et Délais 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Livraison de destockage alimentaire en Belgique : tarifs, délais, zones. Offres spéciales pour la Belgique. Livraison gratuite dès 500€. Toutes les informations.{% endblock %}
+
+{% block meta_keywords %}livraison Belgique destockage, transport Belgique, frais de port Belgique, livraison gratuite Belgique, délai livraison Belgique, destockage livraison Belgique{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item active">Livraison Belgique</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-truck me-2"></i> LIVRAISON DESTOCKAGE ALIMENTAIRE BELGIQUE <i class="fas fa-check-circle ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">🚚 LIVRAISON 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🚚 Livraison Destockage Alimentaire <span class="text-info">Belgique</span> 2026</h1>
+                <p class="lead fs-4">Découvrez les <strong class="text-primary">tarifs, délais et offres</strong> pour la livraison en Belgique.</p>
+            </div>
+
+            <!-- Tableau des tarifs -->
+            <h2 class="mb-4">📊 Tarifs de livraison Belgique 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Zone</th>
+                            <th>Villes principales</th>
+                            <th>Délai</th>
+                            <th>Tarif</th>
+                            <th>Livraison gratuite dès</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Région de Bruxelles</th><td>Bruxelles, Anderlecht, Molenbeek, Schaerbeek</th><td>24h</th><td>59€</th><td><span class="text-success">400€</span></th></tr>
+                        <tr><td class="fw-bold">Grandes villes</th><td>Anvers, Gand, Liège, Charleroi</th><td>24-48h</th><td>69€</th><td><span class="text-success">500€</span></th></tr>
+                        <tr><td class="fw-bold">Autres villes</th><td>Namur, Bruges, Louvain, Malines</th><td>48h</th><td>79€</th><td><span class="text-success">600€</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Conditions -->
+            <h2 class="mb-4">✅ Conditions de livraison</h2>
+            
+            <ul class="mb-5">
+                <li class="mb-2">✅ <strong>Livraison à domicile</strong> - Jusqu'à votre porte</li>
+                <li class="mb-2">✅ <strong>Point relais disponible</strong> - Plus de 1000 points en Belgique</li>
+                <li class="mb-2">✅ <strong>Sur rendez-vous</strong> - Le transporteur vous contacte la veille</li>
+                <li class="mb-2">✅ <strong>Suivi en temps réel</strong> - Lien de tracking par email/SMS</li>
+                <li class="mb-2">✅ <strong>Palettes sur mesure</strong> - Adaptées à votre commande</li>
+            </ul>
+
+            <!-- Transporteurs -->
+            <h2 class="mb-4">🚛 Transporteurs partenaires en Belgique</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-2"></i>
+                            <h3 class="h6">DHL</h3>
+                            <p>Livraison express</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-2"></i>
+                            <h3 class="h6">UPS</h3>
+                            <p>Pour les grandes villes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-2"></i>
+                            <h3 class="h6">Bpost</h3>
+                            <p>Livraison nationale</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-2"></i>
+                            <h3 class="h6">Mondial Relay</h3>
+                            <p>Points relais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignages -->
+            <h2 class="mb-4">💬 Témoignages clients Belgique</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Livraison rapide à Bruxelles, commande reçue en 24h. Je recommande DestockPro à tous les Belges !"</p>
+                            <footer class="blockquote-footer">Pierre, <cite>Bruxelles</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Service impeccable, palette reçue à Anvers en parfait état. Prix imbattables."</p>
+                            <footer class="blockquote-footer">Marie, <cite>Anvers</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale Belgique -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Belgique 2026</strong>
+                <p class="mb-0 mt-1">Livraison offerte dès 400€ avec le code <strong class="bg-white text-info px-3 py-2 rounded">BELGIQUE2026</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER POUR LA BELGIQUE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🚚 Faites livrer en Belgique dès aujourd'hui !</h3>
+                <p class="lead mb-4">Tarifs compétitifs - Livraison rapide</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

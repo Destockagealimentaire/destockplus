@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}🛒 Destockage Alimentaire Carrefour - Promotions et Prix Grossistes 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez les promotions Carrefour sur le destockage alimentaire. Comparez les prix, les offres et économisez jusqu'à 70% sur vos produits préférés. Guide complet 2026.{% endblock %}
+
+{% block meta_keywords %}destockage Carrefour, promotion Carrefour, destockage alimentaire Carrefour, prix grossiste Carrefour, Carrefour pas cher, alimentaire Carrefour promo{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Grandes surfaces</a></li>
+                    <li class="breadcrumb-item active">Destockage Carrefour</li>
+                </ol>
+            </nav>
+
+            <div class="bg-primary text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-store me-2"></i> DESTOCKAGE CARREFOUR - COMPAREZ ET ÉCONOMISEZ <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🛒 GUIDE CARREFOUR 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 2156 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🛒 Destockage Alimentaire <span class="text-primary">Carrefour</span> - Promotions 2026</h1>
+                <p class="lead fs-4">Découvrez les <strong class="text-primary">meilleures offres de destockage chez Carrefour</strong> et économisez jusqu'à <strong class="text-success">70%</strong>.</p>
+            </div>
+
+            <!-- Comparatif DestockPro vs Carrefour -->
+            <h2 class="mb-4">📊 Comparatif DestockPro vs Carrefour</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix Carrefour</th>
+                            <th class="bg-primary text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola 33cl (2592 canettes)</th><td>2 099€</th><td>1 499€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                        <tr><td class="fw-bold">Nutella 1kg (760 pots)</th><td>1 939€</th><td>1 599€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                        <tr><td class="fw-bold">Red Bull 250ml (2592 canettes)</th><td>1 959€</th><td>1 599€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                        <tr><td class="fw-bold">Heineken 33cl (2592 canettes)</th><td>1 899€</th><td>1 499€</th><td><span class="badge bg-success">-21%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Promos actuelles -->
+            <h2 class="mb-4">🔥 Promos actuelles DestockPro</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="h5">🥤 Palette Coca-Cola</h3>
+                                <span class="badge bg-primary">-29%</span>
+                            </div>
+                            <p class="text-muted">Prix Carrefour : 2 099€</p>
+                            <p class="fw-bold text-success fs-4">1 499€</p>
+                            <a href="{{ url_for('produits') }}" class="btn btn-outline-primary w-100">Profiter de l'offre</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="h5">🍫 Palette Nutella</h3>
+                                <span class="badge bg-primary">-18%</span>
+                            </div>
+                            <p class="text-muted">Prix Carrefour : 1 939€</p>
+                            <p class="fw-bold text-success fs-4">1 599€</p>
+                            <a href="{{ url_for('produits') }}" class="btn btn-outline-primary w-100">Profiter de l'offre</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre finale -->
+            <div class="bg-primary text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale DestockPro 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-white text-primary px-3 py-2 rounded">DESTOCK10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🛒 Ne payez plus le prix fort !</h3>
+                <p class="lead mb-4">DestockPro est moins cher que Carrefour</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-primary btn-lg px-5 py-3">🛒 VOIR LES PRODUITS →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}🌊 Destockage Alimentaire PACA 2026 - Marseille, Nice, Toulon, Avignon | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire en PACA (Marseille, Nice, Toulon, Avignon). Économies jusqu'à 70% sur vos produits. Livraison rapide. Guide complet 2026.{% endblock %}
+
+{% block meta_keywords %}destockage PACA, destockage Marseille, destockage Nice, destockage Toulon, destockage Avignon, alimentaire pas cher PACA, grossiste PACA{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">PACA</a></li>
+                    <li class="breadcrumb-item active">PACA</li>
+                </ol>
+            </nav>
+
+            <div class="bg-info text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-sun me-2"></i> DESTOCKAGE ALIMENTAIRE PACA 2026 <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">🌊 PACA 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 2341 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🌊 Destockage Alimentaire <span class="text-info">PACA</span> 2026</h1>
+                <p class="lead fs-4">Découvrez les <strong class="text-primary">meilleures adresses de destockage</strong> en région PACA (Marseille, Nice, Toulon, Avignon).</p>
+            </div>
+
+            <!-- Villes clés -->
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="display-4 text-info">⚓</div>
+                            <h3 class="h6">Marseille</h3>
+                            <p class="small">Grand Port Maritime, Vitrolles, Aubagne</p>
+                            <span class="badge bg-info">-60% à -70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="display-4 text-info">🏖️</div>
+                            <h3 class="h6">Nice</h3>
+                            <p class="small">Nice Nord, Saint-Isidore, Carros</p>
+                            <span class="badge bg-info">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="display-4 text-info">⚓</div>
+                            <h3 class="h6">Toulon</h3>
+                            <p class="small">Zone de Toulon-Est, La Valette</p>
+                            <span class="badge bg-info">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="display-4 text-info">🏛️</div>
+                            <h3 class="h6">Avignon</h3>
+                            <p class="small">Zone de Courtine, Montfavet</p>
+                            <span class="badge bg-info">-50% à -60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des produits -->
+            <h2 class="mb-4">📊 Produits populaires en PACA</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix PACA</th>
+                            <th class="bg-info text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍷 Vins Côtes de Provence</th><td>600 bouteilles</th><td>4 200€</th><td>3 299€</th><td><span class="badge bg-success">-21%</span></th></tr>
+                        <tr><td class="fw-bold">🍅 Produits du terroir</th><td>lot 500 pièces</th><td>699€</th><td>499€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                        <tr><td class="fw-bold">🥤 Boissons</th><td>2592 canettes</th><td>2 099€</th><td>1 499€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                        <tr><td class="fw-bold">❄️ Surgelés</th><td>300 kg</th><td>899€</th><td>699€</th><td><span class="badge bg-success">-22%</span></th></td>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre spéciale PACA -->
+            <div class="bg-info text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale PACA 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-white text-info px-3 py-2 rounded">PACA10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- Livraison PACA -->
+            <h2 class="mb-4">🚚 Livraison en PACA</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Délai</th><th>Frais</th><th>Offre</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Marseille & métropole</th><td>24h</th><td>69€</th><td><span class="text-success">Gratuit dès 500€</span></th></tr>
+                        <tr><td class="fw-bold">Nice, Toulon, Avignon</th><td>24-48h</th><td>79€</th><td><span class="text-success">Gratuit dès 600€</span></th></tr>
+                        <tr><td class="fw-bold">Autres villes de PACA</th><td>48h</th><td>89€</th><td><span class="text-success">Gratuit dès 700€</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🌊 La PACA économise avec DestockPro !</h3>
+                <p class="lead mb-4">Livraison rapide - Économies garanties</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-info btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

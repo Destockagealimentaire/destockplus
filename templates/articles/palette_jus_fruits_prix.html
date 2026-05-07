@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}🍊 Palette Jus de Fruits Pas Chère - Prix Grossiste 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette de jus de fruits au meilleur prix grossiste. Jus d'orange, pomme, raisin, multivitaminé. Économies jusqu'à 45%. Livraison rapide partout en France.{% endblock %}
+
+{% block meta_keywords %}palette jus de fruits, jus fruits grossiste, prix jus en palette, jus d'orange palette, jus multivitaminé grossiste, acheter jus en gros{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Palette jus de fruits</li>
+                </ol>
+            </nav>
+
+            <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-apple-alt me-2"></i> MEILLEUR PRIX GROSSISTE 2026 - PALETTES DE JUS DE FRUITS <i class="fas fa-chart-line ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning px-3 py-2 mb-2">🍊 JUS 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 1892 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🍊 Palette Jus de Fruits Pas Chère - <span class="text-warning">Prix Grossiste</span> 2026</h1>
+                <p class="lead fs-4">Les meilleurs prix sur <strong class="text-primary">vos palettes de jus de fruits</strong> pour professionnels et particuliers.</p>
+            </div>
+
+            <!-- Tableau des prix -->
+            <h2 class="mb-4">📊 Prix des palettes de jus</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th class="bg-warning text-dark">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍊 Jus d'orange 1L</th><td>960 briques</th><td>480€</th><td>299€</th><td><span class="badge bg-success">-38%</span></th></tr>
+                        <tr><td class="fw-bold">🍎 Jus de pomme 1L</th><td>960 briques</th><td>450€</th><td>279€</th><td><span class="badge bg-success">-38%</span></th></tr>
+                        <tr><td class="fw-bold">🍇 Jus de raisin 1L</th><td>960 briques</th>知道自己540€</th><td>329€</th><td><span class="badge bg-success">-39%</span></th></tr>
+                        <tr><td class="fw-bold">🥤 Multivitaminé 1L</th><td>960 briques</th><td>520€</th></td>319€</th><td><span class="badge bg-success">-39%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Carte produit phare -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/jus-palette.jpg') }}" alt="Palette jus de fruits" class="img-fluid rounded-3" onerror="this.src='https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300'">
+                        <div class="mt-3">
+                            <span class="badge bg-warning text-dark px-3 py-2">🔥 Meilleure vente</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Jus d'orange - Palette 960 briques (1L)</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 480€</span>
+                            <span class="text-warning fs-2 fw-bold ms-3">299€</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>960 briques</strong> de 1L</li>
+                            <li class="mb-2"><i class="fas fa-truck text-success me-2"></i> Livraison offerte dès 500€</li>
+                            <li class="mb-2"><i class="fas fa-clock text-success me-2"></i> Jus 100% pur fruits</li>
+                        </ul>
+                        <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg w-100 text-dark">🛒 AJOUTER AU PANIER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparatif prix par litre -->
+            <h2 class="mb-4">📊 Comparatif prix par litre</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Marque</th><th>Supermarché</th><th>DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Jus d'orange</th><td>0,90€/L</th><td>0,31€/L</th><td><span class="badge bg-success">-66%</span></th></tr>
+                        <tr><td class="fw-bold">Jus de pomme</th><td>0,85€/L</th><td>0,29€/L</th><td><span class="badge bg-success">-66%</span></th></tr>
+                        <tr><td class="fw-bold">Multivitaminé</th><td>0,95€/L</th><td>0,33€/L</th><td><span class="badge bg-success">-65%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre -->
+            <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🍊</span><strong class="fs-4 ms-2">Code promo jus 2026</strong>
+                <p class="mb-0 mt-1">-10% supplémentaire avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">JUS10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 J'EN PROFITE 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🍊 Commandez votre palette de jus au meilleur prix !</h3>
+                <p class="lead mb-4">Stock limité - Livraison offerte</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3 text-dark">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}🍾 Ruinart Blanc de Blancs - Palette Prix Destock 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette de Ruinart Blanc de Blancs au meilleur prix déstocké 2026. 240 bouteilles de champagne premium. Économies jusqu'à 50%. Livraison rapide. Stock limité.{% endblock %}
+
+{% block meta_keywords %}Ruinart Blanc de Blancs palette, prix Ruinart palette, Ruinart pas cher, champagne destock, Ruinart déstockage, acheter Ruinart en palette, Ruinart promotion{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item"><a href="#">Vins & Spiritueux</a></li>
+                    <li class="breadcrumb-item active">Ruinart Blanc de Blancs</li>
+                </ol>
+            </nav>
+
+            <div class="bg-dark text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-champagne-glasses me-2"></i> RUINART BLANC DE BLANCS - DÉSTOCKAGE EXCEPTIONNEL 2026 <i class="fas fa-tag ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-dark px-3 py-2 mb-2">🍾 RUINART 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 847 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🍾 Ruinart Blanc de Blancs - <span class="text-dark">Palette Prix Destock</span> 2026</h1>
+                <p class="lead fs-4">Le champagne d'exception à <strong class="text-primary">prix imbattable</strong> - Économies jusqu'à <strong class="text-success">50%</strong>.</p>
+            </div>
+
+            <!-- Carte produit principale -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/ruinart-palette.jpg') }}" alt="Palette Ruinart Blanc de Blancs" class="img-fluid rounded-3" onerror="this.src='https://images.unsplash.com/photo-1584225064785-c62a5b6d2082?w=300'">
+                        <div class="mt-3">
+                            <span class="badge bg-dark px-3 py-2">🔥 Stock limité (3 palettes)</span>
+                            <span class="badge bg-warning text-dark ms-2 px-3 py-2">⭐ Edition limitée</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Ruinart Blanc de Blancs - Palette 240 bouteilles</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 21 360€</span>
+                            <span class="text-dark fs-2 fw-bold ms-3">12 990€</span>
+                            <span class="badge bg-success ms-2">-39%</span>
+                        </div>
+                        <div class="mb-3">
+                            <span class="text-success">💰 Économie totale : <strong>8 370€</strong></span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>240 bouteilles</strong> de 75cl</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>54,12€/bouteille</strong> (contre 89€ en boutique)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Champagne Premier Cru</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Caisse bois d'origine incluse</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Livraison offerte dès 500€</li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg py-3 fw-bold">🛒 AJOUTER AU PANIER</a>
+                            <a href="/contact" class="btn btn-outline-secondary">📧 Demander un devis pour plusieurs palettes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des formats -->
+            <h2 class="mb-4">📊 Nos offres Ruinart 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Format</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th class="bg-dark text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Bouteille (75cl)</th><td>1</th><td>89€</th><td>69€</th><td><span class="badge bg-success">-22%</span></th><td>✅ 245 disponibles</th></tr>
+                        <tr><td class="fw-bold">Caisse bois (6 bouteilles)</th><td>6</th><td>534€</th><td>389€</th><td><span class="badge bg-success">-27%</span></th><td>✅ 42 disponibles</th></tr>
+                        <tr><td class="fw-bold">Palette standard</th><td>240</th><td>21 360€</th><td>12 990€</th><td><span class="badge bg-success">-39%</span></th><td>🔥 3 disponibles</th></tr>
+                        <tr><td class="fw-bold">Palette Premium (+coffrets)</th><td>240 + 24 coffrets</th><td>23 760€</th><td>15 990€</th><td><span class="badge bg-success">-33%</span></th><td>🔥 1 disponible</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pourquoi Ruinart -->
+            <h2 class="mb-4">🏆 Pourquoi choisir Ruinart Blanc de Blancs ?</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-dark mb-2">🏆</div>
+                            <h3 class="h5">Plus ancienne maison</h3>
+                            <p>Fondée en 1729</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-dark mb-2">🍇</div>
+                            <h3 class="h5">100% Chardonnay</h3>
+                            <p>Grand Cru</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-dark mb-2">⭐</div>
+                            <h3 class="h5">Noté 95/100</h3>
+                            <p>Parker, RVF</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-dark mb-2">🎁</div>
+                            <h3 class="h5">Idéal pour offrir</h3>
+                            <p>Cadeau d'exception</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avis clients -->
+            <h2 class="mb-4">💬 Avis clients Ruinart</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Champagne exceptionnel. Livraison rapide et soignée. Rapport qualité-prix imbattable pour une palette de Ruinart !"</p>
+                            <footer class="blockquote-footer">Sophie, <cite>Paris</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Commande pour mon mariage. Service client au top et champagne magnifique. Je recommande DestockPro !"</p>
+                            <footer class="blockquote-footer">Pierre, <cite>Lyon</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale -->
+            <div class="bg-dark text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🍾</span><strong class="fs-4 ms-2">Code promo Ruinart 2026</strong>
+                <p class="mb-0 mt-1">-5% supplémentaire sur votre commande avec le code <strong class="bg-white text-dark px-3 py-2 rounded">RUINART5</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🍾 Offrez-vous le meilleur champagne au meilleur prix !</h3>
+                <p class="lead mb-4">Stock limité - Ne manquez pas cette opportunité</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 COMMANDER RUINART →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

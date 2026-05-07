@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}☀️ Destockage Alimentaire Été 2026 - Idées et Bons Plans | DestockPro{% endblock %}
+
+{% block meta_description %}Préparez votre été avec le destockage alimentaire ! Idées pour apéros, barbecues, vacances. Économies jusqu'à 70%. Livraison rapide. Guide complet 2026.{% endblock %}
+
+{% block meta_keywords %}destockage été, apéro pas cher, barbecue destockage, vacances économies, boissons été pas chères, snacks été, glaces destockage{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Destockage été</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-sun me-2"></i> PRÉPAREZ VOTRE ÉTÉ 2026 - ÉCONOMIES JUSQU'À 70% <i class="fas fa-umbrella-beach ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">☀️ ÉTÉ 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 3251 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">☀️ Destockage Alimentaire <span class="text-success">Été 2026</span> - Idées et Bons Plans</h1>
+                <p class="lead fs-4">Préparez vos <strong class="text-primary">apéros, barbecues et vacances</strong> avec DestockPro et économisez jusqu'à <strong class="text-success">70%</strong>.</p>
+            </div>
+
+            <!-- Top produits été -->
+            <h2 class="mb-4">🍹 Top produits pour l'été 2026</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">🥤</div>
+                            <h3 class="h5">Boissons fraîches</h3>
+                            <p>Coca-Cola, jus, eaux, bières</p>
+                            <span class="badge bg-success">-30% à -50%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">🍔</div>
+                            <h3 class="h5">Barbecue</h3>
+                            <p>Sauces, pains, marinades</p>
+                            <span class="badge bg-success">-40% à -60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">❄️</div>
+                            <h3 class="h5">Glaces & desserts</h3>
+                            <p>Bâtonnets, cônes, seaux</p>
+                            <span class="badge bg-success">-35% à -55%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des offres été -->
+            <h2 class="mb-4">📊 Offres spéciales été 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th>Prix été</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🥤 Coca-Cola 33cl</th><td>144 canettes</th><td>165€</th><td>119€</th><td><span class="badge bg-success">-28%</span></th></tr>
+                        <tr><td class="fw-bold">🍺 Heineken 33cl</th><td>144 canettes</th><td>145€</th><td>105€</th><td><span class="badge bg-success">-28%</span></th></tr>
+                        <tr><td class="fw-bold">🍦 Glaces (lot)</th><td>100 glaces</th><td>89€</th><td>59€</th><td><span class="badge bg-success">-34%</span></th></tr>
+                        <tr><td class="fw-bold">🍔 Sauces barbecue</th><td>120 bouteilles</th><td>180€</th><td>129€</th><td><span class="badge bg-success">-28%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Idées apéro -->
+            <h2 class="mb-4">🍸 Idées apéro pour l'été</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h3 class="h6">Pack Apéro Été</h3>
+                        <ul>
+                            <li>🥤 48 canettes Coca-Cola : 39€</li>
+                            <li>🍺 48 canettes Heineken : 35€</li>
+                            <li>🥨 4kg chips assorties : 19€</li>
+                            <li>🥜 5kg cacahuètes : 15€</li>
+                        </ul>
+                        <p class="fw-bold">Total : <span class="text-success">108€</span> (au lieu de 180€)</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h3 class="h6">Pack BBQ entre amis</h3>
+                        <ul>
+                            <li>🍔 50 pains burger : 15€</li>
+                            <li>🥫 60 sauces barbecue : 39€</li>
+                            <li>🥤 144 canettes Coca-Cola : 119€</li>
+                            <li>❄️ 50 glaces : 29€</li>
+                        </ul>
+                        <p class="fw-bold">Total : <span class="text-success">202€</span> (au lieu de 320€)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conseils pour l'été -->
+            <h2 class="mb-4">💡 8 conseils pour économiser cet été</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Achetez en lot pour les apéros groupés</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Privilégiez les packs famille</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Stockez les glaces et boissons avant l'été</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Utilisez notre code promo été</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Commandez tôt (stocks limités)</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Regroupez-vous avec vos voisins</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Profitez de la livraison à domicile</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Abonnez-vous aux alertes été</div>
+                </div>
+            </div>
+
+            <!-- Offre été -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">☀️</span><strong class="fs-4 ms-2">Code promo été 2026</strong>
+                <p class="mb-0 mt-1">-15% sur votre commande été avec le code <strong class="bg-white text-success px-3 py-2 rounded">ETE2026</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER POUR L'ÉTÉ 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">☀️ Préparez votre été dès maintenant !</h3>
+                <p class="lead mb-4">Économies garanties - Livraison rapide</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 VOIR LES OFFRES ÉTÉ →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
