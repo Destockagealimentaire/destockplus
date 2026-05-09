@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}🏛️ Destockage Alimentaire Mons 2026 - Économies jusqu'à 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Mons et dans le Hainaut. Économies jusqu'à 70% sur vos produits. Zones de Ghlin, Jemappes, Cuesmes. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage Mons, destockage Ghlin, destockage Jemappes, alimentaire pas cher Mons, grossiste Mons, destockage Hainaut{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item"><a href="#">Wallonie</a></li>
+                    <li class="breadcrumb-item active">Mons</li>
+                </ol>
+            </nav>
+
+            <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-landmark me-2"></i> DESTOCKAGE ALIMENTAIRE MONS 2026 <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning px-3 py-2 mb-2">🏛️ MONS 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 987 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🏛️ Destockage Alimentaire <span class="text-warning">Mons</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses à Mons et dans le Hainaut.</p>
+            </div>
+
+            <!-- Zones clés -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Ghlin</h3></div>
+                            </div>
+                            <p>Zone industrielle majeure, nombreux grossistes</p>
+                            <span class="badge bg-warning">-65% à -75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Jemappes</h3></div>
+                            </div>
+                            <p>Zone économique dynamique</p>
+                            <span class="badge bg-warning">-60% à -70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Cuesmes</h3></div>
+                            </div>
+                            <p>Zone avec entrepôts de destockage</p>
+                            <span class="badge bg-warning">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des produits -->
+            <h2 class="mb-4">📊 Produits populaires à Mons</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix Mons</th>
+                            <th class="bg-warning text-dark">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍺 Bières du Hainaut</th><td>2592 canettes</th><td>1 649€</th><td>1 399€</th><td><span class="badge bg-success">-15%</span></th></tr>
+                        <tr><td class="fw-bold">🧀 Fromages régionaux</th><td>200 kg</th><td>849€</th><td>649€</th><td><span class="badge bg-success">-24%</span></th></tr>
+                        <tr><td class="fw-bold">🥤 Coca-Cola palette</th><td>2592 canettes</th><td>1 699€</th><td>1 499€</th><td><span class="badge bg-success">-12%</span></th></tr>
+                        <tr><td class="fw-bold">🍫 Spécialités belges</th><td>500 pièces</th><td>699€</th><td>499€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre spéciale Mons -->
+            <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Mons 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">MONS10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- Livraison Mons -->
+            <h2 class="mb-4">🚚 Livraison à Mons et dans le Hainaut</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone</th><th>Délai</th><th>Frais</th><th>Offre</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Mons centre et Ghlin</th><td>24h</th><td>59€</th><td><span class="text-success">Gratuit dès 400€</span></th></tr>
+                        <tr><td class="fw-bold">Jemappes, Cuesmes</th><td>24h</th><td>69€</th><td><span class="text-success">Gratuit dès 500€</span></th></tr>
+                        </tr><td class="fw-bold">Autres communes du Hainaut</th><td>24-48h</th><td>79€</th><td><span class="text-success">Gratuit dès 600€</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🏛️ La région de Mons économise avec DestockPro !</h3>
+                <p class="lead mb-4">Livraison rapide - Économies garanties</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

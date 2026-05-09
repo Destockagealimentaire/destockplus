@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}💰 Discount Alimentaire 2026 - Meilleures Offres jusqu'à -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez les meilleures offres du discount alimentaire en 2026. Économisez jusqu'à 70% sur vos courses. Codes promo, applications anti-gaspi, astuces. Guide complet.{% endblock %}
+
+{% block meta_keywords %}discount alimentaire 2026, offres discount, économiser courses, promo alimentaire, codes promo, anti-gaspi, courses pas cher, soldes alimentaires{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Discount alimentaire</li>
+                </ol>
+            </nav>
+
+            <div class="bg-danger text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-tag me-2"></i> MEILLEURES OFFRES DISCOUNT 2026 - ÉCONOMIES JUSQU'À 70% <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">💰 DISCOUNT 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5241 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">💰 Discount Alimentaire 2026 - <span class="text-danger">Meilleures Offres</span></h1>
+                <p class="lead fs-4">Découvrez comment <strong class="text-primary">économiser jusqu'à 70%</strong> sur vos courses avec nos offres discount.</p>
+            </div>
+
+            <!-- Top offres du moment -->
+            <h2 class="mb-4">🔥 Top 10 des offres discount du moment</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix public</th>
+                            <th>Prix discount</th>
+                            <th>Économie</th>
+                            <th>Code promo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🥤 Coca-Cola palette (2592 canettes)</th><td>2 099€</th><td>1 499€</th><td><span class="badge bg-danger">-29%</span></th><td>COCA10</th></tr>
+                        <tr><td class="fw-bold">🍫 Nutella palette (760 pots)</th><td>1 939€</th><td>1 599€</th><td><span class="badge bg-danger">-18%</span></th><td>NUTELLA10</th></tr>
+                        <tr><td class="fw-bold">⚡ Red Bull palette (2592 canettes)</th><td>1 959€</th><td>1 599€</th><td><span class="badge bg-danger">-18%</span></th><td>REDBULL10</th></td>
+                        <tr><td class="fw-bold">☕ Café Lavazza (200kg)</th><td>1 200€</th><td>849€</th><td><span class="badge bg-danger">-29%</span></th><td>CAFE10</th></tr>
+                        <tr><td class="fw-bold">💧 Cristalline (800 bouteilles)</th><td>360€</th><td>249€</th><td><span class="badge bg-danger">-31%</span></th><td>EAU10</th></td>
+                        <tr><td class="fw-bold">🍊 Jus d'orange (960 briques)</th><td>480€</th><td>299€</th><td><span class="badge bg-danger">-38%</span></th><td>JUS10</th></tr>
+                        <tr><td class="fw-bold">🍺 Heineken palette</th><td>1 899€</th><td>1 399€</th><td><span class="badge bg-danger">-26%</span></th><td>HEINEKEN10</th></tr>
+                        <tr><td class="fw-bold">🍾 Champagne Ruinart</th><td>21 360€</th><td>12 990€</th><td><span class="badge bg-danger">-39%</span></th><td>RUINART5</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Applications anti-gaspi -->
+            <h2 class="mb-4">📱 Applications anti-gaspi les plus rentables</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x text-danger mb-2"></i>
+                            <h3 class="h6">Too Good To Go</h3>
+                            <p>Paniers surprise -75%</p>
+                            <span class="badge bg-danger">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x text-danger mb-2"></i>
+                            <h3 class="h6">Phenix</h3>
+                            <p>Produits frais -70%</p>
+                            <span class="badge bg-danger">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x text-danger mb-2"></i>
+                            <h3 class="h6">FoodChérie</h3>
+                            <p>Restaurants -70%</p>
+                            <span class="badge bg-danger">⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x text-danger mb-2"></i>
+                            <h3 class="h6">Optimiam</h3>
+                            <p>Supermarchés -60%</p>
+                            <span class="badge bg-danger">⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Codes promo exclusifs -->
+            <h2 class="mb-4">🎁 Codes promo exclusifs 2026</h2>
+            
+            <div class="bg-light p-4 rounded-4 mb-5">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <span class="badge bg-danger mb-2">CODE</span>
+                                <h3 class="h4 text-primary">DISCOUNT15</h3>
+                                <p>-15% sur première commande</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <span class="badge bg-danger mb-2">CODE</span>
+                                <h3 class="h4 text-primary">LIVRAISONOFFERTE</h3>
+                                <p>Livraison gratuite dès 500€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <span class="badge bg-danger mb-2">CODE</span>
+                                <h3 class="h4 text-primary">PALETTE10</h3>
+                                <p>-10% sur toute palette</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15 astuces discount -->
+            <h2 class="mb-4">💡 15 astuces pour maximiser vos économies</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 1. Achetez en destockage (-40% à -70%)</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 2. Utilisez les applications anti-gaspi</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 3. Privilégiez les marques distributeur</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 4. Achetez en gros et en palette</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 5. Comparez les prix au kilo</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 6. Utilisez nos codes promo</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 7. Achetez fruits et légumes de saison</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 8. Groupez vos achats</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 9. Téléchargez les apps cashback</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 10. Achetez les DDM courtes (-70%)</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 11. Privilégiez les marchés en fin de journée</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 12. Congelez vos surplus</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 13. Abonnez-vous à notre newsletter</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 14. Profitez des livraisons groupées</div>
+                    <div class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 15. Devenez client DestockPro</div>
+                </div>
+            </div>
+
+            <!-- Offre finale -->
+            <div class="bg-danger text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">💰</span><strong class="fs-4 ms-2">Prêt à économiser ?</strong>
+                <p class="mb-0 mt-1">-15% sur votre première commande avec le code <strong class="bg-white text-danger px-3 py-2 rounded">DISCOUNT15</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">💰 Commencez à économiser dès aujourd'hui !</h3>
+                <p class="lead mb-4">Plus de 5000 produits en discount permanent</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg px-5 py-3">🛒 VOIR LES OFFRES →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
