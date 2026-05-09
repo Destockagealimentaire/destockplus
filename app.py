@@ -2354,6 +2354,22 @@ def sitemap():
         {'loc': '/palette-jus-fruits-prix', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-livraison-point-relais', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-ete-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-normandie', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-bretagne', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-centre-val-de-loire', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-bourgogne-franche-comte', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-grand-est', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-auvergne-rhone-alpes', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-nouvelle-aquitaine', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-correze', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-liege', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-namur', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-charleroi', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-mons', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/discount-alimentaire-meilleures-offres-2026', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-bruxelles', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-anvers', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-gand', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2471,7 +2487,90 @@ def guide_ultime_discount_alimentaire_2026():
     """Article - Guide ultime discount alimentaire 2026"""
     return render_template('articles/guide_ultime_discount_alimentaire_2026.html')
 # ============ 4 ARTICLES DESTOCKAGE BELGIQUE ============
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 
+@app.route('/destockage-alimentaire-normandie')
+def destockage_alimentaire_normandie():
+    """Article - Destockage alimentaire Normandie (Rouen, Caen, Le Havre)"""
+    return render_template('articles/destockage_alimentaire_normandie.html')
+
+@app.route('/destockage-alimentaire-bretagne')
+def destockage_alimentaire_bretagne():
+    """Article - Destockage alimentaire Bretagne (Rennes, Brest, Quimper)"""
+    return render_template('articles/destockage_alimentaire_bretagne.html')
+
+@app.route('/destockage-alimentaire-centre-val-de-loire')
+def destockage_alimentaire_centre_val_de_loire():
+    """Article - Destockage alimentaire Centre-Val de Loire (Orléans, Tours, Blois)"""
+    return render_template('articles/destockage_alimentaire_centre_val_de_loire.html')
+
+@app.route('/destockage-alimentaire-bourgogne-franche-comte')
+def destockage_alimentaire_bourgogne_franche_comte():
+    """Article - Destockage alimentaire Bourgogne-Franche-Comté (Dijon, Besançon)"""
+    return render_template('articles/destockage_alimentaire_bourgogne_franche_comte.html')
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-grand-est')
+def destockage_alimentaire_grand_est():
+    """Article - Destockage alimentaire Grand Est (Reims, Metz, Nancy, Épinal)"""
+    return render_template('articles/destockage_alimentaire_grand_est.html')
+
+@app.route('/destockage-alimentaire-auvergne-rhone-alpes')
+def destockage_alimentaire_auvergne_rhone_alpes():
+    """Article - Destockage alimentaire Auvergne-Rhône-Alpes (Clermont-Ferrand, Grenoble)"""
+    return render_template('articles/destockage_alimentaire_auvergne_rhone_alpes.html')
+
+@app.route('/destockage-alimentaire-nouvelle-aquitaine')
+def destockage_alimentaire_nouvelle_aquitaine():
+    """Article - Destockage alimentaire Nouvelle-Aquitaine (Poitiers, Limoges, La Rochelle)"""
+    return render_template('articles/destockage_alimentaire_nouvelle_aquitaine.html')
+
+@app.route('/destockage-alimentaire-correze')
+def destockage_alimentaire_correze():
+    """Article - Destockage alimentaire Corrèze (Brive-la-Gaillarde, Tulle)"""
+    return render_template('articles/destockage_alimentaire_correze.html')
+# ============ 4 ARTICLES DESTOCKAGE BELGIQUE ============
+
+@app.route('/destockage-alimentaire-belgique-liege')
+def destockage_alimentaire_belgique_liege():
+    """Article - Destockage alimentaire Liège et province"""
+    return render_template('articles/destockage_alimentaire_belgique_liege.html')
+
+@app.route('/destockage-alimentaire-belgique-namur')
+def destockage_alimentaire_belgique_namur():
+    """Article - Destockage alimentaire Namur et province"""
+    return render_template('articles/destockage_alimentaire_belgique_namur.html')
+
+@app.route('/destockage-alimentaire-belgique-charleroi')
+def destockage_alimentaire_belgique_charleroi():
+    """Article - Destockage alimentaire Charleroi et région"""
+    return render_template('articles/destockage_alimentaire_belgique_charleroi.html')
+
+@app.route('/destockage-alimentaire-belgique-mons')
+def destockage_alimentaire_belgique_mons():
+    """Article - Destockage alimentaire Mons et Hainaut"""
+    return render_template('articles/destockage_alimentaire_belgique_mons.html')
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/discount-alimentaire-meilleures-offres-2026')
+def discount_alimentaire_meilleures_offres_2026():
+    """Article - Discount alimentaire meilleures offres 2026"""
+    return render_template('articles/discount_alimentaire_meilleures_offres_2026.html')
+
+@app.route('/destockage-alimentaire-belgique-bruxelles')
+def destockage_alimentaire_belgique_bruxelles():
+    """Article - Destockage alimentaire Bruxelles et périphérie"""
+    return render_template('articles/destockage_alimentaire_belgique_bruxelles.html')
+
+@app.route('/destockage-alimentaire-belgique-anvers')
+def destockage_alimentaire_belgique_anvers():
+    """Article - Destockage alimentaire Anvers et Flandre"""
+    return render_template('articles/destockage_alimentaire_belgique_anvers.html')
+
+@app.route('/destockage-alimentaire-belgique-gand')
+def destockage_alimentaire_belgique_gand():
+    """Article - Destockage alimentaire Gand et région flamande"""
+    return render_template('articles/destockage_alimentaire_belgique_gand.html')
 @app.route('/destockage-alimentaire-belgique-wallonie')
 def destockage_alimentaire_belgique_wallonie():
     """Article - Destockage alimentaire Wallonie (Liège, Namur, Charleroi)"""
