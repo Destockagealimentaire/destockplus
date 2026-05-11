@@ -2370,6 +2370,18 @@ def sitemap():
         {'loc': '/destockage-alimentaire-belgique-bruxelles', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-anvers', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-gand', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/pourquoi-acheter-palettes-destockpro', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockpro-avis-clients-certifies', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/palette-coca-cola-livraison-offerte', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/calculateur-economies-palette', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-angers', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-lemans', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-tours', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-orleans', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-louvain', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-bruges', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-ciney', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-arlon', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2466,7 +2478,69 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ULTRA BOOSTÉS ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+# ============ 4 ARTICLES DESTOCKPRO ULTRA CONVERSION ============
+# ============ 4 NOUVEAUX ARTICLES DESTOCKPRO ============
+# ============ 4 ARTICLES DESTOCKAGE BELGIQUE ============
 
+@app.route('/destockage-alimentaire-belgique-louvain')
+def destockage_alimentaire_belgique_louvain():
+    """Article - Destockage alimentaire Louvain et Brabant flamand"""
+    return render_template('articles/destockage_alimentaire_belgique_louvain.html')
+
+@app.route('/destockage-alimentaire-belgique-bruges')
+def destockage_alimentaire_belgique_bruges():
+    """Article - Destockage alimentaire Bruges et Flandre occidentale"""
+    return render_template('articles/destockage-alimentaire_belgique_bruges.html')
+
+@app.route('/destockage-alimentaire-belgique-ciney')
+def destockage_alimentaire_belgique_ciney():
+    """Article - Destockage alimentaire Ciney et Condroz"""
+    return render_template('articles/destockage-alimentaire_belgique_ciney.html')
+
+@app.route('/destockage-alimentaire-belgique-arlon')
+def destockage_alimentaire_belgique_arlon():
+    """Article - Destockage alimentaire Arlon et Luxembourg belge"""
+    return render_template('articles/destockage_alimentaire_belgique_arlon.html')
+    
+@app.route('/destockage-alimentaire-angers')
+def destockage_alimentaire_angers():
+    """Article - Destockage alimentaire Angers et Maine-et-Loire"""
+    return render_template('articles/destockage_alimentaire_angers.html')
+
+@app.route('/destockage-alimentaire-lemans')
+def destockage_alimentaire_le_mans():
+    """Article - Destockage alimentaire Le Mans et Sarthe"""
+    return render_template('articles/destockage_alimentaire_le_mans.html')
+
+@app.route('/destockage-alimentaire-tours')
+def destockage_alimentaire_tours():
+    """Article - Destockage alimentaire Tours et Indre-et-Loire"""
+    return render_template('articles/destockage_alimentaire_tours.html')
+
+@app.route('/destockage-alimentaire-orleans')
+def destockage_alimentaire_orleans():
+    """Article - Destockage alimentaire Orléans et Loiret"""
+    return render_template('articles/destockage_alimentaire_orleans.html')
+    
+@app.route('/pourquoi-acheter-palettes-destockpro')
+def pourquoi_acheter_palettes_destockpro():
+    """Article - Pourquoi acheter ses palettes chez DestockPro"""
+    return render_template('articles/pourquoi_acheter_palettes_destockpro.html')
+
+@app.route('/destockpro-avis-clients-certifies')
+def destockpro_avis_clients_certifies():
+    """Article - Avis clients certifiés DestockPro"""
+    return render_template('articles/destockpro_avis_clients_certifies.html')
+
+@app.route('/palette-coca-cola-livraison-offerte')
+def palette_coca_cola_livraison_offerte():
+    """Article - Palette Coca-Cola livraison offerte"""
+    return render_template('articles/palette_coca_cola_livraison_offerte.html')
+
+@app.route('/calculateur-economies-palette')
+def calculateur_economies_palette():
+    """Article - Calculateur d'économies sur palette"""
+    return render_template('articles/calculateur_economies_palette.html')
 @app.route('/destockage-alimentaire-alsace')
 def destockage_alimentaire_alsace():
     """Article - Destockage alimentaire Alsace (Strasbourg, Colmar, Mulhouse)"""
