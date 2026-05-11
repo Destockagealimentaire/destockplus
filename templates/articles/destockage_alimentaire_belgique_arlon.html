@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}🏛️ Destockage Alimentaire Arlon 2026 - Économies jusqu'à 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Arlon et dans la province de Luxembourg. Économies jusqu'à 70% sur vos produits. Livraison rapide. Guide complet 2026.{% endblock %}
+
+{% block meta_keywords %}destockage Arlon, destockage Luxembourg belge, alimentaire pas cher Arlon, grossiste Arlon, destockage 6700{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item"><a href="#">Wallonie</a></li>
+                    <li class="breadcrumb-item active">Arlon</li>
+                </ol>
+            </nav>
+
+            <div class="bg-warning text-dark text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-castle me-2"></i> DESTOCKAGE ALIMENTAIRE ARLON 2026 <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning px-3 py-2 mb-2">🏛️ ARLON 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 654 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🏛️ Destockage Alimentaire <span class="text-warning">Arlon</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses à Arlon et dans la province de Luxembourg.</p>
+            </div>
+
+            <!-- Zones clés -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de Weyler</h3></div>
+                            </div>
+                            <p>Zone industrielle, grossistes régionaux</p>
+                            <span class="badge bg-warning">-60% à -70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Sterpenich</h3></div>
+                            </div>
+                            <p>Zone commerciale active</p>
+                            <span class="badge bg-warning">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-warning">🏭</div>
+                                <div><h3 class="h5 mb-0">Messancy</h3></div>
+                            </div>
+                            <p>Zone d'activités dynamique</p>
+                            <span class="badge bg-warning">-50% à -60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des produits -->
+            <h2 class="mb-4">📊 Produits populaires à Arlon</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix Arlon</th>
+                            <th class="bg-warning text-dark">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍺 Bières belges</th><td>2592 canettes</th><td>1 699€</th><td>1 399€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                        <tr><td class="fw-bold">🍫 Chocolats belges</th><td>500 tablettes</th><td>1 299€</th><td>1 099€</th><td><span class="badge bg-success">-15%</span></th></tr>
+                        <tr><td class="fw-bold">🧀 Fromages wallons</th><td>200 kg</th><td>899€</th><td>699€</th><td><span class="badge bg-success">-22%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre spéciale Arlon -->
+            <div class="bg-warning text-dark p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Arlon 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-dark text-warning px-3 py-2 rounded">ARLON10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-dark btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🏛️ La région d'Arlon économise avec DestockPro !</h3>
+                <p class="lead mb-4">Livraison rapide - Économies garanties</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-warning btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

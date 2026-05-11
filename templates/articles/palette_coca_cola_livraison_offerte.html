@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}🥤 Palette Coca-Cola 33cl - Livraison Offerte 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette Coca-Cola 33cl avec livraison offerte. 2592 canettes - 1 499€ seulement. Économisez 597€. Stock limité. Commandez maintenant !{% endblock %}
+
+{% block meta_keywords %}palette Coca-Cola livraison offerte, Coca-Cola palette pas cher, livraison gratuite Coca-Cola, palette Coca-Cola prix, acheter Coca-Cola en palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('produits') }}">Produits</a></li>
+                    <li class="breadcrumb-item active">Palette Coca-Cola</li>
+                </ol>
+            </nav>
+
+            <div class="bg-danger text-white text-center py-3 rounded-3 mb-4">
+                <i class="fas fa-truck me-2"></i> LIVRAISON OFFERTE - COMMANDEZ MAINTENANT <i class="fas fa-gift ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🥤 OFFRE LIMITÉE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 5231 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🥤 Palette Coca-Cola 33cl - <span class="text-danger">Livraison Offerte</span> 2026</h1>
+                <p class="lead fs-4">La boisson la plus vendue au monde à <strong class="text-primary">prix imbattable</strong> + <strong class="text-success">livraison OFFERTE</strong>.</p>
+            </div>
+
+            <!-- Carte produit -->
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+                <div class="row g-0">
+                    <div class="col-md-5 bg-light p-4 text-center">
+                        <img src="{{ url_for('static', filename='images/produits/coca-palette.jpg') }}" alt="Palette Coca-Cola" class="img-fluid rounded-3">
+                        <div class="mt-3">
+                            <span class="badge bg-danger px-3 py-2">🔥 Stock limité (12 palettes)</span>
+                            <span class="badge bg-warning text-dark ms-2 px-3 py-2">⭐ MEILLEURE VENTE</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-4">
+                        <h2 class="h3 fw-bold mb-3">Coca-Cola Original - Palette 2592 canettes (33cl)</h2>
+                        <div class="mb-3">
+                            <span class="text-decoration-line-through text-muted fs-5">Prix public : 2 096€</span>
+                            <span class="text-danger fs-2 fw-bold ms-3">1 499€</span>
+                            <span class="badge bg-success ms-2">-28%</span>
+                        </div>
+                        <div class="mb-3">
+                            <span class="text-success">💰 Économie totale : <strong>597€</strong></span><br>
+                            <span class="text-success">🚚 Livraison : <strong>OFFERTE</strong></span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>2 592 canettes</strong> de 33cl</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>0,58€/canette</strong> (contre 1,15€ en supermarché)</li>
+                            <li class="mb-2"><i class="fas fa-truck text-success me-2"></i> <strong>Livraison offerte</strong> dès 500€</li>
+                            <li class="mb-2"><i class="fas fa-clock text-success me-2"></i> <strong>Expédition sous 24h</strong> partout en France</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>DDM longue</strong> (au moins 6 mois)</li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('produits') }}" class="btn btn-danger btn-lg py-3 fw-bold">🛒 AJOUTER AU PANIER - LIVRAISON OFFERTE</a>
+                            <a href="/contact" class="btn btn-outline-secondary">📧 Besoin d'un devis pour plusieurs palettes ?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparatif prix -->
+            <h2 class="mb-4">📊 Comparatif des prix 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Enseigne</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix 2592 canettes</th>
+                            <th>Économie vs DestockPro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold text-primary">DestockPro</th><td><span class="fw-bold text-success">0,58€</span></th><td><span class="fw-bold text-success">1 499€</span></th><td>-</th></tr>
+                        <tr><td class="fw-bold">Carrefour</th><td>1,15€</th><td>2 980€</th><td><span class="text-success">+1 481€</span></th></tr>
+                        <tr><td class="fw-bold">Leclerc</th><td>1,10€</th><td>2 851€</th><td><span class="text-success">+1 352€</span></th></tr>
+                        <tr><td class="fw-bold">Auchan</th><td>1,12€</th><td>2 903€</th><td><span class="text-success">+1 404€</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Témoignages -->
+            <h2 class="mb-4">💬 Ils ont commandé leur palette Coca-Cola</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Palette reçue en 24h avec livraison offerte. Prix imbattable, mes clients au bar sont ravis !"</p>
+                            <footer class="blockquote-footer">Marc, <cite>Cafetier Bordeaux</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"La meilleure offre que j'ai trouvée sur le marché. Livraison rapide et gratuite. Je recommande !"</p>
+                            <footer class="blockquote-footer">Julie, <cite>Restauratrice Lille</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-danger text-white p-5 rounded-4 text-center">
+                <h2 class="h2 mb-3">🥤 Commandez votre palette Coca-Cola dès maintenant !</h2>
+                <p class="lead mb-4">Stock limité - Livraison offerte - Plus que 12 palettes disponibles</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

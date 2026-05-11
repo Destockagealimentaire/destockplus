@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}⭐ Avis clients DestockPro 2026 - 5000+ témoignages certifiés{% endblock %}
+
+{% block meta_description %}Découvrez les avis certifiés des clients DestockPro. Note 4.9/5 sur plus de 5000 témoignages. Pourquoi les professionnels nous recommandent.{% endblock %}
+
+{% block meta_keywords %}avis DestockPro, témoignages DestockPro, retour client DestockPro, destockage avis, palette avis clients{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Avis clients</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-3 rounded-3 mb-4">
+                <i class="fas fa-star me-2"></i> 5000+ AVIS CERTIFIÉS - NOTE MOYENNE 4.9/5 <i class="fas fa-check-circle ms-2"></i>
+            </div>
+
+            <div class="mb-4 text-center">
+                <span class="badge bg-success px-3 py-2 mb-2">⭐ AVIS VÉRIFIÉS 2026</span>
+                <div class="display-1 text-warning">4.9</div>
+                <div class="text-warning mb-2">★★★★★</div>
+                <p class="lead">Note moyenne sur <strong class="text-primary">5000+ avis certifiés</strong></p>
+            </div>
+
+            <!-- Témoignages -->
+            <div class="row mb-5">
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Je commande régulièrement des palettes pour mon restaurant. Les prix sont imbattables et la qualité est toujours au rendez-vous. Livraison rapide et fiable !"</p>
+                            <footer class="blockquote-footer">Thomas, <cite>Restaurateur Paris</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Meilleur rapport qualité-prix du marché. Service client réactif et équipe à l'écoute. Je recommande vivement DestockPro."</p>
+                            <footer class="blockquote-footer">Marie, <cite>Épicerie Lyon</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"J'ai comparé les prix partout. DestockPro est vraiment le moins cher. Palette reçue en 24h, impeccable !"</p>
+                            <footer class="blockquote-footer">Karim, <cite>Épicier Lille</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light h-100">
+                        <div class="card-body">
+                            <div class="text-warning mb-2">★★★★★</div>
+                            <p>"Commandé pour mon food truck. Qualité parfaite, livraison rapide. Je recommande à tous les professionnels."</p>
+                            <footer class="blockquote-footer">Julien, <cite>Food truck Marseille</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistiques -->
+            <div class="row mb-5 text-center">
+                <div class="col-md-4">
+                    <div class="display-4 text-success">98%</div>
+                    <p>Clients satisfaits</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="display-4 text-success">5000+</div>
+                    <p>Avis certifiés</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="display-4 text-success">1000+</div>
+                    <p>Entreprises clientes</p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-primary text-white p-5 rounded-4 text-center">
+                <h2 class="h2 mb-3">⭐ Rejoignez nos 5000+ clients satisfaits</h2>
+                <p class="lead mb-4">Découvrez pourquoi ils nous recommandent</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 DÉCOUVRIR NOS PRODUITS →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}💰 Calculateur d'économies sur palette - Économisez jusqu'à 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Calculez vos économies en achetant vos palettes chez DestockPro. Comparatif avec supermarché. Économies garanties jusqu'à 70%. Simulateur gratuit.{% endblock %}
+
+{% block meta_keywords %}calculateur économies palette, simulateur destockage, combien économise palette, palette pas chère, économies courses, comparateur prix palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item active">Calculateur d'économies</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-3 rounded-3 mb-4">
+                <i class="fas fa-calculator me-2"></i> CALCULEZ VOS ÉCONOMIES <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4 text-center">
+                <span class="badge bg-success px-3 py-2 mb-2">💰 CALCulateur 2026</span>
+                <h1 class="display-4 fw-bold mb-3">💰 Calculateur d'économies sur palette</h1>
+                <p class="lead fs-4">Découvrez combien vous pouvez <strong class="text-primary">économiser</strong> en achetant vos palettes chez DestockPro.</p>
+            </div>
+
+            <!-- Simulateur -->
+            <div class="card shadow-lg border-0 rounded-4 mb-5">
+                <div class="card-body p-4">
+                    <h2 class="h4 mb-4">📊 Simulez vos économies</h2>
+                    <div class="mb-3">
+                        <label class="form-label">Choisissez un produit</label>
+                        <select class="form-select" id="produitSelect" onchange="calculerEconomies()">
+                            <option value="coca">🥤 Coca-Cola 33cl (2592 canettes)</option>
+                            <option value="nutella">🍫 Nutella 1kg (760 pots)</option>
+                            <option value="redbull">⚡ Red Bull 250ml (2592 canettes)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Quantité de palettes</label>
+                        <input type="number" class="form-control" id="quantite" value="1" min="1" max="10" onchange="calculerEconomies()">
+                    </div>
+                    <div class="bg-light p-3 rounded mt-3">
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <p class="text-muted mb-0">Prix DestockPro</p>
+                                <span class="fw-bold fs-3 text-success" id="prixDestock">1 499€</span>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-0">Prix supermarché</p>
+                                <span class="fw-bold fs-3 text-danger" id="prixSupermarché">2 099€</span>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <p class="mb-0">💰 Économie par palette</p>
+                            <span class="fw-bold fs-2 text-primary" id="economieUnitaire">600€</span>
+                        </div>
+                        <div class="text-center mt-3">
+                            <p class="mb-0">🎯 Économie totale</p>
+                            <span class="fw-bold fs-1 text-success" id="economieTotale">600€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau comparatif -->
+            <h2 class="mb-4">📊 Comparatif des prix 2026</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix DestockPro</th>
+                            <th>Prix supermarché</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🥤 Coca-Cola 33cl (2592 canettes)</th><td>1 499€</th><td>2 099€</th><td><span class="text-success fw-bold">-600€</span></th></tr>
+                        <tr><td class="fw-bold">🍫 Nutella 1kg (760 pots)</th><td>1 599€</th><td>1 939€</th><td><span class="text-success fw-bold">-340€</span></th></tr>
+                        <tr><td class="fw-bold">⚡ Red Bull 250ml (2592 canettes)</th><td>1 599€</th><td>1 959€</th><td><span class="text-success fw-bold">-360€</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-primary text-white p-5 rounded-4 text-center">
+                <h2 class="h2 mb-3">💰 Prêt à économiser ?</h2>
+                <p class="lead mb-4">Économies garanties jusqu'à 70%</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+const prix = {
+    coca: { destock: 1499, supermarche: 2099, nom: "Coca-Cola" },
+    nutella: { destock: 1599, supermarche: 1939, nom: "Nutella" },
+    redbull: { destock: 1599, supermarche: 1959, nom: "Red Bull" }
+};
+
+function calculerEconomies() {
+    const produit = document.getElementById('produitSelect').value;
+        const quantite = parseInt(document.getElementById('quantite').value) || 1;
+    const data = prix[produit];
+    
+    document.getElementById('prixDestock').innerHTML = (data.destock * quantite).toLocaleString('fr-FR') + '€';
+    document.getElementById('prixSupermarché').innerHTML = (data.supermarche * quantite).toLocaleString('fr-FR') + '€';
+    
+    const economieUnitaire = data.supermarche - data.destock;
+    const economieTotale = economieUnitaire * quantite;
+    
+    document.getElementById('economieUnitaire').innerHTML = economieUnitaire.toLocaleString('fr-FR') + '€';
+    document.getElementById('economieTotale').innerHTML = economieTotale.toLocaleString('fr-FR') + '€';
+}
+
+calculerEconomies();
+</script>
+{% endblock %}
