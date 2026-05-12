@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}🦪 Destockage Alimentaire Boulogne-sur-Mer 2026 - Économies jusqu'à 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Boulogne-sur-Mer et dans le Boulonnais. Économies jusqu'à 70% sur vos produits. Livraison rapide. Guide complet 2026.{% endblock %}
+
+{% block meta_keywords %}destockage Boulogne-sur-Mer, destockage Boulonnais, alimentaire pas cher Boulogne, grossiste Boulogne, destockage 62{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Hauts-de-France</a></li>
+                    <li class="breadcrumb-item active">Boulogne-sur-Mer</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-fish me-2"></i> DESTOCKAGE ALIMENTAIRE BOULOGNE-SUR-MER 2026 <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🦪 BOULOGNE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.9/5 - 876 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🦪 Destockage Alimentaire <span class="text-success">Boulogne-sur-Mer</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses à Boulogne-sur-Mer et dans le Boulonnais.</p>
+            </div>
+
+            <!-- Zones clés -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">⚓</div>
+                                <div><h3 class="h5 mb-0">Port de pêche</h3></div>
+                            </div>
+                            <p>1er port de pêche français</p>
+                            <span class="badge bg-success">-65% à -75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de la Liane</h3></div>
+                            </div>
+                            <p>Zone industrielle dynamique</p>
+                            <span class="badge bg-success">-60% à -70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de la Trésorerie</h3></div>
+                            </div>
+                            <p>Zone commerciale active</p>
+                            <span class="badge bg-success">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau des produits -->
+            <h2 class="mb-4">📊 Produits populaires à Boulogne-sur-Mer</h2>
+            
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix Boulogne</th>
+                            <th class="bg-success text-white">Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🦞 Produits de la mer</th><td>lot 500 pièces</th><td>899€</th><td>649€</th><td><span class="badge bg-success">-28%</span></th></tr>
+                        <tr><td class="fw-bold">🍺 Bières régionales</th><td>2592 canettes</th><td>1 699€</th><td>1 399€</th><td><span class="badge bg-success">-18%</span></th></tr>
+                        <tr><td class="fw-bold">🥤 Coca-Cola palette</th><td>2592 canettes</th><td>2 099€</th><td>1 499€</th><td><span class="badge bg-success">-29%</span></th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offre spéciale Boulogne -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Boulogne 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-white text-success px-3 py-2 rounded">BOULOGNE10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🦪 Boulogne-sur-Mer économise avec DestockPro !</h3>
+                <p class="lead mb-4">Livraison rapide - Économies garanties</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
