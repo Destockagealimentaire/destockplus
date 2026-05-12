@@ -2382,6 +2382,18 @@ def sitemap():
         {'loc': '/destockage-alimentaire-belgique-bruges', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-ciney', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-arlon', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-calais', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-dunkerque', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-boulogne-sur-mer', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-saint-omer', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-amiens', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-beauvais', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-compiegne', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-soissons', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-chambery', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-annecy', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-grenoble-2026', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-valence', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2480,6 +2492,72 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 # ============ 4 ARTICLES DESTOCKPRO ULTRA CONVERSION ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKPRO ============
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-calais')
+def destockage_alimentaire_calais():
+    """Article - Destockage alimentaire Calais et Côte d'Opale"""
+    return render_template('articles/destockage_alimentaire_calais.html')
+
+@app.route('/destockage-alimentaire-dunkerque')
+def destockage_alimentaire_dunkerque():
+    """Article - Destockage alimentaire Dunkerque et Flandre maritime"""
+    return render_template('articles/destockage_alimentaire_dunkerque.html')
+
+@app.route('/destockage-alimentaire-boulogne-sur-mer')
+def destockage_alimentaire_boulogne_sur_mer():
+    """Article - Destockage alimentaire Boulogne-sur-Mer et Boulonnais"""
+    return render_template('articles/destockage_alimentaire_boulogne_sur_mer.html')
+
+@app.route('/destockage-alimentaire-saint-omer')
+def destockage_alimentaire_saint_omer():
+    """Article - Destockage alimentaire Saint-Omer et Audomarois"""
+    return render_template('articles/destockage_alimentaire_saint_omer.html')
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-amiens')
+def destockage_alimentaire_amiens():
+    """Article - Destockage alimentaire Amiens et Somme"""
+    return render_template('articles/destockage_alimentaire_amiens.html')
+
+@app.route('/destockage-alimentaire-beauvais')
+def destockage_alimentaire_beauvais():
+    """Article - Destockage alimentaire Beauvais et Oise"""
+    return render_template('articles/destockage_alimentaire_beauvais.html')
+
+@app.route('/destockage-alimentaire-compiegne')
+def destockage_alimentaire_compiegne():
+    """Article - Destockage alimentaire Compiègne et Oise"""
+    return render_template('articles/destockage_alimentaire_compiegne.html')
+
+@app.route('/destockage-alimentaire-soissons')
+def destockage_alimentaire_soissons():
+    """Article - Destockage alimentaire Soissons et Aisne"""
+    return render_template('articles/destockage_alimentaire_soissons.html')
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-chambéry')
+def destockage_alimentaire_chambery():
+    """Article - Destockage alimentaire Chambéry et Savoie"""
+    return render_template('articles/destockage_alimentaire_chambery.html')
+
+@app.route('/destockage-alimentaire-annecy')
+def destockage_alimentaire_annecy():
+    """Article - Destockage alimentaire Annecy et Haute-Savoie"""
+    return render_template('articles/destockage_alimentaire_annecy.html')
+
+@app.route('/destockage-alimentaire-grenoble-2026')
+def destockage_alimentaire_grenoble_2026():
+    """Article - Destockage alimentaire Grenoble et Isère"""
+    return render_template('articles/destockage_alimentaire_grenoble_2026.html')
+
+@app.route('/destockage-alimentaire-valence')
+def destockage_alimentaire_valence():
+    """Article - Destockage alimentaire Valence et Drôme"""
+    return render_template('articles/destockage_alimentaire_valence.html')
 # ============ 4 ARTICLES DESTOCKAGE BELGIQUE ============
 
 @app.route('/destockage-alimentaire-belgique-louvain')
