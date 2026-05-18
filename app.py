@@ -2248,7 +2248,27 @@ def destockage_alimentaire_charleville_mezieres():
     """Article - Destockage alimentaire Charleville-Mézières et Ardennes"""
     return render_template('articles/destockage_alimentaire_charleville_mezieres.html')
 
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE (version ultra différenciée) ============
 
+@app.route('/destockage-grossiste-alimentaire-metz-borny')
+def destockage_grossiste_metz():
+    """Article - Grossiste destockage Metz Borny"""
+    return render_template('articles/destockage_metz_borny.html')
+
+@app.route('/liquidation-alimentaire-nancy-maxeville')
+def liquidation_alimentaire_nancy():
+    """Article - Liquidation alimentaire Nancy Maxéville"""
+    return render_template('articles/liquidation_nancy_maxeville.html')
+
+@app.route('/promo-alimentaire-epinal-golbey')
+def promo_alimentaire_epinal():
+    """Article - Promos alimentaires Épinal Golbey"""
+    return render_template('articles/promo_epinal_golbey.html')
+
+@app.route('/solde-alimentaire-verdun-thierville')
+def solde_alimentaire_verdun():
+    """Article - Soldes alimentaires Verdun Thierville"""
+    return render_template('articles/solde_verdun_thierville.html')
 # Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
 
 # ============= SITEMAP ROUTES =============
@@ -2426,6 +2446,11 @@ def sitemap():
         {'loc': '/destockage-alimentaire-nancy', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-epinal', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-verdun', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-grossiste-alimentaire-metz-borny', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/liquidation-alimentaire-nancy-maxeville', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/promo-alimentaire-epinal-golbey', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/solde-alimentaire-verdun-thierville', 'priority': 0.9, 'changefreq': 'weekly'},
+        
     ]
     
     # URLs dynamiques - Produits
