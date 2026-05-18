@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}⚡ LIQUIDATION ALIMENTAIRE NANCY MAXÉVILLE - Dernières séries -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Liquidation totale à Nancy-Maxéville (54). Fins de séries, surstocks, dates courtes. Économies immédiates sur place ou livraison Meurthe-et-Moselle.{% endblock %}
+
+{% block meta_keywords %}liquidation alimentaire Nancy, liquidation Maxéville, destockage Nancy, fin de série Nancy, surstock Nancy, promo alimentaire 54{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Grand Est</a></li>
+                    <li class="breadcrumb-item"><a href="#">Meurthe-et-Moselle</a></li>
+                    <li class="breadcrumb-item active">Nancy-Maxéville</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-red text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #cb2d3e, #ef473a);">
+                <i class="fas fa-clock fa-2x me-2"></i> LIQUIDATION ALIMENTAIRE NANCY-MAXÉVILLE ⚡ STOCKS LIMITÉS
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">⚠️ LIQUIDATION TOTALE</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.7/5 - 987 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">⚡ Liquidation Alimentaire <span class="text-danger">Nancy-Maxéville</span> 2026</h1>
+                <p class="lead fs-4"><strong class="text-danger">Dernières chances</strong> : fins de séries et surstocks jusqu'à <strong>-70%</strong></p>
+            </div>
+
+            <div class="alert alert-warning text-center">
+                <i class="fas fa-hourglass-half"></i> <strong>VENTE FLASH :</strong> 48h restantes sur les lots "fin de série" !
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card border-danger shadow">
+                        <div class="card-header bg-danger text-white">Zone Maxéville</div>
+                        <div class="card-body">Entrepôt principal - retrait immédiat</div>
+                        <div class="card-footer"><span class="badge bg-danger">-70%</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card border-warning shadow">
+                        <div class="card-header bg-warning text-dark">Zone Vandoeuvre</div>
+                        <div class="card-body">Dépôt secondaire - surstocks</div>
+                        <div class="card-footer"><span class="badge bg-warning text-dark">-60%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mb-4">🏷️ Lots de liquidation (prix TTC)</h2>
+            <div class="table-responsive mb-5">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Lot</th><th>Qté</th><th>Prix initial</th><th class="bg-danger text-white">Prix Liquidation</th><th>Éco</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍫 Chocolats Poulain (fins de série)</td><td>1000 tablettes</td><td>1 200 €</td><td class="bg-light"><strong>480 €</strong></td><td><span class="badge bg-success">-60%</span></td></tr>
+                        <tr><td class="fw-bold">🥛 Laits végétaux (DLC courte)</td><td>800 briques</td><td>800 €</td><td class="bg-light"><strong>280 €</strong></td><td><span class="badge bg-success">-65%</span></td></tr>
+                        <tr><td class="fw-bold">🧀 Fromages lorrains (pack pro)</td><td>300 kg</td><td>1 500 €</td><td class="bg-light"><strong>525 €</strong></td><td><span class="badge bg-success">-65%</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-danger text-white p-5 rounded-4 text-center">
+                <i class="fas fa-tags fa-3x mb-3"></i>
+                <h3>Code promo <strong class="bg-white text-danger px-3 py-2 rounded">LIQUID54</strong> : -10% supplémentaire</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3">🔥 SAISIR L'OFFRE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

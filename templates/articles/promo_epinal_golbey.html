@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}🎁 PROMOS ALIMENTAIRES ÉPINAL GOLBEY - Lots jusqu'à -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Les meilleures promos alimentaires à Épinal-Golbey (88). Idéal pour associations, commerces, familles. Destockage Vosges pas cher. Livraison possible.{% endblock %}
+
+{% block meta_keywords %}promo alimentaire Épinal, destockage Golbey, alimentaire pas cher Vosges, lot solidaire Épinal, destockage 88, grossiste solidaire{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Grand Est</a></li>
+                    <li class="breadcrumb-item"><a href="#">Vosges</a></li>
+                    <li class="breadcrumb-item active">Épinal-Golbey</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-green text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <i class="fas fa-gift fa-2x me-2"></i> PROMOS ALIMENTAIRES ÉPINAL-GOLBEY 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🎁 BONS PLANS VOSGES</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 654 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🎁 Promos Alimentaires <span class="text-success">Épinal-Golbey</span> 2026</h1>
+                <p class="lead fs-4">Idéal pour <strong>associations, collectivités, familles nombreuses</strong> : jusqu'à <strong>-70%</strong></p>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card border-success shadow">
+                        <div class="card-body">
+                            <h5><i class="fas fa-hand-holding-heart"></i> Lot solidaire</h5>
+                            <p>Produits variés pour associations</p>
+                            <span class="badge bg-success">-70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-info shadow">
+                        <div class="card-body">
+                            <h5><i class="fas fa-store"></i> Lot commerçant</h5>
+                            <p>Revente facile, forfait unique</p>
+                            <span class="badge bg-info">-60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mb-4">📦 Lots promos Épinal-Golbey</h2>
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Lot</th><th>Contenu</th><th>Prix promo</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🍝 Pack épicerie</td><td>Pâtes, riz, conserves (200 unités)</td><td class="bg-light"><strong>299 €</strong></td><td><span class="badge bg-success">-65%</span></td></tr>
+                        <tr><td class="fw-bold">🥤 Pack boissons</td><td>Jus, sodas, eaux (300 bouteilles)</td><td class="bg-light"><strong>349 €</strong></td><td><span class="badge bg-success">-60%</span></td></tr>
+                        <tr><td class="fw-bold">🧃 Lot enfant</td><td>Goûters, compotes, laits (150 pièces)</td><td class="bg-light"><strong>199 €</strong></td><td><span class="badge bg-success">-70%</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-success text-white p-5 rounded-4 text-center">
+                <h3>Code <strong class="bg-white text-success px-3 py-2 rounded">VOSGES10</strong> : -10% sur le 1er lot</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3">🎁 COMMANDER UN LOT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

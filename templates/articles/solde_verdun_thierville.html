@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}🏷️ SOLDES ALIMENTAIRES VERDUN THIERVILLE - Déstockage géant -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Grand déstockage alimentaire à Verdun-Thierville (55). Soldes exceptionnels sur boissons, conserves, épicerie. Meuse pas cher. Stock limité.{% endblock %}
+
+{% block meta_keywords %}soldes alimentaires Verdun, déstockage Thierville, destockage Meuse, alimentaire pas cher Verdun, promo 55, déstockage Verdun{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Grand Est</a></li>
+                    <li class="breadcrumb-item"><a href="#">Meuse</a></li>
+                    <li class="breadcrumb-item active">Verdun-Thierville</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-purple text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #8e2de2, #4a00e0);">
+                <i class="fas fa-tags fa-2x me-2"></i> SOLDES ALIMENTAIRES VERDUN-THIERVILLE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🏷️ DÉSTOCKAGE GÉANT</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 543 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🏷️ Soldes Alimentaires <span class="text-primary">Verdun-Thierville</span> 2026</h1>
+                <p class="lead fs-4">Déstockage géant sur <strong>500+ références</strong> jusqu'à <strong>-70%</strong> en Meuse</p>
+            </div>
+
+            <div class="alert alert-primary text-center">📢 <strong>DERNIER JOUR DES SOLDES :</strong> -20% immédiats avec le code <strong>MEUSE20</strong></div>
+
+            <div class="row mb-5">
+                <div class="col-md-4 mb-2"><div class="p-3 border rounded text-center bg-light"><i class="fas fa-wine-bottle fa-2x"></i><br>Boissons<br>-70%</div></div>
+                <div class="col-md-4 mb-2"><div class="p-3 border rounded text-center bg-light"><i class="fas fa-egg fa-2x"></i><br>Conserves<br>-65%</div></div>
+                <div class="col-md-4 mb-2"><div class="p-3 border rounded text-center bg-light"><i class="fas fa-bread-slice fa-2x"></i><br>Épicerie sèche<br>-60%</div></div>
+            </div>
+
+            <h2 class="mb-4">🏷️ Top soldes Verdun</h2>
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Catégorie</th><th>Conditionnement</th><th class="bg-primary text-white">Prix soldé</th><th>Éco</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">🥤 Coca-Cola palette</td><td>2592 canettes</td><td class="bg-light"><strong>1 399 €</strong></td><td><span class="badge bg-success">-36%</span></td></tr>
+                        <tr><td class="fw-bold">🍺 Bières meusiennes</td><td>2592 canettes</td><td class="bg-light"><strong>1 299 €</strong></td><td><span class="badge bg-success">-40%</span></td></tr>
+                        <tr><td class="fw-bold">🥫 Conservas légumes</td><td>600 boîtes</td><td class="bg-light"><strong>699 €</strong></td><td><span class="badge bg-success">-50%</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-primary text-white p-5 rounded-4 text-center">
+                <h3>Code <strong class="bg-white text-primary px-3 py-2 rounded">SOLDES55</strong> = -15% dès 2 palettes</h3>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3">🏷️ PROFITER DES SOLDES</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
