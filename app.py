@@ -2225,6 +2225,30 @@ def admin_supprimer_produit(produit_id):
         db.session.rollback()
         return jsonify({'success': False, 'error': str(e)}), 500
 
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/destockage-alimentaire-reims')
+def destockage_alimentaire_reims():
+    """Article - Destockage alimentaire Reims et Marne"""
+    return render_template('articles/destockage_alimentaire_reims.html')
+
+@app.route('/destockage-alimentaire-chalons-en-champagne')
+def destockage_alimentaire_chalons_en_champagne():
+    """Article - Destockage alimentaire Châlons-en-Champagne et Marne"""
+    return render_template('articles/destockage_alimentaire_chalons_en_champagne.html')
+
+@app.route('/destockage-alimentaire-troyes')
+def destockage_alimentaire_troyes():
+    """Article - Destockage alimentaire Troyes et Aube"""
+    return render_template('articles/destockage_alimentaire_troyes.html')
+
+@app.route('/destockage-alimentaire-charleville-mezieres')
+def destockage_alimentaire_charleville_mezieres():
+    """Article - Destockage alimentaire Charleville-Mézières et Ardennes"""
+    return render_template('articles/destockage_alimentaire_charleville_mezieres.html')
+
+
 # Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
 
 # ============= SITEMAP ROUTES =============
@@ -2394,6 +2418,14 @@ def sitemap():
         {'loc': '/destockage-alimentaire-annecy', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-grenoble-2026', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-valence', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-reims', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-chalons-en-champagne', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-troyes', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-charleville-mezieres', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-metz', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-nancy', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-epinal', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-verdun', 'priority': 0.9, 'changefreq': 'weekly'},
     ]
     
     # URLs dynamiques - Produits
@@ -2492,7 +2524,27 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 # ============ 4 ARTICLES DESTOCKPRO ULTRA CONVERSION ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKPRO ============
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 
+@app.route('/destockage-alimentaire-metz')
+def destockage_alimentaire_metz():
+    """Article - Destockage alimentaire Metz et Moselle"""
+    return render_template('articles/destockage_alimentaire_metz.html')
+
+@app.route('/destockage-alimentaire-nancy')
+def destockage_alimentaire_nancy():
+    """Article - Destockage alimentaire Nancy et Meurthe-et-Moselle"""
+    return render_template('articles/destockage_alimentaire_nancy.html')
+
+@app.route('/destockage-alimentaire-epinal')
+def destockage_alimentaire_epinal():
+    """Article - Destockage alimentaire Épinal et Vosges"""
+    return render_template('articles/destockage_alimentaire_epinal.html')
+
+@app.route('/destockage-alimentaire-verdun')
+def destockage_alimentaire_verdun():
+    """Article - Destockage alimentaire Verdun et Meuse"""
+    return render_template('articles/destockage_alimentaire_verdun.html')
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 
 @app.route('/destockage-alimentaire-calais')
