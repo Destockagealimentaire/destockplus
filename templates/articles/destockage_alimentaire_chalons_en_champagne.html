@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}🏛️ Destockage Alimentaire Châlons-en-Champagne 2026 - Économies jusqu'à 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Découvrez le destockage alimentaire à Châlons-en-Champagne et dans la Marne. Économies jusqu'à 70% sur vos produits. Livraison rapide.{% endblock %}
+
+{% block meta_keywords %}destockage Châlons-en-Champagne, destockage Marne, alimentaire pas cher Châlons, grossiste Châlons, destockage 51{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Grand Est</a></li>
+                    <li class="breadcrumb-item active">Châlons-en-Champagne</li>
+                </ol>
+            </nav>
+
+            <div class="bg-success text-white text-center py-2 rounded-3 mb-4">
+                <i class="fas fa-castle me-2"></i> DESTOCKAGE ALIMENTAIRE CHÂLONS-EN-CHAMPAGNE 2026 <i class="fas fa-euro-sign ms-2"></i>
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🏛️ CHÂLONS 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(4.8/5 - 654 avis)</span></div>
+                <h1 class="display-4 fw-bold mb-3">🏛️ Destockage Alimentaire <span class="text-success">Châlons-en-Champagne</span> 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses à Châlons-en-Champagne.</p>
+            </div>
+
+            <!-- Zones clés -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de la Marne</h3></div>
+                            </div>
+                            <p>Zone industrielle majeure</p>
+                            <span class="badge bg-success">-60% à -70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de Saint-Martin-sur-le-Pré</h3></div>
+                            </div>
+                            <p>Zone logistique dynamique</p>
+                            <span class="badge bg-success">-55% à -65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="display-4 text-success">🏭</div>
+                                <div><h3 class="h5 mb-0">Zone de Sarry</h3></div>
+                            </div>
+                            <p>Zone commerciale active</p>
+                            <span class="badge bg-success">-50% à -60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Offre spéciale Châlons -->
+            <div class="bg-success text-white p-4 rounded-4 my-4 text-center">
+                <div><span class="display-6">🎁</span><strong class="fs-4 ms-2">Offre spéciale Châlons 2026</strong>
+                <p class="mb-0 mt-1">-10% sur votre première commande avec le code <strong class="bg-white text-success px-3 py-2 rounded">CHALONS10</strong></p></div>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg mt-3 fw-bold">👉 COMMANDER MAINTENANT 👈</a>
+            </div>
+
+            <!-- CTA final -->
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="h2 mb-3">🏛️ Châlons-en-Champagne économise avec DestockPro !</h3>
+                <p class="lead mb-4">Livraison rapide - Économies garanties</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-success btn-lg px-5 py-3">🛒 COMMANDER MAINTENANT →</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
