@@ -2450,6 +2450,18 @@ def sitemap():
         {'loc': '/liquidation-alimentaire-nancy-maxeville', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/promo-alimentaire-epinal-golbey', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/solde-alimentaire-verdun-thierville', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/achat-palette-ruinart-blanc-blancs', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/destockage-alimentaire-ile-de-france-paris', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/discount-alimentaire-belgique-frontiere', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/prix-palette-coca-cola-destockage', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/palette-fanta-orange-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/destockage-alimentaire-marchandises-rapide', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/acheter-palette-chips-pas-chere', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/destockage-alimentaire-suisse-geneve', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/destockage-masque-palettes-anonyme', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/fin-series-alimentaire-vente-rapide', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/palette-produit-export-marche-africain', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
+        {'loc': '/destockage-liquidation-entrepot-fermeture', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': today},
         
     ]
     
@@ -2582,6 +2594,71 @@ def destockage_alimentaire_dunkerque():
     """Article - Destockage alimentaire Dunkerque et Flandre maritime"""
     return render_template('articles/destockage_alimentaire_dunkerque.html')
 
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/achat-palette-ruinart-blanc-blancs')
+def achat_palette_ruinart():
+    """Article - Achat palette Ruinart Blanc Blancs destockage"""
+    return render_template('articles/achat-palette-ruinart-blanc-blancs.html')
+
+@app.route('/destockage-alimentaire-ile-de-france-paris')
+def destockage_ile_de_france_paris():
+    """Article - Destockage alimentaire Ile de France et Paris"""
+    return render_template('articles/destockage-ile-de-france-paris.html')
+
+@app.route('/discount-alimentaire-belgique-frontiere')
+def discount_alimentaire_belgique():
+    """Article - Discount alimentaire Belgique frontière française"""
+    return render_template('articles/discount-alimentaire-belgique-frontiere.html')
+
+@app.route('/prix-palette-coca-cola-destockage')
+def prix_palette_coca_cola():
+    """Article - Prix palette Coca Cola destockage grossiste"""
+    return render_template('articles/prix-palette-coca-cola-destockage.html')
+
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+
+@app.route('/palette-fanta-orange-prix-grossiste')
+def palette_fanta_orange():
+    """Article - Palette Fanta Orange prix grossiste destockage"""
+    return render_template('articles/palette-fanta-orange-prix-grossiste.html')
+
+@app.route('/destockage-alimentaire-marchandises-rapide')
+def destockage_marchandises_rapide():
+    """Article - Destockage alimentaire marchandises livraison rapide"""
+    return render_template('articles/destockage-marchandises-rapide.html')
+
+@app.route('/acheter-palette-chips-pas-chere')
+def acheter_palette_chips():
+    """Article - Acheter palette chips pas chère destockage"""
+    return render_template('articles/acheter-palette-chips-pas-chere.html')
+
+@app.route('/destockage-alimentaire-suisse-geneve')
+def destockage_suisse_geneve():
+    """Article - Destockage alimentaire Suisse Genève frontière"""
+    return render_template('articles/destockage-suisse-geneve.html')
+
+# ============ 4 NOUVEAUX ARTICLES ULTRA INDEX ============
+
+@app.route('/destockage-masque-palettes-anonyme')
+def destockage_masque_palettes():
+    """Article - Destockage masqué - Palettes sans marque apparente"""
+    return render_template('articles/destockage-masque-palettes-anonyme.html')
+
+@app.route('/fin-series-alimentaire-vente-rapide')
+def fin_series_vente_rapide():
+    """Article - Fin de séries alimentaire vente accélérée"""
+    return render_template('articles/fin-series-alimentaire-vente-rapide.html')
+
+@app.route('/palette-produit-export-marche-africain')
+def palette_export_africain():
+    """Article - Palette produit export pour marché africain"""
+    return render_template('articles/palette-export-africain.html')
+
+@app.route('/destockage-liquidation-entrepot-fermeture')
+def liquidation_entrepot_fermeture():
+    """Article - Liquidation entrepôt fermeture définitive"""
+    return render_template('articles/destockage-liquidation-entrepot-fermeture.html')
 @app.route('/destockage-alimentaire-boulogne-sur-mer')
 def destockage_alimentaire_boulogne_sur_mer():
     """Article - Destockage alimentaire Boulogne-sur-Mer et Boulonnais"""
