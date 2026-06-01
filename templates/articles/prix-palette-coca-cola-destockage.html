@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}🥤 Prix Palette Coca Cola Destockage - Grossiste 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Prix palette Coca Cola en destockage grossiste. Coca Cola 33cl en palette de 2592 canettes. Livraison France. Économies jusqu'à 30%. Devis gratuit.{% endblock %}
+
+{% block meta_keywords %}prix palette Coca Cola, destockage Coca Cola, grossiste Coca Cola prix, palette canette Coca Cola, Coca Cola pas cher grossiste{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Boissons</a></li>
+                    <li class="breadcrumb-item active">Coca Cola</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-coca text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #e31e24, #9e1e24);">
+                <i class="fas fa-cup me-2"></i> PRIX PALETTE COCA COLA DESTOCKAGE GROSSISTE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🥤 PROMO COCA</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(567 avis)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🥤 Prix Palette Coca Cola Destockage - Grossiste 2026</h1>
+                <p class="lead fs-4">Palette Coca Cola 33cl à prix <strong class="text-primary">destockage professionnel</strong>.</p>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3 class="text-danger">À partir de 1499,00 € TTC</h3>
+                            <p>(soit 0,58€ la canette)</p>
+                            <p>Prix public : <del>2099,00€</del></p>
+                            <p>Économie : <strong class="text-success">600,00€</strong></p>
+                            <ul>
+                                <li>2592 canettes de 33cl</li>
+                                <li>Coca Cola Original</li>
+                                <li>Fabrication UE</li>
+                                <li>DLC 12 mois minimum</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="bg-light p-3 rounded">
+                                <p class="fw-bold">Tarifs dégressifs :</p>
+                                <p>1 palette : 1499€</p>
+                                <p>2 palettes : 2899€ (soit 1449,50€/palette)</p>
+                                <p>5 palettes : 6995€ (soit 1399€/palette)</p>
+                                <p>10 palettes : 13490€ (soit 1349€/palette)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Livraison offerte dès 2 palettes</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEMANDER UN DEVIS</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

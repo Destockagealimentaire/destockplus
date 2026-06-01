@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}🥨 Palette Chips Pas Chère - Destockage Grossiste 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Achetez votre palette de chips pas chère en destockage grossiste. Lay's, Vico, Brets. Livraison France. Économies jusqu'à 50%. Devis gratuit.{% endblock %}
+
+{% block meta_keywords %}palette chips pas chère, destockage chips, grossiste chips, Lay's palette, chips grossiste prix, acheter chips en palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Épicerie</a></li>
+                    <li class="breadcrumb-item active">Chips</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-chips text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #f4b41a, #f27d0c);">
+                <i class="fas fa-utensils me-2"></i> PALETTE CHIPS PAS CHÈRE - DESTOCKAGE GROSSISTE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning text-dark px-3 py-2 mb-2">🥨 OFFRE CHIPS</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(412 avis)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🥨 Acheter Palette Chips Pas Chère - Destockage Grossiste 2026</h1>
+                <p class="lead fs-4">Palette de chips à prix <strong class="text-primary">destockage grossiste</strong>. Jusqu'à 50% d'économies.</p>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3 class="text-warning">À partir de 349,00 € TTC</h3>
+                            <p>(soit 0,87€ le paquet)</p>
+                            <p>Prix public : <del>699,00€</del></p>
+                            <p>Économie : <strong class="text-success">350,00€</strong></p>
+                            <ul>
+                                <li>400 paquets de chips</li>
+                                <li>Marques : Lay's, Vico, Brets</li>
+                                <li>DLC 6 mois minimum</li>
+                                <li>Assortiment possible</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="bg-light p-3 rounded">
+                                <p class="fw-bold">Nos palettes chips :</p>
+                                <p>Palette Lay's Original (400x50g) : 349€</p>
+                                <p>Palette Vico assortie (400x50g) : 329€</p>
+                                <p>Palette Brets (400x50g) : 359€</p>
+                                <p>Palette mixte (400x50g) : 339€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-warning bg-opacity-10 p-4 rounded-4">
+                <h4>Idéal pour :</h4>
+                <ul>
+                    <li>Bars et restaurants</li>
+                    <li>Distributeurs automatiques</li>
+                    <li>Collectivités</li>
+                    <li>Commerces de proximité</li>
+                </ul>
+            </div>
+
+            <div class="bg-warning text-dark p-4 rounded-4 text-center mt-4">
+                <p class="fs-4">Livraison offerte dès 2 palettes</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-dark btn-lg fw-bold">DEMANDER UN DEVIS CHIPS</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

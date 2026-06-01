@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}🚚 Destockage Alimentaire Marchandises - Livraison Rapide 48h | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage alimentaire avec livraison rapide sous 48h. Marchandises en stock, expédition immédiate. Palettes boissons, épicerie, produits secs. France entière.{% endblock %}
+
+{% block meta_keywords %}destockage livraison rapide, marchandises alimentaires, livraison 48h destockage, palette livraison express, destockage urgence{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Livraison</a></li>
+                    <li class="breadcrumb-item active">Livraison Rapide</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-rapide text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <i class="fas fa-truck-fast me-2"></i> DESTOCKAGE ALIMENTAIRE - LIVRAISON RAPIDE SOUS 48H
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🚚 LIVRAISON EXPRESS</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1245 avis)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🚚 Destockage Alimentaire Marchandises - Livraison Rapide 48h</h1>
+                <p class="lead fs-4">Commandez aujourd'hui, <strong class="text-primary">livré sous 48h</strong> partout en France.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-clock fa-3x text-success mb-2"></i>
+                            <h5>Commande avant 12h</h5>
+                            <small>Expédition le jour même</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-boxes fa-3x text-success mb-2"></i>
+                            <h5>Stock permanent</h5>
+                            <small>Marchandises disponibles</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-success mb-2"></i>
+                            <h5>Transporteurs partenaires</h5>
+                            <small>Suivi en temps réel</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-headset fa-3x text-success mb-2"></i>
+                            <h5>Support dédié</h5>
+                            <small>Suivi de commande</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Zone de livraison</th><th>Délai</th><th>Tarif</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Paris IDF</td><td>24h</td><td>Offert dès 500€ HT</td></tr>
+                        <tr><td class="fw-bold">Nord / Pas-de-Calais</td><td>24-48h</td><td>Offert dès 500€ HT</td></tr>
+                        <tr><td class="fw-bold">Sud-Est</td><td>48h</td><td>Offert dès 800€ HT</td></tr>
+                        <tr><td class="fw-bold">Sud-Ouest</td><td>48-72h</td><td>Offert dès 800€ HT</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-success text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Stock disponible pour expédition immédiate</p>
+                <a href="{{ url_for('produits') }}" class="btn btn-light btn-lg fw-bold">VOIR LES PRODUITS DISPONIBLES</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

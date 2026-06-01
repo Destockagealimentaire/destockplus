@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}🌍 Palette Export Afrique - Destockage Marché Africain | DestockPro{% endblock %}
+
+{% block meta_description %}Palette produit export spécial marché africain. Conditionnement adapté, DLC longue, documents douane fournis. Livraison port Abidjan, Dakar, Douala. Devis export.{% endblock %}
+
+{% block meta_keywords %}palette export Afrique, destockage marché africain, export alimentaire, palette Afrique, grossiste export Abidjan, conteneur alimentaire Afrique{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Export</a></li>
+                    <li class="breadcrumb-item active">Afrique</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-export text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <i class="fas fa-globe-africa me-2"></i> PALETTE EXPORT - MARCHÉ AFRICAIN
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🌍 EXPORT 2026</span>
+                <h1 class="display-5 fw-bold mb-3">🌍 Palette Produit Export pour Marché Africain</h1>
+                <p class="lead fs-4">Produits spécialement sélectionnés pour <strong class="text-primary">l'export vers l'Afrique</strong>.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>DLC longue durée</h5>
+                            <p>12 à 24 mois selon produits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Conditionnement adapté</h5>
+                            <p>Tropicalisation des emballages</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Documents douane fournis</h5>
+                            <p>Certificat origine, facture proforma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Conteneur 20/40 pieds</h5>
+                            <p>Groupage ou complet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📦 Produits export les plus demandés</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr><th>Produit</th><th>Conditionnement</th><th>Prix départ France</th><th>Destination</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Lait concentré sucré</th><td>Palette 400 boîtes</th><td>449€</th><td>Afrique Ouest</th></tr>
+                                <tr><td class="fw-bold">Huile alimentaire</th><td>Palette 200 bidons</th><td>599€</th><td>Afrique Centrale</th></tr>
+                                <tr><td class="fw-bold">Farine de blé</th><td>Big bag 1 tonne</th><td>349€</th><td>Afrique Nord</th></tr>
+                                <tr><td class="fw-bold">Boissons gazeuses</th><td>Palette 2592 canettes</th><td>999€</th><td>Toute Afrique</th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-info bg-opacity-10 p-4 rounded-4 mb-4">
+                <h4>Ports de destination couverts :</h4>
+                <p>Abidjan (Côte d'Ivoire), Dakar (Sénégal), Douala (Cameroun), Cotonou (Bénin), Lomé (Togo), Pointe-Noire (Congo), Le Havre (départ France)</p>
+            </div>
+
+            <div class="bg-success text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Devis export sous 24h</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEMANDER UN DEVIS EXPORT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

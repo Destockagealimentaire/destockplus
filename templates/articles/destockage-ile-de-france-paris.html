@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}🏛️ Destockage Alimentaire Ile de France Paris 2026 - Grossiste IDF | DestockPro{% endblock %}
+
+{% block meta_description %}Guide complet du destockage alimentaire en Ile de France et Paris. Grossistes, entrepôts, bonnes adresses. Économies jusqu'à 70%. Livraison 75.{% endblock %}
+
+{% block meta_keywords %}destockage Ile de France, destockage Paris, grossiste alimentaire IDF, entrepôt destockage 75, destockage alimentaire région parisienne{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Ile de France</a></li>
+                    <li class="breadcrumb-item active">Paris</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-idf text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1a5f7a, #2d9c6b);">
+                <i class="fas fa-eiffel-tower me-2"></i> DESTOCKAGE ALIMENTAIRE ILE DE FRANCE PARIS 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🏛️ ILE DE FRANCE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(2341 avis)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🏛️ Destockage Alimentaire Ile de France et Paris 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">70%</strong> sur vos courses en région parisienne.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Zone Paris 18e</h5>
+                            <p>Entrepôt destockage</p>
+                            <span class="badge bg-primary">-65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Zone Rungis</h5>
+                            <p>Marché international</p>
+                            <span class="badge bg-primary">-70%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Zone Gennevilliers</h5>
+                            <p>Zone logistique</p>
+                            <span class="badge bg-primary">-60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Quantité</th><th>Prix IDF</th><th>Prix DestockPro</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Coca-Cola</th><td>2592 canettes</th><td>2099€</th><td>1499€</th></tr>
+                        <tr><td>Nutella</th><td>760 pots</th><td>2099€</th><td>1799€</th></tr>
+                        <tr><td>Eau minérale</th><td>2040 bouteilles</th><td>899€</th><td>599€</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-primary text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Code promo <strong>PARIS10</strong> : -10% sur votre première commande</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">COMMANDER MAINTENANT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

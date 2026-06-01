@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}🇧🇪 Discount Alimentaire Belgique - Frontière Française 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Guide du discount alimentaire en Belgique près de la frontière française. Meilleures adresses, prix imbattables, destockage Belgique. Économies garanties.{% endblock %}
+
+{% block meta_keywords %}discount alimentaire Belgique, frontière belge destockage, alimentaire moins cher Belgique, destockage Belgique frontière, shopping Belgique alimentaire{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item active">Discount frontalier</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-belgium text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                <i class="fas fa-euro-sign me-2"></i> DISCOUNT ALIMENTAIRE BELGIQUE - FRONTIÈRE FRANÇAISE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">🇧🇪 BELGIQUE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1542 avis)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🇧🇪 Discount Alimentaire Belgique - Frontière Française 2026</h1>
+                <p class="lead fs-4">Découvrez les <strong class="text-primary">meilleures adresses discount</strong> en Belgique à proximité de la frontière.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Tournai</h5>
+                            <p>À 15 min de Lille</p>
+                            <span class="badge bg-info">-25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Mouscron</h5>
+                            <p>À 10 min de Wattrelos</p>
+                            <span class="badge bg-info">-30%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5>Menen</h5>
+                            <p>À 20 min de Halluin</p>
+                            <span class="badge bg-info">-28%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>Bon plan DestockPro :</strong> Nous livrons également en Belgique. Demandez votre devis personnalisé.
+            </div>
+
+            <div class="bg-info text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Code promo <strong>BELGIQUE15</strong> : -15% sur votre première commande</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">OBTENIR MON DEVIS</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

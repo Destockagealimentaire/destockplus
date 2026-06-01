@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}🏚️ Liquidation Entrepôt - Fermeture Définitive Tout à Vendre | DestockPro{% endblock %}
+
+{% block meta_description %}Liquidation totale entrepôt pour fermeture définitive. Tout le stock à vendre. Palettes alimentaires, boissons, épicerie. Prix cassés jusqu'à -80%. Dernier délai.{% endblock %}
+
+{% block meta_keywords %}liquidation entrepôt, fermeture définitive, tout à vendre destockage, liquidation stock complet, entrepôt liquidation totale{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <div class="alert alert-dark text-center mb-4 fw-bold" style="background: #1a1a2e; color: white; border: none;">
+                🏚️ LIQUIDATION TOTALE - FERMETURE DÉFINITIVE - TOUT À VENDRE 🏚️
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Liquidations</a></li>
+                    <li class="breadcrumb-item active">Fermeture entrepôt</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-liquidation text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                <i class="fas fa-door-closed me-2"></i> LIQUIDATION ENTREPÔT - FERMETURE DÉFINITIVE
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-dark px-3 py-2 mb-2">🏚️ DERNIÈRE SEMAINE</span>
+                <h1 class="display-5 fw-bold mb-3">🏚️ Liquidation Entrepôt - Fermeture Définitive Tout à Vendre</h1>
+                <p class="lead fs-4">Stock complet liquidé pour <strong class="text-danger">cause fermeture définitive</strong>. Prix jusqu'à -80%.</p>
+            </div>
+
+            <div class="card border-dark border-3 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📦 INVENTAIRE COMPLET À LIQUIDER</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>🥤 Boissons gazeuses : 120 palettes</li>
+                                <li>🍪 Biscuits et gâteaux : 85 palettes</li>
+                                <li>🥫 Conserves légumes : 60 palettes</li>
+                                <li>🍝 Pâtes et riz : 45 palettes</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>🧃 Jus de fruits : 40 palettes</li>
+                                <li>☕ Café et thé : 25 palettes</li>
+                                <li>🧴 Huiles et condiments : 35 palettes</li>
+                                <li>🍬 Confiseries : 30 palettes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning mt-3 fw-bold text-center">
+                        TOTAL : 440 PALETTES À ÉCOULER EN 15 JOURS
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Lot</th><th>Contenu</th><th>Prix liquidation</th><th>Remise</th><th>Disponibilité</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Lot A</th><td>50 palettes boissons</th><td>15 000€</th><td>-70%</th><td>12 restantes</th></tr>
+                        <tr><td class="fw-bold">Lot B</th><td>30 palettes épicerie</th>那樣:.500€</th><td>-75%</th><td>8 restantes</th></tr>
+                        <tr><td class="fw-bold">Lot C</th><td>20 palettes mixte</th><td>4 000€</th><td>-80%</th><td>5 restantes</th></tr>
+                        <tr><td class="fw-bold">Lot D</th><td>100 palettes tout</th><td>25 000€</th><td>-75%</th><td>1 restant</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-warning text-dark p-4 rounded-4 text-center mb-4">
+                <p class="fs-4 fw-bold">ACHAT DU LOT COMPLET NÉGOCIABLE</p>
+                <p>Reprise du mobilier, rayonnages et matériel inclus</p>
+            </div>
+
+            <div class="bg-dark text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Dernier délai pour enchérir : 15 juin 2026</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-warning btn-lg fw-bold text-dark">FAIRE UNE OFFRE GLOBALE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
