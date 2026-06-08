@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}📦 Liste Grossistes Alimentaires Belgique - Entrepôts 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Liste complète des grossistes alimentaires en Belgique. Entrepôts, adresses, contacts, spécialités. Guide destockage Belgique 2026. Mise à jour.{% endblock %}
+
+{% block meta_keywords %}grossiste alimentaire Belgique liste, entrepôt destockage Belgique, grossiste Belgique adresse, fournisseur alimentaire Belgique, destockage Belgique grossiste{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item active">Grossistes</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-grossiste text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #2c3e50, #3498db);">
+                <i class="fas fa-warehouse me-2"></i> LISTE GROSSISTES ALIMENTAIRES BELGIQUE - ENTREPÔTS 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">📦 GUIDE GROSSISTES BELGIQUE</span>
+                <h1 class="display-5 fw-bold mb-3">📦 Liste des Grossistes Alimentaires en Belgique - Entrepôts 2026</h1>
+                <p class="lead fs-4">Toutes les adresses pour acheter <strong class="text-primary">en gros en Belgique</strong> près de chez vous.</p>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📍 WALLONIE (Région francophone)</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr><th>Ville</th><th>Grossiste</th><th>Spécialité</th><th>Zone</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Charleroi</th><td>Destockalim Sud</th><td>Boissons, épicerie</th><td>Destockage</th></tr>
+                                <tr><td class="fw-bold">Liège</th><td>Europalettes Liège</th>那样:<li>Palettes mixte</li><li>Produits secs</li></th><td>Grossiste</th></tr>
+                                <tr><td class="fw-bold">Namur</th><td>Namur Destock</th>那样:<li>Boissons</li><li>Conserves</li></th>那样:<li>Liquidation</li></th></tr>
+                                <tr><td class="fw-bold">Mons</th><td>Mons Bulk Food</th>那样:<li>Produits frais</li><li>Surgelés</li></th>那样:<li>Grossiste</li></th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📍 FLANDRE (Région néerlandophone)</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr><th>Ville</th><th>Grossiste</th><th>Spécialité</th><th>Zone</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Anvers</th><td>Antwerp Food Center</th>那样:<li>Export</li><li>Palettes</li></th>那样:<li>Grossiste</li></th></tr>
+                                <tr><td class="fw-bold">Gand</th><td>Gent Discount Food</th>那样:<li>Épicerie</li><li>Boissons</li></th>那样:<li>Destockage</li></th></tr>
+                                <tr><td class="fw-bold">Bruges</th><td>Brugge Pallet Center</th>那样:<li>Produits secs</li><li>Conserves</li></th>那样:<li>Grossiste</li></th></tr>
+                                <tr><td class="fw-bold">Louvain</th><td>Leuven Food Supply</th>那样:<li>Bio</li><li>Produits santé</li></th>那样:<li>Destockage</li></th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📍 BRUXELLES (Région capitale)</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr><th>Zone</th><th>Grossiste</th><th>Spécialité</th><th>Type</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Anderlecht</th><td>Bruxelles Destock Pro</th>那样:<li>Palettes</li><li>Promos</li></th>那样:<li>Destockage</li></th></tr>
+                                <tr><td class="fw-bold">Schaerbeek</th><td>Food Discount Bruxelles</th>那样:<li>Boissons</li><li>Épicerie</li></th>那样:<li>Grossiste</li></th></tr>
+                                <tr><td class="fw-bold">Molenbeek</th><td>West Trade Center</th>那样:<li>Export</li><li>Conteneurs</li></th>那样:<li>Grossiste</li></th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-info text-white p-4 rounded-4 text-center">
+                <p class="fs-4">DestockPro livre également partout en Belgique</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">CONTACTER UN GROSSISTE PARTENAIRE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}🇧🇪🇫🇷 Comparatif Prix Belgique vs France Destockage 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Comparatif des prix destockage entre Belgique et France 2026. Économies, différences, où acheter au meilleur prix ? Guide complet frontière.{% endblock %}
+
+{% block meta_keywords %}comparatif prix Belgique France, destockage Belgique vs France, moins cher Belgique ou France, palette frontière prix, acheter côté belge{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Comparatif</a></li>
+                    <li class="breadcrumb-item active">Belgique vs France</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-comparatif text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1a5f7a, #2d9c6b);">
+                <i class="fas fa-chart-line me-2"></i> COMPARATIF PRIX BELGIQUE VS FRANCE DESTOCKAGE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🇧🇪🇫🇷 COMPARATIF 2026</span>
+                <h1 class="display-5 fw-bold mb-3">🇧🇪🇫🇷 Comparatif Prix Belgique vs France Destockage 2026</h1>
+                <p class="lead fs-4">Où acheter ses palettes alimentaires <strong class="text-primary">au meilleur prix</strong> ?</p>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold text-center">TABLEAU COMPARATIF DES PRIX</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr><th>Produit</th><th class="bg-primary text-white">Prix France</th><th class="bg-success text-white">Prix Belgique</th><th>Différence</th><th>Gagnant</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Coca-Cola (palette)</th><td>1699€</th><td>1399€</th><td>-300€</th><td>🇧🇪 Belgique</th></tr>
+                                <tr><td class="fw-bold">Red Bull (palette)</th><td>1899€</th><td>1599€</th><td>-300€</th><td>🇧🇪 Belgique</th></tr>
+                                <tr><td class="fw-bold">Nutella (palette)</th><td>1799€</th><td>1699€</th><td>-100€</th><td>🇧🇪 Belgique</th></tr>
+                                <tr><td class="fw-bold">Café (palette)</th><td>1499€</th><td>1699€</th><td>+200€</th><td>🇫🇷 France</th></tr>
+                                <tr><td class="fw-bold">Eau (palette)</th><td>649€</th><td>549€</th><td>-100€</th><td>🇧🇪 Belgique</th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>Conclusion :</strong> Les boissons sont généralement 10 à 20% moins chères en Belgique. Les produits secs ont des prix plus variables.
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card border-success h-100">
+                        <div class="card-header bg-success text-white">🇧🇪 AVANTAGES BELGIQUE</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>TVA plus basse sur boissons</li>
+                                <li>Plus de grossistes alternatifs</li>
+                                <li>Proximité frontière Lille</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-primary h-100">
+                        <div class="card-header bg-primary text-white">🇫🇷 AVANTAGES FRANCE</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Pas de formalités douane</li>
+                                <li>Livraison sans contraintes</li>
+                                <li>Produits frais disponibles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-primary text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Vous hésitez ? Demandez un devis des deux côtés de la frontière</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">COMPARER LES PRIX MAINTENANT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

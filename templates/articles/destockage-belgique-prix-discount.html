@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}🇧🇪 Destockage Alimentaire Belgique Prix Discount 2026 - Moins 70% | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage alimentaire Belgique aux meilleurs prix discount 2026. Jusqu'à 70% sur palettes entières. Livraison Belgique et frontière française. Stock permanent.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Belgique prix discount, discount alimentaire Belgique 2026, palette pas cher Belgique, destockage Belgique moins 70{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item active">Prix Discount</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-belgium-discount text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #e31e24, #ff6a00);">
+                <i class="fas fa-tags me-2"></i> DESTOCKAGE BELGIQUE - PRIX DISCOUNT 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🇧🇪 PROMO BELGIQUE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(2341 avis clients Belgique)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🇧🇪 Destockage Alimentaire Belgique Prix Discount 2026</h1>
+                <p class="lead fs-4">Jusqu'à <strong class="text-danger">70% de réduction</strong> sur les palettes alimentaires en Belgique.</p>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Quantité</th><th>Prix public</th><th>Prix DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola</th><td>2592 canettes</th><td>2099€</th><td>1399€</th><td>-33%</th></tr>
+                        <tr><td class="fw-bold">Red Bull</th><td>2592 canettes</th><td>2499€</th><td>1599€</th><td>-36%</th></tr>
+                        <tr><td class="fw-bold">Nutella 1kg</th><td>760 pots</th><td>2099€</th><td>1699€</th><td>-19%</th></tr>
+                        <tr><td class="fw-bold">Eau minérale</th><td>2040 bouteilles</th><td>899€</th><td>549€</th><td>-39%</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-light p-4 rounded-4 mb-4">
+                <h4>Pourquoi les prix sont-ils plus bas en Belgique ?</h4>
+                <ul>
+                    <li>Différences de TVA sur certains produits</li>
+                    <li>Concurrence plus forte entre grossistes</li>
+                    <li>Circuits de distribution différents</li>
+                    <li>Stocks transfrontaliers disponibles</li>
+                </ul>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Livraison Belgique et frontière française offerte dès 2 palettes</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEVIS PRIX DISCOUNT BELGIQUE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

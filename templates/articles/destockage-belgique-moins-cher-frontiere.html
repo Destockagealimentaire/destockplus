@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}🇧🇪 Destockage Belgique Moins Cher - Frontière Française 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage Belgique aux meilleurs prix près de la frontière française. Économies maximales à Tournai, Mouscron, Menen. Guide frontalier 2026. Livraison possible.{% endblock %}
+
+{% block meta_keywords %}destockage Belgique moins cher, frontière Belgique destockage, moins cher Belgique frontière, Tournai destockage, Mouscron grossiste{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Belgique</a></li>
+                    <li class="breadcrumb-item active">Frontière</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-frontiere text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <i class="fas fa-passport me-2"></i> DESTOCKAGE BELGIQUE LE MOINS CHER - PRÈS FRONTIÈRE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🇧🇪 FRONTIÈRE 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1876 avis frontaliers)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🇧🇪 Destockage Belgique le Moins Cher près de la Frontière Française</h1>
+                <p class="lead fs-4">Les meilleures adresses pour <strong class="text-primary">économiser jusqu'à 40%</strong> à quelques kilomètres de la frontière.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body">
+                            <h4 class="text-danger">🇧🇪 Tournai</h4>
+                            <p>À 15 min de Lille</p>
+                            <p class="fw-bold">Économies : -25% à -35%</p>
+                            <p>Spécialités : bières belges, boissons</p>
+                            <span class="badge bg-success">Top économies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body">
+                            <h4 class="text-danger">🇧🇪 Mouscron</h4>
+                            <p>À 10 min de Wattrelos</p>
+                            <p class="fw-bold">Économies : -20% à -30%</p>
+                            <p>Spécialités : épicerie, produits secs</p>
+                            <span class="badge bg-success">Très accessible</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body">
+                            <h4 class="text-danger">🇧🇪 Menen</h4>
+                            <p>À 20 min de Halluin</p>
+                            <p class="fw-bold">Économies : -15% à -25%</p>
+                            <p>Spécialités : produits laitiers</p>
+                            <span class="badge bg-success">Idéal famille</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">Tableau comparatif des prix frontière</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr><th>Produit</th><th>Prix France</th><th>Prix Belgique frontière</th><th>Économie par palette</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Palette Coca-Cola</th><td>1699€</th><td>1399€</th><td>300€</th></tr>
+                                <tr><td class="fw-bold">Palette Jupiler</th><td>1799€</th><td>1299€</th><td>500€</th></tr>
+                                <tr><td class="fw-bold">Palette Nutella</th><td>1799€</th><td>1699€</th><td>100€</th></tr>
+                                <tr><td class="fw-bold">Palette Eau</th><td>649€</th><td>549€</th><td>100€</th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <i class="fas fa-info-circle"></i> <strong>Conseil frontalier :</strong> Prévoyez votre moyen de transport. Pour 2 palettes, prévoyez un utilitaire ou une remorque.
+            </div>
+
+            <div class="bg-success text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Vous êtes frontalier ? Bénéficiez de -5% sur votre première commande DestockPro</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEVIS FRONTALIER GRATUIT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
