@@ -2269,6 +2269,28 @@ def promo_alimentaire_epinal():
 def solde_alimentaire_verdun():
     """Article - Soldes alimentaires Verdun Thierville"""
     return render_template('articles/solde_verdun_thierville.html')
+
+# ============ 4 ARTICLES BELGIQUE ULTRA INDEXÉS ============
+
+@app.route('/destockage-alimentaire-belgique-prix-discount')
+def destockage_belgique_prix_discount():
+    """Article - Destockage alimentaire Belgique prix discount 2026"""
+    return render_template('articles/destockage-belgique-prix-discount.html')
+
+@app.route('/comparatif-prix-belgique-france-destockage')
+def comparatif_prix_belgique_france():
+    """Article - Comparatif prix Belgique vs France destockage"""
+    return render_template('articles/comparatif-prix-belgique-france-destockage.html')
+
+@app.route('/grossiste-alimentaire-belgique-liste-entrepots')
+def grossiste_belgique_liste_entrepots():
+    """Article - Liste grossistes alimentaires Belgique entrepôts"""
+    return render_template('articles/grossiste-belgique-liste-entrepots.html')
+
+@app.route('/destockage-alimentaire-belgique-moins-cher-frontiere')
+def destockage_belgique_moins_cher_frontiere():
+    """Article - Destockage Belgique le moins cher près frontière"""
+    return render_template('articles/destockage-belgique-moins-cher-frontiere.html')
 # Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
 
 # ============= SITEMAP ROUTES =============
@@ -2462,6 +2484,10 @@ def sitemap():
         {'loc': '/fin-series-alimentaire-vente-rapide', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/palette-produit-export-marche-africain', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/destockage-liquidation-entrepot-fermeture', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-prix-discount', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/comparatif-prix-belgique-france-destockage', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/grossiste-alimentaire-belgique-liste-entrepots', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-belgique-moins-cher-frontiere', 'priority': 1.0, 'changefreq': 'weekly'},
         
     ]
     
