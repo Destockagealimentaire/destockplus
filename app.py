@@ -2292,7 +2292,71 @@ def destockage_belgique_moins_cher_frontiere():
     """Article - Destockage Belgique le moins cher près frontière"""
     return render_template('articles/destockage-belgique-moins-cher-frontiere.html')
 # Ajoutez ces routes dans app.py, après vos autres routes (vers la fin du fichier)
+# ============ 4 ARTICLES BELGIQUE FRANCE LYON LILLE ============
 
+@app.route('/destockage-alimentaire-frontiere-belgique-lille')
+def destockage_frontiere_belgique_lille():
+    """Article - Destockage frontière Belgique Lille et Hauts-de-France"""
+    return render_template('articles/destockage-frontiere-belgique-lille.html')
+
+@app.route('/grossiste-alimentaire-lyon-destockage-palette')
+def grossiste_alimentaire_lyon():
+    """Article - Grossiste alimentaire Lyon destockage palette"""
+    return render_template('articles/grossiste-alimentaire-lyon-destockage-palette.html')
+
+@app.route('/achat-palette-lille-roubaix-tourcoing')
+def achat_palette_lille_roubaix():
+    """Article - Achat palette Lille Roubaix Tourcoing destockage"""
+    return render_template('articles/achat-palette-lille-roubaix-tourcoing.html')
+
+@app.route('/livraison-palette-france-belgique-express')
+def livraison_palette_france_belgique():
+    """Article - Livraison palette France Belgique express 48h"""
+    return render_template('articles/livraison-palette-france-belgique-express.html')
+
+# ============ 4 ARTICLES ULTRA INDEXÉS GOOGLE ============
+
+@app.route('/palette-cafe-grossiste-destockage')
+def palette_cafe_grossiste():
+    """Article - Palette café grossiste destockage pas cher"""
+    return render_template('articles/palette-cafe-grossiste-destockage.html')
+
+@app.route('/destockage-epicerie-fine-luxe')
+def destockage_epicerie_fine():
+    """Article - Destockage épicerie fine et produits luxe"""
+    return render_template('articles/destockage-epicerie-fine-luxe.html')
+
+@app.route('/achat-palette-surgeles-frais-entrepot')
+def achat_palette_surgeles():
+    """Article - Achat palette surgelés et produits frais entrepôt"""
+    return render_template('articles/achat-palette-surgeles-frais-entrepot.html')
+
+@app.route('/destockage-alimentaire-nuit-24h')
+def destockage_alimentaire_nuit():
+    """Article - Destockage alimentaire 24h/24 livraison nuit"""
+    return render_template('articles/destockage-alimentaire-nuit-24h.html')
+
+# ============ 4 ARTICLES ULTRA INDEXÉS GOOGLE (SÉRIE 2) ============
+
+@app.route('/palette-boisson-energisante-prix-grossiste')
+def palette_boisson_energisante():
+    """Article - Palette boisson énergisante prix grossiste destockage"""
+    return render_template('articles/palette-boisson-energisante-prix-grossiste.html')
+
+@app.route('/destockage-alimentaire-entrepro-bio')
+def destockage_alimentaire_bio():
+    """Article - Destockage alimentaire bio et produits naturels"""
+    return render_template('articles/destockage-alimentaire-bio.html')
+
+@app.route('/achat-palette-sodas-assortis')
+def achat_palette_sodas_assortis():
+    """Article - Achat palette sodas assortis Coca Fanta Sprite"""
+    return render_template('articles/achat-palette-sodas-assortis.html')
+
+@app.route('/destockage-produit-entretien-menager')
+def destockage_produit_entretien():
+    """Article - Destockage produit entretien ménager palette pas cher"""
+    return render_template('articles/destockage-produit-entretien-menager.html')
 # ============= SITEMAP ROUTES =============
 # ============= SITEMAP ROUTES =============
 
@@ -2488,6 +2552,18 @@ def sitemap():
         {'loc': '/comparatif-prix-belgique-france-destockage', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/grossiste-alimentaire-belgique-liste-entrepots', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/destockage-alimentaire-belgique-moins-cher-frontiere', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-frontiere-belgique-lille', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/grossiste-alimentaire-lyon-destockage-palette', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/achat-palette-lille-roubaix-tourcoing', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/livraison-palette-france-belgique-express', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/palette-cafe-grossiste-destockage', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-epicerie-fine-luxe', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/achat-palette-surgeles-frais-entrepot', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-nuit-24h', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/palette-boisson-energisante-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-alimentaire-entrepro-bio', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/achat-palette-sodas-assortis', 'priority': 1.0, 'changefreq': 'weekly'},
+        {'loc': '/destockage-produit-entretien-menager', 'priority': 1.0, 'changefreq': 'weekly'},
         
     ]
     
