@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}❄️ Achat Palette Surgelés et Produits Frais - Entrepôt Froid | DestockPro{% endblock %}
+
+{% block meta_description %}Achat palette surgelés et produits frais en entrepôt froid. Légumes, viandes, poissons, glaces. Livraison camion frigorifique. Destockage professionnel.{% endblock %}
+
+{% block meta_keywords %}palette surgelés, achat produits frais entrepôt, surgelés grossiste, palette légumes surgelés, viande congelée palette, camion frigorifique livraison{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Frais et surgelés</a></li>
+                    <li class="breadcrumb-item active">Palettes</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-froid text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #00c6fb, #005bea);">
+                <i class="fas fa-snowflake me-2"></i> ACHAT PALETTE SURGELÉS ET PRODUITS FRAIS - ENTREPÔT FROID
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-info px-3 py-2 mb-2">❄️ CHAÎNE DU FROID</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(764 avis restaurateurs)</span></div>
+                <h1 class="display-5 fw-bold mb-3">❄️ Achat Palette Surgelés et Produits Frais - Entrepôt Froid 2026</h1>
+                <p class="lead fs-4">Qualité <strong class="text-primary">chaîne du froid maîtrisée</strong> pour vos produits frais et surgelés.</p>
+            </div>
+
+            <div class="alert alert-success text-center">
+                <i class="fas fa-thermometer-full"></i> <strong>Transport frigorifique certifié</strong> - Température contrôlée de bout en bout
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Conditionnement</th><th>Température</th><th>Prix palette</th><th>DLC</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Légumes surgelés</th><td>palette 500kg</th><td>-18°C</th><td>349€</th><td>24 mois</th></tr>
+                        <tr><td class="fw-bold">Frites surgelées</th><td>palette 600kg</th><td>-18°C</th><td>399€</th><td>24 mois</th></tr>
+                        <tr><td class="fw-bold">Viande hachée</th><td>palette 400kg</th><td>-18°C</th><td>899€</th><td>12 mois</th></tr>
+                        <tr><td class="fw-bold">Filet de poisson</th><td>palette 300kg</th><td>-18°C</th><td>1299€</th><td>12 mois</th></tr>
+                        <tr><td class="fw-bold">Glaces et sorbets</th><td>palette 400L</th><td>-20°C</th><td>599€</th>那样:.0 mois</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Livraison en camion frigorifique</h5>
+                            <p>Flotte dédiée avec traçabilité température</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Stockage entrepôt -25°C</h5>
+                            <p>Certification hygiène et sécurité alimentaire</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-info text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Destiné aux restaurants, cantines, collectivités et métiers de bouche</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEVIS SURGELÉS PROFESSIONNEL</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

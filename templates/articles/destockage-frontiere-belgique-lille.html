@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}🇧🇪🇫🇷 Destockage Frontière Belgique Lille - Palettes Pas Chères 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage à la frontière Belgique et Lille. Palettes alimentaires pas chères pour habitants du Nord. Économies jusqu'à 50% sur boissons et épicerie. Livraison 59.{% endblock %}
+
+{% block meta_keywords %}destockage frontière Belgique Lille, palette pas chère Nord, destockage Belgique frontière Lille, grossiste Lille Belgique, destockage Hauts-de-France 59{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Hauts-de-France</a></li>
+                    <li class="breadcrumb-item active">Frontière Belgique</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-frontalier text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1a5f7a, #2d9c6b);">
+                <i class="fas fa-flag-checkered me-2"></i> DESTOCKAGE FRONTIÈRE BELGIQUE - LILLE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🇧🇪🇫🇷 FRONTIÈRE NORD 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(2156 avis frontaliers)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🇧🇪🇫🇷 Destockage Frontière Belgique et Lille 2026</h1>
+                <p class="lead fs-4">Économisez jusqu'à <strong class="text-success">50%</strong> en achetant vos palettes côté belge près de Lille.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">🇧🇪</div>
+                            <h5>Tournai</h5>
+                            <p>15 min de Lille</p>
+                            <span class="badge bg-danger">-35%</span>
+                            <p class="small mt-2">Boissons, bières belges</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">🇧🇪</div>
+                            <h5>Mouscron</h5>
+                            <p>10 min de Wattrelos</p>
+                            <span class="badge bg-danger">-30%</span>
+                            <p class="small mt-2">Épicerie, produits secs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <div class="display-4 text-success mb-2">🇧🇪</div>
+                            <h5>Menen</h5>
+                            <p>20 min de Halluin</p>
+                            <span class="badge bg-danger">-25%</span>
+                            <p class="small mt-2">Produits laitiers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Prix France</th><th>Prix Belgique frontière</th><th>Économie</th><th>Distance Lille</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola 33cl</th><td>1699€</th><td>1349€</th><td>-21%</th><td>25km</th></tr>
+                        <tr><td class="fw-bold">Jupiler 25cl</th><td>1799€</th></td>.99€</th><td>-33%</th><td>25km</th></tr>
+                        <tr><td class="fw-bold">Red Bull 250ml</th><td>1899€</th><td>1499€</th><td>-21%</th><td>30km</th></tr>
+                        <tr><td class="fw-bold">Eau minérale</th><td>649€</th><td>499€</th><td>-23%</th><td>25km</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-light p-4 rounded-4 mb-4">
+                <h4>Conseils pour l'achat frontalier</h4>
+                <ul>
+                    <li>Prévoyez un véhicule adapté pour 2 palettes (utilitaire ou remorque)</li>
+                    <li>Vérifiez les quantités autorisées pour la douane</li>
+                    <li>Demandez un devis DestockPro avec livraison directe à Lille</li>
+                </ul>
+            </div>
+
+            <div class="bg-success text-white p-4 rounded-4 text-center">
+                <p class="fs-4">DestockPro livre également à Lille et dans tout le Nord</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEVIS LIVRAISON LILLE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

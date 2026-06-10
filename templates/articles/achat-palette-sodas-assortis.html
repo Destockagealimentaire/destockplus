@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}🥤 Achat Palette Sodas Assortis - Coca Fanta Sprite 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Palette sodas assortis Coca Cola, Fanta, Sprite. 2592 canettes 33cl mélangées. Idéal pour bars, restaurants, distributeurs. Livraison France. Prix grossiste.{% endblock %}
+
+{% block meta_keywords %}palette sodas assortis, Coca Fanta Sprite palette, canette assortie pas cher, palette boissons mélangées, grossiste sodas France, assortiment canettes{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Boissons</a></li>
+                    <li class="breadcrumb-item active">Sodas assortis</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-soda text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                <i class="fas fa-blender me-2"></i> PALETTE SODAS ASSORTIS - COCA FANTA SPRITE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-primary px-3 py-2 mb-2">🥤 MÉLANGE ORIGINAL</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(2345 avis professionnels)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🥤 Achat Palette Sodas Assortis - Coca, Fanta, Sprite 2026</h1>
+                <p class="lead fs-4">La palette <strong class="text-primary">idéale pour offrir du choix</strong> à vos clients.</p>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold text-center">📦 COMPOSITION DE LA PALETTE ASSORTIE</div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fab fa-cuttlefish fa-4x text-danger mb-2"></i>
+                                <h4>Coca Cola</h4>
+                                <p>864 canettes<br>(33%)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-citrus fa-4x text-warning mb-2"></i>
+                                <h4>Fanta Orange</h4>
+                                <p>864 canettes<br>(33%)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-lemon fa-4x text-success mb-2"></i>
+                                <h4>Sprite</h4>
+                                <p>864 canettes<br>(33%)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info text-center mt-3">
+                        <strong>Total : 2592 canettes de 33cl</strong> - Poids palette : 850kg
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Type palette</th><th>Composition</th><th>Prix grossiste</th><th>Économie vs achat séparé</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Assortie 3 marques</th><td>Coca 33% - Fanta 33% - Sprite 33%</th><td>1499€</th><td>-150€</th></tr>
+                        <tr><td class="fw-bold">Assortie 2 marques</th><td>Coca 50% - Fanta 50%</th><td>1479€</th><td>-120€</th></tr>
+                        <tr><td class="fw-bold">Personnalisable</th>那样:<li>Sur devis</li></th><td>1499€</th><td>-</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-light p-4 rounded-4 mb-4">
+                <h4>Avantages de la palette assortie</h4>
+                <ul>
+                    <li>Un seul produit à commander pour 3 références</li>
+                    <li>Livraison unique (économie de transport)</li>
+                    <li>Moins de stock à gérer pour vous</li>
+                    <li>Idéal pour les débuts d'activité</li>
+                </ul>
+            </div>
+
+            <div class="bg-primary text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Composition personnalisable selon vos besoins</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">CRÉER MA PALETTE ASSORTIE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}🌿 Destockage Alimentaire Bio - Produits Naturels Pas Chers 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage alimentaire bio et produits naturels. Pâtes, riz, conserves, jus, épicerie bio. Jusqu'à 50% sur palettes certifiées AB. Livraison France.{% endblock %}
+
+{% block meta_keywords %}destockage bio, alimentaire bio pas cher, palettes produits naturels, épicerie bio grossiste, AB destockage, produits bios prix destock, certification bio{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Bio</a></li>
+                    <li class="breadcrumb-item active">Destockage</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-bio text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <i class="fas fa-leaf me-2"></i> DESTOCKAGE ALIMENTAIRE BIO ET PRODUITS NATURELS 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-success px-3 py-2 mb-2">🌿 CERTIFIÉ AB 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1245 avis magasins bio)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🌿 Destockage Alimentaire Bio et Produits Naturels 2026</h1>
+                <p class="lead fs-4">Le <strong class="text-primary">bio accessible à tous</strong> avec nos palettes destockées certifiées AB.</p>
+            </div>
+
+            <div class="alert alert-success text-center">
+                <i class="fas fa-certificate"></i> <strong>Certification Agriculture Biologique</strong> - Tous nos produits sont traçables
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit bio</th><th>Conditionnement</th><th>Certification</th><th>Prix palette</th><th>Dispo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Pâtes complètes</th><td>palette 500kg</th><td>AB - Eurofeuille</th><td>449€</th><td>24h</th></tr>
+                        <tr><td class="fw-bold">Riz basmati</th><td>palette 400kg</th><td>AB - Ecocert</th><td>599€</th><td>48h</th></tr>
+                        <tr><td class="fw-bold">Conserves légumes</th><td>palette 800 boîtes</th><td>AB - Certipaq</th><td>399€</th><td>24h</th></tr>
+                        <tr><td class="fw-bold">Jus de pomme</th>那样:.000 bouteilles</th><td>AB - Qualité France</th><td>699€</th><td>72h</th></tr>
+                        <tr><td class="fw-bold">Miel toutes fleurs</th><td>palette 600 pots</th><td>AB - Bio Cohérence</th><td>899€</th><td>48h</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>Magasins bio et diététiques</h5>
+                            <p>Parfait pour Biocoop, La Vie Claire, Natureo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                            <h5>AMAP et associations</h5>
+                            <p>Vente groupée pour particuliers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-success text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Demandez notre catalogue bio complet (200+ références)</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEVIS PALETTES BIO</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

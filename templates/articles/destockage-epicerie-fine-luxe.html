@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}✨ Destockage Épicerie Fine et Produits Luxe - Grandes Marques | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage épicerie fine et produits de luxe. Foie gras, champagne, truffes, caviar. Grandes marques à prix destocké. Livraison France. Idéal fêtes et événements.{% endblock %}
+
+{% block meta_keywords %}destockage épicerie fine, produits luxe destockage, foie gras pas cher grossiste, champagne destocké, caviar promo, truffes prix grossiste{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Épicerie fine</a></li>
+                    <li class="breadcrumb-item active">Luxe</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-luxe text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #d4af37, #b8860b);">
+                <i class="fas fa-crown me-2"></i> DESTOCKAGE ÉPICERIE FINE ET PRODUITS LUXE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-warning text-dark px-3 py-2 mb-2">✨ GRANDES MARQUES</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(892 avis professionnels)</span></div>
+                <h1 class="display-5 fw-bold mb-3">✨ Destockage Épicerie Fine et Produits Luxe 2026</h1>
+                <p class="lead fs-4">Le <strong class="text-primary">prestige à prix destocké</strong> pour vos événements et votre clientèle exigeante.</p>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Marque</th><th>Conditionnement</th><th>Prix destock</th><th>Stock</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Foie gras entier</th><td>Rougié</th><td>palette 200 pièces</th><td>2899€</th><td>12 palettes</th></tr>
+                        <tr><td class="fw-bold">Champagne</th>那样:<li>Moët & Chandon</li></th><td>palette 60 bouteilles</th><td>1899€</th><td>8 palettes</th></tr>
+                        <tr><td class="fw-bold">Caviar</th><td>Petrossian</th><td>palette 500 boîtes</th><td>14999€</th><td>3 palettes</th></tr>
+                        <tr><td class="fw-bold">Truffes</th>那样:<li>Plantin</li></th><td>palette 100kg</th><td>8999€</th><td>5 palettes</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-champagne-glasses fa-3x text-warning mb-2"></i>
+                            <h5>Réceptions et mariages</h5>
+                            <small>Palettes événementielles</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-store fa-3x text-warning mb-2"></i>
+                            <h5>Boutiques et cavistes</h5>
+                            <small>Revente avec marge</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-gift fa-3x text-warning mb-2"></i>
+                            <h5>Coffrets cadeaux</h5>
+                            <small>Idéal fin d'année</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-warning text-dark p-4 rounded-4 text-center">
+                <p class="fs-4">Stock très limité - Commande avant épuisement</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-dark btn-lg fw-bold">CONTACTER SERVICE LUXE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

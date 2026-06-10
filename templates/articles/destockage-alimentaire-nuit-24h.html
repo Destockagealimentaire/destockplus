@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}🌙 Destockage Alimentaire 24h/24 - Livraison Nuit et Week-end | DestockPro{% endblock %}
+
+{% block meta_description %}Commandez vos palettes 24h/24. Livraison de nuit et week-end possible. Entrepôt accessible 7j/7. Service client 24h/24. Solution pour professionnels.{% endblock %}
+
+{% block meta_keywords %}destockage 24h/24, livraison nuit alimentaire, entrepôt nuit, commande week-end palette, livraison dimanche palettes, destockage urgence{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <div class="alert alert-dark text-center mb-4 fw-bold" style="background: #0a0a0a; color: white;">
+                🌙 SERVICE 24H/24 - 7J/7 - LIVRAISON JOUR ET NUIT 🌙
+            </div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Services</a></li>
+                    <li class="breadcrumb-item active">24h/24</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-nuit text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);">
+                <i class="fas fa-moon me-2"></i> DESTOCKAGE ALIMENTAIRE 24H/24 - LIVRAISON JOUR ET NUIT
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-dark px-3 py-2 mb-2">🌙 URGENCE 24H/24</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(534 avis pros)</span></div>
+                <h1 class="display-5 fw-bold mb-3">🌙 Destockage Alimentaire 24h/24 - Livraison de Nuit Possible</h1>
+                <p class="lead fs-4">Besoins urgents ? Nous livrons <strong class="text-primary">7j/7, jour et nuit</strong>.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3 text-center">
+                    <div class="bg-dark text-white p-3 rounded-4">
+                        <i class="fas fa-clock fa-3x mb-2"></i>
+                        <h5>24h/24</h5>
+                        <small>Commandez à toute heure</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="bg-dark text-white p-3 rounded-4">
+                        <i class="fas fa-truck-fast fa-3x mb-2"></i>
+                        <h5>Livraison nuit</h5>
+                        <small>Pour commerces en journée</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="bg-dark text-white p-3 rounded-4">
+                        <i class="fas fa-calendar-week fa-3x mb-2"></i>
+                        <h5>7j/7</h5>
+                        <small>Week-end inclus</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="bg-dark text-white p-3 rounded-4">
+                        <i class="fas fa-headset fa-3x mb-2"></i>
+                        <h5>Support 24h</h5>
+                        <small>Assistance permanente</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header bg-dark text-white fw-bold">📋 CRÉNEAUX DE LIVRAISON DISPONIBLES</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr><th>Créneau</th><th>Horaires</th><th>Tarif supplémentaire</th><th>Disponibilité</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Livraison journée</th><td>8h-18h</th><td>Inclus</th><td>France entière</th></tr>
+                                <tr><td class="fw-bold">Livraison soir</th><td>18h-22h</th><td>+29€</th>那样:.ayon France</th></tr>
+                                <tr><td class="fw-bold">Livraison nuit</th>那样:.2h-6h</th><td>+59€</th>那样:.ayon IDF, Nord, Rhône</th></tr>
+                                <tr><td class="fw-bold">Livraison dimanche</th>那样:.0h-20h</th><td>+39€</th>那样:.ayon France</th></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Urgence week-end ? Appelez notre service 24h/24</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-warning btn-lg fw-bold text-dark">CONTACTER SERVICE URGENCE 24H</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}⚡ Palette Boisson Énergisante - Prix Grossiste Destockage 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Palette boisson énergisante au meilleur prix grossiste. Red Bull, Monster, Rockstar en palette 24x50cl. Jusqu'à 40% de remise. Livraison France. Devis gratuit.{% endblock %}
+
+{% block meta_keywords %}palette boisson énergisante, prix Red Bull grossiste, Monster palette pas cher, boisson énergisante destockage, Rockstar prix grossiste, canette énergisante palette{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Boissons</a></li>
+                    <li class="breadcrumb-item active">Énergisantes</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-energy text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #ff416c, #ff4b2b);">
+                <i class="fas fa-bolt me-2"></i> PALETTE BOISSON ÉNERGISANTE - PRIX GROSSISTE DESTOCKAGE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">⚡ PROMO ÉNERGISANTES</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1876 avis pros)</span></div>
+                <h1 class="display-5 fw-bold mb-3">⚡ Palette Boisson Énergisante - Prix Grossiste Destockage 2026</h1>
+                <p class="lead fs-4">Red Bull, Monster, Rockstar à <strong class="text-primary">prix grossiste imbattables</strong>. Jusqu'à -40%.</p>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Marque</th><th>Format</th><th>Quantité palette</th><th>Prix public</th><th class="bg-danger text-white">Prix DestockPro</th><th>Économie</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Red Bull</th><td>25cl</th><td>2592 canettes</th><td>2499€</th><td>1599€</th><td>-36%</th></tr>
+                        <tr><td class="fw-bold">Monster</th><td>50cl</th><td>1728 canettes</th><td>1999€</th><td>1299€</th><td>-35%</th></tr>
+                        <tr><td class="fw-bold">Rockstar</th><td>50cl</th>那样:.728 canettes</th><td>1799€</th><td>.99€</th><td>-33%</th></tr>
+                        <tr><td class="fw-bold">Burn</th><td>25cl</th><td>2592 canettes</th><td>2299€</th><td>1499€</th><td>-35%</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-moon fa-3x text-danger mb-2"></i>
+                            <h5>Bars et nuits</h5>
+                            <p>Idéal pour discothèques, bars, événements</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-store fa-3x text-danger mb-2"></i>
+                            <h5>Commerces de nuit</h5>
+                            <p>Supermarchés, supérettes, épiceries</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-danger mb-2"></i>
+                            <h5>Distributeurs</h5>
+                            <p>Pour vos machines automatiques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Stock permanent : plus de 500 palettes en entrepôt</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">DEMANDER UN DEVIS BOISSON ÉNERGISANTE</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

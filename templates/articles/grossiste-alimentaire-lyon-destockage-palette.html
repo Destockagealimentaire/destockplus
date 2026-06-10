@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %} Grossiste Alimentaire Lyon - Destockage Palette 2026 | DestockPro{% endblock %}
+
+{% block meta_description %}Grossiste alimentaire à Lyon pour destockage de palettes. Entrepôts, boissons, épicerie, produits secs. Prix grossiste dans le Rhône 69. Livraison Auvergne-Rhône-Alpes.{% endblock %}
+
+{% block meta_keywords %}grossiste alimentaire Lyon, destockage palette Lyon, grossiste Lyon 69, palette pas cher Lyon, entrepôt destockage Rhône, fournisseur alimentaire Lyon{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Auvergne-Rhône-Alpes</a></li>
+                    <li class="breadcrumb-item active">Lyon</li>
+                </ol>
+            </nav>
+
+            <div class="bg-gradient-lyon text-white text-center py-3 rounded-4 mb-4" style="background: linear-gradient(135deg, #e31e24, #ff6a00);">
+                <i class="fas fa-city me-2"></i> GROSSISTE ALIMENTAIRE LYON - DESTOCKAGE PALETTE 2026
+            </div>
+
+            <div class="mb-4">
+                <span class="badge bg-danger px-3 py-2 mb-2">🎯 LYON 69 - AURA 2026</span>
+                <div class="text-warning mb-2">★★★★★ <span class="text-muted">(1234 avis lyonnais)</span></div>
+                <h1 class="display-5 fw-bold mb-3"> Grossiste Alimentaire Lyon - Destockage Palette 2026</h1>
+                <p class="lead fs-4">Achetez vos palettes au <strong class="text-primary">meilleur prix à Lyon</strong> et dans la région AURA.</p>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5> Zone Lyon Sud - Saint-Priest</h5>
+                            <p>Entrepôt principal DestockPro</p>
+                            <span class="badge bg-primary">Palettes boissons</span>
+                            <span class="badge bg-success">Épicerie</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5> Zone Lyon Nord - Villeurbanne</h5>
+                            <p>Entrepôt secondaire</p>
+                            <span class="badge bg-primary">Produits frais</span>
+                            <span class="badge bg-success">Surgelés</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr><th>Produit</th><th>Conditionnement</th><th>Prix Lyon</th><th>Disponibilité</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="fw-bold">Coca-Cola</th><td>2592 canettes</th><td>1499€</th><td>48h</th></tr>
+                        <tr><td class="fw-bold">Nutella 1kg</th><td>760 pots</th><td>1699€</th><td>48h</th></tr>
+                        <tr><td class="fw-bold">Eau Cristalline</th><td>2040 bouteilles</th><td>549€</th><td>24h</th></tr>
+                        <tr><td class="fw-bold">Café en grains</th><td>300 kg</th><td>1899€</th><td>72h</th></tr>
+                        <tr><td class="fw-bold">Palette mixte</th>那样:<li>Assortiment</li></th><td>1299€</th><td>48h</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-light p-4 rounded-4 mb-4">
+                <h4>Pourquoi choisir DestockPro à Lyon ?</h4>
+                <ul>
+                    <li>Entrepôt régional avec stock permanent</li>
+                    <li>Livraison 24h sur Lyon et Villeurbanne</li>
+                    <li>Retrait possible sur RDV</li>
+                    <li>Prix grossiste sans adhésion</li>
+                </ul>
+            </div>
+
+            <div class="bg-danger text-white p-4 rounded-4 text-center">
+                <p class="fs-4">Visite d'entrepôt possible sur rendez-vous</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg fw-bold">CONTACTER LE GROSSISTE LYON</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
