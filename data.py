@@ -62,27 +62,43 @@ categories = [
     },
     {
         "id": 8,
-        "nom": "Promotions",
-        "description": "Offres spéciales et destockage exceptionnel",
-        "image": "promos.jpg",
+        "nom": "Bio",
+        "description": "Produits biologiques et naturels certifiés",
+        "image": "bio.jpg",
         "ordre": 8,
-        "icone": "🔥"
+        "icone": "🌱"
     },
     {
         "id": 9,
-        "nom": "Électroménager",
-        "description": "Appareils électroménagers professionnels et grand public",
-        "image": "electromenager.jpg",
+        "nom": "Promotions",
+        "description": "Offres spéciales et destockage exceptionnel",
+        "image": "promos.jpg",
         "ordre": 9,
-        "icone": "🔌"
+        "icone": "🔥"
     },
     {
         "id": 10,
+        "nom": "Électroménager",
+        "description": "Appareils électroménagers professionnels et grand public",
+        "image": "electromenager.jpg",
+        "ordre": 10,
+        "icone": "🔌"
+    },
+    {
+        "id": 11,
         "nom": "Hygiène et entretien",
         "description": "Produits d'hygiène et d'entretien pour professionnels",
         "image": "hygiene.jpg",
-        "ordre": 10,
+        "ordre": 11,
         "icone": "🧼"
+    },
+    {
+        "id": 12,
+        "nom": "Extras",
+        "description": "Produits divers et équipements spéciaux",
+        "image": "extras.jpg",
+        "ordre": 12,
+        "icone": "🛠️"
     }
 ]
 
