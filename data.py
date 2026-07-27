@@ -86,18 +86,26 @@ categories = [
     },
     {
         "id": 11,
-        "nom": "Hygiène et entretien",
-        "description": "Produits d'hygiène et d'entretien pour professionnels",
+        "nom": "Hygiène",
+        "description": "Produits d'hygiène personnelle pour professionnels",
         "image": "hygiene.jpg",
         "ordre": 11,
-        "icone": "🧼"
+        "icone": "🧴"
     },
     {
         "id": 12,
+        "nom": "Entretien",
+        "description": "Produits d'entretien et de nettoyage professionnels",
+        "image": "entretien.jpg",
+        "ordre": 12,
+        "icone": "🧼"
+    },
+    {
+        "id": 13,
         "nom": "Extras",
         "description": "Produits divers et équipements spéciaux",
         "image": "extras.jpg",
-        "ordre": 12,
+        "ordre": 13,
         "icone": "🛠️"
     }
 ]
