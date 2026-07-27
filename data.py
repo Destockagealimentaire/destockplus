@@ -1,4 +1,4 @@
-c ok? # data.py
+# data.py
 from datetime import datetime, timedelta
 import random
 
