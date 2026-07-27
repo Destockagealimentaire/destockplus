@@ -5935,7 +5935,817 @@ products = [
         "videos": [],
         "documents": []
     },
-    
+        {
+        "id": 429,
+        "nom": "Robot de Cuisine Mambo CooKing Total Gourmet - Multifonction + Distributeur",
+        "description": "Robot culinaire 12-en-1 avec distributeur automatique d'ingrédients. Hachage, pétrissage, cuisson vapeur et mixage intelligent. Ecran tactile et connectivité Bluetooth.",
+        "description_courte": "Robot cuisine Mambo CooKing Total Gourmet",
+        "prix": 718.56,
+        "prix_original": 718.56,
+        "prix_promo": 598.80,
+        "devise": "EUR",
+        "categorie_id": category_map["Électroménager"],
+        "categorie_nom": "Électroménager",
+        "stock": 15,
+        "stock_initial": 20,
+        "sku": "MAM-COO-45L-1200W",
+        "upc": "3760106854503",
+        "marque": "Mambo",
+        "fournisseur": "Mambo",
+        "poids": "8.5 kg",
+        "dimensions": "35 x 30 x 40 cm",
+        "volume_palette": "0.042 m³",
+        "format": "Unité",
+        "pays_origine": "France",
+        "usine": "France",
+        "dlc": (datetime.now() + timedelta(days=730)).strftime("%d/%m/%Y"),
+        "dlc_mois": 24,
+        "conservation": "Température ambiante",
+        "caracteristiques": {
+            "capacite": "Bol de 4.5L (acier inoxydable)",
+            "puissance": "1200W",
+            "fonctions": [
+                "Distributeur automatique d'ingrédients",
+                "Pétrissage intelligent",
+                "Cuisson vapeur intégrée",
+                "Hachage 3 vitesses",
+                "Programmes pré-enregistrés (12 recettes)"
+            ],
+            "ecran": "Tactile 5\"",
+            "connectivite": "Bluetooth (app dédiée)",
+            "accessoires": [
+                "Couteau pétrin",
+                "Disque râpe",
+                "Batteur",
+                "Panier vapeur"
+            ],
+            "garantie": "24 mois",
+            "couleur": "Noir/Inox"
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "8.5 kg",
+            "hauteur_palette": "40 cm",
+            "code_douane": "85094000"
+        },
+        "avis": {
+            "note_moyenne": 4.6,
+            "nombre_avis": 20
+        },
+        "tags": ["robot", "cuisine", "mambo", "multifonction", "distributeur"],
+        "mots_cles": ["robot", "cuisine", "mambo", "multifonction", "distributeur", "professionnel"],
+        "seo": {
+            "title": "Robot cuisine Mambo CooKing - Multifonction - Prix grossiste",
+            "description": "Robot culinaire Mambo CooKing 12-en-1 avec distributeur automatique. Ecran tactile et Bluetooth, prix compétitif.",
+            "keywords": ["robot", "cuisine", "mambo", "multifonction", "distributeur"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=30)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 17,
+        "economie_montant": 119.76,
+        "images": [
+            "mambo-cooking.jpg",
+            "mambo-cooking5.jpg",
+            "mambo-cooking1.jpg",
+            "mambo-cooking2.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 430,
+        "nom": "Lave-linge Haut de Gamme Connecté (9kg) - Miele/Bosch/Siemens",
+        "description": "Lave-linge premium 9kg avec Wi-Fi, dosage automatique et silence exceptionnel (48dB). Classe énergétique A, programmes intelligents (Eco 40-60) et sécurité Aquastop. Modèles Miele, Bosch Série 8 ou Siemens iQ800.",
+        "description_courte": "Lave-linge premium connecté 9kg",
+        "prix": 1558.44,
+        "prix_original": 1558.44,
+        "prix_promo": 1198.80,
+        "devise": "EUR",
+        "categorie_id": category_map["Électroménager"],
+        "categorie_nom": "Électroménager",
+        "stock": 8,
+        "stock_initial": 12,
+        "sku": "LAV-PRE-9KG-WIFI",
+        "upc": "3760106854604",
+        "marque": "Miele/Bosch/Siemens",
+        "fournisseur": "Distributeur premium",
+        "poids": "78 kg",
+        "dimensions": "60 x 85 x 60 cm",
+        "volume_palette": "0.3 m³",
+        "format": "Unité",
+        "pays_origine": "Allemagne",
+        "usine": "Allemagne",
+        "dlc": (datetime.now() + timedelta(days=730)).strftime("%d/%m/%Y"),
+        "dlc_mois": 24,
+        "conservation": "Température ambiante",
+        "caracteristiques": {
+            "marques": ["Miele", "Bosch Série 8", "Siemens iQ800"],
+            "capacite": "9 kg",
+            "niveau_sonore": {
+                "lavage": "48 dB(A)",
+                "essorage": "69 dB(A)"
+            },
+            "classe_energie": "A",
+            "consommation": "0.484 kWh/cycle (Eco 40-60)",
+            "efficacite": {
+                "lavage": "1.040 (A)",
+                "essorage": "B"
+            },
+            "vitesse_essorage": "1400 tr/min",
+            "connectivite": "Wi-Fi (contrôle mobile)",
+            "programmes": {
+                "base": ["Délicat", "Blanc/Couleurs", "Synthétiques", "Laine"],
+                "speciaux": ["Express 15min", "Outdoor", "Couette", "Auto 30°C/40°C"]
+            },
+            "securite": "Aquastop anti-fuites",
+            "design": "Blanc (pose libre)",
+            "garantie": "24 mois"
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "78 kg",
+            "hauteur_palette": "85 cm",
+            "code_douane": "84501100"
+        },
+        "avis": {
+            "note_moyenne": 4.7,
+            "nombre_avis": 22
+        },
+        "tags": ["lave-linge", "premium", "connecté", "9kg", "silencieux", "Wi-Fi"],
+        "mots_cles": ["lave-linge", "premium", "connecté", "9kg", "silencieux", "Wi-Fi", "professionnel"],
+        "seo": {
+            "title": "Lave-linge premium connecté 9kg - Miele/Bosch/Siemens - Prix grossiste",
+            "description": "Lave-linge premium 9kg avec Wi-Fi et dosage automatique. Silence 48dB, classe A, prix compétitif.",
+            "keywords": ["lave-linge", "premium", "connecté", "9kg", "silencieux", "Wi-Fi"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=25)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 359.64,
+        "images": [
+            "lave-linge-premium.jpg",
+            "lave-linge-premium1.jpg",
+            "lave-linge-premium2.jpg",
+            "lave-linge-premium3.jpg",
+            "lave-linge-premium4.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 431,
+        "nom": "Réfrigérateur Américain Connecté 628L - LG/Samsung/Haier",
+        "description": "Réfrigérateur américain premium 628L (407L frigo + 221L congélo) avec distributeur de glaçons, écran tactile et Wi-Fi. Technologie No Frost, ultra-silencieux (35dB) et classe énergétique D. Modèles LG, Samsung ou Haier.",
+        "description_courte": "Réfrigérateur américain 628L connecté",
+        "prix": 2494.44,
+        "prix_original": 2494.44,
+        "prix_promo": 1918.80,
+        "devise": "EUR",
+        "categorie_id": category_map["Électroménager"],
+        "categorie_nom": "Électroménager",
+        "stock": 5,
+        "stock_initial": 8,
+        "sku": "REF-AME-628L-WIFI",
+        "upc": "3760106854705",
+        "marque": "LG/Samsung/Haier",
+        "fournisseur": "Distributeur premium",
+        "poids": "143 kg",
+        "dimensions": "91.3 x 179 x 73.5 cm",
+        "volume_palette": "1.2 m³",
+        "format": "Unité",
+        "pays_origine": "Corée/Allemagne/Chine",
+        "usine": "Multiple",
+        "dlc": (datetime.now() + timedelta(days=730)).strftime("%d/%m/%Y"),
+        "dlc_mois": 24,
+        "conservation": "Température ambiante",
+        "caracteristiques": {
+            "marques": ["LG", "Samsung", "Haier"],
+            "capacite": {
+                "total": "628 L",
+                "réfrigérateur": "407 L",
+                "congélateur": "221 L"
+            },
+            "technologies": [
+                "No Frost",
+                "Distributeur eau/glaçons/pilée",
+                "InstaView (écran sans ouverture)",
+                "Compresseur Inverter"
+            ],
+            "performance": {
+                "niveau_sonore": "35 dB (ultra-silencieux)",
+                "congélation": "12kg/24h",
+                "autonomie": "2h sans courant"
+            },
+            "zones_speciales": [
+                "Fruits/légumes (contrôle humidité)",
+                "Viandes/poissons (0°C)"
+            ],
+            "connectivite": {
+                "wi-fi": "Contrôle température à distance",
+                "ecran": "Tactile intérieur"
+            },
+            "securite": [
+                "Alarme porte ouverte",
+                "Filtre antibactérien (6 mois)"
+            ],
+            "consommation": {
+                "energie": "276 kWh/an (Classe D)",
+                "cout_annuel": "~56€"
+            },
+            "garantie": "2 ans (pièces 10 ans)",
+            "installation": "Pose libre, arrivée d'eau requise"
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "143 kg",
+            "hauteur_palette": "179 cm",
+            "code_douane": "84181000"
+        },
+        "avis": {
+            "note_moyenne": 4.9,
+            "nombre_avis": 28
+        },
+        "tags": ["réfrigérateur", "américain", "628L", "connecté", "No Frost", "Wi-Fi"],
+        "mots_cles": ["réfrigérateur", "américain", "628L", "connecté", "No Frost", "Wi-Fi", "professionnel"],
+        "seo": {
+            "title": "Réfrigérateur américain 628L connecté - LG/Samsung/Haier - Prix grossiste",
+            "description": "Réfrigérateur américain 628L avec Wi-Fi et distributeur de glaçons. Ultra-silencieux, classe D, prix compétitif.",
+            "keywords": ["réfrigérateur", "américain", "628L", "connecté", "No Frost", "Wi-Fi"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=20)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 575.64,
+        "images": [
+            "frigo-americain-premium.jpg",
+            "frigo-americain-premium1.jpg",
+            "frigo-americain-premium2.jpg",
+            "frigo-americain-premium3.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 432,
+        "nom": "Machine Expresso Automatique DELONGHI Primadonna Soul ECAM610.55.SB - Broyeur Intégré",
+        "description": "Machine expresso haut de gamme avec broyeur 13 réglages, mousseur lait automatique et écran tactile couleur. Technologie Active Temperature Control pour un café parfait à chaque utilisation. Note clients 5/5.",
+        "description_courte": "Expresso Delonghi Primadonna Soul",
+        "prix": 1048.50,
+        "prix_original": 1048.50,
+        "prix_promo": 838.80,
+        "devise": "EUR",
+        "categorie_id": category_map["Électroménager"],
+        "categorie_nom": "Électroménager",
+        "stock": 7,
+        "stock_initial": 10,
+        "sku": "DEL-ECAM61055SB",
+        "upc": "3760106854804",
+        "marque": "De'Longhi",
+        "fournisseur": "De'Longhi",
+        "poids": "9.8 kg",
+        "dimensions": "23.8 x 43.5 x 36.6 cm",
+        "volume_palette": "0.038 m³",
+        "format": "Unité",
+        "pays_origine": "Italie",
+        "usine": "Italie",
+        "dlc": (datetime.now() + timedelta(days=730)).strftime("%d/%m/%Y"),
+        "dlc_mois": 24,
+        "conservation": "Température ambiante",
+        "caracteristiques": {
+            "type": "Expresso automatique avec broyeur",
+            "broyeur": "Céramique (13 réglages)",
+            "reservoir": "Eau 1.8L / Grains 300g",
+            "pression": "15 bars",
+            "technologies": [
+                "Active Temperature Control",
+                "LatteCrema System (mousseur auto)",
+                "Ecran tactile couleur 3.5\"",
+                "Nettoyage automatique"
+            ],
+            "programmes": {
+                "cafe": ["Espresso", "Lungo", "Ristretto", "Cappuccino", "Latte Macchiato"],
+                "personnalisation": "Intensité/température/taille"
+            },
+            "entretien": [
+                "Détartrage guidé",
+                "Rinçage auto",
+                "Buse lait amovible"
+            ],
+            "couleur": "Noir (finition métal brossé)",
+            "garantie": "2 ans",
+            "classe_energie": "A"
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "9.8 kg",
+            "hauteur_palette": "36.6 cm",
+            "code_douane": "85094000"
+        },
+        "avis": {
+            "note_moyenne": 5.0,
+            "nombre_avis": 30
+        },
+        "tags": ["delonghi", "primadonna", "expresso", "broyeur", "automatique"],
+        "mots_cles": ["Delonghi", "Primadonna", "expresso", "broyeur", "automatique", "professionnel"],
+        "seo": {
+            "title": "Expresso Delonghi Primadonna Soul - Broyeur intégré - Prix grossiste",
+            "description": "Machine expresso Delonghi Primadonna Soul avec broyeur et mousseur automatique. Note 5/5, prix compétitif.",
+            "keywords": ["delonghi", "primadonna", "expresso", "broyeur", "automatique"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=15)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 20,
+        "economie_montant": 209.70,
+        "images": [
+            "delonghi-primadonna.jpg",
+            "delonghi-primadonna1.jpg",
+            "delonghi-primadonna2.jpg",
+            "delonghi-primadonna3.jpg",
+            "delonghi-primadonna4.jpg",
+            "delonghi-primadonna.jpg5"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 433,
+        "nom": "Machine à Café JURA GIGA 10 Diamond Black - Garantie 3 Ans",
+        "description": "Machine expresso professionnelle avec 2 broyeurs céramiques, écran tactile 6.7\" et technologie Cold Extraction. 35 boissons programmables, connexion Wi-Fi et système lait HP3 automatique. Le summum de l'innovation JURA.",
+        "description_courte": "Machine café JURA GIGA 10 Diamond Black",
+        "prix": 4366.44,
+        "prix_original": 4366.44,
+        "prix_promo": 3358.80,
+        "devise": "EUR",
+        "categorie_id": category_map["Électroménager"],
+        "categorie_nom": "Électroménager",
+        "stock": 4,
+        "stock_initial": 6,
+        "sku": "JUR-GIGA10-DIAMOND",
+        "upc": "3760106854905",
+        "marque": "JURA",
+        "fournisseur": "JURA",
+        "poids": "18 kg",
+        "dimensions": "32 x 41.5 x 49.6 cm",
+        "volume_palette": "0.066 m³",
+        "format": "Unité",
+        "pays_origine": "Suisse",
+        "usine": "Suisse",
+        "dlc": (datetime.now() + timedelta(days=1095)).strftime("%d/%m/%Y"),
+        "dlc_mois": 36,
+        "conservation": "Température ambiante",
+        "caracteristiques": {
+            "garantie": "36 mois",
+            "technologies_phares": [
+                "Cold Extraction Process",
+                "Dual Ceramic Grinders (2x280g)",
+                "Percolation 3D (15 bars)",
+                "HP3 Milk System (One-Touch)"
+            ],
+            "performance": {
+                "capacite": "15-20 tasses/jour",
+                "chauffe": "Thermoblock + Système chauffage",
+                "pression": "15 bars (double pompe)"
+            },
+            "personnalisation": {
+                "intensite": "10 niveaux",
+                "temperature": [
+                    "3 niveaux (café)",
+                    "3 niveaux (lait)",
+                    "3 niveaux (eau chaude)"
+                ],
+                "memoires": "35 boissons personnalisables"
+            },
+            "ecran": {
+                "type": "Tactile panoramique",
+                "taille": "6.7 pouces",
+                "fonctions": "Statuts entretien en temps réel"
+            },
+            "connectivite": {
+                "wi-fi": "J.O.E.® app compatible",
+                "smart": "Programmation horaire"
+            },
+            "entretien": [
+                "Nettoyage automatique lait",
+                "Détartrage guidé",
+                "Filtre Claris Smart+"
+            ],
+            "certifications": [
+                "Hygiène TÜV",
+                "Energy Save Mode (<0.5W veille)"
+            ],
+            "couleur": "Noir diamant (2C)",
+            "alimentation": "2300W - 230V"
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "18 kg",
+            "hauteur_palette": "49.6 cm",
+            "code_douane": "85094000"
+        },
+        "avis": {
+            "note_moyenne": 4.9,
+            "nombre_avis": 27
+        },
+        "tags": ["jura", "giga10", "expresso", "professionnel", "2 broyeurs"],
+        "mots_cles": ["JURA", "GIGA10", "expresso", "professionnel", "2 broyeurs", "Wi-Fi"],
+        "seo": {
+            "title": "Machine café JURA GIGA 10 Diamond Black - Garantie 3 ans - Prix grossiste",
+            "description": "Machine expresso JURA GIGA 10 avec 2 broyeurs et écran tactile. Professionnelle, prix compétitif.",
+            "keywords": ["jura", "giga10", "expresso", "professionnel", "2 broyeurs"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=10)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 1007.64,
+        "images": [
+            "jura-giga10-diamond.jpg",
+            "jura-giga10-diamond1.jpg",
+            "jura-giga10-diamond2.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 434,
+        "nom": "Pétrole de Chauffage CLAMC - Cuve IBC 1000L (Non Consignée)",
+        "description": "Pétrole de chauffage haute qualité sans odeur pour poêles mobiles. Cuve IBC 1000L livrée (non consignée). Prix dégressif à 1.45€/L - Chauffage d'appoint économique et efficace.",
+        "description_courte": "Pétrole chauffage CLAMC IBC 1000L",
+        "prix": 2262.00,
+        "prix_original": 2262.00,
+        "prix_promo": 1740.00,
+        "devise": "EUR",
+        "categorie_id": category_map["Extras"],
+        "categorie_nom": "Extras",
+        "stock": 8,
+        "stock_initial": 12,
+        "sku": "PET-CLAMC-1000L-IBC",
+        "upc": "3760106855003",
+        "marque": "CLAMC",
+        "fournisseur": "Distribution énergie",
+        "poids": "860 kg",
+        "poids_net": "800 kg",
+        "dimensions": "120 x 100 x 115 cm",
+        "volume_palette": "1.38 m³",
+        "format": "Cuve IBC",
+        "unites": 1,
+        "type_conditionnement": "Cuve IBC",
+        "contenance_unitaire": "1000 L",
+        "volume_total": "1000 L",
+        "pays_origine": "France",
+        "usine": "France",
+        "dlc": (datetime.now() + timedelta(days=1825)).strftime("%d/%m/%Y"),
+        "dlc_mois": 60,
+        "conservation": "À l'abri du soleil et de l'humidité",
+        "caracteristiques": {
+            "type": "CLAMC (Combustible Liquide pour Appareil Mobile de Chauffage)",
+            "usage": "Poêles à pétrole mobiles",
+            "qualite": "Sans odeur - Norme EN 1660",
+            "rendement": "≈ 10 kWh/L",
+            "cuve": {
+                "capacite": "1000 litres",
+                "type": "IBC (Intermediate Bulk Container)",
+                "consigne": "Non consignée",
+                "poids_vide": "60 kg"
+            },
+            "livraison": {
+                "zone": "France métropolitaine",
+                "condition": "Terrain accessible aux camions grues"
+            }
+        },
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "860 kg",
+            "hauteur_palette": "115 cm",
+            "code_douane": "27101900"
+        },
+        "avis": {
+            "note_moyenne": 4.5,
+            "nombre_avis": 18
+        },
+        "tags": ["pétrole", "chauffage", "CLAMC", "IBC", "1000L"],
+        "mots_cles": ["pétrole", "chauffage", "CLAMC", "IBC", "1000L", "professionnel"],
+        "seo": {
+            "title": "Pétrole chauffage CLAMC - Cuve IBC 1000L - Prix grossiste",
+            "description": "Pétrole de chauffage CLAMC en cuve IBC 1000L. Sans odeur, prix compétitif. Livraison cuve incluse.",
+            "keywords": ["pétrole", "chauffage", "CLAMC", "IBC", "1000L"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=5)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 522.00,
+        "images": [
+            "cuve-petrole-ibc.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 461,
+        "nom": "Palette Domaine Les Terres Promises – «Âme qui vive» 2021 (600 bouteilles)",
+        "description": "Palette de 600 bouteilles de 750 ml du vin rouge Domaine Les Terres Promises – «Âme qui vive» 2021. Vin élégant et racé, aux arômes de fruits noirs mûrs et notes épicées.",
+        "description_courte": "Palette Domaine Les Terres Promises Âme qui vive 2021",
+        "prix": 18720.00,
+        "prix_original": 18720.00,
+        "prix_promo": 14400.00,
+        "devise": "EUR",
+        "categorie_id": category_map["Boissons"],
+        "categorie_nom": "Boissons",
+        "stock": 5,
+        "stock_initial": 8,
+        "sku": "TER-AME-750ML-600-PAL",
+        "upc": "3760106855102",
+        "marque": "Domaine Les Terres Promises",
+        "fournisseur": "Domaine Les Terres Promises",
+        "poids": "540 kg",
+        "poids_net": "450 kg",
+        "dimensions": "120 x 80 x 150 cm",
+        "volume_palette": "1.2 m³",
+        "format": "Palette complète",
+        "unites": 600,
+        "type_conditionnement": "Bouteilles verre",
+        "contenance_unitaire": "750 ml",
+        "volume_total": "450 L",
+        "pays_origine": "France",
+        "usine": "Provence, France",
+        "dlc": (datetime.now() + timedelta(days=1095)).strftime("%d/%m/%Y"),
+        "dlc_mois": 36,
+        "conservation": "Couché à 12-14°C",
+        "caracteristiques": {
+            "origine": "Provence, France",
+            "type": "Vin rouge (assemblage)",
+            "alcool": "14%",
+            "tasting_notes": [
+                "Arômes de fruits noirs mûrs",
+                "Notes épicées et animales",
+                "Équilibre parfait entre tanins et fraîcheur"
+            ],
+            "pairing_suggestions": [
+                "Côtelettes d'agneau",
+                "Viande rouge",
+                "Gibier"
+            ]
+        },
+        "allergenes": ["Sulfites"],
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "540 kg",
+            "hauteur_palette": "150 cm",
+            "cartons_par_palette": 100,
+            "unites_par_carton": 6,
+            "poids_par_carton": "5.4 kg",
+            "code_douane": "22042100",
+            "temperature_transport": "12-15°C"
+        },
+        "avis": {
+            "note_moyenne": 4.8,
+            "nombre_avis": 15
+        },
+        "tags": ["terres promises", "âme qui vive", "vin rouge", "provence", "palette"],
+        "mots_cles": ["Terres Promises", "Âme qui vive", "vin rouge", "provence", "palette", "grossiste"],
+        "seo": {
+            "title": "Palette Domaine Les Terres Promises Âme qui vive 2021 - 600 bouteilles - Prix grossiste",
+            "description": "Palette professionnelle du vin Domaine Les Terres Promises Âme qui vive 2021 (600 bouteilles). Vin élégant de Provence, prix compétitif.",
+            "keywords": ["terres promises", "âme qui vive", "vin rouge", "provence", "palette", "grossiste"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=60)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 4320.00,
+        "images": [
+            "ame-qui-vive-1.jpg",
+            "ame-qui-vive-2.jpg",
+            "ame-qui-vive-3.jpg",
+            "ame-qui-vive-4.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 462,
+        "nom": "Palette Domaine Les Terres Promises – «L'Antidote» 2022 (600 bouteilles)",
+        "description": "Palette de 600 bouteilles de 750 ml du vin rouge Domaine Les Terres Promises – «L'Antidote» 2022. Vin fruité, frais et dense, avec des tanins fins et croquants.",
+        "description_courte": "Palette Domaine Les Terres Promises L'Antidote 2022",
+        "prix": 10296.00,
+        "prix_original": 10296.00,
+        "prix_promo": 7920.00,
+        "devise": "EUR",
+        "categorie_id": category_map["Boissons"],
+        "categorie_nom": "Boissons",
+        "stock": 8,
+        "stock_initial": 12,
+        "sku": "TER-ANT-750ML-600-PAL",
+        "upc": "3760106855203",
+        "marque": "Domaine Les Terres Promises",
+        "fournisseur": "Domaine Les Terres Promises",
+        "poids": "540 kg",
+        "poids_net": "450 kg",
+        "dimensions": "120 x 80 x 150 cm",
+        "volume_palette": "1.2 m³",
+        "format": "Palette complète",
+        "unites": 600,
+        "type_conditionnement": "Bouteilles verre",
+        "contenance_unitaire": "750 ml",
+        "volume_total": "450 L",
+        "pays_origine": "France",
+        "usine": "Provence, France",
+        "dlc": (datetime.now() + timedelta(days=1095)).strftime("%d/%m/%Y"),
+        "dlc_mois": 36,
+        "conservation": "Couché à 12-14°C",
+        "caracteristiques": {
+            "origine": "Provence, France",
+            "type": "Vin rouge (Carignan)",
+            "alcool": "13.5%",
+            "tasting_notes": [
+                "Vin fruité et frais",
+                "Tanins fins et croquants",
+                "Structure élégante"
+            ],
+            "pairing_suggestions": [
+                "Grillades",
+                "Plats méditerranéens"
+            ]
+        },
+        "allergenes": ["Sulfites"],
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "540 kg",
+            "hauteur_palette": "150 cm",
+            "cartons_par_palette": 100,
+            "unites_par_carton": 6,
+            "poids_par_carton": "5.4 kg",
+            "code_douane": "22042100",
+            "temperature_transport": "12-15°C"
+        },
+        "avis": {
+            "note_moyenne": 4.7,
+            "nombre_avis": 18
+        },
+        "tags": ["terres promises", "l'antidote", "vin rouge", "provence", "palette"],
+        "mots_cles": ["Terres Promises", "L'Antidote", "vin rouge", "provence", "palette", "grossiste"],
+        "seo": {
+            "title": "Palette Domaine Les Terres Promises L'Antidote 2022 - 600 bouteilles - Prix grossiste",
+            "description": "Palette professionnelle du vin Domaine Les Terres Promises L'Antidote 2022 (600 bouteilles). Vin fruité de Provence, prix compétitif.",
+            "keywords": ["terres promises", "l'antidote", "vin rouge", "provence", "palette", "grossiste"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=50)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 2376.00,
+        "images": [
+            "lantidote-1.jpg",
+            "lantidote-2.jpg",
+            "lantidote-3.jpg",
+            "lantidote-4.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    },
+    {
+        "id": 464,
+        "nom": "Palette Château La Gorce 2027 – Médoc (600 bouteilles)",
+        "description": "Palette de 600 bouteilles de 75 cl du Château La Gorce 2027, vin rouge Médoc Cru Bourgeois. Vin équilibré, fruité avec tanins fins, parfait pour professionnels et restaurateurs.",
+        "description_courte": "Palette Château La Gorce 2027 Médoc",
+        "prix": 6552.00,
+        "prix_original": 6552.00,
+        "prix_promo": 5040.00,
+        "devise": "EUR",
+        "categorie_id": category_map["Boissons"],
+        "categorie_nom": "Boissons",
+        "stock": 10,
+        "stock_initial": 15,
+        "sku": "LAG-2027-75CL-600-PAL",
+        "upc": "3760106855304",
+        "marque": "Château La Gorce",
+        "fournisseur": "Château La Gorce",
+        "poids": "540 kg",
+        "poids_net": "450 kg",
+        "dimensions": "120 x 80 x 150 cm",
+        "volume_palette": "1.2 m³",
+        "format": "Palette complète",
+        "unites": 600,
+        "type_conditionnement": "Bouteilles verre",
+        "contenance_unitaire": "75 cl",
+        "volume_total": "450 L",
+        "pays_origine": "France",
+        "usine": "Médoc, Bordeaux, France",
+        "dlc": (datetime.now() + timedelta(days=1095)).strftime("%d/%m/%Y"),
+        "dlc_mois": 36,
+        "conservation": "Couché à 12-14°C",
+        "caracteristiques": {
+            "origine": "Médoc, Bordeaux, France",
+            "type": "Vin rouge (Merlot, Cabernet Sauvignon, Petit Verdot)",
+            "alcool": "14%",
+            "tasting_notes": [
+                "Arômes de fruits rouges mûrs : framboise et cerise",
+                "Notes florales, vanille et chocolat",
+                "Bouche équilibrée, tanins fins et élégants, finale persistante"
+            ],
+            "pairing_suggestions": [
+                "Épaule d'agneau braisé",
+                "Gigot aux flageolets",
+                "Navarin d'agneau",
+                "Fromages affinés"
+            ],
+            "winery_style": "Authentique, équilibré et accessible, Cru Bourgeois"
+        },
+        "allergenes": ["Sulfites"],
+        "certifications": [],
+        "labels": [],
+        "logistique": {
+            "type_palette": "Europalette (EPAL)",
+            "poids_palette": "540 kg",
+            "hauteur_palette": "150 cm",
+            "cartons_par_palette": 100,
+            "unites_par_carton": 6,
+            "poids_par_carton": "5.4 kg",
+            "code_douane": "22042100",
+            "temperature_transport": "12-15°C"
+        },
+        "avis": {
+            "note_moyenne": 4.2,
+            "nombre_avis": 15
+        },
+        "tags": ["château la gorce", "médoc", "cru bourgeois", "vin rouge", "bordeaux", "palette"],
+        "mots_cles": ["Château La Gorce", "Médoc", "Cru Bourgeois", "vin rouge", "bordeaux", "palette", "grossiste"],
+        "seo": {
+            "title": "Palette Château La Gorce 2027 Médoc - 600 bouteilles - Prix grossiste",
+            "description": "Palette professionnelle Château La Gorce 2027 Médoc (600 bouteilles). Cru Bourgeois, vin équilibré, prix compétitif.",
+            "keywords": ["château la gorce", "médoc", "cru bourgeois", "vin rouge", "bordeaux", "palette", "grossiste"]
+        },
+        "date_ajout": (datetime.now() - timedelta(days=40)).isoformat(),
+        "date_maj": datetime.now().isoformat(),
+        "actif": True,
+        "en_promotion": True,
+        "nouveau": False,
+        "meilleure_vente": False,
+        "coup_coeur": False,
+        "economie_percent": 23,
+        "economie_montant": 1512.00,
+        "images": [
+            "chateau-la-gorce-1.jpg",
+            "chateau-la-gorce-2.jpg",
+            "chateau-la-gorce-3.jpg",
+            "chateau-la-gorce-4.jpg"
+        ],
+        "videos": [],
+        "documents": []
+    } 
 ]
 
 
