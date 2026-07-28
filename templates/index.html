@@ -1,19 +1,146 @@
 {% extends "base.html" %}
 
-{% block title %}DestockPro - Destockage Alimentaire Professionnel | Économies jusqu'à 70%{% endblock %}
+{% block page_title %}Destockage Alimentaire 🚨 | -70% sur Grossiste Boissons, Champagne pas cher, électroménager, Surgelés | Livraison France{% endblock %}
 
-{% block meta_description %}DestockPro : leader français du destockage alimentaire. Économisez jusqu'à 70% sur vos produits de marque. Livraison rapide partout en France. 5000+ références disponibles.{% endblock %}
+{% block meta_description %}Grossiste N°1 en Destockage Alimentaire. Palette de Boissons, Surgelés, Champagne, électroménager, Laitiers à Prix Cassés -70%. Livraison Rapide Partout en France. ☎ Devis Immédiat.{% endblock %}
 
 {% block meta_keywords %}destockage alimentaire, destockage alimentaire paris, destockage alimentaire lyon, destockage alimentaire france, destockage alimentaire belgique, destockage alimentaire espagne, destockage professionnel, alimentaire pas cher, grossiste alimentaire, destockage France, achat en gros, palettes alimentaires{% endblock %}
 
+{% block head_extra %}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Destockage Alimentaire -70% | Livraison France Express" />
+    <meta property="og:description" content="Grossiste N°1 en destockage : 🥤 Boissons, ❄️ Surgelés, 🧀 Laitiers à prix cassés. ★★★★☆ (4.9/5) - ☎ +33644694515" />
+    <meta property="og:url" content="https://www.destockagealimentairestore.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.destockagealimentairestore.com/static/images/og-destockage-national.jpg" />
+    <meta property="og:image:alt" content="Destockage alimentaire -70% toute la France" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Destockage Alimentaire | 4.9/5 ★ | Livraison France" />
+    <meta name="twitter:description" content="🥤 Boissons | Champagne pas cher | ❄️ Surgelés | 🧀 Laitiers | Jusqu'à -70% sur les invendus de qualité professionnelle" />
+    <meta name="twitter:image" content="https://www.destockagealimentairestore.com/static/images/twitter-destockage-france.jpg" />
+    
+    <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
+    <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
+
+    <!-- Rich Snippet COMPLET -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WholesaleStore",
+      "name": "Destockage Alimentaire Store",
+      "description": "Grossiste national en destockage alimentaire pour professionnels et particuliers",
+      "url": "https://www.destockagealimentairestore.com",
+      "image": "https://www.destockagealimentairestore.com/static/images/logo-destockage.jpg",
+      "telephone": "+33644694515",
+      "email": "contact@destockagealimentaire.fr",
+      "priceRange": "€€",
+      "openingHours": "Mo-Fr 08:00-19:00",
+      "areaServed": "FR",
+      "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.destockagealimentairestore.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+      },
+      "sameAs": [
+          "https://www.facebook.com/destockagealimentaire",
+          "https://www.instagram.com/destockagealimentaire"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Rue de l'Entrepôt",
+        "addressLocality": "Lille",
+        "postalCode": "59000",
+        "addressCountry": "FR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "152",
+        "bestRating": "5"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catégories Destockage",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Boissons",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Vins en gros",
+                "priceSpecification": {
+                  "price": "5.99",
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Sodas discount",
+                "priceSpecification": {
+                  "price": "0.39",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Surgelés",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Viandes professionnelles",
+                "priceSpecification": {
+                  "price": "3.99",
+                  "priceCurrency": "EUR"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "9.90",
+          "currency": "EUR"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "FR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "2"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "3"
+          }
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
 {% block content %}
-<!-- Hero Section Moderne -->
+
+<!-- ===== HERO SECTION MODERNE AVEC STATISTIQUES ===== -->
 <section class="hero-modern">
     <div class="hero-particles"></div>
     <div class="hero-content-modern">
         <div class="hero-text-modern">
             <h1>Le Meilleur du <span>Destockage Alimentaire</span> à Prix Cassés</h1>
-            <p class="hero-description">Découvrez nos offres exceptionnelles sur des produits de qualité à prix imbattables. Jusqu'à -70% sur une large sélection.</p>
+            <p class="hero-description">Découvrez nos offres exceptionnelles sur des produits de qualité à prix imbattables. Jusqu'à -70% sur une large sélection de boissons, surgelés, épicerie et électroménager.</p>
             <div class="hero-buttons-modern">
                 <a href="/produits" class="hero-btn-primary">Découvrir nos produits <i class="fas fa-arrow-right"></i></a>
                 <a href="/contact" class="hero-btn-secondary">Nous contacter</a>
@@ -34,85 +161,118 @@
             </div>
         </div>
         <div class="hero-image-modern">
-            <img src="{{ url_for('static', filename='images/image.jpg') }}"  
-                 alt="Destockage alimentaire">
+            <img src="{{ url_for('static', filename='images/hero-destockage.jpg') }}"  
+                 alt="Destockage alimentaire professionnel">
+            <div class="hero-badge">
+                <i class="fas fa-tag"></i> -20% sur votre première commande
+            </div>
         </div>
     </div>
 </section>
 
+<!-- ===== SLIDER PRODUITS PREMIUM (fusion des deux versions) ===== -->
 <div class="slider-modern" id="mainSlider">
     <div class="slider-container-modern">
-        <!-- Slide 1 - Nutella -->
+        <!-- Slide 1 - Red Bull -->
         <div class="slider-slide-modern">
-            <img src="{{ url_for('static', filename='images/nutella-palette.jpg') }}" 
-                 alt="Palette de Nutella"
+            <img src="{{ url_for('static', filename='images/slider/redbull-palette.jpg') }}" 
+                 alt="Palette Red Bull 2592 canettes"
                  onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
             <div class="slider-overlay"></div>
             <div class="slider-content-modern">
-                <span class="slider-subtitle">OFFRE SPÉCIALE GROSSISTE</span>
-                <h2>Nutella Pot 1kg - 760 pots</h2>
-                <p>La célèbre pâte à tartiner en palette complète</p>
-                <a href="/produit/100" class="slider-btn-modern">
-                    Voir l'offre <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-        <!-- Slide 2 - Red Bull -->
-        <div class="slider-slide-modern">
-            <img src="{{ url_for('static', filename='images/redbull-palette.jpg') }}" 
-                 alt="Palette Red Bull"
-                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
-            <div class="slider-overlay"></div>
-            <div class="slider-content-modern">
-                <span class="slider-subtitle">PROMO FLASH</span>
+                <span class="slider-subtitle">🎯 MEILLEUR VENDEUR</span>
                 <h2>Red Bull 250ml - 2592 canettes</h2>
-                <p>La boisson énergisante originale à prix imbattable</p>
+                <p>La boisson énergisante originale en palette complète</p>
+                <div class="slider-price">
+                    <span class="price-old">2 332€</span>
+                    <span class="price-new">1 432,80€</span>
+                    <span class="price-badge">-40%</span>
+                </div>
                 <a href="/produit/101" class="slider-btn-modern">
                     Voir l'offre <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
-        <!-- Slide 3 - Ruinart Blanc de Blancs -->
+        
+        <!-- Slide 2 - Moët & Chandon -->
         <div class="slider-slide-modern">
-            <img src="{{ url_for('static', filename='images/ruinart-champagne.jpg') }}" 
-                 alt="Ruinart Blanc de Blancs"
+            <img src="{{ url_for('static', filename='images/slider/champagne-moet.jpg') }}" 
+                 alt="Champagne Moët & Chandon Brut Impérial"
                  onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
             <div class="slider-overlay"></div>
             <div class="slider-content-modern">
-                <span class="slider-subtitle">OFFRE DE PRINTEMPS</span>
-                <h2>Ruinart Blanc de Blancs</h2>
+                <span class="slider-subtitle">✨ ÉDITION LIMITÉE</span>
+                <h2>Moët & Chandon Brut Impérial</h2>
                 <p>240 bouteilles de champagne d'exception</p>
-                <a href="/produit/114" class="slider-btn-modern">
+                <div class="slider-price">
+                    <span class="price-old">6 100€</span>
+                    <span class="price-new">4 100€</span>
+                    <span class="price-badge">-33%</span>
+                </div>
+                <a href="/produit/200" class="slider-btn-modern">
                     Voir l'offre <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
-        <!-- Slide 4 - Heineken -->
+        
+        <!-- Slide 3 - Nutella -->
         <div class="slider-slide-modern">
-            <img src="{{ url_for('static', filename='images/heineken-palette.jpg') }}" 
-                 alt="Heineken"
+            <img src="{{ url_for('static', filename='images/slider/nutella-palette.jpg') }}" 
+                 alt="Palette de Nutella 1kg"
                  onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
             <div class="slider-overlay"></div>
             <div class="slider-content-modern">
-                <span class="slider-subtitle">IDÉAL POUR BARS</span>
-                <h2>Heineken 33cl</h2>
-                <p>2592 canettes de bière blonde lager</p>
-                <a href="/produit/115" class="slider-btn-modern">
+                <span class="slider-subtitle">🍫 BEST-SELLER</span>
+                <h2>Nutella Pot 1kg - 760 pots</h2>
+                <p>La célèbre pâte à tartiner en palette complète</p>
+                <div class="slider-price">
+                    <span class="price-old">2 500€</span>
+                    <span class="price-new">1 536€</span>
+                    <span class="price-badge">-40%</span>
+                </div>
+                <a href="/produit/105" class="slider-btn-modern">
                     Voir l'offre <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
-        <!-- Slide 5 - Orangina -->
+        
+        <!-- Slide 4 - Coca Cola -->
         <div class="slider-slide-modern">
-            <img src="{{ url_for('static', filename='images/orangina-palette.jpg') }}" 
-                 alt="Orangina"
+            <img src="{{ url_for('static', filename='images/slider/coca-palette.jpg') }}" 
+                 alt="Palette Coca Cola 33cl"
                  onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
             <div class="slider-overlay"></div>
             <div class="slider-content-modern">
-                <span class="slider-subtitle">100% PUR JUS</span>
-                <h2>Orangina 33cl</h2>
-                <p>2592 canettes à la pulpe d'orange</p>
-                <a href="/produit/104" class="slider-btn-modern">
+                <span class="slider-subtitle">🥤 ICONIQUE</span>
+                <h2>Coca Cola 33cl - 2592 canettes</h2>
+                <p>La boisson la plus célèbre du monde en palette</p>
+                <div class="slider-price">
+                    <span class="price-old">2 640€</span>
+                    <span class="price-new">1 096€</span>
+                    <span class="price-badge">-60%</span>
+                </div>
+                <a href="/produit/113" class="slider-btn-modern">
+                    Voir l'offre <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 5 - Saumon -->
+        <div class="slider-slide-modern">
+            <img src="{{ url_for('static', filename='images/slider/saumon-fume.jpg') }}" 
+                 alt="Saumon fumé Norvège"
+                 onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200'">
+            <div class="slider-overlay"></div>
+            <div class="slider-content-modern">
+                <span class="slider-subtitle">🐟 DERNIÈRE CHANCE</span>
+                <h2>Saumon Fumé Norvège - 750 portions</h2>
+                <p>Qualité restaurant, fumé au bois de hêtre</p>
+                <div class="slider-price">
+                    <span class="price-old">550€</span>
+                    <span class="price-new">257€</span>
+                    <span class="price-badge">-55%</span>
+                </div>
+                <a href="/produit/120" class="slider-btn-modern">
                     Voir l'offre <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -129,7 +289,20 @@
     </div>
 </div>
 
-<!-- Section Catégories avec logos -->
+<!-- ===== BARRE DE PROMOTION ===== -->
+<div class="promo-bar">
+    <div class="promo-marquee">
+        <div class="promo-track">
+            <span>🎉 DESTOCKAGE MASSIF JUSQU'À -70%</span>
+            <span>🚚 LIVRAISON OFFERTE À PARTIR DE 1500€</span>
+            <span>⚡ COMMANDEZ MAINTENANT - EXPÉDITION SOUS 24H</span>
+            <span>🏆 MEILLEUR RAPPORT QUALITÉ/PRIX GARANTI</span>
+            <span>📦 PALETTES COMPLÈTES POUR PROFESSIONNELS</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== CATÉGORIES AVEC ICÔNES (fusion des deux) ===== -->
 <section class="categories-section">
     <div class="container">
         <div class="section-header">
@@ -173,7 +346,7 @@
     </div>
 </section>
 
-<!-- Produits populaires -->
+<!-- ===== PRODUITS POPULAIRES ===== -->
 <section class="featured-products-section">
     <div class="container">
         <div class="section-header">
@@ -270,7 +443,55 @@
     </div>
 </section>
 
-<!-- Bloc texte enrichissant avec photo d'entrepôt -->
+<!-- ===== SECTION BOISSONS EN PALETTE ===== -->
+<section class="palette-section">
+    <div class="bubble" style="width: 300px; height: 300px; top: -100px; right: -100px; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 200px; height: 200px; bottom: -50px; left: -50px; animation-delay: 2s;"></div>
+    
+    <div class="container">
+        <div class="section-content">
+            <div class="section-text" data-aos="modern-fade" data-aos-delay="100">
+                <h2 data-aos="modern-slide-right" data-aos-delay="150">Grossiste Boissons – Palettes Complètes à Prix Déstockés</h2>
+                <p data-aos="modern-fade" data-aos-delay="200"><strong>Destockage Alimentaire France</strong> vous propose des <strong>palettes entières de boissons</strong> à prix ultra compétitifs, idéales pour les professionnels de la restauration, les associations, les événements ou les particuliers souhaitant acheter en grande quantité.</p>
+                <p data-aos="modern-fade" data-aos-delay="250">Profitez d'arrivages réguliers en <strong>boissons gazeuses, eaux, jus de fruits, boissons énergétiques, sodas, thés glacés, sirops</strong> et autres rafraîchissements. Nos lots sont issus du <strong>déstockage alimentaire en gros</strong>, vous garantissant des tarifs avantageux tout en conservant une excellente qualité de produit.</p>
+                
+                <a href="{{ url_for('product_list') }}?category=Boissons" class="btn btn-primary" data-aos="modern-zoom" data-aos-delay="400">
+                    Voir les offres boissons <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="section-image" data-aos="modern-slide-left" data-aos-delay="100">
+                <img src="{{ url_for('static', filename='images/boisson.jpg') }}" alt="Boissons en palette">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION FRAIS & SURGELÉS ===== -->
+<section class="fresh-products-section">
+    <div class="bubble" style="width: 250px; height: 250px; top: 50px; left: -100px; animation-delay: 1s;"></div>
+    <div class="bubble" style="width: 150px; height: 150px; bottom: 100px; right: -50px; animation-delay: 3s;"></div>
+    
+    <div class="container">
+        <div class="section-content">
+            <div class="section-image" data-aos="modern-slide-right" data-aos-delay="100">
+                <img src="{{ url_for('static', filename='images/frais.jpg') }}" alt="Rayon frais">
+            </div>
+            
+            <div class="section-text" data-aos="modern-fade" data-aos-delay="200">
+                <h2 data-aos="modern-slide-left" data-aos-delay="150">Rayon Frais & Surgelés – Produits de Marques à Prix Déstockés</h2>
+                <p data-aos="modern-fade" data-aos-delay="200">Yaourts, fromages, beurres, légumes surgelés, viandes, desserts glacés… Le <strong>rayon frais et surgelés</strong> de <strong>Destockage Alimentaire France</strong> vous propose un large choix de produits de marques à petits prix.</p>
+                <p data-aos="modern-fade" data-aos-delay="250">Grâce à des arrivages réguliers, nous assurons une grande variété de références, incluant des produits laitiers, plats cuisinés, légumes préparés, pizzas, glaces ou encore produits vegan surgelés.</p>
+                
+                <a href="{{ url_for('product_list', category='Produits frais') }}" class="btn btn-secondary" data-aos="modern-zoom" data-aos-delay="350">
+                    Découvrir le rayon frais <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION ENTREPÔT ===== -->
 <section class="warehouse-section">
     <div class="container">
         <div class="warehouse-grid">
@@ -340,13 +561,13 @@
     </div>
 </section>
 
-<!-- Deuxième bloc texte avec engagement RSE -->
+<!-- ===== SECTION ENGAGEMENT RSE ===== -->
 <section class="commitment-section">
     <div class="container">
         <div class="commitment-grid">
             <div class="commitment-image">
                 <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Notre engagement">
+                     alt="Notre engagement RSE">
                 <div class="image-badge">
                     <i class="fas fa-leaf"></i>
                     <span>Engagement RSE</span>
@@ -385,92 +606,106 @@
     </div>
 </section>
 
-<!-- Slide vidéo style -->
-<section class="video-showcase">
+<!-- ===== TÉMOIGNAGES ET PARTENAIRES ===== -->
+<section class="testimonials-partners-section">
+    <div class="bubble" style="width: 300px; height: 300px; top: -100px; right: -100px;"></div>
+    <div class="bubble" style="width: 200px; height: 200px; bottom: -50px; left: -50px;"></div>
+    
     <div class="container">
         <div class="section-header">
-            <span class="section-subtitle">En images</span>
-            <h2 class="section-title">DestockPro en action</h2>
-            <p class="section-description">Découvrez comment nous travaillons au quotidien pour vous offrir le meilleur du destockage</p>
+            <h2>Ils nous font confiance</h2>
+            <p>Découvrez les retours de nos clients et nos partenaires de confiance qui nous accompagnent au quotidien</p>
         </div>
-
-        <div class="video-grid">
-            <div class="video-card main-video">
-                <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                         alt="Présentation DestockPro">
-                    <button class="video-play-btn" onclick="playVideo('main')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="video-duration">2:45</div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card" data-aos="modern-slide-right" data-aos-delay="100">
+                <div class="testimonial-header">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sophie Martin" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Sophie Martin</h4>
+                        <p>Restauratrice, Paris</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-info">
-                    <h3>Visite guidée de notre entrepôt</h3>
-                    <p>Découvrez les coulisses de DestockPro et notre processus de préparation des commandes.</p>
-                </div>
+                <p class="testimonial-text">
+                    Livraison ultra-rapide et produits d'une fraîcheur exceptionnelle. Le service client a été réactif et très professionnel. Je recommande vivement pour tous les professionnels de la restauration.
+                </p>
             </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1551024702-6d8f5e4c9d6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Préparation des palettes">
-                    <button class="video-play-btn" onclick="playVideo('video1')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="video-duration">1:30</div>
+            
+            <div class="testimonial-card" data-aos="modern-fade" data-aos-delay="200">
+                <div class="testimonial-header">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Pierre Lambert" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Pierre Lambert</h4>
+                        <p>Gérant de supermarché, Lyon</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-info">
-                    <h3>Préparation des palettes</h3>
-                    <p>Notre équipe à l'œuvre pour préparer vos commandes avec soin.</p>
-                </div>
+                <p class="testimonial-text">
+                    Rapport qualité/prix imbattable. J'ai économisé près de 40% par rapport aux fournisseurs habituels pour des produits de qualité supérieure. Un partenaire fiable depuis maintenant 2 ans.
+                </p>
             </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Contrôle qualité">
-                    <button class="video-play-btn" onclick="playVideo('video2')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="video-duration">1:15</div>
+            
+            <div class="testimonial-card" data-aos="modern-slide-left" data-aos-delay="300">
+                <div class="testimonial-header">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Marie Dubois" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Marie Dubois</h4>
+                        <p>Traiteur, Marseille</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-info">
-                    <h3>Contrôle qualité</h3>
-                    <p>Chaque produit est vérifié avant expédition pour garantir votre satisfaction.</p>
-                </div>
+                <p class="testimonial-text">
+                    La diversité des produits et la régularité des arrivages sont impressionnantes. Un vrai partenaire pour développer mon activité sans me soucier des ruptures de stock.
+                </p>
             </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1551024702-6d8f5e4c9d6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Livraison">
-                    <button class="video-play-btn" onclick="playVideo('video3')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="video-duration">2:00</div>
+        </div>
+        
+        <div class="partners-section">
+            <h3 class="partners-title">Nos Partenaires</h3>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="https://www.farouknasri.com/wp-content/uploads/2020/02/nouveau_logo_auchan.png" alt="Auchan">
                 </div>
-                <div class="video-info">
-                    <h3>Livraison express</h3>
-                    <p>De notre entrepôt à votre porte en 24/48h.</p>
+                <div class="partner-logo">
+                    <img src="https://www.specialolympics.asso.fr/wp-content/uploads/2024/03/UPS-Logo-2048x1152.png" alt="UPS">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://www.sippro.fr/wp-content/uploads/2021/03/FedEx-Logo.png" alt="FedEx">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://images.icon-icons.com/1235/PNG/512/1492719307-dhl_83641.png" alt="DHL">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://www.innox-deco.com/images/imagecache/500x500/JPG/FRAIS-DE-PORT-LIVRAISON-MONDIAL-RELAY.webp" alt="Mondial Relay">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Modal vidéo -->
-<div class="video-modal" id="videoModal" onclick="closeVideoModal()">
-    <div class="video-modal-content" onclick="event.stopPropagation()">
-        <button class="video-modal-close" onclick="closeVideoModal()">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="video-container">
-            <iframe id="videoIframe" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-
-<!-- Features modernes -->
+<!-- ===== FEATURES MODERNES ===== -->
 <section class="features-modern">
     <div class="container">
         <div class="features-grid">
@@ -509,7 +744,7 @@
     </div>
 </section>
 
-<!-- Newsletter moderne -->
+<!-- ===== NEWSLETTER ===== -->
 <section class="newsletter-modern">
     <div class="container">
         <div class="newsletter-container-modern">
@@ -525,15 +760,40 @@
     </div>
 </section>
 
-<style>
-/* ===== VIEWPORT META COMPATIBLE ===== */
-* {
-    -webkit-tap-highlight-color: transparent;
-    box-sizing: border-box;
-}
+<!-- ===== MODAL CONTACT ===== -->
+<div class="contact-modal" id="contactModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-icon">
+            <i class="fas fa-headset"></i>
+        </div>
+        <h2 class="modal-title">Contactez notre conseiller</h2>
+        <p class="modal-text">
+            Pour obtenir un devis personnalisé et des conseils professionnels, 
+            notre équipe d'experts est à votre disposition.
+        </p>
+        <div class="modal-actions">
+            <button class="modal-btn primary" onclick="window.location.href='tel:+33644697212'">
+                <i class="fas fa-phone"></i>
+                Appeler maintenant
+            </button>
+            <button class="modal-btn secondary" onclick="window.location.href='mailto:contact@destockagealimentaire.fr'">
+                <i class="fas fa-envelope"></i>
+                Envoyer un email
+            </button>
+        </div>
+    </div>
+</div>
 
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ===== VARIABLES GLOBALES ===== */
 :root {
-    --primary: #1a1a1a;
+    --primary: #1a1a2e;
     --secondary: #c4a747;
     --accent: #d4af37;
     --background: #ffffff;
@@ -545,7 +805,6 @@
     --danger: #d63031;
     --warning: #fdcb6e;
     --info: #0984e3;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
     --shadow: 0 4px 6px rgba(0,0,0,0.05);
     --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
     --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
@@ -553,19 +812,7 @@
     --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-    .container {
-        padding: 0 2rem;
-    }
-}
-
-/* Hero Section */
+/* ===== HERO MODERN ===== */
 .hero-modern {
     min-height: 100vh;
     display: flex;
@@ -574,12 +821,6 @@
     overflow: hidden;
     background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
     padding: 100px 0 60px;
-}
-
-@media (min-width: 768px) {
-    .hero-modern {
-        padding: 120px 0 60px;
-    }
 }
 
 .hero-particles {
@@ -619,12 +860,6 @@
     color: white;
 }
 
-@media (min-width: 768px) {
-    .hero-text-modern h1 {
-        margin-bottom: 1.5rem;
-    }
-}
-
 .hero-text-modern h1 span {
     color: var(--secondary);
     position: relative;
@@ -642,23 +877,10 @@
     z-index: -1;
 }
 
-@media (min-width: 768px) {
-    .hero-text-modern h1 span::after {
-        bottom: 10px;
-        height: 20px;
-    }
-}
-
 .hero-description {
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .hero-description {
-        margin-bottom: 2.5rem;
-    }
 }
 
 .hero-buttons-modern {
@@ -682,6 +904,13 @@
     padding: 0.9rem 1.5rem;
     text-align: center;
     justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
 @media (min-width: 768px) {
@@ -693,14 +922,7 @@
 .hero-btn-primary {
     background: var(--secondary);
     color: var(--primary);
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
     box-shadow: 0 10px 20px rgba(196, 167, 71, 0.3);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .hero-btn-primary:hover {
@@ -711,14 +933,7 @@
 .hero-btn-secondary {
     background: transparent;
     color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .hero-btn-secondary:hover {
@@ -763,12 +978,6 @@
 .stat-label {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
-}
-
-@media (min-width: 768px) {
-    .stat-label {
-        font-size: 0.9rem;
-    }
 }
 
 .hero-image-modern {
@@ -819,25 +1028,17 @@
     font-size: 0.85rem;
 }
 
-@media (min-width: 768px) {
-    .hero-badge {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        bottom: -20px;
-        left: -20px;
-    }
-}
-
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
-/* Slider */
+/* ===== SLIDER MODERN ===== */
 .slider-modern {
     position: relative;
     overflow: hidden;
     height: 400px;
+    margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -938,12 +1139,6 @@
     }
 }
 
-@media (min-width: 1024px) {
-    .slider-content-modern h2 {
-        font-size: 3.5rem;
-    }
-}
-
 .slider-content-modern p {
     font-size: 0.85rem;
     margin-bottom: 1rem;
@@ -954,6 +1149,63 @@
     .slider-content-modern p {
         font-size: 1.1rem;
         margin-bottom: 2rem;
+    }
+}
+
+.slider-price {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .slider-price {
+        justify-content: flex-start;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.slider-price .price-old {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: line-through;
+}
+
+@media (min-width: 768px) {
+    .slider-price .price-old {
+        font-size: 1.1rem;
+    }
+}
+
+.slider-price .price-new {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+@media (min-width: 768px) {
+    .slider-price .price-new {
+        font-size: 2rem;
+    }
+}
+
+.slider-price .price-badge {
+    background: var(--danger);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .slider-price .price-badge {
+        padding: 0.3rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -983,12 +1235,6 @@
     gap: 1rem;
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(196, 167, 71, 0.4);
-}
-
-@media (min-width: 768px) {
-    .slider-btn-modern:hover {
-        gap: 1.5rem;
-    }
 }
 
 .slider-arrow {
@@ -1077,104 +1323,179 @@
     transform: scale(1.2);
 }
 
-/* Section Catégories - 2 par ligne sur mobile */
+/* ===== BARRE PROMO ===== */
+.promo-bar {
+    background: linear-gradient(90deg, #ff4757, #ff6b81, #ff4757);
+    color: white;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.promo-marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+.promo-track {
+    display: flex;
+    animation: marquee 25s linear infinite;
+    white-space: nowrap;
+}
+
+.promo-track span {
+    padding: 0 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== SECTIONS DE CONTENU ===== */
+.palette-section,
+.fresh-products-section,
+.fruits-section {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.palette-section {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+}
+
+.fresh-products-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.fruits-section {
+    background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+}
+
+.section-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .section-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+.section-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.section-text p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+.section-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    height: 350px;
+}
+
+.section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.section-image:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+    .section-image {
+        height: 250px;
+        order: -1;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===== BULLES DÉCORATIVES ===== */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+/* ===== CATÉGORIES ===== */
 .categories-section {
-    padding: 3rem 0;
+    padding: 4rem 0;
     background: linear-gradient(135deg, var(--surface), var(--background));
 }
 
-@media (min-width: 768px) {
-    .categories-section {
-        padding: 5rem 0;
-    }
-}
-
-.section-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-    .section-header {
-        margin: 0 auto 3rem;
-    }
-}
-
-.section-subtitle {
-    display: inline-block;
-    color: var(--secondary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .section-subtitle {
-        font-size: 0.9rem;
-    }
-}
-
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-@media (min-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: var(--secondary);
-}
-
-@media (min-width: 768px) {
-    .section-title::after {
-        width: 60px;
-    }
-}
-
-.section-description {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin-top: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .section-description {
-        font-size: 1.1rem;
-    }
-}
-
-/* Grille catégories - 2 colonnes sur mobile et tablette */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-    .categories-grid {
-        gap: 1.5rem;
-    }
 }
 
 @media (min-width: 1024px) {
@@ -1187,7 +1508,7 @@
 .category-card {
     background: white;
     border-radius: 16px;
-    padding: 1.2rem;
+    padding: 1.5rem;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
@@ -1197,72 +1518,27 @@
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .category-card {
-        padding: 1.5rem;
-    }
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
 .category-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--secondary);
 }
 
-@media (min-width: 1024px) {
-    .category-card:hover {
-        transform: translateY(-10px);
-    }
-}
-
-.category-card:hover::before {
-    transform: scaleX(1);
-}
-
 .category-icon-wrapper {
-    margin-bottom: 0.8rem;
-    display: flex;
-    justify-content: center;
-}
-
-@media (min-width: 768px) {
-    .category-icon-wrapper {
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
 }
 
 .category-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary);
     transition: var(--transition);
-    box-shadow: 0 10px 20px rgba(196, 167, 71, 0.2);
-}
-
-@media (min-width: 768px) {
-    .category-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
-    }
 }
 
 .category-card:hover .category-icon {
@@ -1270,33 +1546,15 @@
 }
 
 .category-content h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--text);
     margin-bottom: 0.3rem;
-}
-
-@media (min-width: 768px) {
-    .category-content h3 {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-    }
 }
 
 .category-content p {
     color: var(--text-light);
-    font-size: 0.7rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
     margin-bottom: 0.8rem;
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .category-content p {
-        display: block;
-        font-size: 0.8rem;
-        margin-bottom: 1rem;
-    }
 }
 
 .category-link {
@@ -1305,16 +1563,10 @@
     gap: 0.3rem;
     color: var(--secondary);
     font-weight: 600;
-    font-size: 0.75rem;
-    transition: var(--transition);
+    font-size: 0.85rem;
     opacity: 0;
     transform: translateY(10px);
-}
-
-@media (min-width: 768px) {
-    .category-link {
-        font-size: 0.85rem;
-    }
+    transition: var(--transition);
 }
 
 .category-card:hover .category-link {
@@ -1322,47 +1574,23 @@
     transform: translateY(0);
 }
 
-.category-link i {
-    transition: transform 0.3s ease;
-}
-
-.category-link:hover i {
-    transform: translateX(5px);
-}
-
-/* Produits populaires - 2 par ligne sur mobile */
+/* ===== PRODUITS POPULAIRES ===== */
 .featured-products-section {
-    padding: 3rem 0;
+    padding: 4rem 0;
     background: white;
 }
 
-@media (min-width: 768px) {
-    .featured-products-section {
-        padding: 5rem 0;
-    }
-}
-
-/* Grille produits - 2 colonnes sur mobile */
 .featured-products-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-bottom: 2rem;
-    padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-    .featured-products-grid {
-        gap: 1.5rem;
-    }
 }
 
 @media (min-width: 1024px) {
     .featured-products-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
-        margin-bottom: 3rem;
-        padding: 0;
     }
 }
 
@@ -1372,7 +1600,6 @@
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    position: relative;
     border: 1px solid var(--border);
     cursor: pointer;
 }
@@ -1380,78 +1607,43 @@
 .featured-product-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--secondary);
-}
-
-@media (min-width: 1024px) {
-    .featured-product-card:hover {
-        transform: translateY(-10px);
-    }
 }
 
 .featured-product-badge {
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.8rem;
+    left: 0.8rem;
     z-index: 5;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
 }
 
-@media (min-width: 768px) {
-    .featured-product-badge {
-        top: 0.8rem;
-        left: 0.8rem;
-        gap: 0.5rem;
-    }
-}
-
 .badge-promo {
     background: linear-gradient(135deg, var(--danger), #ff6b6b);
     color: white;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 700;
     box-shadow: var(--shadow);
-}
-
-@media (min-width: 768px) {
-    .badge-promo {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.8rem;
-    }
 }
 
 .badge-stock {
     background: var(--warning);
     color: var(--primary);
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 600;
     box-shadow: var(--shadow);
 }
 
-@media (min-width: 768px) {
-    .badge-stock {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.8rem;
-    }
-}
-
 .featured-product-image {
     position: relative;
-    height: 140px;
+    height: 160px;
     overflow: hidden;
     background: white;
-}
-
-@media (min-width: 768px) {
-    .featured-product-image {
-        height: 180px;
-    }
 }
 
 .featured-product-image img {
@@ -1462,35 +1654,21 @@
     transition: transform 0.6s ease;
 }
 
-@media (min-width: 768px) {
-    .featured-product-image img {
-        padding: 0.8rem;
-    }
-}
-
 .featured-product-card:hover .featured-product-image img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .featured-product-actions {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.8rem;
+    right: 0.8rem;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.5rem;
     opacity: 0;
     transform: translateX(20px);
     transition: var(--transition);
     z-index: 5;
-}
-
-@media (min-width: 768px) {
-    .featured-product-actions {
-        top: 0.8rem;
-        right: 0.8rem;
-        gap: 0.5rem;
-    }
 }
 
 .featured-product-card:hover .featured-product-actions {
@@ -1498,14 +1676,14 @@
     transform: translateX(0);
 }
 
-.featured-product-actions .action-btn {
-    width: 25px;
-    height: 25px;
+.action-btn {
+    width: 30px;
+    height: 30px;
     background: white;
     border: none;
     border-radius: 50%;
     color: var(--text);
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
@@ -1514,162 +1692,78 @@
     justify-content: center;
 }
 
-@media (min-width: 768px) {
-    .featured-product-actions .action-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-    }
-}
-
-.featured-product-actions .action-btn:hover {
+.action-btn:hover {
     background: var(--secondary);
     color: var(--primary);
     transform: scale(1.1);
 }
 
 .featured-product-info {
-    padding: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .featured-product-info {
-        padding: 1rem;
-    }
+    padding: 1rem;
 }
 
 .product-category {
     color: var(--secondary);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 0.2rem;
-}
-
-@media (min-width: 768px) {
-    .product-category {
-        font-size: 0.7rem;
-        margin-bottom: 0.3rem;
-    }
+    margin-bottom: 0.3rem;
 }
 
 .product-title {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
-}
-
-@media (min-width: 768px) {
-    .product-title {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-    }
+    margin-bottom: 0.5rem;
 }
 
 .product-rating {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    margin-bottom: 0.3rem;
-    flex-wrap: wrap;
-}
-
-@media (min-width: 768px) {
-    .product-rating {
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .stars {
     color: #ffc107;
-    font-size: 0.6rem;
-    display: flex;
-    gap: 0.1rem;
-}
-
-@media (min-width: 768px) {
-    .stars {
-        font-size: 0.7rem;
-    }
+    font-size: 0.7rem;
 }
 
 .rating-count {
     color: var(--text-light);
-    font-size: 0.6rem;
-}
-
-@media (min-width: 768px) {
-    .rating-count {
-        font-size: 0.7rem;
-    }
+    font-size: 0.7rem;
 }
 
 .product-price {
-    margin-bottom: 0.6rem;
-}
-
-@media (min-width: 768px) {
-    .product-price {
-        margin-bottom: 0.8rem;
-    }
+    margin-bottom: 0.8rem;
 }
 
 .price-container {
     display: flex;
     align-items: baseline;
-    gap: 0.3rem;
-    margin-bottom: 0.2rem;
-    flex-wrap: wrap;
-}
-
-@media (min-width: 768px) {
-    .price-container {
-        gap: 0.5rem;
-        margin-bottom: 0.3rem;
-    }
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .current-price {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--secondary);
 }
 
-@media (min-width: 768px) {
-    .current-price {
-        font-size: 1.1rem;
-    }
-}
-
 .original-price {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     color: var(--text-light);
     text-decoration: line-through;
 }
 
-@media (min-width: 768px) {
-    .original-price {
-        font-size: 0.8rem;
-    }
-}
-
 .savings {
     display: inline-block;
-    font-size: 0.55rem;
+    font-size: 0.7rem;
     color: var(--success);
     background: rgba(0, 184, 148, 0.1);
-    padding: 0.15rem 0.3rem;
+    padding: 0.2rem 0.4rem;
     border-radius: 4px;
-}
-
-@media (min-width: 768px) {
-    .savings {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.4rem;
-    }
 }
 
 .product-footer {
@@ -1678,39 +1772,13 @@
     align-items: center;
     padding-top: 0.5rem;
     border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-    gap: 0.3rem;
-}
-
-@media (min-width: 768px) {
-    .product-footer {
-        padding-top: 0.6rem;
-        gap: 0.5rem;
-    }
 }
 
 .stock-status {
     display: flex;
     align-items: center;
-    gap: 0.2rem;
-    font-size: 0.6rem;
-}
-
-@media (min-width: 768px) {
-    .stock-status {
-        gap: 0.3rem;
-        font-size: 0.7rem;
-    }
-}
-
-.stock-status i {
+    gap: 0.3rem;
     font-size: 0.7rem;
-}
-
-@media (min-width: 768px) {
-    .stock-status i {
-        font-size: 0.8rem;
-    }
 }
 
 .in-stock {
@@ -1726,8 +1794,8 @@
 }
 
 .add-to-cart-btn {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background: var(--primary);
     color: white;
     border: none;
@@ -1737,15 +1805,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-}
-
-@media (min-width: 768px) {
-    .add-to-cart-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-    }
+    font-size: 0.8rem;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
@@ -1761,28 +1821,19 @@
 
 .section-footer {
     text-align: center;
-    padding: 0 1rem;
 }
 
 .btn-outline {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.8rem;
+    padding: 0.8rem 2rem;
     border: 2px solid var(--secondary);
     color: var(--secondary);
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: var(--transition);
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .btn-outline {
-        padding: 1rem 2.5rem;
-        font-size: 1rem;
-    }
 }
 
 .btn-outline:hover {
@@ -1792,19 +1843,11 @@
     box-shadow: var(--shadow);
 }
 
-/* Section Entrepôt */
+/* ===== SECTION ENTREPÔT ===== */
 .warehouse-section,
 .commitment-section,
 .video-showcase {
-    padding: 3rem 0;
-}
-
-@media (min-width: 768px) {
-    .warehouse-section,
-    .commitment-section,
-    .video-showcase {
-        padding: 5rem 0;
-    }
+    padding: 4rem 0;
 }
 
 .warehouse-section {
@@ -1817,7 +1860,6 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     align-items: center;
-    padding: 0 1rem;
 }
 
 @media (min-width: 992px) {
@@ -1825,7 +1867,6 @@
     .commitment-grid {
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
-        padding: 0;
     }
 }
 
@@ -1836,62 +1877,28 @@
     letter-spacing: 2px;
     font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .section-tag {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
 }
 
 .warehouse-content h2,
 .commitment-content h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--text);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-@media (min-width: 768px) {
-    .warehouse-content h2,
-    .commitment-content h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
+    margin-bottom: 1.5rem;
 }
 
 .warehouse-description,
 .commitment-description {
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .warehouse-description,
-    .commitment-description {
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        font-size: 1rem;
-    }
+    line-height: 1.8;
+    margin-bottom: 2rem;
 }
 
 .warehouse-features {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .warehouse-features {
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .feature {
@@ -1912,67 +1919,42 @@
 }
 
 .feature-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--primary);
     flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
-    .feature-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-}
-
 .feature-text h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text);
     margin-bottom: 0.3rem;
-}
-
-@media (min-width: 768px) {
-    .feature-text h4 {
-        font-size: 1.1rem;
-    }
 }
 
 .feature-text p {
     color: var(--text-light);
-    line-height: 1.5;
-    font-size: 0.85rem;
-}
-
-@media (min-width: 768px) {
-    .feature-text p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .warehouse-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border);
 }
 
 @media (min-width: 768px) {
     .warehouse-stats {
         grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        margin-top: 2rem;
-        padding-top: 2rem;
     }
 }
 
@@ -1982,26 +1964,14 @@
 
 .warehouse-stat .stat-number {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary);
 }
 
-@media (min-width: 768px) {
-    .warehouse-stat .stat-number {
-        font-size: 1.5rem;
-    }
-}
-
 .warehouse-stat .stat-label {
     color: var(--text-light);
-    font-size: 0.7rem;
-}
-
-@media (min-width: 768px) {
-    .warehouse-stat .stat-label {
-        font-size: 0.8rem;
-    }
+    font-size: 0.8rem;
 }
 
 .warehouse-image {
@@ -2024,31 +1994,18 @@
 
 .image-caption {
     position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 2rem;
+    left: 2rem;
     background: rgba(255,255,255,0.9);
     backdrop-filter: blur(10px);
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
     color: var(--primary);
     font-weight: 600;
-    font-size: 0.75rem;
-    white-space: nowrap;
-}
-
-@media (min-width: 768px) {
-    .image-caption {
-        bottom: 2rem;
-        left: 2rem;
-        transform: none;
-        padding: 0.8rem 1.5rem;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-    }
+    font-size: 0.9rem;
 }
 
 .image-caption i {
@@ -2056,7 +2013,7 @@
     font-size: 1rem;
 }
 
-/* Section Engagement */
+/* ===== SECTION ENGAGEMENT ===== */
 .commitment-section {
     background: white;
 }
@@ -2076,43 +2033,24 @@
 
 .image-badge {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 2rem;
+    left: 2rem;
     background: var(--secondary);
     color: var(--primary);
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
     font-weight: 600;
-    font-size: 0.75rem;
-}
-
-@media (min-width: 768px) {
-    .image-badge {
-        top: 2rem;
-        left: 2rem;
-        padding: 0.5rem 1.5rem;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-    }
+    font-size: 0.9rem;
 }
 
 .commitment-numbers {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-
-@media (min-width: 640px) {
-    .commitment-numbers {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
 .number-item {
@@ -2121,373 +2059,227 @@
 
 .number-item .number {
     display: block;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: var(--secondary);
     line-height: 1;
 }
 
-@media (min-width: 768px) {
-    .number-item .number {
-        font-size: 2rem;
-    }
-}
-
 .number-item .label {
     color: var(--text-light);
-    font-size: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .number-item .label {
-        font-size: 0.9rem;
-    }
+    font-size: 0.9rem;
 }
 
 .commitment-quote {
     background: var(--surface);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 16px;
     position: relative;
     border-left: 4px solid var(--secondary);
 }
 
-@media (min-width: 768px) {
-    .commitment-quote {
-        padding: 2rem;
-    }
-}
-
 .commitment-quote i {
     color: var(--secondary);
-    font-size: 1.5rem;
+    font-size: 2rem;
     opacity: 0.3;
     position: absolute;
     top: 1rem;
     right: 1rem;
 }
 
-@media (min-width: 768px) {
-    .commitment-quote i {
-        font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
-    }
-}
-
 .commitment-quote p {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-style: italic;
     color: var(--text);
-    margin-bottom: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .commitment-quote p {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
 }
 
 .quote-author strong {
     display: block;
     color: var(--text);
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .quote-author strong {
-        font-size: 1rem;
-    }
+    font-size: 1rem;
 }
 
 .quote-author span {
     color: var(--text-light);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
-@media (min-width: 768px) {
-    .quote-author span {
-        font-size: 0.9rem;
-    }
+/* ===== TÉMOIGNAGES & PARTENAIRES ===== */
+.testimonials-partners-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-/* Section Vidéo */
-.video-showcase {
-    background: var(--surface);
-}
-
-.video-grid {
+.testimonials-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding: 0 1rem;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        margin-top: 3rem;
-        padding: 0;
+    .testimonials-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 }
 
-.video-card {
+.testimonial-card {
     background: white;
-    border-radius: 12px;
-    overflow: hidden;
+    border-radius: 20px;
+    padding: 2rem;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid var(--border);
 }
 
-.video-card:hover {
+.testimonial-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
 }
 
-.video-card.main-video {
-    grid-column: auto;
-}
-
-@media (min-width: 768px) {
-    .video-card.main-video {
-        grid-column: span 2;
-    }
-}
-
-.video-thumbnail {
-    position: relative;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-}
-
-.video-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.video-card:hover .video-thumbnail img {
-    transform: scale(1.1);
-}
-
-.video-play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45px;
-    height: 45px;
-    background: var(--secondary);
-    border: none;
-    border-radius: 50%;
-    color: var(--primary);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: var(--transition);
+.testimonial-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 2;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-    .video-play-btn {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary);
 }
 
-.video-play-btn:hover {
-    background: var(--accent);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.video-duration {
-    position: absolute;
-    bottom: 0.8rem;
-    right: 0.8rem;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    z-index: 2;
-}
-
-@media (min-width: 768px) {
-    .video-duration {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.3rem 0.8rem;
-        font-size: 0.8rem;
-    }
-}
-
-.video-info {
-    padding: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .video-info {
-        padding: 1rem;
-    }
-}
-
-.video-info h3 {
-    font-size: 0.9rem;
+.testimonial-info h4 {
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text);
     margin-bottom: 0.2rem;
 }
 
-@media (min-width: 768px) {
-    .video-info h3 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-}
-
-.video-info p {
+.testimonial-info p {
     color: var(--text-light);
-    font-size: 0.75rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
 }
 
-@media (min-width: 768px) {
-    .video-info p {
-        font-size: 0.85rem;
-    }
+.testimonial-rating {
+    color: #ffc107;
+    font-size: 0.9rem;
 }
 
-/* Modal Vidéo */
-.video-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.video-modal-content {
-    width: 95%;
-    max-width: 1000px;
+.testimonial-text {
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.7;
     position: relative;
+    padding-left: 1.5rem;
+}
+
+.testimonial-text:before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--border);
+    font-family: Georgia, serif;
+}
+
+.partners-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.partners-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border-radius: 2px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
-    .video-modal-content {
-        width: 90%;
+    .partners-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
     }
 }
 
-.video-modal-close {
-    position: absolute;
-    top: -40px;
-    right: 50%;
-    transform: translateX(50%);
-    width: 40px;
-    height: 40px;
+.partner-logo {
     background: white;
-    border: none;
-    border-radius: 50%;
-    color: var(--danger);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: var(--transition);
+    border-radius: 12px;
+    padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    filter: grayscale(100%) opacity(0.7);
 }
 
-@media (min-width: 768px) {
-    .video-modal-close {
-        top: -50px;
-        right: 0;
-        transform: none;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
+.partner-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
-.video-modal-close:hover {
-    transform: rotate(90deg);
-    background: var(--danger);
-    color: white;
+.partner-logo img {
+    max-width: 100%;
+    max-height: 60px;
+    object-fit: contain;
 }
 
-@media (min-width: 768px) {
-    .video-modal-close:hover {
-        transform: rotate(90deg);
-    }
-}
-
-.video-container {
-    aspect-ratio: 16/9;
-    width: 100%;
-}
-
-/* Features modernes */
+/* ===== FEATURES MODERNES ===== */
 .features-modern {
-    padding: 3rem 0;
+    padding: 4rem 0;
     background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
     color: white;
 }
 
-@media (min-width: 768px) {
-    .features-modern {
-        padding: 4rem 0;
-    }
-}
-
 .features-grid {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-    .features-grid {
-        gap: 1.5rem;
-    }
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
     .features-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
-        padding: 0 2rem;
     }
 }
 
 .feature-card {
     text-align: center;
-    padding: 1.2rem;
+    padding: 1.5rem;
     background: rgba(255,255,255,0.05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
     transition: var(--transition);
-}
-
-@media (min-width: 768px) {
-    .feature-card {
-        padding: 1.5rem;
-    }
 }
 
 .feature-card:hover {
@@ -2496,33 +2288,18 @@
     border-color: var(--secondary);
 }
 
-@media (min-width: 1024px) {
-    .feature-card:hover {
-        transform: translateY(-10px);
-    }
-}
-
 .feature-icon-modern {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 0.8rem;
-    font-size: 1.3rem;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
     color: var(--primary);
     transition: var(--transition);
-}
-
-@media (min-width: 768px) {
-    .feature-icon-modern {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 1rem;
-        font-size: 1.5rem;
-    }
 }
 
 .feature-card:hover .feature-icon-modern {
@@ -2530,43 +2307,23 @@
 }
 
 .feature-card h3 {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
     color: white;
-}
-
-@media (min-width: 768px) {
-    .feature-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
 }
 
 .feature-card p {
     color: rgba(255,255,255,0.7);
-    line-height: 1.4;
-    font-size: 0.75rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
-@media (min-width: 768px) {
-    .feature-card p {
-        line-height: 1.5;
-        font-size: 0.85rem;
-    }
-}
-
-/* Newsletter moderne */
+/* ===== NEWSLETTER ===== */
 .newsletter-modern {
-    padding: 3rem 0;
+    padding: 4rem 0;
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     position: relative;
     overflow: hidden;
-}
-
-@media (min-width: 768px) {
-    .newsletter-modern {
-        padding: 4rem 0;
-    }
 }
 
 .newsletter-modern::before {
@@ -2591,44 +2348,25 @@
     text-align: center;
     position: relative;
     z-index: 1;
-    padding: 0 1rem;
 }
 
 .newsletter-container-modern h2 {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     color: var(--primary);
-    margin-bottom: 0.8rem;
-}
-
-@media (min-width: 768px) {
-    .newsletter-container-modern h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
 }
 
 .newsletter-container-modern p {
     color: var(--primary);
     opacity: 0.9;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .newsletter-container-modern p {
-        margin-bottom: 2rem;
-        font-size: 1rem;
-    }
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
 }
 
 .newsletter-form-modern {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    background: transparent;
-    padding: 0;
-    border-radius: 50px;
-    box-shadow: none;
+    gap: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -2637,26 +2375,23 @@
         gap: 1rem;
         background: white;
         padding: 0.5rem;
+        border-radius: 50px;
         box-shadow: var(--shadow-lg);
     }
 }
 
 .newsletter-form-modern input {
     flex: 1;
-    padding: 0.8rem 1rem;
-    border: 1px solid rgba(255,255,255,0.3);
+    padding: 1rem 1.5rem;
+    border: none;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     background: rgba(255,255,255,0.9);
-    min-width: 0;
 }
 
 @media (min-width: 768px) {
     .newsletter-form-modern input {
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
         background: transparent;
-        border: none;
     }
 }
 
@@ -2665,7 +2400,7 @@
 }
 
 .newsletter-form-modern button {
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     background: linear-gradient(135deg, var(--primary), #2a2a2a);
     color: white;
     border: none;
@@ -2673,19 +2408,11 @@
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 0.9rem;
-}
-
-@media (min-width: 768px) {
-    .newsletter-form-modern button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-    }
+    font-size: 1rem;
 }
 
 .newsletter-form-modern button:hover {
@@ -2695,19 +2422,310 @@
     box-shadow: var(--shadow);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* ===== MODAL CONTACT ===== */
+.contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
-.fade-in {
-    animation: fadeIn 1s ease;
+.contact-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--background);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--danger);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.modal-text {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.modal-btn.primary {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.modal-btn.secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 2px solid var(--border);
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-modern {
+        padding: 80px 0 40px;
+    }
+    
+    .slider-modern {
+        height: 300px;
+    }
+    
+    .slider-content-modern h2 {
+        font-size: 1.2rem;
+    }
+    
+    .slider-content-modern p {
+        font-size: 0.75rem;
+    }
+    
+    .slider-price .price-new {
+        font-size: 1.1rem;
+    }
+    
+    .section-content {
+        gap: 1.5rem;
+    }
+    
+    .section-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-image {
+        height: 200px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .featured-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .featured-product-image {
+        height: 120px;
+    }
+    
+    .testimonials-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .newsletter-container-modern h2 {
+        font-size: 1.8rem;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-modern {
+        height: 250px;
+    }
+    
+    .slider-content-modern h2 {
+        font-size: 1rem;
+    }
+    
+    .slider-content-modern p {
+        display: none;
+    }
+    
+    .slider-price .price-old {
+        font-size: 0.7rem;
+    }
+    
+    .slider-price .price-new {
+        font-size: 1rem;
+    }
+    
+    .slider-price .price-badge {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.5rem;
+    }
+    
+    .slider-btn-modern {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+    
+    .category-card {
+        padding: 1rem;
+    }
+    
+    .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .category-content h3 {
+        font-size: 0.85rem;
+    }
+    
+    .featured-products-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+    
+    .featured-product-image {
+        height: 100px;
+    }
+    
+    .featured-product-info {
+        padding: 0.6rem;
+    }
+    
+    .product-title {
+        font-size: 0.75rem;
+    }
+    
+    .current-price {
+        font-size: 0.9rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+    
+    .feature-icon-modern {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="modern-fade"] {
+    transform: translateY(50px);
+}
+
+[data-aos="modern-fade"].aos-animate {
+    transform: translateY(0);
+}
+
+[data-aos="modern-slide-left"] {
+    transform: translateX(-100px);
+}
+
+[data-aos="modern-slide-left"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="modern-slide-right"] {
+    transform: translateX(100px);
+}
+
+[data-aos="modern-slide-right"].aos-animate {
+    transform: translateX(0);
+}
+
+[data-aos="modern-zoom"] {
+    transform: scale(0.8);
+}
+
+[data-aos="modern-zoom"].aos-animate {
+    transform: scale(1);
 }
 </style>
+{% endblock %}
 
+{% block extra_js %}
 <script>
-// Fonctions du slider
+// ===== SLIDER =====
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slider-slide-modern');
 const dots = document.querySelectorAll('.slider-dot-modern');
@@ -2744,50 +2762,74 @@ if (document.querySelector('.slider-modern')) {
     setInterval(nextSlide, 5000);
 }
 
-// Fonctions pour les vidéos
-function playVideo(videoId) {
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('videoIframe');
-    
-    if (videoId === 'main') {
-        iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+// ===== AOS INIT =====
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        offset: 120,
+        duration: 1000,
+        easing: 'ease-out-quart',
+        delay: 150,
+        once: false,
+        mirror: true,
+        anchorPlacement: 'top-bottom'
+    });
+}
+
+// ===== MODAL CONTACT =====
+const contactModal = document.getElementById('contactModal');
+const modalClose = document.getElementById('modalClose');
+const devisButtons = document.querySelectorAll('.devis-btn');
+
+devisButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        contactModal.classList.add('active');
+    });
+});
+
+modalClose.addEventListener('click', () => {
+    contactModal.classList.remove('active');
+});
+
+contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+    }
+});
+
+// ===== NEWSLETTER =====
+function newsletterSignup() {
+    const input = document.querySelector('.newsletter-form-modern input');
+    if (input && input.value && input.value.includes('@')) {
+        showNotification('Merci pour votre inscription !', 'success');
+        input.value = '';
     } else {
-        iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+        showNotification('Veuillez entrer une adresse email valide', 'warning');
+    }
+}
+
+// ===== NOTIFICATIONS =====
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.className = `flash-message flash-${type}`;
+    notification.innerHTML = `
+        <div class="flash-icon"><i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i></div>
+        <div class="flash-content">${message}</div>
+        <button class="flash-close" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>
+    `;
+    
+    const container = document.querySelector('.flash-container');
+    if (container) {
+        container.appendChild(notification);
     }
     
-    if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('videoIframe');
-    
-    if (iframe) iframe.src = '';
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
-
-// Quick view function
-function quickView(productId) {
-    window.location.href = `/produit/${productId}`;
-}
-
-// ========== FONCTION FAVORIS CORRIGÉE ==========
-function addToWishlist(productId) {
-    // Vérifier si l'utilisateur est connecté
-    {% if not current_user.is_authenticated %}
-    showNotification('Veuillez vous connecter pour ajouter aux favoris', 'warning');
     setTimeout(() => {
-        window.location.href = '/connexion?next=' + encodeURIComponent(window.location.pathname);
-    }, 2000);
-    return;
-    {% endif %}
-    
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// ===== FAVORIS =====
+function addToWishlist(productId) {
     fetch(`/wishlist/ajouter/${productId}`, {
         method: 'POST',
         headers: {
@@ -2798,21 +2840,11 @@ function addToWishlist(productId) {
     .then(data => {
         if (data.success) {
             showNotification('Produit ajouté aux favoris !', 'success');
-            // Changer l'icône du cœur
             const btn = event.currentTarget;
             btn.innerHTML = '<i class="fas fa-heart"></i>';
             btn.style.color = '#d63031';
-            btn.style.background = 'white';
-            btn.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                btn.style.transform = '';
-            }, 300);
         } else {
-            if (data.message === 'Déjà dans vos favoris') {
-                showNotification('Ce produit est déjà dans vos favoris', 'info');
-            } else {
-                showNotification(data.message || 'Erreur lors de l\'ajout', 'danger');
-            }
+            showNotification(data.message || 'Erreur lors de l\'ajout', 'danger');
         }
     })
     .catch(error => {
@@ -2821,6 +2853,7 @@ function addToWishlist(productId) {
     });
 }
 
+// ===== PANIER =====
 function addToCart(productId) {
     fetch(`/ajouter-panier/${productId}`, {
         method: 'POST',
@@ -2834,7 +2867,6 @@ function addToCart(productId) {
             if (cartCount) cartCount.textContent = data.total;
             showNotification('Produit ajouté au panier !', 'success');
             
-            // Animation du bouton
             const btn = event.currentTarget;
             btn.innerHTML = '<i class="fas fa-check"></i>';
             setTimeout(() => {
@@ -2850,86 +2882,25 @@ function addToCart(productId) {
     });
 }
 
-function newsletterSignup() {
-    const input = document.querySelector('.newsletter-form-modern input');
-    if (input && input.value && input.value.includes('@')) {
-        showNotification('Merci pour votre inscription !', 'success');
-        input.value = '';
-    } else {
-        showNotification('Veuillez entrer une adresse email valide', 'warning');
-    }
+// ===== QUICK VIEW =====
+function quickView(productId) {
+    window.location.href = `/produit/${productId}`;
 }
 
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
+// ===== ANIMATION BULLES =====
+document.addEventListener('DOMContentLoaded', () => {
+    const bubbles = document.querySelectorAll('.bubble');
     
-    notification.style.position = 'fixed';
-    notification.style.bottom = '20px';
-    notification.style.right = '20px';
-    notification.style.left = '20px';
-    notification.style.background = type === 'success' ? '#00b894' : (type === 'warning' ? '#fdcb6e' : '#d63031');
-    notification.style.color = type === 'warning' ? '#2d3436' : 'white';
-    notification.style.padding = '0.8rem 1rem';
-    notification.style.borderRadius = '12px';
-    notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    notification.style.display = 'flex';
-    notification.style.alignItems = 'center';
-    notification.style.justifyContent = 'center';
-    notification.style.gap = '0.5rem';
-    notification.style.zIndex = '9999';
-    notification.style.fontSize = '0.85rem';
-    notification.style.fontWeight = '500';
-    notification.style.animation = 'slideIn 0.3s ease';
-    notification.style.backdropFilter = 'blur(10px)';
-    notification.style.textAlign = 'center';
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-// Fermer le modal avec Echap
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeVideoModal();
-    }
+    bubbles.forEach((bubble, index) => {
+        bubble.style.transform = 'scale(0)';
+        bubble.style.opacity = '0';
+        
+        setTimeout(() => {
+            bubble.style.transition = 'all 1s ease';
+            bubble.style.transform = 'scale(1)';
+            bubble.style.opacity = '1';
+        }, 500 + index * 100);
+    });
 });
-
-// Styles d'animation pour les notifications
-if (!document.getElementById('notificationStyles')) {
-    const style = document.createElement('style');
-    style.id = 'notificationStyles';
-    style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        
-        @media (max-width: 768px) {
-            @keyframes slideIn {
-                from { transform: translateY(100%); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            
-            @keyframes slideOut {
-                from { transform: translateY(0); opacity: 1; }
-                to { transform: translateY(100%); opacity: 0; }
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
 </script>
 {% endblock %}
