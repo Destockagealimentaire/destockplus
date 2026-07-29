@@ -2564,6 +2564,12 @@ def sitemap():
         {'loc': '/destockage-alimentaire-entrepro-bio', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/achat-palette-sodas-assortis', 'priority': 1.0, 'changefreq': 'weekly'},
         {'loc': '/destockage-produit-entretien-menager', 'priority': 1.0, 'changefreq': 'weekly'},
+        # Dans la liste static_urls du sitemap
+        {'loc': '/article', 'priority': 0.8, 'changefreq': 'weekly'},
+        {'loc': '/article/acheter-en-gros-economiser', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/article/destockage-anti-gaspillage', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/article/produits-palette', 'priority': 0.9, 'changefreq': 'weekly'},
+        
         
     ]
     
@@ -2664,7 +2670,27 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ 4 ARTICLES DESTOCKPRO ULTRA CONVERSION ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKPRO ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+# ============ ARTICLES (avec URL /article/) ============
 
+@app.route('/article')
+def article_index():
+    """Page d'index des articles"""
+    return render_template('article_index.html')
+
+@app.route('/article/acheter-en-gros-economiser')
+def article_acheter_gros():
+    """Article : Acheter en gros"""
+    return render_template('articles/acheter-en-gros-economiser.html')
+
+@app.route('/article/destockage-anti-gaspillage')
+def article_anti_gaspillage():
+    """Article : Destockage anti-gaspillage"""
+    return render_template('articles/destockage-anti-gaspillage.html')
+
+@app.route('/article/produits-palette')
+def article_produits_palette():
+    """Article : Produits en palette"""
+    return render_template('articles/produits-palette.html')
 @app.route('/destockage-alimentaire-metz')
 def destockage_alimentaire_metz():
     """Article - Destockage alimentaire Metz et Moselle"""
