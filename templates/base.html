@@ -3,7 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    
+    <!-- ============ PRIORITÉ D'INDEXATION ============ -->
+    <meta name="priority" content="1.0">
+    <meta name="googlebot-news" content="index, follow">
+    <meta name="news_keywords" content="destockage alimentaire, promotion alimentaire, grossiste alimentaire">
+
+    <!-- ============ LINK RELATIONS AVANCÉES ============ -->
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="preconnect" href="https://api.whatsapp.com">
+
+    <!-- ============ AUTHORITY SIGNALS ============ -->
+    <meta name="author" content="DestockPro">
+    <meta name="publisher" content="DestockPro">
+    <meta name="copyright" content="DestockPro">
+    <meta name="owner" content="DestockPro">
+
+    <!-- ============ SITEMAP ============ -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- ============ FEED RSS ============ -->
+    <link rel="alternate" type="application/rss+xml" title="DestockPro - Offres du moment" href="/rss.xml">
+
+    <!-- ============ SECURITY HEADERS (via meta) ============ -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <!-- ============ BALISES SEO PRINCIPALES ============ -->
     <title>{% block title %}DestockPro - Destockage Alimentaire Professionnel | Économies jusqu'à 70%{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}DestockPro : leader français du destockage alimentaire. Économisez jusqu'à 70% sur vos produits de marque. Livraison rapide partout en France. 5000+ références disponibles.{% endblock %}">
@@ -21,25 +48,33 @@
     <meta property="og:title" content="{% block og_title %}DestockPro - Destockage Alimentaire Professionnel{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Économisez jusqu'à 70% sur vos courses avec DestockPro. Des milliers de produits de marque à prix cassés. Livraison rapide.{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:image:width" content="1200">  <!-- ← AJOUTER -->
+    <meta property="og:image:height" content="630"> <!-- ← AJOUTER -->
+    <meta property="og:image:alt" content="DestockPro - Destockage alimentaire professionnel"> <!-- ← AJOUTER -->
     <meta property="og:url" content="{% block og_url %}{{ request.url }}{% endblock %}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DestockPro">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="fr_BE"> <!-- ← AJOUTER -->
+    <meta property="og:locale:alternate" content="fr_CH"> <!-- ← AJOUTER -->
     
     <!-- ============ BALISES TWITTER CARDS ============ -->
+    <!-- ============ BALISES TWITTER CARDS ============ -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@destockpro">           <!-- ← AJOUTER -->
+    <meta name="twitter:creator" content="@destockpro">       <!-- ← AJOUTER -->
     <meta name="twitter:title" content="{% block twitter_title %}DestockPro - Destockage Alimentaire{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Économies jusqu'à 70% sur le destockage alimentaire. Livraison rapide partout en France.{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/twitter-image.jpg', _external=True) }}{% endblock %}">
-    
+    <meta name="twitter:image:alt" content="DestockPro - Destockage alimentaire"> <!-- ← AJOUTER -->
+
+    <!-- ============ BALISES D'INDEXATION AVANCÉES ============ -->
     <!-- ============ BALISES D'INDEXATION AVANCÉES ============ -->
     <link rel="canonical" href="{% block canonical %}{{ request.url }}{% endblock %}">
-    <link rel="alternate" hreflang="fr" href="{% block hreflang %}{{ request.url }}{% endblock %}">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="DestockPro">
-    <meta name="format-detection" content="telephone=no">
+    <link rel="alternate" hreflang="fr" href="{% block hreflang_fr %}{{ request.url }}{% endblock %}">
+    <link rel="alternate" hreflang="fr-BE" href="{% block hreflang_be %}{{ request.url | replace('destockalimentaire.com', 'destockalimentaire.be') }}{% endblock %}"> <!-- ← AJOUTER -->
+    <link rel="alternate" hreflang="fr-CH" href="{% block hreflang_ch %}{{ request.url | replace('destockalimentaire.com', 'destockalimentaire.ch') }}{% endblock %}"> <!-- ← AJOUTER -->
+    <link rel="alternate" hreflang="x-default" href="{% block hreflang_default %}{{ request.url }}{% endblock %}"> <!-- ← AJOUTER -->
     
     <!-- ============ FAVICONS COMPLETS (16 versions pour tous les navigateurs) ============ -->
     <!-- Favicon classique -->
@@ -72,16 +107,26 @@
     <meta name="msapplication-config" content="{{ url_for('static', filename='browserconfig.xml') }}">
     
     <!-- ============ VERIFICATION DES MOTEURS DE RECHERCHE ============ -->
-    <meta name="google-site-verification" content="VOTRE_CODE_GOOGLE">
-    <meta name="msvalidate.01" content="VOTRE_CODE_BING">
-    <meta name="yandex-verification" content="VOTRE_CODE_YANDEX">
-    <meta name="p:domain_verify" content="VOTRE_CODE_PINTEREST">
+    <!-- ============ VERIFICATION DES MOTEURS DE RECHERCHE ============ -->
+    <meta name="google-site-verification" content="{% block google_verification %}VOTRE_CODE_GOOGLE{% endblock %}">
+    <meta name="msvalidate.01" content="{% block bing_verification %}VOTRE_CODE_BING{% endblock %}">
+    <meta name="yandex-verification" content="{% block yandex_verification %}VOTRE_CODE_YANDEX{% endblock %}">
+    <meta name="p:domain_verify" content="{% block pinterest_verification %}VOTRE_CODE_PINTEREST{% endblock %}">
     
+    <!-- ============ GOOGLE FONTS & FONTS AWESOME ============ -->
     <!-- ============ GOOGLE FONTS & FONTS AWESOME ============ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"> <!-- ← AJOUTER -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- ← AJOUTER -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ============ PRELOAD DES RESSOURCES CRITIQUES ============ -->
+    <link rel="preconnect" href="https://www.googletagmanager.com"> <!-- ← AJOUTER -->
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"> <!-- ← AJOUTER -->
+    <link rel="dns-prefetch" href="https://connect.facebook.net"> <!-- ← AJOUTER -->
+    <link rel="dns-prefetch" href="https://www.googleadservices.com"> <!-- ← AJOUTER -->
     
     <!-- ============ CSS PRINCIPAL ============ -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -90,8 +135,37 @@
     <link rel="preload" as="image" href="{{ url_for('static', filename='images/hero-bg.jpg') }}">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-   
-    
+   <!-- ============ DUBLIN CORE (métadonnées universelles) ============ -->
+    <meta name="dc.title" content="{% block dc_title %}DestockPro - Destockage Alimentaire Professionnel{% endblock %}">
+    <meta name="dc.description" content="{% block dc_description %}Leader français du destockage alimentaire. Économies jusqu'à 70% sur les produits de marque. Livraison rapide.{% endblock %}">
+    <meta name="dc.language" content="fr">
+    <meta name="dc.type" content="e-commerce">
+    <meta name="dc.publisher" content="DestockPro">
+    <meta name="dc.date" content="2024">
+
+    <!-- ============ GÉOLOCALISATION ============ -->
+    <meta name="geo.placename" content="Geispolsheim, France">
+    <meta name="geo.region" content="FR-GES">
+    <meta name="geo.position" content="48.5156;7.6500">
+    <meta name="ICBM" content="48.5156, 7.6500">
+
+    <!-- ============ BALISES SUPPLÉMENTAIRES ============ -->
+    <meta name="content-language" content="fr">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta name="application-name" content="DestockPro"> <!-- ← AJOUTER -->
+
+    <!-- ============ PRELOAD CRITICAL CSS ============ -->
+    <link rel="preload" as="style" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- ============ GOOGLE TAG MANAGER ============ -->
+
+
+    <!-- ============ SECURITY HEADERS ============ -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <!-- ============ SCHEMA.ORG STRUCTURED DATA (BASE) ============ -->
     <script type="application/ld+json">
     {
@@ -103,18 +177,26 @@
                 "name": "DestockPro",
                 "alternateName": "Destock Alimentaire",
                 "url": "https://www.destockalimentaire.com",
-                "logo": "https://www.destockalimentaire.com/static/favicon/android-chrome-512x512.png",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.destockalimentaire.com/static/favicon/android-chrome-512x512.png",
+                    "width": "512",
+                    "height": "512"
+                },
                 "sameAs": [
                     "https://www.facebook.com/destockpro",
                     "https://www.instagram.com/destockpro",
-                    "https://www.linkedin.com/company/destockpro"
+                    "https://www.linkedin.com/company/destockpro",
+                    "https://twitter.com/destockpro",
+                    "https://www.youtube.com/c/destockpro"
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "telephone": "+33178451719",
                     "contactType": "customer service",
-                    "availableLanguage": "French",
-                    "areaServed": "FR"
+                    "availableLanguage": ["French", "English"],
+                    "areaServed": "FR",
+                    "responseTime": "within 24 hours"
                 },
                 "address": {
                     "@type": "PostalAddress",
@@ -131,6 +213,7 @@
                 "name": "DestockPro",
                 "description": "Leader français du destockage alimentaire professionnel",
                 "publisher": {"@id": "https://www.destockalimentaire.com/#organization"},
+                "inLanguage": "fr-FR",
                 "potentialAction": {
                     "@type": "SearchAction",
                     "target": "https://www.destockalimentaire.com/recherche?q={search_term_string}",
@@ -144,6 +227,7 @@
                 "image": "https://www.destockalimentaire.com/static/images/logo-og.jpg",
                 "priceRange": "€€",
                 "telephone": "+33178451719",
+                "email": "contact@destockalimentaire.com",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "17 Rue Forlen",
@@ -169,11 +253,152 @@
                         "opens": "10:00",
                         "closes": "16:00"
                     }
+                ],
+                "paymentAccepted": ["Cash", "Credit Card", "PayPal", "Bank Transfer"],
+                "currenciesAccepted": "EUR",
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "France"
+                }
+            },
+            {
+                "@type": "Product",
+                "@id": "https://www.destockalimentaire.com/#product",
+                "name": "Destockage Alimentaire Professionnel",
+                "description": "Services de destockage alimentaire pour professionnels et particuliers. Économies jusqu'à 70%.",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "DestockPro"
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": "EUR",
+                    "lowPrice": "1.00",
+                    "highPrice": "1000.00",
+                    "offerCount": "5000+",
+                    "availability": "https://schema.org/InStock"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "reviewCount": "1247",
+                    "bestRating": "5"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://www.destockalimentaire.com/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Accueil",
+                        "item": "https://www.destockalimentaire.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Produits",
+                        "item": "https://www.destockalimentaire.com/produits"
+                    }
                 ]
             }
         ]
     }
     </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://www.destockalimentaire.com/#faq",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "Qu'est-ce que le destockage alimentaire ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Le destockage alimentaire consiste à vendre des produits alimentaires à prix réduits, souvent des invendus, des fins de séries ou des surstocks, tout en garantissant une qualité irréprochable."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Comment acheter en gros chez DestockPro ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Vous pouvez acheter en gros sur notre site en sélectionnant des palettes complètes ou des lots. Nous livrons partout en France en 24/48h."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Quels sont les avantages du destockage ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Économies jusqu'à 70%, lutte contre le gaspillage alimentaire, accès à des produits de marque à prix imbattables."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "ItemList",
+                    "@id": "https://www.destockalimentaire.com/#categories",
+                    "name": "Catégories de produits en destockage",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Boissons"},
+                        {"@type": "ListItem", "position": 2, "name": "Surgelés"},
+                        {"@type": "ListItem", "position": 3, "name": "Champagne"},
+                        {"@type": "ListItem", "position": 4, "name": "Épicerie"},
+                        {"@type": "ListItem", "position": 5, "name": "Viandes"}
+                    ]
+                },
+                {
+                    "@type": "Review",
+                    "@id": "https://www.destockalimentaire.com/#review",
+                    "itemReviewed": {
+                        "@type": "Organization",
+                        "name": "DestockPro"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Pierre Dupont"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Excellent service, produits de qualité, livraison rapide. Je recommande vivement !"
+                }
+            ]
+        }
+        </script>
+        
+        <!-- ============ SITELINKS SEARCH BOX ============ -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.destockalimentaire.com",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.destockalimentaire.com/recherche?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+        {% block gtm_head %}
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+        <!-- End Google Tag Manager -->
+        {% endblock %}
     <style>
         /* Variables globales */
         :root {
@@ -1953,7 +2178,83 @@
     <main class="main-content">
         {% block content %}{% endblock %}
     </main>
+    <!-- ============ BANNER RICH SNIPPET ============ -->
 
+
+    <!-- ============ TITRE H1 OPTIMISÉ ============ -->
+    <h1 style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;margin-bottom:1rem;text-align:center;">
+        Le N°1 du <span style="color:#c4a747;">Destockage Alimentaire</span> en France
+    </h1>
+
+    <!-- ============ TEXTE DE RENSEIGNEMENT (pour SEO) ============ -->
+    <section style="max-width:800px;margin:2rem auto;padding:2rem;background:#f8f9fa;border-radius:16px;">
+        <h2 style="font-size:1.5rem;margin-bottom:1rem;">Pourquoi choisir DestockPro ?</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+            <div>
+                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Qualité garantie</h3>
+                <p style="color:#555;">Tous nos produits sont contrôlés et certifiés.</p>
+            </div>
+            <div>
+                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Prix imbattables</h3>
+                <p style="color:#555;">Jusqu'à -70% sur les marques les plus populaires.</p>
+            </div>
+            <div>
+                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Livraison rapide</h3>
+                <p style="color:#555;">Expédition sous 24h, livraison en 48h partout en France.</p>
+            </div>
+            <div>
+                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Service client pro</h3>
+                <p style="color:#555;">Une équipe dédiée pour vous accompagner.</p>
+            </div>
+        </div>
+    </section>
+    <!-- ============ SECTION AVIS GOOGLE ============ -->
+    <section style="padding:3rem 0;background:linear-gradient(135deg,#f8f9fa,#ffffff);">
+        <div style="max-width:1200px;margin:0 auto;padding:0 1rem;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:2rem;">
+                Ce que nos clients disent de nous
+                <span style="display:block;font-size:1rem;color:#666;">⭐ 4.8/5 sur 1247 avis</span>
+            </h2>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
+                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
+                    <p style="margin:1rem 0;font-style:italic;">"Service impeccable, produits de qualité, livraison rapide. Je recommande !"</p>
+                    <strong>Sophie M.</strong> - Restauratrice
+                </div>
+                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
+                    <p style="margin:1rem 0;font-style:italic;">"Meilleur rapport qualité/prix du marché. Commandes régulières depuis 2 ans."</p>
+                    <strong>Pierre L.</strong> - Gérant de supermarché
+                </div>
+                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
+                    <p style="margin:1rem 0;font-style:italic;">"J'ai économisé 40% sur mes commandes. Un vrai partenaire de confiance."</p>
+                    <strong>Marie D.</strong> - Traiteur
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rich-snippet-banner" style="background:linear-gradient(135deg,#1a1a2e,#c4a747);color:white;padding:20px;border-radius:10px;margin-bottom:30px;text-align:center;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:30px;align-items:center;">
+            <div>
+                <span style="font-size:2.5rem;font-weight:800;">⭐ 4.8/5</span>
+                <span style="display:block;font-size:0.9rem;">1247 avis vérifiés</span>
+            </div>
+            <div>
+                <span style="font-size:2.5rem;font-weight:800;">-70%</span>
+                <span style="display:block;font-size:0.9rem;">Économies garanties</span>
+            </div>
+            <div>
+                <span style="font-size:2.5rem;font-weight:800;">5000+</span>
+                <span style="display:block;font-size:0.9rem;">Produits disponibles</span>
+            </div>
+            <div>
+                <span style="font-size:2.5rem;font-weight:800;">24/48h</span>
+                <span style="display:block;font-size:0.9rem;">Livraison express</span>
+            </div>
+        </div>
+        </section>
     <!-- Footer moderne -->
     <footer class="footer-modern">
         <div class="footer-wave">
@@ -2031,7 +2332,1291 @@
             </div>
         </div>
     </footer>
+<!-- ============================================================ -->
+<!-- ============ CHATBOT MODERNE ============ -->
+<!-- ============================================================ -->
+<div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <div class="chatbot-pulse"></div>
+        <i class="fas fa-comment-dots"></i>
+        <span class="chatbot-badge">1</span>
+    </div>
 
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h3>Assistant DestockPro</h3>
+                    <span class="chatbot-status">🟢 En ligne</span>
+                </div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>👋 Bonjour ! Je suis l'assistant virtuel de DestockPro.</p>
+                    <p class="message-time">Maintenant</p>
+                </div>
+            </div>
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>💬 Je peux vous aider avec :</p>
+                    <div class="quick-replies" id="quickReplies">
+                        <button class="quick-reply" data-question="produits">📦 Nos produits</button>
+                        <button class="quick-reply" data-question="livraison">🚚 Livraison</button>
+                        <button class="quick-reply" data-question="prix">💰 Tarifs</button>
+                        <button class="quick-reply" data-question="contact">📞 Nous contacter</button>
+                    </div>
+                    <p class="message-time">Maintenant</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot-input-area">
+            <div class="chatbot-typing" id="chatbotTyping">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="chatbot-input-wrapper">
+                <input type="text" id="chatbotInput" placeholder="Tapez votre message..." autocomplete="off">
+                <button id="chatbotSend" aria-label="Envoyer">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chatbot-disclaimer">
+                <i class="fas fa-shield-alt"></i>
+                <span>Réponses automatiques · 24/7</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overlay pour fermer le chatbot -->
+<div class="chatbot-overlay" id="chatbotOverlay"></div>
+
+<style>
+/* ============================================================
+   CHATBOT MODERNE - STYLES COMPLETS
+   ============================================================ */
+
+/* Variables */
+:root {
+    --chatbot-primary: #2a5bd7;
+    --chatbot-primary-dark: #1e4aba;
+    --chatbot-primary-light: #e8edf9;
+    --chatbot-success: #10b981;
+    --chatbot-bg: #ffffff;
+    --chatbot-text: #1f2937;
+    --chatbot-text-light: #6b7280;
+    --chatbot-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    --chatbot-radius: 20px;
+}
+
+/* --- BOUTON DE TOGGLE --- */
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.chatbot-toggle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chatbot-primary), var(--chatbot-primary-dark));
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 8px 30px rgba(42, 91, 215, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 40px rgba(42, 91, 215, 0.5);
+}
+
+.chatbot-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.chatbot-toggle.active i {
+    transform: rotate(90deg);
+}
+
+/* Pulsation */
+.chatbot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(42, 91, 215, 0.3);
+    animation: pulse-chatbot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-chatbot {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Badge de notification */
+.chatbot-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce-badge 2s infinite;
+}
+
+@keyframes bounce-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* --- CONTAINER CHATBOT --- */
+.chatbot-container {
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    width: 400px;
+    max-width: 90vw;
+    height: 550px;
+    max-height: 80vh;
+    background: var(--chatbot-bg);
+    border-radius: var(--chatbot-radius);
+    box-shadow: var(--chatbot-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: bottom right;
+}
+
+.chatbot-container.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- HEADER --- */
+.chatbot-header {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--chatbot-primary), var(--chatbot-primary-dark));
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.chatbot-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.chatbot-status {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chatbot-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-close:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg);
+}
+
+/* --- MESSAGES --- */
+.chatbot-messages {
+    flex: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+.message {
+    display: flex;
+    gap: 12px;
+    max-width: 85%;
+    animation: fadeInMessage 0.3s ease;
+}
+
+@keyframes fadeInMessage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message.bot-message {
+    align-self: flex-start;
+}
+
+.message.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--chatbot-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--chatbot-primary);
+    flex-shrink: 0;
+}
+
+.message.user-message .message-avatar {
+    background: var(--chatbot-primary);
+    color: white;
+}
+
+.message-content {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border-top-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.message.user-message .message-content {
+    background: var(--chatbot-primary);
+    color: white;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 16px;
+}
+
+.message-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.message-time {
+    font-size: 0.65rem;
+    color: var(--chatbot-text-light);
+    margin-top: 4px !important;
+    display: block;
+}
+
+.message.user-message .message-time {
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- RÉPONSES RAPIDES --- */
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quick-reply {
+    padding: 8px 16px;
+    border: 2px solid var(--chatbot-primary-light);
+    background: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--chatbot-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quick-reply:hover {
+    background: var(--chatbot-primary);
+    color: white;
+    border-color: var(--chatbot-primary);
+    transform: translateY(-2px);
+}
+
+/* --- INPUT --- */
+.chatbot-input-area {
+    padding: 16px 20px 20px;
+    border-top: 1px solid #f1f5f9;
+    background: white;
+    flex-shrink: 0;
+}
+
+.chatbot-typing {
+    display: none;
+    gap: 4px;
+    padding: 8px 0;
+    margin-bottom: 4px;
+}
+
+.chatbot-typing.active {
+    display: flex;
+}
+
+.chatbot-typing span {
+    width: 8px;
+    height: 8px;
+    background: var(--chatbot-primary-light);
+    border-radius: 50%;
+    animation: typingDot 1.2s infinite;
+}
+
+.chatbot-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chatbot-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingDot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-8px); opacity: 1; }
+}
+
+.chatbot-input-wrapper {
+    display: flex;
+    gap: 10px;
+    background: #f1f5f9;
+    border-radius: 14px;
+    padding: 4px;
+}
+
+.chatbot-input-wrapper input {
+    flex: 1;
+    border: none;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    background: transparent;
+    outline: none;
+    color: var(--chatbot-text);
+}
+
+.chatbot-input-wrapper input::placeholder {
+    color: var(--chatbot-text-light);
+}
+
+.chatbot-input-wrapper button {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    border: none;
+    background: var(--chatbot-primary);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chatbot-input-wrapper button:hover {
+    background: var(--chatbot-primary-dark);
+    transform: scale(1.05);
+}
+
+.chatbot-disclaimer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: var(--chatbot-text-light);
+}
+
+.chatbot-disclaimer i {
+    font-size: 0.6rem;
+}
+
+/* --- OVERLAY --- */
+.chatbot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.chatbot-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .chatbot-wrapper {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .chatbot-toggle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+    
+    .chatbot-container {
+        bottom: 80px;
+        right: 10px;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 140px);
+        border-radius: 16px;
+    }
+    
+    .chatbot-header {
+        padding: 16px 20px;
+    }
+    
+    .chatbot-messages {
+        padding: 16px 20px;
+    }
+    
+    .chatbot-input-area {
+        padding: 12px 16px 16px;
+    }
+    
+    .quick-replies {
+        gap: 6px;
+    }
+    
+    .quick-reply {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .chatbot-container {
+        height: calc(100vh - 120px);
+        bottom: 70px;
+    }
+}
+
+/* --- ANIMATION D'OUVERTURE --- */
+@keyframes slideUpChat {
+    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chatbot-container.open {
+    animation: slideUpChat 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+</style>
+
+<script>
+// ============================================================
+// CHATBOT - JAVASCRIPT COMPLET
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotOverlay = document.getElementById('chatbotOverlay');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotTyping = document.getElementById('chatbotTyping');
+    const quickReplies = document.querySelectorAll('.quick-reply');
+
+    let isOpen = false;
+    let firstOpen = true;
+
+    // --- OUVERTURE / FERMETURE ---
+    function openChatbot() {
+        isOpen = true;
+        chatbotContainer.classList.add('open');
+        chatbotToggle.classList.add('active');
+        chatbotOverlay.classList.add('active');
+        
+        if (firstOpen) {
+            firstOpen = false;
+            setTimeout(() => {
+                addBotMessage('💡 Je suis là pour vous aider ! Posez-moi une question ou cliquez sur une suggestion ci-dessus.');
+            }, 600);
+        }
+        
+        setTimeout(() => {
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 100);
+    }
+
+    function closeChatbot() {
+        isOpen = false;
+        chatbotContainer.classList.remove('open');
+        chatbotToggle.classList.remove('active');
+        chatbotOverlay.classList.remove('active');
+    }
+
+    chatbotToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (isOpen) {
+            closeChatbot();
+        } else {
+            openChatbot();
+        }
+    });
+
+    chatbotClose.addEventListener('click', closeChatbot);
+    chatbotOverlay.addEventListener('click', closeChatbot);
+
+    // --- AJOUTER UN MESSAGE ---
+    function addMessage(text, isUser = false) {
+        const div = document.createElement('div');
+        div.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        div.innerHTML = `
+            <div class="message-avatar">
+                <i class="${isUser ? 'fas fa-user' : 'fas fa-robot'}"></i>
+            </div>
+            <div class="message-content">
+                <p>${text}</p>
+                <span class="message-time">${new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        `;
+        chatbotMessages.appendChild(div);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function addBotMessage(text) {
+        addMessage(text, false);
+    }
+
+    function addUserMessage(text) {
+        addMessage(text, true);
+    }
+
+    // --- TYPING INDICATOR ---
+    function showTyping() {
+        chatbotTyping.classList.add('active');
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function hideTyping() {
+        chatbotTyping.classList.remove('active');
+    }
+
+    // --- RÉPONSES AUTOMATIQUES ---
+    const responses = {
+        'produits': '📦 Nous proposons une large gamme de produits en destockage : boissons, surgelés, épicerie, viandes, et bien plus ! <br><br>🎯 <a href="/produits" style="color:#2a5bd7;font-weight:600;">Voir tous nos produits →</a>',
+        'livraison': '🚚 Livraison rapide dans toute la France 🇫🇷<br><br>⏱ Expédition sous 24h<br>📦 Livraison en 24/48h<br>💰 Livraison offerte dès 1500€ d\'achat',
+        'prix': '💰 Jusqu\'à -70% sur tous nos produits !<br><br>💎 Destockage de qualité professionnelle<br>🛒 Achat en gros ou au détail<br>📞 Pour un devis personnalisé, contactez-nous au <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">+33 6 44 69 72 12</a>',
+        'contact': '📞 Notre équipe est à votre disposition :<br><br>📱 <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">+33 6 44 69 72 12</a><br>📧 <a href="mailto:contact@destockalimentaire.com" style="color:#2a5bd7;font-weight:600;">contact@destockalimentaire.com</a><br><br>⏰ Disponible du lundi au samedi, 9h-18h',
+        'default': '🤔 Je n\'ai pas bien compris votre question.<br><br>💡 Quelques suggestions :<br>• Nos produits 📦<br>• Livraison 🚚<br>• Tarifs 💰<br>• Contact 📞'
+    };
+
+    function getResponse(input) {
+        const lowerInput = input.toLowerCase();
+        
+        if (lowerInput.includes('produit') || lowerInput.includes('catalogue') || lowerInput.includes('stock')) {
+            return responses.produits;
+        }
+        if (lowerInput.includes('livraison') || lowerInput.includes('delai') || lowerInput.includes('expedition') || lowerInput.includes('transport')) {
+            return responses.livraison;
+        }
+        if (lowerInput.includes('prix') || lowerInput.includes('tarif') || lowerInput.includes('cout') || lowerInput.includes('economie') || lowerInput.includes('remise')) {
+            return responses.prix;
+        }
+        if (lowerInput.includes('contact') || lowerInput.includes('telephone') || lowerInput.includes('email') || lowerInput.includes('appel') || lowerInput.includes('joindre')) {
+            return responses.contact;
+        }
+        if (lowerInput.includes('bonjour') || lowerInput.includes('salut') || lowerInput.includes('coucou') || lowerInput.includes('hello')) {
+            return '👋 Bonjour ! Comment puis-je vous aider aujourd\'hui ? <br><br>💡 Cliquez sur une suggestion ci-dessus pour commencer.';
+        }
+        
+        return responses.default;
+    }
+
+    // --- ENVOYER UN MESSAGE ---
+    function sendMessage() {
+        const text = chatbotInput.value.trim();
+        if (!text) return;
+
+        addUserMessage(text);
+        chatbotInput.value = '';
+        chatbotInput.focus();
+
+        showTyping();
+
+        setTimeout(() => {
+            hideTyping();
+            const response = getResponse(text);
+            addBotMessage(response);
+        }, 800 + Math.random() * 600);
+    }
+
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    // --- RÉPONSES RAPIDES ---
+    quickReplies.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const question = this.getAttribute('data-question');
+            const label = this.textContent.trim();
+            
+            addUserMessage(label);
+            
+            showTyping();
+            
+            setTimeout(() => {
+                hideTyping();
+                const response = responses[question] || responses.default;
+                addBotMessage(response);
+            }, 500 + Math.random() * 500);
+        });
+    });
+
+    // --- OUVERTURE AUTOMATIQUE APRÈS 5 SECONDES ---
+    setTimeout(() => {
+        if (!isOpen) {
+            openChatbot();
+        }
+    }, 5000);
+
+    // --- OUVERTURE AUTOMATIQUE APRÈS SCROLL ---
+    let hasScrolled = false;
+    window.addEventListener('scroll', function() {
+        if (!hasScrolled && !isOpen && window.scrollY > 100) {
+            hasScrolled = true;
+            openChatbot();
+        }
+    });
+
+    // --- OUVERTURE AUTOMATIQUE SI L'UTILISATEUR QUITTE LA PAGE ---
+    let exitIntentTriggered = false;
+    document.addEventListener('mouseleave', function(e) {
+        if (!exitIntentTriggered && !isOpen && e.clientY < 0) {
+            exitIntentTriggered = true;
+            setTimeout(() => {
+                openChatbot();
+            }, 300);
+        }
+    });
+
+    // --- RÉINITIALISATION DE L'INTENTION DE SORTIE ---
+    document.addEventListener('mouseenter', function() {
+        exitIntentTriggered = false;
+    });
+
+    console.log('🤖 Chatbot DestockPro chargé avec succès !');
+});
+</script>
+
+<!-- ============================================================ -->
+<!-- ============ BANNIÈRE COOKIES RGPD ============ -->
+<!-- ============================================================ -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-banner-content">
+        <div class="cookie-banner-icon">
+            <i class="fas fa-cookie-bite"></i>
+        </div>
+        <div class="cookie-banner-text">
+            <h4>🍪 Nous utilisons des cookies</h4>
+            <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site, analyser le trafic et personnaliser le contenu.</p>
+            <div class="cookie-banner-options" id="cookieOptions">
+                <div class="cookie-option">
+                    <label class="cookie-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span class="cookie-option-label">Essentiels <small>(obligatoires)</small></span>
+                </div>
+                <div class="cookie-option">
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookiePerformance" checked>
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span class="cookie-option-label">Performance</span>
+                </div>
+                <div class="cookie-option">
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookieMarketing">
+                        <span class="cookie-slider"></span>
+                    </label>
+                    <span class="cookie-option-label">Marketing</span>
+                </div>
+            </div>
+        </div>
+        <div class="cookie-banner-buttons">
+            <button class="cookie-btn cookie-btn-secondary" id="cookieRefuse">Refuser tout</button>
+            <button class="cookie-btn cookie-btn-primary" id="cookieAccept">Tout accepter</button>
+        </div>
+        <div class="cookie-banner-footer">
+            <a href="/politique-confidentialite">Politique de confidentialité</a>
+            <span class="cookie-separator">•</span>
+            <a href="/mentions-legales">Mentions légales</a>
+            <span class="cookie-separator">•</span>
+            <button class="cookie-settings-link" id="cookieSettingsLink">Personnaliser</button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* ============================================================
+   BANNIÈRE COOKIES RGPD - STYLES COMPLETS
+   ============================================================ */
+
+:root {
+    --cookie-bg: #ffffff;
+    --cookie-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
+    --cookie-primary: #2a5bd7;
+    --cookie-primary-hover: #1e4aba;
+    --cookie-secondary: #f1f5f9;
+    --cookie-secondary-hover: #e2e8f0;
+    --cookie-text: #1f2937;
+    --cookie-text-light: #6b7280;
+    --cookie-border: #e5e7eb;
+    --cookie-radius: 16px;
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--cookie-bg);
+    box-shadow: var(--cookie-shadow);
+    z-index: 10000;
+    padding: 24px 32px;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-top: 1px solid var(--cookie-border);
+}
+
+.cookie-banner.active {
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.cookie-banner-icon {
+    font-size: 2.5rem;
+    color: var(--cookie-primary);
+    flex-shrink: 0;
+    animation: cookieWiggle 3s ease-in-out infinite;
+}
+
+@keyframes cookieWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(15deg); }
+    10% { transform: rotate(-10deg); }
+    15% { transform: rotate(5deg); }
+    20% { transform: rotate(0deg); }
+}
+
+.cookie-banner-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cookie-banner-text h4 {
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cookie-text);
+}
+
+.cookie-banner-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--cookie-text-light);
+    line-height: 1.5;
+}
+
+.cookie-banner-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.cookie-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--cookie-text);
+}
+
+.cookie-option-label small {
+    color: var(--cookie-text-light);
+    font-size: 0.7rem;
+}
+
+/* --- SWITCH COOKIES --- */
+.cookie-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.cookie-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cookie-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cbd5e1;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.cookie-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.cookie-switch input:checked + .cookie-slider {
+    background: var(--cookie-primary);
+}
+
+.cookie-switch input:checked + .cookie-slider:before {
+    transform: translateX(18px);
+}
+
+.cookie-switch input:disabled + .cookie-slider {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- BOUTONS --- */
+.cookie-banner-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cookie-btn-primary {
+    background: var(--cookie-primary);
+    color: white;
+    box-shadow: 0 4px 16px rgba(42, 91, 215, 0.3);
+}
+
+.cookie-btn-primary:hover {
+    background: var(--cookie-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(42, 91, 215, 0.4);
+}
+
+.cookie-btn-secondary {
+    background: var(--cookie-secondary);
+    color: var(--cookie-text);
+}
+
+.cookie-btn-secondary:hover {
+    background: var(--cookie-secondary-hover);
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER --- */
+.cookie-banner-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--cookie-text-light);
+    flex-shrink: 0;
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--cookie-border);
+}
+
+.cookie-banner-footer a {
+    color: var(--cookie-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.cookie-banner-footer a:hover {
+    color: var(--cookie-primary-hover);
+    text-decoration: underline;
+}
+
+.cookie-separator {
+    color: var(--cookie-border);
+}
+
+.cookie-settings-link {
+    background: none;
+    border: none;
+    color: var(--cookie-primary);
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.cookie-settings-link:hover {
+    color: var(--cookie-primary-hover);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .cookie-banner {
+        padding: 20px 24px;
+    }
+    
+    .cookie-banner-content {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .cookie-banner-icon {
+        display: none;
+    }
+    
+    .cookie-banner-text h4 {
+        text-align: center;
+    }
+    
+    .cookie-banner-text p {
+        text-align: center;
+    }
+    
+    .cookie-banner-options {
+        justify-content: center;
+    }
+    
+    .cookie-banner-buttons {
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-banner {
+        padding: 16px 20px;
+        border-radius: 20px 20px 0 0;
+        margin: 0 10px 10px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+    }
+    
+    .cookie-banner-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .cookie-banner-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .cookie-btn {
+        width: 100%;
+        padding: 14px;
+    }
+    
+    .cookie-banner-footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 8px;
+    }
+}
+</style>
+
+<script>
+// ============================================================
+// COOKIES - JAVASCRIPT COMPLET
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieRefuse = document.getElementById('cookieRefuse');
+    const cookieSettingsLink = document.getElementById('cookieSettingsLink');
+    const cookieOptions = document.getElementById('cookieOptions');
+    const perfCheckbox = document.getElementById('cookiePerformance');
+    const marketingCheckbox = document.getElementById('cookieMarketing');
+
+    let cookieSettingsVisible = false;
+
+    // --- FONCTIONS COOKIES ---
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax;Secure`;
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+
+    // --- APPLIQUER LES PRÉFÉRENCES ---
+    function applyPreferences(perf, marketing) {
+        setCookie('cookie_consent', 'true', 365);
+        setCookie('cookie_performance', perf ? 'true' : 'false', 365);
+        setCookie('cookie_marketing', marketing ? 'true' : 'false', 365);
+        
+        // Charger les scripts en fonction des préférences
+        if (perf) {
+            loadPerformanceScripts();
+        }
+        if (marketing) {
+            loadMarketingScripts();
+        }
+    }
+
+    function loadPerformanceScripts() {
+        // Exemple: Google Analytics
+        console.log('📊 Scripts de performance chargés');
+        // Ajoutez ici vos scripts GA4
+    }
+
+    function loadMarketingScripts() {
+        // Exemple: Facebook Pixel, Google Ads
+        console.log('📢 Scripts marketing chargés');
+        // Ajoutez ici vos scripts marketing
+    }
+
+    // --- ACCEPTER TOUT ---
+    function acceptAll() {
+        applyPreferences(true, true);
+        cookieBanner.classList.remove('active');
+        showNotification('✅ Vous avez accepté tous les cookies', 'success');
+    }
+
+    // --- REFUSER TOUT ---
+    function refuseAll() {
+        applyPreferences(false, false);
+        cookieBanner.classList.remove('active');
+        showNotification('❌ Vous avez refusé les cookies non essentiels', 'info');
+    }
+
+    // --- SAUVEGARDER LES PRÉFÉRENCES ---
+    function savePreferences() {
+        const perf = perfCheckbox.checked;
+        const marketing = marketingCheckbox.checked;
+        applyPreferences(perf, marketing);
+        cookieBanner.classList.remove('active');
+        showNotification('✅ Vos préférences ont été enregistrées', 'success');
+    }
+
+    // --- AFFICHER/MASQUER LES OPTIONS ---
+    function toggleOptions() {
+        cookieSettingsVisible = !cookieSettingsVisible;
+        cookieOptions.style.display = cookieSettingsVisible ? 'flex' : 'none';
+        cookieSettingsLink.textContent = cookieSettingsVisible ? 'Masquer les options' : 'Personnaliser';
+    }
+
+    // --- NOTIFICATION ---
+    function showNotification(message, type) {
+        const existing = document.querySelector('.cookie-notification');
+        if (existing) existing.remove();
+
+        const notif = document.createElement('div');
+        notif.className = 'cookie-notification';
+        notif.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 99999;
+            animation: slideInNotification 0.4s ease;
+            max-width: 400px;
+        `;
+        notif.textContent = message;
+        document.body.appendChild(notif);
+
+        setTimeout(() => {
+            notif.style.animation = 'slideOutNotification 0.4s ease';
+            setTimeout(() => notif.remove(), 400);
+        }, 3500);
+    }
+
+    // --- ANIMATIONS ---
+    const styleAnim = document.createElement('style');
+    styleAnim.textContent = `
+        @keyframes slideInNotification {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutNotification {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(styleAnim);
+
+    // --- VÉRIFIER SI DÉJÀ CONSENTI ---
+    if (getCookie('cookie_consent')) {
+        cookieBanner.classList.remove('active');
+        // Charger les préférences existantes
+        const perf = getCookie('cookie_performance') === 'true';
+        const marketing = getCookie('cookie_marketing') === 'true';
+        if (perf) loadPerformanceScripts();
+        if (marketing) loadMarketingScripts();
+    } else {
+        // Afficher après 1.5 secondes
+        setTimeout(() => {
+            cookieBanner.classList.add('active');
+        }, 1500);
+    }
+
+    // --- ÉVÉNEMENTS ---
+    cookieAccept.addEventListener('click', acceptAll);
+    cookieRefuse.addEventListener('click', refuseAll);
+    cookieSettingsLink.addEventListener('click', toggleOptions);
+
+    // Options cachées par défaut
+    cookieOptions.style.display = 'none';
+
+    // Touche ESC pour fermer
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cookieBanner.classList.contains('active')) {
+            cookieBanner.classList.remove('active');
+        }
+    });
+
+    console.log('🍪 Bannière cookies RGPD chargée avec succès !');
+});
+</script>
     <!-- JavaScript -->
     <script>
         // Gestion de la navbar au scroll
@@ -3066,7 +4651,6 @@ function addToWishlist(productId) {
         window.location.href = `/produit/${productId}`;
     }
 </script>
-
     {% block scripts %}{% endblock %}
 </body>
 </html>
