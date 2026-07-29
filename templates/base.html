@@ -2375,10 +2375,10 @@
                 <div class="message-content">
                     <p>💬 Je peux vous aider avec :</p>
                     <div class="quick-replies" id="quickReplies">
-                        <button class="quick-reply" data-question="produits">📦 Nos produits</button>
+                        <button class="quick-reply" data-question="produits">📦 Produits</button>
                         <button class="quick-reply" data-question="livraison">🚚 Livraison</button>
                         <button class="quick-reply" data-question="prix">💰 Tarifs</button>
-                        <button class="quick-reply" data-question="contact">📞 Nous contacter</button>
+                        <button class="quick-reply" data-question="contact">📞 Contact</button>
                     </div>
                     <p class="message-time">Maintenant</p>
                 </div>
@@ -2399,7 +2399,7 @@
             </div>
             <div class="chatbot-disclaimer">
                 <i class="fas fa-shield-alt"></i>
-                <span>Réponses automatiques · 24/7</span>
+                <span>Réponses auto · 24/7</span>
             </div>
         </div>
     </div>
@@ -2533,7 +2533,7 @@
 
 /* --- HEADER --- */
 .chatbot-header {
-    padding: 20px 24px;
+    padding: 16px 20px;
     background: linear-gradient(135deg, var(--chatbot-primary), var(--chatbot-primary-dark));
     color: white;
     display: flex;
@@ -2545,28 +2545,28 @@
 .chatbot-header-info {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .chatbot-avatar {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .chatbot-header h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 .chatbot-status {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     opacity: 0.9;
     display: flex;
     align-items: center;
@@ -2577,11 +2577,11 @@
     background: rgba(255,255,255,0.2);
     border: none;
     color: white;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s;
     display: flex;
     align-items: center;
@@ -2596,16 +2596,16 @@
 /* --- MESSAGES --- */
 .chatbot-messages {
     flex: 1;
-    padding: 20px 24px;
+    padding: 16px 16px;
     overflow-y: auto;
     background: #f8fafc;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .chatbot-messages::-webkit-scrollbar {
-    width: 4px;
+    width: 3px;
 }
 
 .chatbot-messages::-webkit-scrollbar-track {
@@ -2619,13 +2619,13 @@
 
 .message {
     display: flex;
-    gap: 12px;
-    max-width: 85%;
+    gap: 10px;
+    max-width: 88%;
     animation: fadeInMessage 0.3s ease;
 }
 
 @keyframes fadeInMessage {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -2639,14 +2639,14 @@
 }
 
 .message-avatar {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: var(--chatbot-primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--chatbot-primary);
     flex-shrink: 0;
 }
@@ -2658,8 +2658,8 @@
 
 .message-content {
     background: white;
-    padding: 12px 16px;
-    border-radius: 16px;
+    padding: 10px 14px;
+    border-radius: 14px;
     border-top-left-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
@@ -2668,17 +2668,17 @@
     background: var(--chatbot-primary);
     color: white;
     border-top-right-radius: 4px;
-    border-top-left-radius: 16px;
+    border-top-left-radius: 14px;
 }
 
 .message-content p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.5;
 }
 
 .message-time {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: var(--chatbot-text-light);
     margin-top: 4px !important;
     display: block;
@@ -2692,16 +2692,16 @@
 .quick-replies {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 6px;
+    margin-top: 8px;
 }
 
 .quick-reply {
-    padding: 8px 16px;
+    padding: 6px 14px;
     border: 2px solid var(--chatbot-primary-light);
     background: white;
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--chatbot-primary);
     cursor: pointer;
@@ -2717,7 +2717,7 @@
 
 /* --- INPUT --- */
 .chatbot-input-area {
-    padding: 16px 20px 20px;
+    padding: 12px 16px 16px;
     border-top: 1px solid #f1f5f9;
     background: white;
     flex-shrink: 0;
@@ -2726,7 +2726,7 @@
 .chatbot-typing {
     display: none;
     gap: 4px;
-    padding: 8px 0;
+    padding: 6px 0;
     margin-bottom: 4px;
 }
 
@@ -2735,8 +2735,8 @@
 }
 
 .chatbot-typing span {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: var(--chatbot-primary-light);
     border-radius: 50%;
     animation: typingDot 1.2s infinite;
@@ -2747,22 +2747,22 @@
 
 @keyframes typingDot {
     0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-    30% { transform: translateY(-8px); opacity: 1; }
+    30% { transform: translateY(-6px); opacity: 1; }
 }
 
 .chatbot-input-wrapper {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     background: #f1f5f9;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 4px;
 }
 
 .chatbot-input-wrapper input {
     flex: 1;
     border: none;
-    padding: 12px 16px;
-    font-size: 0.95rem;
+    padding: 10px 14px;
+    font-size: 0.9rem;
     background: transparent;
     outline: none;
     color: var(--chatbot-text);
@@ -2770,18 +2770,19 @@
 
 .chatbot-input-wrapper input::placeholder {
     color: var(--chatbot-text-light);
+    font-size: 0.85rem;
 }
 
 .chatbot-input-wrapper button {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     border: none;
     background: var(--chatbot-primary);
     color: white;
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2797,14 +2798,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    margin-top: 10px;
-    font-size: 0.7rem;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.6rem;
     color: var(--chatbot-text-light);
 }
 
 .chatbot-disclaimer i {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
 }
 
 /* --- OVERLAY --- */
@@ -2826,70 +2827,294 @@
     visibility: visible;
 }
 
-/* --- RESPONSIVE --- */
+/* ============================================================
+   VERSION MOBILE OPTIMISÉE
+   ============================================================ */
 @media (max-width: 768px) {
     .chatbot-wrapper {
-        bottom: 20px;
-        right: 20px;
+        bottom: 16px;
+        right: 16px;
     }
     
     .chatbot-toggle {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
+        width: 56px;
+        height: 56px;
+        font-size: 1.4rem;
+        box-shadow: 0 6px 25px rgba(42, 91, 215, 0.35);
+    }
+    
+    .chatbot-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(42, 91, 215, 0.4);
+    }
+    
+    .chatbot-pulse {
+        animation: pulse-chatbot-mobile 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-chatbot-mobile {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.3); opacity: 0; }
+    }
+    
+    .chatbot-badge {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+        top: -4px;
+        right: -4px;
     }
     
     .chatbot-container {
-        bottom: 80px;
-        right: 10px;
-        width: calc(100vw - 20px);
-        height: calc(100vh - 140px);
+        bottom: 70px;
+        right: 8px;
+        width: calc(100% - 16px);
+        max-width: 380px;
+        height: calc(100vh - 130px);
+        max-height: 500px;
         border-radius: 16px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
     }
     
     .chatbot-header {
-        padding: 16px 20px;
+        padding: 14px 16px;
+    }
+    
+    .chatbot-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+    
+    .chatbot-header h3 {
+        font-size: 0.9rem;
+    }
+    
+    .chatbot-status {
+        font-size: 0.65rem;
+    }
+    
+    .chatbot-close {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
     }
     
     .chatbot-messages {
-        padding: 16px 20px;
+        padding: 14px 14px;
+        gap: 10px;
     }
     
-    .chatbot-input-area {
-        padding: 12px 16px 16px;
+    .message {
+        max-width: 92%;
+        gap: 8px;
+    }
+    
+    .message-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    
+    .message-content {
+        padding: 8px 12px;
+        border-radius: 12px;
+        border-top-left-radius: 4px;
+    }
+    
+    .message.user-message .message-content {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 12px;
+    }
+    
+    .message-content p {
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+    
+    .message-time {
+        font-size: 0.55rem;
     }
     
     .quick-replies {
-        gap: 6px;
+        gap: 5px;
+        margin-top: 6px;
     }
     
     .quick-reply {
-        padding: 6px 12px;
-        font-size: 0.75rem;
+        padding: 5px 12px;
+        font-size: 0.7rem;
+        border-width: 1.5px;
+    }
+    
+    .quick-reply:hover {
+        transform: translateY(-1px);
+    }
+    
+    .chatbot-input-area {
+        padding: 10px 14px 14px;
+    }
+    
+    .chatbot-typing {
+        padding: 4px 0;
+    }
+    
+    .chatbot-typing span {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .chatbot-input-wrapper {
+        gap: 6px;
+        border-radius: 10px;
+        padding: 3px;
+    }
+    
+    .chatbot-input-wrapper input {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .chatbot-input-wrapper input::placeholder {
+        font-size: 0.8rem;
+    }
+    
+    .chatbot-input-wrapper button {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .chatbot-disclaimer {
+        font-size: 0.55rem;
+        margin-top: 6px;
+    }
+    
+    .chatbot-disclaimer i {
+        font-size: 0.5rem;
     }
 }
 
+/* ============================================================
+   VERSION TRÈS PETITE MOBILE (< 400px)
+   ============================================================ */
 @media (max-width: 400px) {
+    .chatbot-wrapper {
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
     .chatbot-container {
+        bottom: 62px;
+        right: 6px;
+        width: calc(100% - 12px);
+        max-width: 340px;
         height: calc(100vh - 120px);
-        bottom: 70px;
+        max-height: 440px;
+        border-radius: 14px;
+    }
+    
+    .chatbot-header {
+        padding: 12px 14px;
+    }
+    
+    .chatbot-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .chatbot-header h3 {
+        font-size: 0.8rem;
+    }
+    
+    .chatbot-status {
+        font-size: 0.6rem;
+    }
+    
+    .chatbot-close {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .chatbot-messages {
+        padding: 12px 12px;
+        gap: 8px;
+    }
+    
+    .message {
+        max-width: 95%;
+        gap: 6px;
+    }
+    
+    .message-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+    }
+    
+    .message-content {
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+    
+    .message-content p {
+        font-size: 0.8rem;
+    }
+    
+    .quick-reply {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+    
+    .chatbot-input-area {
+        padding: 8px 12px 12px;
+    }
+    
+    .chatbot-input-wrapper input {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .chatbot-input-wrapper input::placeholder {
+        font-size: 0.75rem;
+    }
+    
+    .chatbot-input-wrapper button {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+    
+    .chatbot-disclaimer {
+        font-size: 0.5rem;
     }
 }
 
 /* --- ANIMATION D'OUVERTURE --- */
 @keyframes slideUpChat {
-    from { opacity: 0; transform: translateY(30px) scale(0.9); }
+    from { opacity: 0; transform: translateY(20px) scale(0.92); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .chatbot-container.open {
-    animation: slideUpChat 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: slideUpChat 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 </style>
 
 <script>
 // ============================================================
-// CHATBOT - JAVASCRIPT AVEC MÉMORISATION DE FERMETURE
+// CHATBOT - JAVASCRIPT COMPLET AVEC MÉMORISATION
+// OUVERTURE APRÈS 1 MINUTE
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2905,6 +3130,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let isOpen = false;
     let firstOpen = true;
+    let isTimerStarted = false;
+    let openTimeout = null;
 
     // ✅ Vérifier si le chatbot a déjà été fermé (localStorage)
     const isChatbotClosed = localStorage.getItem('chatbot_closed') === 'true';
@@ -2960,6 +3187,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (localStorage.getItem('chatbot_closed') === 'true') {
             // ✅ On supprime le flag pour permettre la réouverture manuelle
             localStorage.removeItem('chatbot_closed');
+            // Réafficher les éléments
+            const pulse = document.querySelector('.chatbot-pulse');
+            if (pulse) pulse.style.display = '';
+            const badge = document.querySelector('.chatbot-badge');
+            if (badge) badge.style.display = '';
         }
 
         if (isOpen) {
@@ -3082,45 +3314,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ✅ OUVERTURE AUTOMATIQUE UNIQUEMENT SI PAS ENCORE FERMÉ
-    if (!isChatbotClosed) {
-        // Ouverture après 5 secondes
-        setTimeout(() => {
-            if (!isOpen) {
-                openChatbot();
-            }
-        }, 5000);
-
-        // Ouverture après scroll
-        let hasScrolled = false;
-        window.addEventListener('scroll', function() {
-            if (!hasScrolled && !isOpen && !localStorage.getItem('chatbot_closed')) {
-                hasScrolled = true;
-                openChatbot();
-            }
-        });
-
-        // Ouverture sur intention de sortie
-        let exitIntentTriggered = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (!exitIntentTriggered && !isOpen && !localStorage.getItem('chatbot_closed') && e.clientY < 0) {
-                exitIntentTriggered = true;
-                setTimeout(() => {
+    // ============================================================
+    // 🕐 OUVERTURE APRÈS 1 MINUTE (60000 ms)
+    // ============================================================
+    function scheduleOpen() {
+        if (!isChatbotClosed && !isOpen && !isTimerStarted) {
+            isTimerStarted = true;
+            
+            // ⏱️ 1 minute = 60000 ms
+            const delayInMs = 60000;
+            
+            console.log(`⏳ Ouverture du chatbot dans ${delayInMs / 1000} secondes...`);
+            
+            openTimeout = setTimeout(() => {
+                if (!localStorage.getItem('chatbot_closed') && !isOpen) {
+                    console.log('🤖 Ouverture automatique du chatbot après 1 minute');
                     openChatbot();
-                }, 300);
-            }
-        });
-
-        // Réinitialisation de l'intention de sortie
-        document.addEventListener('mouseenter', function() {
-            exitIntentTriggered = false;
-        });
-    } else {
-        console.log('🤖 Chatbot désactivé automatiquement (fermé par l\'utilisateur)');
+                }
+                isTimerStarted = false;
+            }, delayInMs);
+        }
     }
 
+    // Démarrer le timer d'ouverture
+    if (!isChatbotClosed) {
+        // Légère latence avant de lancer le timer pour laisser la page se charger
+        setTimeout(() => {
+            scheduleOpen();
+        }, 1000);
+    }
+
+    // ✅ OUVERTURE AUTOMATIQUE APRÈS SCROLL (si pas déjà ouvert et après 1 minute)
+    let hasScrolled = false;
+    window.addEventListener('scroll', function() {
+        if (!hasScrolled && !isOpen && !localStorage.getItem('chatbot_closed') && window.scrollY > 100) {
+            hasScrolled = true;
+            // Ne pas ouvrir tout de suite, attendre la fin de la minute
+            if (!isTimerStarted) {
+                scheduleOpen();
+            }
+        }
+    });
+
+    // ✅ OUVERTURE SUR INTENTION DE SORTIE (si pas déjà ouvert et après 1 minute)
+    let exitIntentTriggered = false;
+    document.addEventListener('mouseleave', function(e) {
+        if (!exitIntentTriggered && !isOpen && !localStorage.getItem('chatbot_closed') && e.clientY < 0) {
+            exitIntentTriggered = true;
+            if (!isTimerStarted) {
+                scheduleOpen();
+            }
+        }
+    });
+
+    // Réinitialisation de l'intention de sortie
+    document.addEventListener('mouseenter', function() {
+        exitIntentTriggered = false;
+    });
+
     console.log('🤖 Chatbot DestockPro chargé avec succès !');
-    console.log('📌 Statut :', isChatbotClosed ? 'Désactivé (fermé par l\'utilisateur)' : 'Actif');
+    console.log('📌 Statut :', isChatbotClosed ? 'Désactivé (fermé par l\'utilisateur)' : 'Actif (ouverture dans 1 minute)');
 });
 </script>
 
