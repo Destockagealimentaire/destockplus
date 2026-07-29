@@ -439,21 +439,6 @@
                     <p>Chaque produit est vérifié avant expédition pour garantir votre satisfaction.</p>
                 </div>
             </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1551024702-6d8f5e4c9d6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Livraison">
-                    <button class="video-play-btn" onclick="playVideo('video3')">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="video-duration">2:00</div>
-                </div>
-                <div class="video-info">
-                    <h3>Livraison express</h3>
-                    <p>De notre entrepôt à votre porte en 24/48h.</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -470,57 +455,219 @@
     </div>
 </div>
 
-<!-- Features modernes -->
-<section class="features-modern">
+<!-- ============================================================ -->
+<!-- SECTION ARTICLES / ACTUALITÉS -->
+<!-- ============================================================ -->
+<section class="blog-section">
     <div class="container">
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon-modern">
-                    <i class="fas fa-truck"></i>
+        <div class="section-header">
+            <span class="section-subtitle">📚 Articles & Conseils</span>
+            <h2 class="section-title">Dernières actualités du destockage</h2>
+            <p class="section-description">Retrouvez nos conseils et astuces pour économiser sur vos achats</p>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=400&h=250&fit=crop" 
+                         alt="Acheter en gros pour économiser" 
+                         loading="lazy">
+                    <span class="blog-category">💡 Conseils</span>
                 </div>
-                <h3>Livraison rapide</h3>
-                <p>Livraison en 24/48h partout en France. Suivi en temps réel de votre commande.</p>
+                <div class="blog-content">
+                    <time class="blog-date" datetime="2025-01-15">15 janvier 2025</time>
+                    <h3 class="blog-title">Comment acheter en gros et économiser jusqu'à 70%</h3>
+                    <p class="blog-excerpt">Découvrez nos astuces pour optimiser vos achats en gros et réaliser des économies substantielles sur vos courses alimentaires.</p>
+                    <a href="/article/acheter-en-gros-economiser" class="blog-link">
+                        Lire la suite <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=250&fit=crop" 
+                         alt="Destockage alimentaire responsable" 
+                         loading="lazy">
+                    <span class="blog-category">🌍 Écologie</span>
+                </div>
+                <div class="blog-content">
+                    <time class="blog-date" datetime="2025-01-10">10 janvier 2025</time>
+                    <h3 class="blog-title">Le destockage alimentaire : une solution anti-gaspillage</h3>
+                    <p class="blog-excerpt">Chaque année, des tonnes de produits alimentaires sont gaspillés. Découvrez comment le destockage contribue à réduire ce gaspillage.</p>
+                    <a href="/article/destockage-anti-gaspillage" class="blog-link">
+                        Lire la suite <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&h=250&fit=crop" 
+                         alt="Palette de produits en destockage" 
+                         loading="lazy">
+                    <span class="blog-category">📦 Guide</span>
+                </div>
+                <div class="blog-content">
+                    <time class="blog-date" datetime="2025-01-05">5 janvier 2025</time>
+                    <h3 class="blog-title">Les meilleurs produits à acheter en palette</h3>
+                    <p class="blog-excerpt">Guide complet des produits les plus rentables à acheter en palette : boissons, surgelés, épicerie... nos recommandations.</p>
+                    <a href="/article/produits-palette" class="blog-link">
+                        Lire la suite <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="section-footer">
+            <a href="/article" class="btn-outline">
+                Voir tous les articles
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION FAQ AVEC SCHEMA.ORG -->
+<!-- ============================================================ -->
+<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">❓ Questions fréquentes</span>
+            <h2 class="section-title">Tout savoir sur le destockage</h2>
+            <p class="section-description">Les réponses à vos questions les plus courantes</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Qu'est-ce que le destockage alimentaire ?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Le destockage alimentaire consiste à vendre des produits alimentaires à prix réduits, souvent des invendus, des fins de séries ou des surstocks. Ces produits sont parfaitement consommables et de qualité, mais proposés à des prix jusqu'à 70% moins chers que les prix du marché.</p>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon-modern">
-                    <i class="fas fa-euro-sign"></i>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Comment acheter en gros chez DestockPro ?</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <h3>Prix imbattables</h3>
-                <p>Jusqu'à -70% sur une large sélection de produits de qualité.</p>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Vous pouvez acheter en gros sur notre site en sélectionnant des palettes complètes ou des lots. Il vous suffit de parcourir nos catégories, d'ajouter les produits souhaités à votre panier et de passer commande. Nous livrons partout en France en 24/48h.</p>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon-modern">
-                    <i class="fas fa-check-circle"></i>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Les produits en destockage sont-ils de qualité ?</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <h3>Qualité garantie</h3>
-                <p>Produits frais et contrôlés. Satisfaction client ou remboursé.</p>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Absolument ! Tous nos produits sont soigneusement sélectionnés et contrôlés. Il s'agit de produits de marque, souvent des invendus ou des surstocks, mais toujours parfaitement consommables. Nous garantissons une qualité irréprochable.</p>
+                </div>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon-modern">
-                    <i class="fas fa-lock"></i>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Quels sont les délais de livraison ?</h3>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
-                <h3>Paiement sécurisé</h3>
-                <p>Transactions 100% sécurisées. Tous nos paiements sont cryptés.</p>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Nous livrons partout en France en 24 à 48 heures. Une fois votre commande validée, elle est préparée et expédiée le jour même (pour les commandes passées avant 14h). Vous recevez un numéro de suivi pour suivre votre colis en temps réel.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Puis-je retourner un produit ?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Oui, vous disposez d'un délai de 30 jours pour retourner un produit non ouvert et en parfait état. Nous nous engageons à vous rembourser dans les meilleurs délais. Pour plus d'informations, consultez nos conditions générales de vente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 itemprop="name">Est-ce que le paiement est sécurisé ?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Tout à fait ! Tous nos paiements sont 100% sécurisés grâce au cryptage SSL. Nous acceptons les cartes bancaires (Visa, Mastercard, Amex) et PayPal. Vos données bancaires ne sont jamais stockées sur nos serveurs.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Newsletter moderne -->
-<section class="newsletter-modern">
+<!-- ============================================================ -->
+<!-- BADGES DE CONFIANCE -->
+<!-- ============================================================ -->
+<section class="trust-section">
     <div class="container">
-        <div class="newsletter-container-modern">
-            <h2>Restez informé de nos offres</h2>
-            <p>Inscrivez-vous à notre newsletter pour recevoir nos meilleures offres en avant-première</p>
-            <form class="newsletter-form-modern" onsubmit="event.preventDefault(); newsletterSignup()">
-                <input type="email" placeholder="Votre adresse email" required>
-                <button type="submit">
-                    S'inscrire <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>Paiement 100% sécurisé</strong>
+                    <span>Cryptage SSL</span>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>4.8/5 sur Google</strong>
+                    <span>1247 avis vérifiés</span>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>Livraison 24/48h</strong>
+                    <span>Partout en France</span>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>Service client réactif</strong>
+                    <span>7j/7 - 24h/24</span>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>Engagement RSE</strong>
+                    <span>Anti-gaspillage</span>
+                </div>
+            </div>
+            
+            <div class="trust-badge">
+                <div class="trust-icon">
+                    <i class="fas fa-undo-alt"></i>
+                </div>
+                <div class="trust-text">
+                    <strong>Retour 30 jours</strong>
+                    <span>Satisfait ou remboursé</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -2704,6 +2851,264 @@
 .fade-in {
     animation: fadeIn 1s ease;
 }
+/* ============================================================
+   BLOG SECTION
+   ============================================================ */
+   .blog-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #c4a747;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-date {
+    font-size: 0.8rem;
+    color: #6b7280;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.blog-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.blog-link {
+    color: #c4a747;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.blog-link:hover {
+    color: #b8941f;
+    gap: 0.8rem;
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.faq-question:hover {
+    color: #c4a747;
+}
+
+.faq-question h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1f2937;
+}
+
+.faq-question i {
+    color: #6b7280;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-question h3 {
+    color: #c4a747;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 0 0 1.2rem 0;
+}
+
+.faq-answer p {
+    color: #6b7280;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ============================================================
+   TRUST BADGES
+   ============================================================ */
+.trust-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.trust-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #c4a747, #b8941f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.trust-text {
+    flex: 1;
+}
+
+.trust-text strong {
+    display: block;
+    font-size: 0.85rem;
+    color: #1f2937;
+}
+
+.trust-text span {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-badges {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .trust-badge {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-badges {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-image {
+        height: 180px;
+    }
+}
 </style>
 
 <script>
@@ -2931,5 +3336,34 @@ if (!document.getElementById('notificationStyles')) {
     `;
     document.head.appendChild(style);
 }
+// ============================================================
+// FAQ TOGGLE
+// ============================================================
+function toggleFaq(element) {
+    const faqItem = element.closest('.faq-item');
+    const isActive = faqItem.classList.contains('active');
+    
+    // Fermer tous les autres
+    document.querySelectorAll('.faq-item.active').forEach(item => {
+        if (item !== faqItem) {
+            item.classList.remove('active');
+        }
+    });
+    
+    // Toggle celui-ci
+    if (isActive) {
+        faqItem.classList.remove('active');
+    } else {
+        faqItem.classList.add('active');
+    }
+}
+
+// Initialisation : ouvrir le premier par défaut
+document.addEventListener('DOMContentLoaded', function() {
+    const firstFaq = document.querySelector('.faq-item');
+    if (firstFaq) {
+        firstFaq.classList.add('active');
+    }
+});
 </script>
 {% endblock %}
