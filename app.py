@@ -2617,6 +2617,11 @@ def sitemap():
         {'loc': '/article/destockage-alimentaire-lyon', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/article/destockage-alimentaire-lille', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/article/destockage-alimentaire-marseille', 'priority': 0.9, 'changefreq': 'weekly'},
+        # ============ 🆕 4 NOUVEAUX ARTICLES SEO 2026 ============
+        {'loc': '/destockage-alimentaire-marques-premium-pas-cher', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/comment-acheter-palette-alimentaire-etape-par-etape', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/destockage-alimentaire-particulier-astuces-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/livraison-palette-france-delais-frais', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         
     ]
     
@@ -2718,7 +2723,27 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ 4 NOUVEAUX ARTICLES DESTOCKPRO ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 # ============ ARTICLES (avec URL /article/) ============
+# ===== 4 NOUVEAUX ARTICLES SEO UNIQUES =====
 
+@app.route('/destockage-alimentaire-marques-premium-pas-cher')
+def destockage_marques_premium():
+    """Article - Destockage des marques premium"""
+    return render_template('articles/destockage_alimentaire_marques_premium.html')
+
+@app.route('/comment-acheter-palette-alimentaire-etape-par-etape')
+def comment_acheter_palette():
+    """Article - Comment acheter une palette alimentaire étape par étape"""
+    return render_template('articles/comment_acheter_palette_alimentaire.html')
+
+@app.route('/destockage-alimentaire-particulier-astuces-2026')
+def destockage_particulier():
+    """Article - Destockage alimentaire pour particuliers"""
+    return render_template('articles/destockage_alimentaire_particulier.html')
+
+@app.route('/livraison-palette-france-delais-frais')
+def livraison_palette_france():
+    """Article - Livraison palette France - Délais et frais"""
+    return render_template('articles/livraison_palette_france.html')
 @app.route('/article')
 def article_index():
     """Page d'index des articles"""
