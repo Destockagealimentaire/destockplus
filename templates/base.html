@@ -2889,7 +2889,7 @@
 
 <script>
 // ============================================================
-// CHATBOT - JAVASCRIPT COMPLET
+// CHATBOT - JAVASCRIPT AVEC MÉMORISATION DE FERMETURE
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2906,8 +2906,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let isOpen = false;
     let firstOpen = true;
 
+    // ✅ Vérifier si le chatbot a déjà été fermé (localStorage)
+    const isChatbotClosed = localStorage.getItem('chatbot_closed') === 'true';
+
     // --- OUVERTURE / FERMETURE ---
     function openChatbot() {
+        // ✅ Ne pas ouvrir si déjà fermé une fois
+        if (localStorage.getItem('chatbot_closed') === 'true') {
+            console.log('🤖 Chatbot déjà fermé par l\'utilisateur');
+            return;
+        }
+
         isOpen = true;
         chatbotContainer.classList.add('open');
         chatbotToggle.classList.add('active');
@@ -2930,10 +2939,29 @@ document.addEventListener('DOMContentLoaded', function() {
         chatbotContainer.classList.remove('open');
         chatbotToggle.classList.remove('active');
         chatbotOverlay.classList.remove('active');
+
+        // ✅ Marquer comme fermé dans localStorage (ne plus réouvrir automatiquement)
+        localStorage.setItem('chatbot_closed', 'true');
+        console.log('🤖 Chatbot fermé, il ne s\'ouvrira plus automatiquement');
+    }
+
+    // ✅ Si déjà fermé, masquer le bouton de pulsation
+    if (isChatbotClosed) {
+        const pulse = document.querySelector('.chatbot-pulse');
+        if (pulse) pulse.style.display = 'none';
+        const badge = document.querySelector('.chatbot-badge');
+        if (badge) badge.style.display = 'none';
     }
 
     chatbotToggle.addEventListener('click', function(e) {
         e.stopPropagation();
+        
+        // ✅ Si déjà fermé, on permet de l'ouvrir manuellement
+        if (localStorage.getItem('chatbot_closed') === 'true') {
+            // ✅ On supprime le flag pour permettre la réouverture manuelle
+            localStorage.removeItem('chatbot_closed');
+        }
+
         if (isOpen) {
             closeChatbot();
         } else {
@@ -3054,39 +3082,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- OUVERTURE AUTOMATIQUE APRÈS 5 SECONDES ---
-    setTimeout(() => {
-        if (!isOpen) {
-            openChatbot();
-        }
-    }, 5000);
-
-    // --- OUVERTURE AUTOMATIQUE APRÈS SCROLL ---
-    let hasScrolled = false;
-    window.addEventListener('scroll', function() {
-        if (!hasScrolled && !isOpen && window.scrollY > 100) {
-            hasScrolled = true;
-            openChatbot();
-        }
-    });
-
-    // --- OUVERTURE AUTOMATIQUE SI L'UTILISATEUR QUITTE LA PAGE ---
-    let exitIntentTriggered = false;
-    document.addEventListener('mouseleave', function(e) {
-        if (!exitIntentTriggered && !isOpen && e.clientY < 0) {
-            exitIntentTriggered = true;
-            setTimeout(() => {
+    // ✅ OUVERTURE AUTOMATIQUE UNIQUEMENT SI PAS ENCORE FERMÉ
+    if (!isChatbotClosed) {
+        // Ouverture après 5 secondes
+        setTimeout(() => {
+            if (!isOpen) {
                 openChatbot();
-            }, 300);
-        }
-    });
+            }
+        }, 5000);
 
-    // --- RÉINITIALISATION DE L'INTENTION DE SORTIE ---
-    document.addEventListener('mouseenter', function() {
-        exitIntentTriggered = false;
-    });
+        // Ouverture après scroll
+        let hasScrolled = false;
+        window.addEventListener('scroll', function() {
+            if (!hasScrolled && !isOpen && !localStorage.getItem('chatbot_closed')) {
+                hasScrolled = true;
+                openChatbot();
+            }
+        });
+
+        // Ouverture sur intention de sortie
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (!exitIntentTriggered && !isOpen && !localStorage.getItem('chatbot_closed') && e.clientY < 0) {
+                exitIntentTriggered = true;
+                setTimeout(() => {
+                    openChatbot();
+                }, 300);
+            }
+        });
+
+        // Réinitialisation de l'intention de sortie
+        document.addEventListener('mouseenter', function() {
+            exitIntentTriggered = false;
+        });
+    } else {
+        console.log('🤖 Chatbot désactivé automatiquement (fermé par l\'utilisateur)');
+    }
 
     console.log('🤖 Chatbot DestockPro chargé avec succès !');
+    console.log('📌 Statut :', isChatbotClosed ? 'Désactivé (fermé par l\'utilisateur)' : 'Actif');
 });
 </script>
 
