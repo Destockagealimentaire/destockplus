@@ -2374,6 +2374,28 @@ def ou_acheter_palettes():
 def meilleur_site_destockage():
     """Article - Meilleur site de destockage alimentaire - Avis et comparatif"""
     return render_template('articles/meilleur_site_destockage_alimentaire.html')
+
+# ============ 4 NOUVEAUX ARTICLES ============
+
+@app.route('/article/destockage-alimentaire-paris')
+def article_paris():
+    """Article : Destockage alimentaire Paris"""
+    return render_template('articles/destockage-alimentaire-paris.html')
+
+@app.route('/article/destockage-alimentaire-lyon')
+def article_lyon():
+    """Article : Destockage alimentaire Lyon"""
+    return render_template('articles/destockage-alimentaire-lyon.html')
+
+@app.route('/article/destockage-alimentaire-lille')
+def article_lille():
+    """Article : Destockage alimentaire Lille"""
+    return render_template('articles/destockage-alimentaire-lille.html')
+
+@app.route('/article/destockage-alimentaire-marseille')
+def article_marseille():
+    """Article : Destockage alimentaire Marseille"""
+    return render_template('articles/destockage-alimentaire-marseille.html')
 # ============= SITEMAP ROUTES =============
 # ============= SITEMAP ROUTES =============
 
@@ -2591,7 +2613,10 @@ def sitemap():
         {'loc': '/guide-complet-destockage-alimentaire-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/ou-acheter-palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/meilleur-site-destockage-alimentaire-avis', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
-        
+        {'loc': '/article/destockage-alimentaire-paris', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/article/destockage-alimentaire-lyon', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/article/destockage-alimentaire-lille', 'priority': 0.9, 'changefreq': 'weekly'},
+        {'loc': '/article/destockage-alimentaire-marseille', 'priority': 0.9, 'changefreq': 'weekly'},
         
     ]
     
