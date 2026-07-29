@@ -2333,7 +2333,7 @@
         </div>
     </footer>
 <!-- ============================================================ -->
-<!-- ============ CHATBOT MODERNE ============ -->
+<!-- ============ CHATBOT MOBILE OPTIMISÉ ============ -->
 <!-- ============================================================ -->
 <div class="chatbot-wrapper" id="chatbotWrapper">
     <div class="chatbot-toggle" id="chatbotToggle">
@@ -2349,7 +2349,7 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div>
-                    <h3>Assistant DestockPro</h3>
+                    <h3>Assistant</h3>
                     <span class="chatbot-status">🟢 En ligne</span>
                 </div>
             </div>
@@ -2364,7 +2364,7 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div class="message-content">
-                    <p>👋 Bonjour ! Je suis l'assistant virtuel de DestockPro.</p>
+                    <p>👋 Bonjour ! Je suis l'assistant DestockPro.</p>
                     <p class="message-time">Maintenant</p>
                 </div>
             </div>
@@ -2373,11 +2373,11 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <div class="message-content">
-                    <p>💬 Je peux vous aider avec :</p>
+                    <p>💬 Que puis-je faire pour vous ?</p>
                     <div class="quick-replies" id="quickReplies">
                         <button class="quick-reply" data-question="produits">📦 Produits</button>
                         <button class="quick-reply" data-question="livraison">🚚 Livraison</button>
-                        <button class="quick-reply" data-question="prix">💰 Tarifs</button>
+                        <button class="quick-reply" data-question="prix">💰 Prix</button>
                         <button class="quick-reply" data-question="contact">📞 Contact</button>
                     </div>
                     <p class="message-time">Maintenant</p>
@@ -2392,14 +2392,10 @@
                 <span></span>
             </div>
             <div class="chatbot-input-wrapper">
-                <input type="text" id="chatbotInput" placeholder="Tapez votre message..." autocomplete="off">
+                <input type="text" id="chatbotInput" placeholder="Message..." autocomplete="off">
                 <button id="chatbotSend" aria-label="Envoyer">
                     <i class="fas fa-paper-plane"></i>
                 </button>
-            </div>
-            <div class="chatbot-disclaimer">
-                <i class="fas fa-shield-alt"></i>
-                <span>Réponses auto · 24/7</span>
             </div>
         </div>
     </div>
@@ -2410,7 +2406,7 @@
 
 <style>
 /* ============================================================
-   CHATBOT MODERNE - STYLES COMPLETS
+   CHATBOT MOBILE OPTIMISÉ - TAILLE RÉDUITE
    ============================================================ */
 
 /* Variables */
@@ -2418,26 +2414,25 @@
     --chatbot-primary: #2a5bd7;
     --chatbot-primary-dark: #1e4aba;
     --chatbot-primary-light: #e8edf9;
-    --chatbot-success: #10b981;
     --chatbot-bg: #ffffff;
     --chatbot-text: #1f2937;
     --chatbot-text-light: #6b7280;
-    --chatbot-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    --chatbot-radius: 20px;
+    --chatbot-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --chatbot-radius: 16px;
 }
 
-/* --- BOUTON DE TOGGLE --- */
+/* --- BOUTON DE TOGGLE (TAILLE RÉDUITE) --- */
 .chatbot-wrapper {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     z-index: 9999;
     font-family: 'Inter', -apple-system, sans-serif;
 }
 
 .chatbot-toggle {
-    width: 70px;
-    height: 70px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--chatbot-primary), var(--chatbot-primary-dark));
     color: white;
@@ -2446,15 +2441,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 8px 30px rgba(42, 91, 215, 0.4);
+    font-size: 1.5rem;
+    box-shadow: 0 6px 24px rgba(42, 91, 215, 0.35);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .chatbot-toggle:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 40px rgba(42, 91, 215, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(42, 91, 215, 0.45);
 }
 
 .chatbot-toggle i {
@@ -2465,32 +2460,32 @@
     transform: rotate(90deg);
 }
 
-/* Pulsation */
+/* Pulsation (plus discrète) */
 .chatbot-pulse {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: rgba(42, 91, 215, 0.3);
-    animation: pulse-chatbot 2s ease-in-out infinite;
+    background: rgba(42, 91, 215, 0.25);
+    animation: pulse-chatbot 2.5s ease-in-out infinite;
 }
 
 @keyframes pulse-chatbot {
     0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.5); opacity: 0; }
+    100% { transform: scale(1.4); opacity: 0; }
 }
 
-/* Badge de notification */
+/* Badge de notification (plus petit) */
 .chatbot-badge {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -4px;
+    right: -4px;
     background: #ef4444;
     color: white;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -2500,28 +2495,28 @@
 
 @keyframes bounce-badge {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.15); }
 }
 
-/* --- CONTAINER CHATBOT --- */
+/* --- CONTAINER CHATBOT (TAILLE RÉDUITE) --- */
 .chatbot-container {
     position: absolute;
-    bottom: 90px;
+    bottom: 72px;
     right: 0;
-    width: 400px;
-    max-width: 90vw;
-    height: 550px;
-    max-height: 80vh;
+    width: 360px;
+    max-width: 88vw;
+    height: 460px;
+    max-height: 70vh;
     background: var(--chatbot-bg);
     border-radius: var(--chatbot-radius);
     box-shadow: var(--chatbot-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(16px) scale(0.95);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-origin: bottom right;
 }
 
@@ -2531,9 +2526,9 @@
     visibility: visible;
 }
 
-/* --- HEADER --- */
+/* --- HEADER (compact) --- */
 .chatbot-header {
-    padding: 16px 20px;
+    padding: 14px 18px;
     background: linear-gradient(135deg, var(--chatbot-primary), var(--chatbot-primary-dark));
     color: white;
     display: flex;
@@ -2545,43 +2540,43 @@
 .chatbot-header-info {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .chatbot-avatar {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .chatbot-header h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
 }
 
 .chatbot-status {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     opacity: 0.9;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
 }
 
 .chatbot-close {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     border: none;
     color: white;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: all 0.3s;
     display: flex;
     align-items: center;
@@ -2589,14 +2584,14 @@
 }
 
 .chatbot-close:hover {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.25);
     transform: rotate(90deg);
 }
 
-/* --- MESSAGES --- */
+/* --- MESSAGES (compact) --- */
 .chatbot-messages {
     flex: 1;
-    padding: 16px 16px;
+    padding: 14px 16px;
     overflow-y: auto;
     background: #f8fafc;
     display: flex;
@@ -2619,7 +2614,7 @@
 
 .message {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     max-width: 88%;
     animation: fadeInMessage 0.3s ease;
 }
@@ -2639,14 +2634,14 @@
 }
 
 .message-avatar {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: var(--chatbot-primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--chatbot-primary);
     flex-shrink: 0;
 }
@@ -2661,7 +2656,7 @@
     padding: 10px 14px;
     border-radius: 14px;
     border-top-left-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .message.user-message .message-content {
@@ -2673,14 +2668,14 @@
 
 .message-content p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 
 .message-time {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     color: var(--chatbot-text-light);
-    margin-top: 4px !important;
+    margin-top: 3px !important;
     display: block;
 }
 
@@ -2688,20 +2683,20 @@
     color: rgba(255,255,255,0.7);
 }
 
-/* --- RÉPONSES RAPIDES --- */
+/* --- RÉPONSES RAPIDES (compact) --- */
 .quick-replies {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 5px;
     margin-top: 8px;
 }
 
 .quick-reply {
-    padding: 6px 14px;
-    border: 2px solid var(--chatbot-primary-light);
+    padding: 5px 12px;
+    border: 1.5px solid var(--chatbot-primary-light);
     background: white;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--chatbot-primary);
     cursor: pointer;
@@ -2712,12 +2707,12 @@
     background: var(--chatbot-primary);
     color: white;
     border-color: var(--chatbot-primary);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-/* --- INPUT --- */
+/* --- INPUT (compact) --- */
 .chatbot-input-area {
-    padding: 12px 16px 16px;
+    padding: 10px 14px 14px;
     border-top: 1px solid #f1f5f9;
     background: white;
     flex-shrink: 0;
@@ -2725,9 +2720,9 @@
 
 .chatbot-typing {
     display: none;
-    gap: 4px;
-    padding: 6px 0;
-    margin-bottom: 4px;
+    gap: 3px;
+    padding: 4px 0;
+    margin-bottom: 2px;
 }
 
 .chatbot-typing.active {
@@ -2735,8 +2730,8 @@
 }
 
 .chatbot-typing span {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     background: var(--chatbot-primary-light);
     border-radius: 50%;
     animation: typingDot 1.2s infinite;
@@ -2752,17 +2747,17 @@
 
 .chatbot-input-wrapper {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     background: #f1f5f9;
     border-radius: 12px;
-    padding: 4px;
+    padding: 3px;
 }
 
 .chatbot-input-wrapper input {
     flex: 1;
     border: none;
-    padding: 10px 14px;
-    font-size: 0.9rem;
+    padding: 8px 12px;
+    font-size: 0.85rem;
     background: transparent;
     outline: none;
     color: var(--chatbot-text);
@@ -2770,19 +2765,19 @@
 
 .chatbot-input-wrapper input::placeholder {
     color: var(--chatbot-text-light);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .chatbot-input-wrapper button {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 10px;
     border: none;
     background: var(--chatbot-primary);
     color: white;
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2791,31 +2786,17 @@
 
 .chatbot-input-wrapper button:hover {
     background: var(--chatbot-primary-dark);
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
-.chatbot-disclaimer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    margin-top: 8px;
-    font-size: 0.6rem;
-    color: var(--chatbot-text-light);
-}
-
-.chatbot-disclaimer i {
-    font-size: 0.55rem;
-}
-
-/* --- OVERLAY --- */
+/* --- OVERLAY (plus léger) --- */
 .chatbot-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
     z-index: 9998;
     opacity: 0;
     visibility: hidden;
@@ -2827,9 +2808,7 @@
     visibility: visible;
 }
 
-/* ============================================================
-   VERSION MOBILE OPTIMISÉE
-   ============================================================ */
+/* --- RESPONSIVE MOBILE PREMIUM --- */
 @media (max-width: 768px) {
     .chatbot-wrapper {
         bottom: 16px;
@@ -2837,187 +2816,26 @@
     }
     
     .chatbot-toggle {
-        width: 56px;
-        height: 56px;
-        font-size: 1.4rem;
-        box-shadow: 0 6px 25px rgba(42, 91, 215, 0.35);
-    }
-    
-    .chatbot-toggle:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 30px rgba(42, 91, 215, 0.4);
-    }
-    
-    .chatbot-pulse {
-        animation: pulse-chatbot-mobile 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-chatbot-mobile {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(1.3); opacity: 0; }
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
     }
     
     .chatbot-badge {
-        width: 20px;
-        height: 20px;
-        font-size: 0.6rem;
-        top: -4px;
-        right: -4px;
+        width: 18px;
+        height: 18px;
+        font-size: 0.55rem;
+        top: -3px;
+        right: -3px;
     }
     
     .chatbot-container {
-        bottom: 70px;
+        bottom: 66px;
         right: 8px;
-        width: calc(100% - 16px);
-        max-width: 380px;
+        width: calc(100vw - 16px);
+        max-width: 400px;
         height: calc(100vh - 130px);
-        max-height: 500px;
-        border-radius: 16px;
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-    }
-    
-    .chatbot-header {
-        padding: 14px 16px;
-    }
-    
-    .chatbot-avatar {
-        width: 34px;
-        height: 34px;
-        font-size: 1rem;
-    }
-    
-    .chatbot-header h3 {
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-status {
-        font-size: 0.65rem;
-    }
-    
-    .chatbot-close {
-        width: 30px;
-        height: 30px;
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-messages {
-        padding: 14px 14px;
-        gap: 10px;
-    }
-    
-    .message {
-        max-width: 92%;
-        gap: 8px;
-    }
-    
-    .message-avatar {
-        width: 28px;
-        height: 28px;
-        font-size: 0.7rem;
-    }
-    
-    .message-content {
-        padding: 8px 12px;
-        border-radius: 12px;
-        border-top-left-radius: 4px;
-    }
-    
-    .message.user-message .message-content {
-        border-top-right-radius: 4px;
-        border-top-left-radius: 12px;
-    }
-    
-    .message-content p {
-        font-size: 0.85rem;
-        line-height: 1.45;
-    }
-    
-    .message-time {
-        font-size: 0.55rem;
-    }
-    
-    .quick-replies {
-        gap: 5px;
-        margin-top: 6px;
-    }
-    
-    .quick-reply {
-        padding: 5px 12px;
-        font-size: 0.7rem;
-        border-width: 1.5px;
-    }
-    
-    .quick-reply:hover {
-        transform: translateY(-1px);
-    }
-    
-    .chatbot-input-area {
-        padding: 10px 14px 14px;
-    }
-    
-    .chatbot-typing {
-        padding: 4px 0;
-    }
-    
-    .chatbot-typing span {
-        width: 6px;
-        height: 6px;
-    }
-    
-    .chatbot-input-wrapper {
-        gap: 6px;
-        border-radius: 10px;
-        padding: 3px;
-    }
-    
-    .chatbot-input-wrapper input {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-    }
-    
-    .chatbot-input-wrapper input::placeholder {
-        font-size: 0.8rem;
-    }
-    
-    .chatbot-input-wrapper button {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-disclaimer {
-        font-size: 0.55rem;
-        margin-top: 6px;
-    }
-    
-    .chatbot-disclaimer i {
-        font-size: 0.5rem;
-    }
-}
-
-/* ============================================================
-   VERSION TRÈS PETITE MOBILE (< 400px)
-   ============================================================ */
-@media (max-width: 400px) {
-    .chatbot-wrapper {
-        bottom: 12px;
-        right: 12px;
-    }
-    
-    .chatbot-toggle {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .chatbot-container {
-        bottom: 62px;
-        right: 6px;
-        width: calc(100% - 12px);
-        max-width: 340px;
-        height: calc(100vh - 120px);
-        max-height: 440px;
+        max-height: 480px;
         border-radius: 14px;
     }
     
@@ -3025,14 +2843,18 @@
         padding: 12px 14px;
     }
     
+    .chatbot-header-info {
+        gap: 8px;
+    }
+    
     .chatbot-avatar {
         width: 30px;
         height: 30px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .chatbot-header h3 {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
     
     .chatbot-status {
@@ -3046,28 +2868,33 @@
     }
     
     .chatbot-messages {
-        padding: 12px 12px;
-        gap: 8px;
+        padding: 12px 14px;
+        gap: 10px;
     }
     
     .message {
-        max-width: 95%;
+        max-width: 92%;
         gap: 6px;
     }
     
     .message-avatar {
         width: 24px;
         height: 24px;
-        font-size: 0.6rem;
+        font-size: 0.65rem;
     }
     
     .message-content {
-        padding: 6px 10px;
-        border-radius: 10px;
+        padding: 8px 12px;
+        border-radius: 12px;
     }
     
     .message-content p {
         font-size: 0.8rem;
+    }
+    
+    .quick-replies {
+        gap: 4px;
+        margin-top: 6px;
     }
     
     .quick-reply {
@@ -3089,14 +2916,41 @@
     }
     
     .chatbot-input-wrapper button {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         font-size: 0.8rem;
-        border-radius: 6px;
+        border-radius: 8px;
     }
     
-    .chatbot-disclaimer {
-        font-size: 0.5rem;
+    .chatbot-typing span {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 400px) {
+    .chatbot-wrapper {
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .chatbot-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+    
+    .chatbot-container {
+        bottom: 58px;
+        right: 6px;
+        width: calc(100vw - 12px);
+        height: calc(100vh - 110px);
+        max-height: 420px;
+    }
+    
+    .message-content p {
+        font-size: 0.75rem;
     }
 }
 
@@ -3109,12 +2963,13 @@
 .chatbot-container.open {
     animation: slideUpChat 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+/* --- DISCLAIMER RETIRÉ POUR GAIN DE PLACE --- */
 </style>
 
 <script>
 // ============================================================
-// CHATBOT - JAVASCRIPT COMPLET AVEC MÉMORISATION
-// OUVERTURE APRÈS 1 MINUTE
+// CHATBOT MOBILE - JAVASCRIPT OPTIMISÉ
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -3130,20 +2985,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let isOpen = false;
     let firstOpen = true;
-    let isTimerStarted = false;
-    let openTimeout = null;
 
-    // ✅ Vérifier si le chatbot a déjà été fermé (localStorage)
-    const isChatbotClosed = localStorage.getItem('chatbot_closed') === 'true';
+    // Vérifier si déjà fermé
+    const isClosed = localStorage.getItem('chatbot_closed') === 'true';
+
+    if (isClosed) {
+        const pulse = document.querySelector('.chatbot-pulse');
+        if (pulse) pulse.style.display = 'none';
+        const badge = document.querySelector('.chatbot-badge');
+        if (badge) badge.style.display = 'none';
+    }
 
     // --- OUVERTURE / FERMETURE ---
     function openChatbot() {
-        // ✅ Ne pas ouvrir si déjà fermé une fois
-        if (localStorage.getItem('chatbot_closed') === 'true') {
-            console.log('🤖 Chatbot déjà fermé par l\'utilisateur');
-            return;
-        }
-
+        if (localStorage.getItem('chatbot_closed') === 'true') return;
         isOpen = true;
         chatbotContainer.classList.add('open');
         chatbotToggle.classList.add('active');
@@ -3152,8 +3007,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (firstOpen) {
             firstOpen = false;
             setTimeout(() => {
-                addBotMessage('💡 Je suis là pour vous aider ! Posez-moi une question ou cliquez sur une suggestion ci-dessus.');
-            }, 600);
+                addBotMessage('💡 Posez-moi une question ou cliquez sur une suggestion.');
+            }, 500);
         }
         
         setTimeout(() => {
@@ -3166,39 +3021,15 @@ document.addEventListener('DOMContentLoaded', function() {
         chatbotContainer.classList.remove('open');
         chatbotToggle.classList.remove('active');
         chatbotOverlay.classList.remove('active');
-
-        // ✅ Marquer comme fermé dans localStorage (ne plus réouvrir automatiquement)
         localStorage.setItem('chatbot_closed', 'true');
-        console.log('🤖 Chatbot fermé, il ne s\'ouvrira plus automatiquement');
-    }
-
-    // ✅ Si déjà fermé, masquer le bouton de pulsation
-    if (isChatbotClosed) {
-        const pulse = document.querySelector('.chatbot-pulse');
-        if (pulse) pulse.style.display = 'none';
-        const badge = document.querySelector('.chatbot-badge');
-        if (badge) badge.style.display = 'none';
     }
 
     chatbotToggle.addEventListener('click', function(e) {
         e.stopPropagation();
-        
-        // ✅ Si déjà fermé, on permet de l'ouvrir manuellement
         if (localStorage.getItem('chatbot_closed') === 'true') {
-            // ✅ On supprime le flag pour permettre la réouverture manuelle
             localStorage.removeItem('chatbot_closed');
-            // Réafficher les éléments
-            const pulse = document.querySelector('.chatbot-pulse');
-            if (pulse) pulse.style.display = '';
-            const badge = document.querySelector('.chatbot-badge');
-            if (badge) badge.style.display = '';
         }
-
-        if (isOpen) {
-            closeChatbot();
-        } else {
-            openChatbot();
-        }
+        isOpen ? closeChatbot() : openChatbot();
     });
 
     chatbotClose.addEventListener('click', closeChatbot);
@@ -3221,15 +3052,10 @@ document.addEventListener('DOMContentLoaded', function() {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
-    function addBotMessage(text) {
-        addMessage(text, false);
-    }
+    function addBotMessage(text) { addMessage(text, false); }
+    function addUserMessage(text) { addMessage(text, true); }
 
-    function addUserMessage(text) {
-        addMessage(text, true);
-    }
-
-    // --- TYPING INDICATOR ---
+    // --- TYPING ---
     function showTyping() {
         chatbotTyping.classList.add('active');
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -3239,141 +3065,71 @@ document.addEventListener('DOMContentLoaded', function() {
         chatbotTyping.classList.remove('active');
     }
 
-    // --- RÉPONSES AUTOMATIQUES ---
+    // --- RÉPONSES ---
     const responses = {
-        'produits': '📦 Nous proposons une large gamme de produits en destockage : boissons, surgelés, épicerie, viandes, et bien plus ! <br><br>🎯 <a href="/produits" style="color:#2a5bd7;font-weight:600;">Voir tous nos produits →</a>',
-        'livraison': '🚚 Livraison rapide dans toute la France 🇫🇷<br><br>⏱ Expédition sous 24h<br>📦 Livraison en 24/48h<br>💰 Livraison offerte dès 1500€ d\'achat',
-        'prix': '💰 Jusqu\'à -70% sur tous nos produits !<br><br>💎 Destockage de qualité professionnelle<br>🛒 Achat en gros ou au détail<br>📞 Pour un devis personnalisé, contactez-nous au <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">+33 6 44 69 72 12</a>',
-        'contact': '📞 Notre équipe est à votre disposition :<br><br>📱 <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">+33 6 44 69 72 12</a><br>📧 <a href="mailto:contact@destockalimentaire.com" style="color:#2a5bd7;font-weight:600;">contact@destockalimentaire.com</a><br><br>⏰ Disponible du lundi au samedi, 9h-18h',
-        'default': '🤔 Je n\'ai pas bien compris votre question.<br><br>💡 Quelques suggestions :<br>• Nos produits 📦<br>• Livraison 🚚<br>• Tarifs 💰<br>• Contact 📞'
+        'produits': '📦 Boissons, surgelés, épicerie... <a href="/produits" style="color:#2a5bd7;font-weight:600;">Voir tout →</a>',
+        'livraison': '🚚 24/48h partout en France. Offerte dès 1500€.',
+        'prix': '💰 Jusqu\'à -70% ! <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">Devis</a>',
+        'contact': '📞 <a href="tel:+33644697212" style="color:#2a5bd7;font-weight:600;">+33 6 44 69 72 12</a> · <a href="mailto:contact@destockalimentaire.com" style="color:#2a5bd7;font-weight:600;">Email</a>',
+        'default': '🤔 Je n\'ai pas compris. Essayez : Produits, Livraison, Prix ou Contact.'
     };
 
     function getResponse(input) {
-        const lowerInput = input.toLowerCase();
-        
-        if (lowerInput.includes('produit') || lowerInput.includes('catalogue') || lowerInput.includes('stock')) {
-            return responses.produits;
-        }
-        if (lowerInput.includes('livraison') || lowerInput.includes('delai') || lowerInput.includes('expedition') || lowerInput.includes('transport')) {
-            return responses.livraison;
-        }
-        if (lowerInput.includes('prix') || lowerInput.includes('tarif') || lowerInput.includes('cout') || lowerInput.includes('economie') || lowerInput.includes('remise')) {
-            return responses.prix;
-        }
-        if (lowerInput.includes('contact') || lowerInput.includes('telephone') || lowerInput.includes('email') || lowerInput.includes('appel') || lowerInput.includes('joindre')) {
-            return responses.contact;
-        }
-        if (lowerInput.includes('bonjour') || lowerInput.includes('salut') || lowerInput.includes('coucou') || lowerInput.includes('hello')) {
-            return '👋 Bonjour ! Comment puis-je vous aider aujourd\'hui ? <br><br>💡 Cliquez sur une suggestion ci-dessus pour commencer.';
-        }
-        
+        const lower = input.toLowerCase();
+        if (lower.includes('produit') || lower.includes('catalogue')) return responses.produits;
+        if (lower.includes('livraison') || lower.includes('delai')) return responses.livraison;
+        if (lower.includes('prix') || lower.includes('tarif') || lower.includes('cout')) return responses.prix;
+        if (lower.includes('contact') || lower.includes('telephone') || lower.includes('email')) return responses.contact;
+        if (lower.includes('bonjour') || lower.includes('salut')) return '👋 Bonjour ! Comment puis-je vous aider ?';
         return responses.default;
     }
 
-    // --- ENVOYER UN MESSAGE ---
+    // --- ENVOYER ---
     function sendMessage() {
         const text = chatbotInput.value.trim();
         if (!text) return;
-
         addUserMessage(text);
         chatbotInput.value = '';
-        chatbotInput.focus();
-
         showTyping();
-
         setTimeout(() => {
             hideTyping();
-            const response = getResponse(text);
-            addBotMessage(response);
-        }, 800 + Math.random() * 600);
+            addBotMessage(getResponse(text));
+        }, 600);
     }
 
     chatbotSend.addEventListener('click', sendMessage);
     chatbotInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            sendMessage();
-        }
+        if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
     });
 
     // --- RÉPONSES RAPIDES ---
     quickReplies.forEach(btn => {
         btn.addEventListener('click', function() {
-            const question = this.getAttribute('data-question');
+            const q = this.getAttribute('data-question');
             const label = this.textContent.trim();
-            
             addUserMessage(label);
-            
             showTyping();
-            
             setTimeout(() => {
                 hideTyping();
-                const response = responses[question] || responses.default;
-                addBotMessage(response);
-            }, 500 + Math.random() * 500);
+                addBotMessage(responses[q] || responses.default);
+            }, 500);
         });
     });
 
-    // ============================================================
-    // 🕐 OUVERTURE APRÈS 1 MINUTE (60000 ms)
-    // ============================================================
-    function scheduleOpen() {
-        if (!isChatbotClosed && !isOpen && !isTimerStarted) {
-            isTimerStarted = true;
-            
-            // ⏱️ 1 minute = 60000 ms
-            const delayInMs = 60000;
-            
-            console.log(`⏳ Ouverture du chatbot dans ${delayInMs / 1000} secondes...`);
-            
-            openTimeout = setTimeout(() => {
-                if (!localStorage.getItem('chatbot_closed') && !isOpen) {
-                    console.log('🤖 Ouverture automatique du chatbot après 1 minute');
-                    openChatbot();
-                }
-                isTimerStarted = false;
-            }, delayInMs);
-        }
+    // --- OUVERTURE AUTO (si pas fermé) ---
+    if (!isClosed) {
+        setTimeout(() => { if (!isOpen) openChatbot(); }, 10000);
+        
+        let hasScrolled = false;
+        window.addEventListener('scroll', function() {
+            if (!hasScrolled && !isOpen && !localStorage.getItem('chatbot_closed')) {
+                hasScrolled = true;
+                openChatbot();
+            }
+        });
     }
 
-    // Démarrer le timer d'ouverture
-    if (!isChatbotClosed) {
-        // Légère latence avant de lancer le timer pour laisser la page se charger
-        setTimeout(() => {
-            scheduleOpen();
-        }, 1000);
-    }
-
-    // ✅ OUVERTURE AUTOMATIQUE APRÈS SCROLL (si pas déjà ouvert et après 1 minute)
-    let hasScrolled = false;
-    window.addEventListener('scroll', function() {
-        if (!hasScrolled && !isOpen && !localStorage.getItem('chatbot_closed') && window.scrollY > 100) {
-            hasScrolled = true;
-            // Ne pas ouvrir tout de suite, attendre la fin de la minute
-            if (!isTimerStarted) {
-                scheduleOpen();
-            }
-        }
-    });
-
-    // ✅ OUVERTURE SUR INTENTION DE SORTIE (si pas déjà ouvert et après 1 minute)
-    let exitIntentTriggered = false;
-    document.addEventListener('mouseleave', function(e) {
-        if (!exitIntentTriggered && !isOpen && !localStorage.getItem('chatbot_closed') && e.clientY < 0) {
-            exitIntentTriggered = true;
-            if (!isTimerStarted) {
-                scheduleOpen();
-            }
-        }
-    });
-
-    // Réinitialisation de l'intention de sortie
-    document.addEventListener('mouseenter', function() {
-        exitIntentTriggered = false;
-    });
-
-    console.log('🤖 Chatbot DestockPro chargé avec succès !');
-    console.log('📌 Statut :', isChatbotClosed ? 'Désactivé (fermé par l\'utilisateur)' : 'Actif (ouverture dans 1 minute)');
+    console.log('🤖 Chatbot DestockPro chargé !');
 });
 </script>
 
