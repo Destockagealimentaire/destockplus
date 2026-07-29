@@ -2586,6 +2586,11 @@ def sitemap():
         {'loc': '/article/acheter-en-gros-economiser', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/article/destockage-anti-gaspillage', 'priority': 0.9, 'changefreq': 'weekly'},
         {'loc': '/article/produits-palette', 'priority': 0.9, 'changefreq': 'weekly'},
+        # ============ 🆕 NOUVEAUX ARTICLES SEO 2026 ============
+        # 3 nouveaux articles uniques (n'existent pas dans votre sitemap)
+        {'loc': '/guide-complet-destockage-alimentaire-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/ou-acheter-palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/meilleur-site-destockage-alimentaire-avis', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         
         
     ]
