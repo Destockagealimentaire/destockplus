@@ -2357,6 +2357,23 @@ def achat_palette_sodas_assortis():
 def destockage_produit_entretien():
     """Article - Destockage produit entretien ménager palette pas cher"""
     return render_template('articles/destockage-produit-entretien-menager.html')
+
+# ===== NOUVEAUX ARTICLES SEO (UNIQUES) =====
+
+@app.route('/guide-complet-destockage-alimentaire-2026')
+def guide_complet_destockage():
+    """Article - Guide complet du destockage alimentaire 2026"""
+    return render_template('articles/destockage_alimentaire_guide_complet.html')
+
+@app.route('/ou-acheter-palettes-alimentaires-pas-cheres')
+def ou_acheter_palettes():
+    """Article - Où acheter des palettes alimentaires pas chères"""
+    return render_template('articles/ou_acheter_palettes_alimentaires.html')
+
+@app.route('/meilleur-site-destockage-alimentaire-avis')
+def meilleur_site_destockage():
+    """Article - Meilleur site de destockage alimentaire - Avis et comparatif"""
+    return render_template('articles/meilleur_site_destockage_alimentaire.html')
 # ============= SITEMAP ROUTES =============
 # ============= SITEMAP ROUTES =============
 
