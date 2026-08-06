@@ -2398,6 +2398,143 @@ def article_marseille():
     return render_template('articles/destockage-alimentaire-marseille.html')
 # ============= SITEMAP ROUTES =============
 # ============= SITEMAP ROUTES =============
+# ============================================================
+# PAGE ULTRA SEO - DESTOCKAGE BOISSONS PALETTE
+# ============================================================
+@app.route('/destockage-boissons-palette-prix-grossiste')
+def destockage_boissons():
+    """
+    PAGE ULTRA SEO - Destockage Boissons Palette
+    Mots-clés : palette boisson destockage, prix grossiste boisson, red bull palette, coca cola palette
+    Volume estimé : 8 500 recherches/mois
+    """
+    from flask import render_template, request
+    from datetime import datetime
+    
+    # Métadonnées dynamiques pour SEO
+    meta = {
+        'title': 'Palette Boisson Destockage - Prix Grossiste Jusqu\'à -70% | DestockPro',
+        'description': 'Palette boisson destockage au meilleur prix grossiste. Red Bull, Coca-Cola, Orangina, eaux, jus de fruits. Livraison 24/48h France. Économies jusqu\'à 70%. Devis gratuit.',
+        'keywords': 'palette boisson destockage, prix grossiste boisson, palette red bull, palette coca cola, boisson pas cher grossiste, destockage boisson france, palette orangina, grossiste boisson en ligne',
+        'og_title': '🥤 Palette Boisson Destockage - Grossiste -70% | DestockPro',
+        'og_description': 'Achetez vos palettes de boissons au meilleur prix grossiste. Red Bull, Coca-Cola, Orangina. Jusqu\'à -70%. Livraison France 24/48h.',
+        'twitter_title': 'Palette Boisson Destockage - Prix Grossiste -70%',
+        'twitter_description': 'Red Bull, Coca-Cola, Orangina en palette. Économies jusqu\'à 70%. Livraison 24/48h.',
+        'canonical': 'https://www.destockalimentaire.com/destockage-boissons-palette-prix-grossiste',
+        'published_date': '2026-07-29',
+        'modified_date': datetime.now().strftime('%Y-%m-%d'),
+        'author': 'DestockPro',
+        'category': 'Boissons'
+    }
+    
+    return render_template(
+        'articles/destockage-boissons-palette-prix-grossiste.html',
+        meta=meta,
+        current_year=datetime.now().year
+    )
+
+# ============================================================
+# PAGE ULTRA SEO - CHAMPAGNE PAS CHER EN PALETTE
+# ============================================================
+@app.route('/champagne-pas-cher-palette-grossiste')
+def champagne_palette():
+    """
+    PAGE ULTRA SEO - Champagne Pas Cher en Palette
+    Mots-clés : champagne pas cher palette, champagne grossiste, Moët destockage, Ruinart pas cher
+    Volume estimé : 6 200 recherches/mois
+    """
+    from flask import render_template
+    from datetime import datetime
+    
+    meta = {
+        'title': 'Champagne Pas Cher en Palette - Grossiste Prix Discount | DestockPro',
+        'description': 'Champagne pas cher en palette au meilleur prix grossiste. Moët & Chandon, Ruinart, Veuve Clicquot. Jusqu\'à -50% sur les grandes maisons. Livraison France 24/48h.',
+        'keywords': 'champagne pas cher palette, champagne grossiste, Moët destockage, Ruinart pas cher, palette champagne discount, champagne prix grossiste, veuve clicquot palette, bollinger destockage',
+        'og_title': '🍾 Champagne Pas Cher en Palette - Grossiste -50% | DestockPro',
+        'og_description': 'Achetez votre champagne en palette au meilleur prix grossiste. Moët, Ruinart, Veuve Clicquot. Jusqu\'à -50%. Livraison 24/48h France.',
+        'twitter_title': 'Champagne Pas Cher en Palette - Grossiste -50%',
+        'twitter_description': 'Moët, Ruinart, Veuve Clicquot en palette. Économies jusqu\'à 50%. Livraison 24/48h.',
+        'canonical': 'https://www.destockalimentaire.com/champagne-pas-cher-palette-grossiste',
+        'published_date': '2026-07-29',
+        'modified_date': datetime.now().strftime('%Y-%m-%d'),
+        'author': 'DestockPro',
+        'category': 'Champagne'
+    }
+    
+    return render_template(
+        'articles/champagne-pas-cher-palette-grossiste.html',
+        meta=meta,
+        current_year=datetime.now().year
+    )
+
+# ============================================================
+# PAGE ULTRA SEO - SURGELÉS DESTOCKAGE PALETTE
+# ============================================================
+@app.route('/surgeles-destockage-palette-france')
+def surgeles_destockage():
+    """
+    PAGE ULTRA SEO - Surgelés Destockage Palette
+    Mots-clés : surgelés destockage palette, viande surgelée gros, poisson surgelé pas cher, légumes surgelés professionnel
+    Volume estimé : 4 800 recherches/mois
+    """
+    from flask import render_template
+    from datetime import datetime
+    
+    meta = {
+        'title': 'Surgelés Destockage - Palettes Viande Poisson Légumes -55% | DestockPro',
+        'description': 'Surgelés en palette : viandes, poissons, légumes, pizzas. Destockage professionnel jusqu\'à -55%. Livraison en 24/48h. Qualité restaurant garantie.',
+        'keywords': 'surgelés destockage palette, viande surgelée gros, poisson surgelé pas cher, légumes surgelés professionnel, palette surgelés france, destockage surgelés, surgelés grossiste, viande boeuf surgelée',
+        'og_title': '❄️ Surgelés Destockage - Palette -55% | DestockPro',
+        'og_description': 'Palettes de surgelés à prix destockage : viandes, poissons, légumes, pizzas. Qualité restaurant. Livraison 24/48h France.',
+        'twitter_title': 'Surgelés Destockage - Palettes -55%',
+        'twitter_description': 'Viandes, poissons, légumes en palette. Qualité restaurant. Livraison 24/48h.',
+        'canonical': 'https://www.destockalimentaire.com/surgeles-destockage-palette-france',
+        'published_date': '2026-07-29',
+        'modified_date': datetime.now().strftime('%Y-%m-%d'),
+        'author': 'DestockPro',
+        'category': 'Surgelés'
+    }
+    
+    return render_template(
+        'articles/surgeles-destockage-palette-france.html',
+        meta=meta,
+        current_year=datetime.now().year
+    )
+
+# ============================================================
+# PAGE ULTRA SEO - ÉLECTROMÉNAGER DESTOCKAGE
+# ============================================================
+@app.route('/electromenager-destockage-prix-usine')
+def electromenager_destockage():
+    """
+    PAGE ULTRA SEO - Électroménager Destockage
+    Mots-clés : électroménager destockage, prix usine électroménager, blender destockage, micro-ondes pas cher
+    Volume estimé : 3 900 recherches/mois
+    """
+    from flask import render_template
+    from datetime import datetime
+    
+    meta = {
+        'title': 'Électroménager Destockage - Prix Usine jusqu\'à -40% | DestockPro',
+        'description': 'Électroménager en destockage : blenders, micro-ondes, réfrigérateurs, lave-linge. Prix usine jusqu\'à -40%. Neufs ou reconditionnés. Livraison France 24/48h.',
+        'keywords': 'électroménager destockage, prix usine électroménager, blender destockage, micro-ondes pas cher, réfrigérateur discount, électroménager grossiste, electromenager neuf pas cher, electromenager reconditionné',
+        'og_title': '🔌 Électroménager Destockage - Prix Usine -40% | DestockPro',
+        'og_description': 'Achetez votre électroménager en destockage : blenders, micro-ondes, réfrigérateurs. Prix usine jusqu\'à -40%. Neufs et reconditionnés.',
+        'twitter_title': 'Électroménager Destockage - Prix Usine -40%',
+        'twitter_description': 'Blenders, micro-ondes, réfrigérateurs. Neufs ou reconditionnés. Livraison 24/48h.',
+        'canonical': 'https://www.destockalimentaire.com/electromenager-destockage-prix-usine',
+        'published_date': '2026-07-29',
+        'modified_date': datetime.now().strftime('%Y-%m-%d'),
+        'author': 'DestockPro',
+        'category': 'Électroménager'
+    }
+    
+    return render_template(
+        'articles/electromenager-destockage-prix-usine.html',
+        meta=meta,
+        current_year=datetime.now().year
+    )
+
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -2622,7 +2759,11 @@ def sitemap():
         {'loc': '/comment-acheter-palette-alimentaire-etape-par-etape', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/destockage-alimentaire-particulier-astuces-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/livraison-palette-france-delais-frais', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
-        
+        # ===== 4 PAGES ULTRA SEO =====
+        {'loc': '/destockage-boissons-palette-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/champagne-pas-cher-palette-grossiste', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/surgeles-destockage-palette-france', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        {'loc': '/electromenager-destockage-prix-usine', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
     ]
     
     # URLs dynamiques - Produits
