@@ -2535,7 +2535,27 @@ def electromenager_destockage():
         current_year=datetime.now().year
     )
 
+# ============ 4 NOUVEAUX ARTICLES ULTRA-PREMIUM ============
 
+@app.route('/article/guide-ultime-destockage-alimentaire')
+def guide_ultime_destockage():
+    """Guide ultime du destockage alimentaire"""
+    return render_template('articles/guide-ultime-destockage-alimentaire.html')
+
+@app.route('/article/economiser-courses-alimentaires')
+def economiser_courses():
+    """15 astuces pour économiser sur ses courses"""
+    return render_template('articles/economiser-courses-alimentaires.html')
+
+@app.route('/article/meilleurs-produits-palette')
+def meilleurs_produits_palette():
+    """Meilleurs produits à acheter en palette"""
+    return render_template('articles/meilleurs-produits-palette.html')
+
+@app.route('/article/destockage-revolution-courses')
+def destockage_revolution():
+    """La révolution du destockage alimentaire"""
+    return render_template('articles/destockage-revolution-courses.html')
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -2764,6 +2784,18 @@ def sitemap():
         {'loc': '/champagne-pas-cher-palette-grossiste', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/surgeles-destockage-palette-france', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
         {'loc': '/electromenager-destockage-prix-usine', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-07-29'},
+        # Dans votre fonction sitemap() - ajouter dans static_urls
+
+        # ============ 4 NOUVEAUX ARTICLES ULTRA PREMIUM ============
+        {'loc': '/article/guide-ultime-destockage-alimentaire', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-08-07'},
+        {'loc': '/article/economiser-courses-alimentaires', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-08-07'},
+        {'loc': '/article/meilleurs-produits-palette', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-08-07'},
+        {'loc': '/article/destockage-revolution-courses', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-08-07'},
+        # ===== 4 PAGES ULTRA PREMIUM =====
+        {'loc': '/destockage-alimentaire-entrepro-grossiste-france', 'priority': 1.0, 'changefreq': 'daily', 'lastmod': '2026-07-29'},
+        {'loc': '/palette-nutella-1kg-prix-livraison-offerte', 'priority': 1.0, 'changefreq': 'daily', 'lastmod': '2026-07-29'},
+        {'loc': '/achat-palette-coca-cola-33cl-prix-grossiste', 'priority': 1.0, 'changefreq': 'daily', 'lastmod': '2026-07-29'},
+        {'loc': '/red-bull-palette-250ml-prix-grossiste', 'priority': 1.0, 'changefreq': 'daily', 'lastmod': '2026-07-29'},
     ]
     
     # URLs dynamiques - Produits
@@ -2865,7 +2897,27 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 # ============ ARTICLES (avec URL /article/) ============
 # ===== 4 NOUVEAUX ARTICLES SEO UNIQUES =====
+# ===== 4 NOUVELLES PAGES ULTRA PREMIUM =====
 
+@app.route('/destockage-alimentaire-entrepro-grossiste-france')
+def destockage_entrepro():
+    """Page Ultra Premium - Grossiste Alimentaire Destockage"""
+    return render_template('articles/destockage-alimentaire-entrepro-grossiste-france.html')
+
+@app.route('/palette-nutella-1kg-prix-livraison-offerte')
+def palette_nutella():
+    """Page Ultra Premium - Palette Nutella 1kg"""
+    return render_template('articles/palette-nutella-1kg-prix-livraison-offerte.html')
+
+@app.route('/achat-palette-coca-cola-33cl-prix-grossiste')
+def palette_coca_cola():
+    """Page Ultra Premium - Achat Palette Coca-Cola 33cl"""
+    return render_template('articles/achat-palette-coca-cola-33cl-prix-grossiste.html')
+
+@app.route('/red-bull-palette-250ml-prix-grossiste')
+def palette_red_bull():
+    """Page Ultra Premium - Red Bull Palette 250ml"""
+    return render_template('articles/red-bull-palette-250ml-prix-grossiste.html')
 @app.route('/destockage-alimentaire-marques-premium-pas-cher')
 def destockage_marques_premium():
     """Article - Destockage des marques premium"""
