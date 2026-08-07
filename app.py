@@ -3220,7 +3220,7 @@ def comment_acheter_palette():
     """Article - Comment acheter une palette alimentaire étape par étape"""
     return render_template('articles/comment_acheter_palette_alimentaire.html')
 
-@app.route('/destockage-alimentaire-particulier-astuces-2026')
+@app.route('/comment-acheter-palette-alimentaire-etape-par-etape')
 def destockage_particulier():
     """Article - Destockage alimentaire pour particuliers"""
     return render_template('articles/destockage_alimentaire_particulier.html')
