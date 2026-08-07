@@ -2640,8 +2640,8 @@ def destockage_particulier():
 
 
 # ===== 5. DISCOUNT ALIMENTAIRE =====
-@app.route('/discount-alimentaire-2026')
-def discount_alimentaire():
+@app.route('/discount-alimentaire-092026')
+def discount_alimentaire_26():
     """
     PAGE ULTRA SEO - Discount Alimentaire
     Mots-clés : discount alimentaire, magasin discount alimentaire, alimentation discount, supermarché discount
