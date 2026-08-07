@@ -2565,7 +2565,6 @@ def destockage_revolution():
 
 # ===== 1. DESTOCKAGE ALIMENTAIRE PARIS =====
 @app.route('/destockage-alimentaire-paris-2026')
-@app.route('/destockage-alimentaire-paris')
 def destockage_alimentaire_paris():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Paris
@@ -2585,7 +2584,6 @@ def destockage_alimentaire_paris():
 
 # ===== 2. DESTOCKAGE BOISSON BELGIQUE =====
 @app.route('/destockage-boisson-belgique')
-@app.route('/destockage-boissons-belgique')
 def destockage_boisson_belgique():
     """
     PAGE ULTRA SEO - Destockage Boisson Belgique
@@ -2605,7 +2603,6 @@ def destockage_boisson_belgique():
 
 # ===== 3. ACHAT BOISSON EN GROS =====
 @app.route('/achat-boisson-en-gros')
-@app.route('/achat-boisson-gros')
 def achat_boisson_gros():
     """
     PAGE ULTRA SEO - Achat Boisson en Gros
@@ -2625,7 +2622,6 @@ def achat_boisson_gros():
 
 # ===== 4. DESTOCKAGE ALIMENTAIRE PARTICULIER =====
 @app.route('/destockage-alimentaire-particulier')
-@app.route('/destockage-particulier')
 def destockage_particulier():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Particulier
@@ -2645,7 +2641,6 @@ def destockage_particulier():
 
 # ===== 5. DISCOUNT ALIMENTAIRE =====
 @app.route('/discount-alimentaire-2026')
-@app.route('/discount-alimentaire')
 def discount_alimentaire():
     """
     PAGE ULTRA SEO - Discount Alimentaire
@@ -2665,7 +2660,6 @@ def discount_alimentaire():
 
 # ===== 6. DESTOCKAGE GROS FRANCE =====
 @app.route('/destockage-gros-france')
-@app.route('/destockage-alimentaire-gros')
 def destockage_gros_france():
     """
     PAGE ULTRA SEO - Destockage Gros France
@@ -2685,7 +2679,6 @@ def destockage_gros_france():
 
 # ===== 7. DESTOCKAGE ESPAGNE =====
 @app.route('/destockage-espagne')
-@app.route('/destockage-alimentaire-espagne')
 def destockage_espagne():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Espagne
@@ -2705,7 +2698,6 @@ def destockage_espagne():
 
 # ===== 8. DESTOCKAGE PRO NOVEMBRE 2025 =====
 @app.route('/destockage-professionnel-novembre-2025')
-@app.route('/destockage-alimentaire-professionnel-novembre-2025')
 def destockage_pro_novembre():
     """
     PAGE ULTRA SEO - Destockage Professionnel Novembre 2025
@@ -2725,7 +2717,6 @@ def destockage_pro_novembre():
 
 # ===== 9. CHAMPAGNE BLANC DE BLANCS =====
 @app.route('/champagne-blanc-de-blancs-guide')
-@app.route('/guide-champagne-blanc-de-blancs')
 def champagne_blanc_de_blancs():
     """
     PAGE ULTRA SEO - Champagne Blanc de Blancs
@@ -2745,7 +2736,6 @@ def champagne_blanc_de_blancs():
 
 # ===== 10. RUINART BLANC DE BLANCS NOVEMBRE 2025 =====
 @app.route('/ruinart-blanc-de-blancs-promo')
-@app.route('/champagne-ruinart-novembre-2025')
 def ruinart_blanc_de_blancs():
     """
     PAGE ULTRA SEO - Ruinart Blanc de Blancs Novembre 2025
@@ -2765,7 +2755,6 @@ def ruinart_blanc_de_blancs():
 
 # ===== 11. DESTOCKAGE PRO NOVEMBRE (URGENT) =====
 @app.route('/destockage-alimentaire-urgent-novembre-2025')
-@app.route('/destockage-urgent-professionnel')
 def destockage_urgent_pro():
     """
     PAGE ULTRA SEO - Destockage Urgent Professionnel
@@ -2785,7 +2774,6 @@ def destockage_urgent_pro():
 
 # ===== 12. DESTOCKAGE ALIMENTAIRE AUTOUR DE MOI =====
 @app.route('/destockage-alimentaire-autour-de-moi')
-@app.route('/destockage-autour-de-moi')
 def destockage_autour_de_moi():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Autour de Moi
@@ -2805,7 +2793,6 @@ def destockage_autour_de_moi():
 
 # ===== 13. DESTOCKAGE ALIMENTAIRE BELGIQUE =====
 @app.route('/destockage-alimentaire-belgique-2026')
-@app.route('/destockage-belgique')
 def destockage_belgique():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Belgique
