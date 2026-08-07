@@ -3215,7 +3215,7 @@ def destockage_marques_premium():
     """Article - Destockage des marques premium"""
     return render_template('articles/destockage_alimentaire_marques_premium.html')
 
-@app.route('/comment-acheter-palette-alimentaire-etape-par-etape')
+@app.route('/comment-acheter-palette-alimentaire-etape-par-etape28')
 def comment_acheter_palette():
     """Article - Comment acheter une palette alimentaire étape par étape"""
     return render_template('articles/comment_acheter_palette_alimentaire.html')
