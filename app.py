@@ -2825,7 +2825,23 @@ def destockage_belgique():
     }
     return render_template('articles/destockage-alimentaire-belgique2026.html', meta=meta)
 
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO =====
 
+@app.route('/palette-surgeles-viande-boeuf-poulet-grossiste')
+def palette_viande_surgele():
+    return render_template('articles/palette-surgeles-viande-boeuf-poulet-grossiste.html')
+
+@app.route('/coca-cola-palette-33cl-prix-grossiste-2026')
+def coca_cola_palette_2026():
+    return render_template('articles/coca-cola-palette-33cl-prix-grossiste-2026.html')
+
+@app.route('/destockage-epicerie-nutella-cafe-grossiste')
+def destockage_epicerie():
+    return render_template('articles/destockage-epicerie-nutella-cafe-grossiste.html')
+
+@app.route('/palette-eau-minerale-prix-grossiste-france')
+def palette_eau_minerale():
+    return render_template('articles/palette-eau-minerale-prix-grossiste-france.html')
 # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO =====
 
 @app.route('/destockage-alimentaire-france-2026-guide-complet')
@@ -3173,6 +3189,31 @@ def sitemap():
         },
         {
             'loc': '/boisson-energisante-palette-red-bull-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO =====
+        {
+            'loc': '/palette-surgeles-viande-boeuf-poulet-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/coca-cola-palette-33cl-prix-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/destockage-epicerie-nutella-cafe-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/palette-eau-minerale-prix-grossiste-france', 
             'priority': 1.0, 
             'changefreq': 'daily', 
             'lastmod': '2026-08-08'
