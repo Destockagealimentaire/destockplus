@@ -2622,7 +2622,7 @@ def achat_boisson_gros():
 
 # ===== 4. DESTOCKAGE ALIMENTAIRE PARTICULIER =====
 @app.route('/destockage-alimentaire-particulier')
-def destockage_particulier():
+def destockage_particulier26():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Particulier
     Mots-clés : déstockage alimentaire en ligne particulier, destockage alimentaire particulier, produits alimentaires pas chers
