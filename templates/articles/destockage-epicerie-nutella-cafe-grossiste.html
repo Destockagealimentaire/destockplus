@@ -1,0 +1,104 @@
+<!-- templates/articles/destockage-epicerie-nutella-cafe-grossiste.html -->
+{% extends "base.html" %}
+
+{% block title %}Destockage Épicerie - Nutella, Café Grossiste -70% | DestockPro{% endblock %}
+
+{% block meta_description %}Destockage épicerie grossiste : Nutella, café, pâtes, biscuits. Jusqu'à 70% d'économies sur les produits d'épicerie de marque. Livraison 24/48h France.{% endblock %}
+
+{% block meta_keywords %}destockage épicerie, Nutella grossiste, café pas cher, pâtes discount, biscuits destockage, épicerie gros pas cher{% endblock %}
+
+{% block og_title %}Destockage Épicerie - Nutella, Café Grossiste -70% | DestockPro{% endblock %}
+{% block og_description %}Destockage épicerie grossiste : Nutella, café, pâtes, biscuits. Jusqu'à 70% d'économies. Livraison 24/48h France.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li>Destockage Épicerie Grossiste</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <h1>🍫 Destockage Épicerie Grossiste 2026 - Nutella, Café jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 8 août 2026</span>
+                <span>⏱️ 11 min de lecture</span>
+                <span>👤 Expert Épicerie DestockPro</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/epicerie-2026.jpg') }}" 
+                 alt="Destockage épicerie grossiste 2026" class="hero-image">
+        </header>
+
+        <div class="article-body">
+            <h2>🍫 Destockage épicerie grossiste 2026 : les meilleures offres</h2>
+            <p>Le <strong>destockage épicerie en grossiste</strong> est la solution idéale pour faire le plein de produits du quotidien à prix discount. Chez <strong>DestockPro</strong>, nous proposons des <strong>palettes d'épicerie</strong> des plus grandes marques à des prix jusqu'à <strong>70% moins chers</strong>.</p>
+
+            <div class="produits-epicerie">
+                <div class="epicerie-card">
+                    <span class="epicerie-icon">🍫</span>
+                    <h4>Nutella</h4>
+                    <p>Pots 1kg - 760 pots par palette</p>
+                    <span class="epicerie-prix">1 536€</span>
+                    <span class="epicerie-reduction">-70%</span>
+                    <a href="/produit/105" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="epicerie-card">
+                    <span class="epicerie-icon">☕</span>
+                    <h4>Café</h4>
+                    <p>Capsules ou grains - 1000 unités</p>
+                    <span class="epicerie-prix">250€</span>
+                    <span class="epicerie-reduction">-55%</span>
+                    <a href="/produit/cafe" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="epicerie-card">
+                    <span class="epicerie-icon">🍝</span>
+                    <h4>Pâtes</h4>
+                    <p>100 kg - Qualité Italienne</p>
+                    <span class="epicerie-prix">89€</span>
+                    <span class="epicerie-reduction">-60%</span>
+                    <a href="/produit/pates" class="btn-small">Voir l'offre</a>
+                </div>
+            </div>
+
+            <div class="price-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Prix public</th>
+                            <th>Prix DestockPro</th>
+                            <th>Économie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nutella</strong> 1kg</td>
+                            <td>760 pots</td>
+                            <td>2 500€</td>
+                            <td><strong>1 536€</strong></td>
+                            <td><span class="good">-964€</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Café</strong></td>
+                            <td>1000 capsules</td>
+                            <td>550€</td>
+                            <td><strong>250€</strong></td>
+                            <td><span class="good">-300€</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cta-article">
+                <h3>🛒 Achetez votre épicerie en destockage</h3>
+                <p>Nutella, café, pâtes... Des marques premium à prix discount.</p>
+                <a href="/produits?categorie=epicerie" class="btn btn-primary">Voir toutes les offres <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
