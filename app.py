@@ -2824,6 +2824,25 @@ def destockage_belgique():
         'canonical': 'https://www.destockalimentaire.com/destockage-alimentaire-belgique-2026'
     }
     return render_template('articles/destockage-alimentaire-belgique2026.html', meta=meta)
+
+
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO =====
+
+@app.route('/destockage-alimentaire-france-2026-guide-complet')
+def destockage_france_2026():
+    return render_template('articles/destockage-alimentaire-france-2026-guide-complet.html')
+
+@app.route('/grossiste-alimentaire-pas-cher-palette-2026')
+def grossiste_pas_cher_2026():
+    return render_template('articles/grossiste-alimentaire-pas-cher-palette-2026.html')
+
+@app.route('/achat-palette-champagne-prix-grossiste-2026')
+def achat_palette_champagne():
+    return render_template('articles/achat-palette-champagne-prix-grossiste-2026.html')
+
+@app.route('/boisson-energisante-palette-red-bull-grossiste')
+def red_bull_palette_grossiste():
+    return render_template('articles/boisson-energisante-palette-red-bull-grossiste.html')
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3129,6 +3148,31 @@ def sitemap():
         },
         {
             'loc': '/surgeles-viande-poisson-palette-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-france-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/grossiste-alimentaire-pas-cher-palette-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/achat-palette-champagne-prix-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/boisson-energisante-palette-red-bull-grossiste', 
             'priority': 1.0, 
             'changefreq': 'daily', 
             'lastmod': '2026-08-08'
