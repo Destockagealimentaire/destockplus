@@ -2565,7 +2565,7 @@ def destockage_revolution():
 
 # ===== 1. DESTOCKAGE ALIMENTAIRE PARIS =====
 @app.route('/destockage-alimentaire-paris-2026')
-def destockage_alimentaire_paris():
+def destockage_alimentaire_paris26():
     """
     PAGE ULTRA SEO - Destockage Alimentaire Paris
     Mots-clés : destockage alimentaire Paris, grossiste alimentaire Paris, produits alimentaires pas chers Paris
