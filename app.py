@@ -2538,7 +2538,7 @@ def electromenager_destockage():
 # ============ 4 NOUVEAUX ARTICLES ULTRA-PREMIUM ============
 
 @app.route('/article/guide-ultime-destockage-alimentaire')
-def guide_ultime_destockage():
+def guide_ultime_destockage_26():
     """Guide ultime du destockage alimentaire"""
     return render_template('articles/guide-ultime-destockage-alimentaire.html')
 
