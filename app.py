@@ -2790,7 +2790,23 @@ def destockage_autour_de_moi():
     }
     return render_template('articles/destockage-alimentaire-autour-de-moi-novembre26.html', meta=meta)
 
+# ===== 4 ARTICLES SUPER MEGA GIGA ULTRA SEO =====
 
+@app.route('/guide-ultime-destockage-alimentaire-2026')
+def guide_ultime_destockage():
+    return render_template('articles/guide-ultime-destockage-alimentaire-2026.html')
+
+@app.route('/palette-boisson-prix-grossiste-2026')
+def palette_boisson_2026():
+    return render_template('articles/palette-boisson-prix-grossiste-2026.html')
+
+@app.route('/champagne-luxe-destockage-moit-ruinart')
+def champagne_luxe_destockage():
+    return render_template('articles/champagne-luxe-destockage-moit-ruinart.html')
+
+@app.route('/surgeles-viande-poisson-palette-grossiste')
+def surgeles_viande_poisson():
+    return render_template('articles/surgeles-viande-poisson-palette-grossiste.html')
 # ===== 13. DESTOCKAGE ALIMENTAIRE BELGIQUE =====
 @app.route('/destockage-alimentaire-belgique-2026')
 def destockage_belgique():
@@ -3087,6 +3103,35 @@ def sitemap():
         },
         {
             'loc': '/destockage-alimentaire-belgique-2026', 'priority': 1.0, 'changefreq': 'daily', 'lastmod': '2026-08-08'
+        },
+        # ============================================================
+        # 4 ARTICLES SUPER MEGA GIGA ULTRA SEO
+        # À AJOUTER DANS LA FONCTION SITEMAP()
+        # ============================================================
+        
+        {
+            'loc': '/guide-ultime-destockage-alimentaire-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/palette-boisson-prix-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/champagne-luxe-destockage-moit-ruinart', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
+        },
+        {
+            'loc': '/surgeles-viande-poisson-palette-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-08'
         },
     ]
     
