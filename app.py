@@ -2870,7 +2870,23 @@ def destockage_grossiste_discount():
 def grossiste_discount_palette():
     return render_template('articles/grossiste-discount-alimentaire-palette-prix-france.html')
 
+# ===== 4 ARTICLES 100% INDEXÉS =====
 
+@app.route('/destockage-alimentaire-grossiste-discount-ultime-2026')
+def destockage_ultime_2026():
+    return render_template('articles/destockage-alimentaire-grossiste-discount-ultime-2026.html')
+
+@app.route('/grossiste-alimentaire-palette-prix-discount-france')
+def grossiste_palette_discount():
+    return render_template('articles/grossiste-alimentaire-palette-prix-discount-france.html')
+
+@app.route('/discount-alimentaire-grossiste-palette-france-2026')
+def discount_grossiste_palette():
+    return render_template('articles/discount-alimentaire-grossiste-palette-france-2026.html')
+
+@app.route('/meilleur-grossiste-destockage-alimentaire-france')
+def meilleur_grossiste():
+    return render_template('articles/meilleur-grossiste-destockage-alimentaire-france.html')
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3243,6 +3259,81 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-10'
         },
+        # ===== 4 ARTICLES 100% INDEXÉS =====
+        {
+            'loc': '/destockage-alimentaire-grossiste-discount-ultime-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/grossiste-alimentaire-palette-prix-discount-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/discount-alimentaire-grossiste-palette-france-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/meilleur-grossiste-destockage-alimentaire-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        # ===== 4 ARTICLES LOCALISÉS =====
+        {
+            'loc': '/destockage-alimentaire-paris-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-professionnel-grossiste-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lille-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-marseille-grossiste-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        # ===== 4 ARTICLES LOCALISÉS =====
+        {
+            'loc': '/destockage-alimentaire-paris-2026-grossiste-pas-cher', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lyon-2026-grossiste-pas-cher', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lille-2026-grossiste-pas-cher', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-marseille-2026-grossiste-pas-cher', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
     ]
     
     # URLs dynamiques - Produits
@@ -3345,7 +3436,39 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ============ ARTICLES (avec URL /article/) ============
 # ===== 4 NOUVEAUX ARTICLES SEO UNIQUES =====
 # ===== 4 NOUVELLES PAGES ULTRA PREMIUM =====
+# ===== 4 ARTICLES DESTOCKAGE LOCALISÉS =====
+# ===== 4 ARTICLES LOCALISÉS (Paris, Lyon, Lille, Marseille) =====
 
+@app.route('/destockage-alimentaire-paris-2026-grossiste-pas-cher')
+def destockage_paris_grossiste():
+    return render_template('articles/destockage-alimentaire-paris-2026-grossiste-pas-cher.html')
+
+@app.route('/destockage-alimentaire-lyon-2026-grossiste-pas-cher')
+def destockage_lyon_grossiste():
+    return render_template('articles/destockage-alimentaire-lyon-2026-grossiste-pas-cher.html')
+
+@app.route('/destockage-alimentaire-lille-2026-grossiste-pas-cher')
+def destockage_lille_grossiste():
+    return render_template('articles/destockage-alimentaire-lille-2026-grossiste-pas-cher.html')
+
+@app.route('/destockage-alimentaire-marseille-2026-grossiste-pas-cher')
+def destockage_marseille_grossiste():
+    return render_template('articles/destockage-alimentaire-marseille-2026-grossiste-pas-cher.html')
+@app.route('/destockage-alimentaire-paris-grossiste-2026')
+def destockage_paris_2026():
+    return render_template('articles/destockage-alimentaire-paris-grossiste-2026.html')
+
+@app.route('/destockage-alimentaire-professionnel-grossiste-france')
+def destockage_professionnel():
+    return render_template('articles/destockage-alimentaire-professionnel-grossiste-france.html')
+
+@app.route('/destockage-alimentaire-lille-grossiste-2026')
+def destockage_lille_2026():
+    return render_template('articles/destockage-alimentaire-lille-grossiste-2026.html')
+
+@app.route('/destockage-alimentaire-marseille-grossiste-2026')
+def destockage_marseille_2026():
+    return render_template('articles/destockage-alimentaire-marseille-grossiste-2026.html')
 @app.route('/destockage-alimentaire-entrepro-grossiste-france')
 def destockage_entrepro():
     """Page Ultra Premium - Grossiste Alimentaire Destockage"""
