@@ -2859,6 +2859,18 @@ def achat_palette_champagne():
 @app.route('/boisson-energisante-palette-red-bull-grossiste')
 def red_bull_palette_grossiste():
     return render_template('articles/boisson-energisante-palette-red-bull-grossiste.html')
+
+# ===== 2 ARTICLES ULTRA MEGA GIGA INDEXÉS GOOGLE =====
+
+@app.route('/destockage-alimentaire-grossiste-discount-france')
+def destockage_grossiste_discount():
+    return render_template('articles/destockage-alimentaire-grossiste-discount-france.html')
+
+@app.route('/grossiste-discount-alimentaire-palette-prix-france')
+def grossiste_discount_palette():
+    return render_template('articles/grossiste-discount-alimentaire-palette-prix-france.html')
+
+
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3217,6 +3229,19 @@ def sitemap():
             'priority': 1.0, 
             'changefreq': 'daily', 
             'lastmod': '2026-08-08'
+        },
+        # ===== 2 ARTICLES ULTRA MEGA GIGA INDEXÉS GOOGLE =====
+        {
+            'loc': '/destockage-alimentaire-grossiste-discount-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-10'
+        },
+        {
+            'loc': '/grossiste-discount-alimentaire-palette-prix-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-10'
         },
     ]
     
