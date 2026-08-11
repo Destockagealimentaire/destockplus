@@ -2871,7 +2871,23 @@ def grossiste_discount_palette():
     return render_template('articles/grossiste-discount-alimentaire-palette-prix-france.html')
 
 # ===== 4 ARTICLES 100% INDEXÉS =====
+# ===== 4 ARTICLES DISCOUNT LOCALISÉS =====
 
+@app.route('/discount-alimentaire-2026-guide-ultime-france')
+def discount_guide_2026():
+    return render_template('articles/discount-alimentaire-2026-guide-ultime-france.html')
+
+@app.route('/destockage-alimentaire-paris-2026-grossiste-discount')
+def destockage_paris_discount():
+    return render_template('articles/destockage-alimentaire-paris-2026-grossiste-discount.html')
+
+@app.route('/destockage-alimentaire-lille-2026-grossiste-discount')
+def destockage_lille_discount():
+    return render_template('articles/destockage-alimentaire-lille-2026-grossiste-discount.html')
+
+@app.route('/destockage-alimentaire-marseille-2026-grossiste-discount')
+def destockage_marseille_discount():
+    return render_template('articles/destockage-alimentaire-marseille-2026-grossiste-discount.html')
 @app.route('/destockage-alimentaire-grossiste-discount-ultime-2026')
 def destockage_ultime_2026():
     return render_template('articles/destockage-alimentaire-grossiste-discount-ultime-2026.html')
@@ -3334,6 +3350,81 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-11'
         },
+        # ===== 4 ARTICLES DISCOUNT LOCALISÉS =====
+        {
+            'loc': '/discount-alimentaire-2026-guide-ultime-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-paris-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lille-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-marseille-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        # ===== 4 NOUVEAUX ARTICLES =====
+        {
+            'loc': '/discount-alimentaire-2026-grossiste-pas-cher-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-belgique-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lyon-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-professionnel-2026-grossiste-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        # ===== 4 NOUVEAUX ARTICLES =====
+        {
+            'loc': '/destockage-alimentaire-belgique-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-lyon-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-professionnel-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
+        {
+            'loc': '/destockage-alimentaire-paris-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-11'
+        },
     ]
     
     # URLs dynamiques - Produits
@@ -3438,7 +3529,39 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ===== 4 NOUVELLES PAGES ULTRA PREMIUM =====
 # ===== 4 ARTICLES DESTOCKAGE LOCALISÉS =====
 # ===== 4 ARTICLES LOCALISÉS (Paris, Lyon, Lille, Marseille) =====
+# ===== 4 NOUVEAUX ARTICLES =====
+# ===== 4 NOUVEAUX ARTICLES =====
 
+@app.route('/destockage-alimentaire-belgique-2026-guide-complet')
+def destockage_belgique_guide():
+    return render_template('articles/destockage-alimentaire-belgique-2026-guide-complet.html')
+
+@app.route('/destockage-alimentaire-lyon-2026-guide-complet')
+def destockage_lyon_guide():
+    return render_template('articles/destockage-alimentaire-lyon-2026-guide-complet.html')
+
+@app.route('/destockage-alimentaire-professionnel-2026-guide-complet')
+def destockage_pro_guide():
+    return render_template('articles/destockage-alimentaire-professionnel-2026-guide-complet.html')
+
+@app.route('/destockage-alimentaire-paris-2026-guide-complet')
+def destockage_paris_guide():
+    return render_template('articles/destockage-alimentaire-paris-2026-guide-complet.html')
+@app.route('/discount-alimentaire-2026-grossiste-pas-cher-france')
+def discount_grossiste_pas_cher():
+    return render_template('articles/discount-alimentaire-2026-grossiste-pas-cher-france.html')
+
+@app.route('/destockage-alimentaire-belgique-2026-grossiste-discount')
+def destockage_belgique_discount():
+    return render_template('articles/destockage-alimentaire-belgique-2026-grossiste-discount.html')
+
+@app.route('/destockage-alimentaire-lyon-2026-grossiste-discount')
+def destockage_lyon_discount():
+    return render_template('articles/destockage-alimentaire-lyon-2026-grossiste-discount.html')
+
+@app.route('/destockage-alimentaire-professionnel-2026-grossiste-discount')
+def destockage_pro_discount():
+    return render_template('articles/destockage-alimentaire-professionnel-2026-grossiste-discount.html')
 @app.route('/destockage-alimentaire-paris-2026-grossiste-pas-cher')
 def destockage_paris_grossiste():
     return render_template('articles/destockage-alimentaire-paris-2026-grossiste-pas-cher.html')
