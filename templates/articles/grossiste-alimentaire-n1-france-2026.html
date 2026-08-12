@@ -1,0 +1,73 @@
+<!-- templates/articles/grossiste-alimentaire-n1-france-2026.html -->
+{% extends "base.html" %}
+
+{% block title %}🏭 Grossiste Alimentaire n°1 France 2026 - -70% | DestockPro{% endblock %}
+
+{% block meta_description %}🏭 Grossiste alimentaire n°1 France 2026 : DestockPro élu meilleur grossiste discount. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. 15 000+ clients. Livraison 24/48h.{% endblock %}
+
+{% block meta_keywords %}grossiste alimentaire, grossiste alimentaire france, grossiste discount, meilleur grossiste, grossiste boissons, grossiste surgelés, grossiste épicerie, grossiste champagne, grossiste en ligne{% endblock %}
+
+{% block og_title %}🏭 Grossiste Alimentaire n°1 France 2026 - -70% | DestockPro{% endblock %}
+{% block og_description %}🏭 Grossiste alimentaire n°1 France 2026 : DestockPro élu meilleur grossiste discount. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. 15 000+ clients.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Grossiste Alimentaire n°1 France 2026</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <h1>🏭 Grossiste Alimentaire n°1 France 2026 - Jusqu'à 70% d'Économies</h1>
+            <div class="article-meta">
+                <span>📅 12 août 2026</span>
+                <span>⏱️ 16 min de lecture</span>
+                <span>👤 Expert Grossiste DestockPro</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/grossiste-n1-2026.jpg') }}" 
+                 alt="Grossiste alimentaire n°1 France 2026" class="hero-image">
+        </header>
+
+        <div class="article-body">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🏭 Grossiste alimentaire n°1 France 2026</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi DestockPro est le n°1</a></li>
+                    <li><a href="#produits">📦 Catalogue grossiste</a></li>
+                    <li><a href="#palettes">📦 Palettes grossiste</a></li>
+                    <li><a href="#prix">💰 Prix grossiste 2026</a></li>
+                    <li><a href="#avantages">✅ Les avantages du grossiste</a></li>
+                    <li><a href="#temoignages">⭐ Avis clients</a></li>
+                    <li><a href="#faq">❓ FAQ Grossiste</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🏭 Grossiste alimentaire n°1 France 2026 : DestockPro</h2>
+            <p><strong>DestockPro</strong> est élu <strong>grossiste alimentaire n°1 en France en 2026</strong> par 15 000+ clients satisfaits. Notre <strong>grossiste discount</strong> vous propose des prix jusqu'à <strong>70% moins chers</strong> que dans les grandes surfaces.</p>
+
+            <div class="highlight-box">
+                <h3>📊 DestockPro en chiffres :</h3>
+                <ul>
+                    <li>🏭 <strong>15 000+</strong> clients satisfaits</li>
+                    <li>💰 <strong>70%</strong> d'économies</li>
+                    <li>📦 <strong>500+</strong> produits en stock</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction</li>
+                    <li>🚚 <strong>24/48h</strong> de livraison</li>
+                </ul>
+            </div>
+
+            <div class="cta-article">
+                <h3>🏭 Devenez client du n°1 du grossiste alimentaire</h3>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">Voir les offres grossiste <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">Devis grossiste <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!-- templates/articles/discount-alimentaire-2026-meilleur-prix.html -->
+{% extends "base.html" %}
+
+{% block title %}💰 Discount Alimentaire 2026 - Meilleur Prix -70% | DestockPro{% endblock %}
+
+{% block meta_description %}💰 Discount alimentaire 2026 : meilleur prix sur boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Grossiste discount n°1 France. 15 000+ clients. Livraison 24/48h.{% endblock %}
+
+{% block meta_keywords %}discount alimentaire, discount alimentaire 2026, meilleur prix alimentaire, grossiste discount, alimentation discount, supermarché discount, discount boissons, discount surgelés{% endblock %}
+
+{% block og_title %}💰 Discount Alimentaire 2026 - Meilleur Prix -70% | DestockPro{% endblock %}
+{% block og_description %}💰 Discount alimentaire 2026 : meilleur prix sur boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Grossiste discount n°1 France.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Discount Alimentaire 2026</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <h1>💰 Discount Alimentaire 2026 - Meilleur Prix du Marché -70%</h1>
+            <div class="article-meta">
+                <span>📅 12 août 2026</span>
+                <span>⏱️ 14 min de lecture</span>
+                <span>👤 Expert Discount DestockPro</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/discount-prix-2026.jpg') }}" 
+                 alt="Discount alimentaire 2026 - Meilleur prix" class="hero-image">
+        </header>
+
+        <div class="article-body">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">💰 Discount alimentaire 2026</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi choisir le discount ?</a></li>
+                    <li><a href="#produits">📦 Produits discount</a></li>
+                    <li><a href="#palettes">📦 Palettes discount</a></li>
+                    <li><a href="#prix">💰 Prix discount 2026</a></li>
+                    <li><a href="#faq">❓ FAQ Discount</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">💰 Discount alimentaire 2026 : le meilleur prix du marché</h2>
+            <p>Le <strong>discount alimentaire</strong> est la solution idéale pour réduire votre budget courses. <strong>DestockPro</strong> est le <strong>grossiste discount n°1 en France</strong> avec les prix les plus bas du marché.</p>
+
+            <div class="cta-article">
+                <h3>💰 Prêt à profiter du meilleur prix ?</h3>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">Voir les offres discount <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
