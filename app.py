@@ -2903,6 +2903,28 @@ def discount_grossiste_palette():
 @app.route('/meilleur-grossiste-destockage-alimentaire-france')
 def meilleur_grossiste():
     return render_template('articles/meilleur-grossiste-destockage-alimentaire-france.html')
+
+
+# ===== 4 ARTICLES ULTRA MEGA GIGA =====
+
+@app.route('/magasin-destockage-alimentaire-ile-de-france')
+def magasin_destockage_idf():
+    return render_template('articles/magasin-destockage-alimentaire-ile-de-france.html')
+
+@app.route('/destockage-alimentaire-aubervilliers-93')
+def destockage_aubervilliers():
+    return render_template('articles/destockage-alimentaire-aubervilliers-93.html')
+
+@app.route('/magasin-destockage-alimentaire-93-seine-saint-denis')
+def magasin_destockage_93():
+    return render_template('articles/magasin-destockage-alimentaire-93-seine-saint-denis.html')
+
+@app.route('/destockage-alimentaire-en-ligne-2026-guide')
+def destockage_en_ligne():
+    return render_template('articles/destockage-alimentaire-en-ligne-2026-guide.html')
+
+
+
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3425,6 +3447,94 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-11'
         },
+        # ===== 4 ARTICLES ULTRA MEGA GIGA =====
+        {
+            'loc': '/magasin-destockage-alimentaire-ile-de-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-alimentaire-aubervilliers-93', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/magasin-destockage-alimentaire-93-seine-saint-denis', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-alimentaire-en-ligne-2026-guide', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        # ===== 4 ARTICLES ULTRA MEGA GIGA =====
+        {
+            'loc': '/magasin-destockage-alimentaire-en-ligne-particulier', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-alimentaire-espagne-2026-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-alimentaire-bruxelles-2026-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-alimentaire-lille-2026-guide-complet', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        # ===== 2 ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/magasin-destockage-alimentaire-94-val-de-marne', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/magasin-destockage-alimentaire-autour-de-moi', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        # ===== 4 ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-2026-leader-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/grossiste-alimentaire-n1-france-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/discount-alimentaire-2026-meilleur-prix', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
+        {
+            'loc': '/destockage-grossiste-discount-ultime-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-12'
+        },
     ]
     
     # URLs dynamiques - Produits
@@ -3531,7 +3641,47 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ===== 4 ARTICLES LOCALISÉS (Paris, Lyon, Lille, Marseille) =====
 # ===== 4 NOUVEAUX ARTICLES =====
 # ===== 4 NOUVEAUX ARTICLES =====
+# ===== 4 ARTICLES ULTRA MEGA GIGA =====
+# ===== 2 ARTICLES ULTRA MEGA SEO =====
+# ===== 4 ARTICLES ULTRA MEGA SEO =====
 
+@app.route('/destockage-alimentaire-2026-leader-france')
+def destockage_leader():
+    return render_template('articles/destockage-alimentaire-2026-leader-france.html')
+
+@app.route('/grossiste-alimentaire-n1-france-2026')
+def grossiste_n1():
+    return render_template('articles/grossiste-alimentaire-n1-france-2026.html')
+
+@app.route('/discount-alimentaire-2026-meilleur-prix')
+def discount_meilleur_prix():
+    return render_template('articles/discount-alimentaire-2026-meilleur-prix.html')
+
+@app.route('/destockage-grossiste-discount-ultime-2026')
+def destockage_ultime():
+    return render_template('articles/destockage-grossiste-discount-ultime-2026.html')
+@app.route('/magasin-destockage-alimentaire-94-val-de-marne')
+def magasin_destockage_94():
+    return render_template('articles/magasin-destockage-alimentaire-94-val-de-marne.html')
+
+@app.route('/magasin-destockage-alimentaire-autour-de-moi')
+def magasin_destockage_autour_de_moi():
+    return render_template('articles/magasin-destockage-alimentaire-autour-de-moi.html')
+@app.route('/magasin-destockage-alimentaire-en-ligne-particulier')
+def magasin_destockage_particulier():
+    return render_template('articles/magasin-destockage-alimentaire-en-ligne-particulier.html')
+
+@app.route('/destockage-alimentaire-espagne-2026-grossiste')
+def destockage_espagne_2026():
+    return render_template('articles/destockage-alimentaire-espagne-2026-grossiste.html')
+
+@app.route('/destockage-alimentaire-bruxelles-2026-grossiste')
+def destockage_bruxelles_2026():
+    return render_template('articles/destockage-alimentaire-bruxelles-2026-grossiste.html')
+
+@app.route('/destockage-alimentaire-lille-2026-guide-complet')
+def destockage_lille_2026_guide():
+    return render_template('articles/destockage-alimentaire-lille-2026-guide-complet.html')
 @app.route('/destockage-alimentaire-belgique-2026-guide-complet')
 def destockage_belgique_guide():
     return render_template('articles/destockage-alimentaire-belgique-2026-guide-complet.html')
