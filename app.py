@@ -2923,7 +2923,80 @@ def magasin_destockage_93():
 def destockage_en_ligne():
     return render_template('articles/destockage-alimentaire-en-ligne-2026-guide.html')
 
+# ============================================================
+# 4 TEMPLATES ULTRA SEO - DESTOCKAGE ALIMENTAIRE
+# ============================================================
 
+@app.route('/destockage-alimentaire-2026-guide-ultime')
+def destockage_guide_ultime():
+    """
+    PAGE ULTRA SEO - Guide Ultime Destockage Alimentaire 2026
+    Mots-clés : destockage alimentaire, destockage alimentaire 2026, guide destockage
+    Volume estimé : 22 000+ recherches/mois
+    """
+    meta = {
+        'title': '🏆 Destockage Alimentaire 2026 - Guide Ultime -70% | DestockPro',
+        'description': '🏆 Destockage alimentaire 2026 : guide ultime pour économiser jusqu\'à 70% sur vos courses. Grossiste discount, palettes, boissons, surgelés, épicerie, champagne. 15 000+ clients. Livraison 24/48h.',
+        'keywords': 'destockage alimentaire, destockage alimentaire 2026, guide destockage, grossiste destockage, destockage france, acheter moins cher, économiser courses, palettes alimentaires',
+        'og_title': '🏆 Destockage Alimentaire 2026 - Guide Ultime -70% | DestockPro',
+        'og_description': '🏆 Destockage alimentaire 2026 : guide ultime pour économiser jusqu\'à 70% sur vos courses. Grossiste discount, palettes, boissons, surgelés, épicerie, champagne.',
+        'canonical': 'https://www.destockalimentaire.com/destockage-alimentaire-2026-guide-ultime'
+    }
+    return render_template('articles/destockage-alimentaire-2026-guide-ultime.html', meta=meta)
+
+
+@app.route('/destockage-alimentaire-grossiste-pas-cher')
+def destockage_grossiste_pas_cher():
+    """
+    PAGE ULTRA SEO - Destockage Alimentaire Grossiste Pas Cher
+    Mots-clés : destockage alimentaire grossiste, grossiste pas cher, grossiste destockage
+    Volume estimé : 18 500+ recherches/mois
+    """
+    meta = {
+        'title': '🏭 Destockage Alimentaire Grossiste Pas Cher -70% | DestockPro',
+        'description': '🏭 Destockage alimentaire grossiste pas cher : palettes de boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies. Grossiste n°1 France. 15 000+ clients. Livraison 24/48h.',
+        'keywords': 'destockage alimentaire grossiste, grossiste pas cher, grossiste destockage, grossiste alimentaire discount, palette grossiste, destockage professionnel',
+        'og_title': '🏭 Destockage Alimentaire Grossiste Pas Cher -70% | DestockPro',
+        'og_description': '🏭 Destockage alimentaire grossiste pas cher : palettes de boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies. Grossiste n°1 France.',
+        'canonical': 'https://www.destockalimentaire.com/destockage-alimentaire-grossiste-pas-cher'
+    }
+    return render_template('articles/destockage-alimentaire-grossiste-pas-cher.html', meta=meta)
+
+
+@app.route('/destockage-alimentaire-palettes-prix-discount')
+def destockage_palettes_discount():
+    """
+    PAGE ULTRA SEO - Destockage Alimentaire Palettes Prix Discount
+    Mots-clés : destockage alimentaire palettes, prix discount palettes, palette alimentaire
+    Volume estimé : 15 200+ recherches/mois
+    """
+    meta = {
+        'title': '📦 Destockage Alimentaire Palettes - Prix Discount -70% | DestockPro',
+        'description': '📦 Destockage alimentaire palettes : prix discount sur boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies sur les palettes. Livraison 24/48h. 15 000+ clients.',
+        'keywords': 'destockage alimentaire palettes, prix discount palettes, palette alimentaire, palette boisson, palette surgelés, palette épicerie, palette champagne',
+        'og_title': '📦 Destockage Alimentaire Palettes - Prix Discount -70% | DestockPro',
+        'og_description': '📦 Destockage alimentaire palettes : prix discount sur boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies sur les palettes. Livraison 24/48h.',
+        'canonical': 'https://www.destockalimentaire.com/destockage-alimentaire-palettes-prix-discount'
+    }
+    return render_template('articles/destockage-alimentaire-palettes-prix-discount.html', meta=meta)
+
+
+@app.route('/destockage-alimentaire-france-livraison-rapide')
+def destockage_france_livraison():
+    """
+    PAGE ULTRA SEO - Destockage Alimentaire France Livraison Rapide
+    Mots-clés : destockage alimentaire France, livraison rapide destockage, destockage national
+    Volume estimé : 14 800+ recherches/mois
+    """
+    meta = {
+        'title': '🚚 Destockage Alimentaire France - Livraison Rapide 24/48h | DestockPro',
+        'description': '🚚 Destockage alimentaire France : livraison rapide 24/48h partout en France. Boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies. 15 000+ clients.',
+        'keywords': 'destockage alimentaire France, livraison rapide destockage, destockage national, grossiste France, livraison 24/48h, destockage partout France',
+        'og_title': '🚚 Destockage Alimentaire France - Livraison Rapide 24/48h | DestockPro',
+        'og_description': '🚚 Destockage alimentaire France : livraison rapide 24/48h partout en France. Boissons, surgelés, épicerie, champagne. Jusqu\'à 70% d\'économies.',
+        'canonical': 'https://www.destockalimentaire.com/destockage-alimentaire-france-livraison-rapide'
+    }
+    return render_template('articles/destockage-alimentaire-france-livraison-rapide.html', meta=meta)
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -3534,6 +3607,31 @@ def sitemap():
             'priority': 1.0, 
             'changefreq': 'daily', 
             'lastmod': '2026-08-12'
+        },
+        # ===== 4 TEMPLATES ULTRA SEO - DESTOCKAGE ALIMENTAIRE =====
+        {
+            'loc': '/destockage-alimentaire-2026-guide-ultime', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-17'
+        },
+        {
+            'loc': '/destockage-alimentaire-grossiste-pas-cher', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-17'
+        },
+        {
+            'loc': '/destockage-alimentaire-palettes-prix-discount', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-17'
+        },
+        {
+            'loc': '/destockage-alimentaire-france-livraison-rapide', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-17'
         },
     ]
     
