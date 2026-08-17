@@ -3817,8 +3817,8 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 def palette_boisson_grossiste():
     return render_template('articles/destockage-alimentaire-palette-boisson-prix-grossiste.html')
 
-@app.route('/destockage-alimentaire-surgeles-viande-poisson')
-def surgeles_viande_poisson():
+@app.route('/destockage-alimentaire-surgeles-viande-poisson1')
+def surgeles_viande_poisson_1():
     return render_template('articles/destockage-alimentaire-surgeles-viande-poisson.html')
 
 @app.route('/destockage-alimentaire-epicerie-nutella-cafe')
