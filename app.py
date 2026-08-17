@@ -2998,6 +2998,25 @@ def destockage_france_livraison():
     }
     return render_template('articles/destockage-alimentaire-france-livraison-rapide.html', meta=meta)
 
+# ===== 4 ARTICLES ULTRA MEGA GIGA SEO V2 =====
+
+@app.route('/guide-ultime-destockage-alimentaire-2026-pro')
+def guide_ultime_pro():
+    return render_template('articles/guide-ultime-destockage-alimentaire-2026-pro.html')
+
+@app.route('/grossiste-alimentaire-destockage-n1-france')
+def grossiste_n1_destockage():
+    return render_template('articles/grossiste-alimentaire-destockage-n1-france.html')
+
+@app.route('/discount-alimentaire-meilleur-prix-2026')
+def discount_meilleur_prix_2026():
+    return render_template('articles/discount-alimentaire-meilleur-prix-2026.html')
+
+@app.route('/destockage-alimentaire-palette-prix-france')
+def destockage_palette_prix():
+    return render_template('articles/destockage-alimentaire-palette-prix-france.html')
+
+
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3633,6 +3652,56 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-17'
         },
+        # ===== 4 ARTICLES ULTRA MEGA GIGA SEO V2 =====
+        {
+            'loc': '/guide-ultime-destockage-alimentaire-2026-pro', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/grossiste-alimentaire-destockage-n1-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/discount-alimentaire-meilleur-prix-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/destockage-alimentaire-palette-prix-france', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO V3 =====
+        {
+            'loc': '/destockage-alimentaire-palette-boisson-prix-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/destockage-alimentaire-surgeles-viande-poisson', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/destockage-alimentaire-epicerie-nutella-cafe', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
+        {
+            'loc': '/destockage-alimentaire-champagne-moet-ruinart', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-18'
+        },
     ]
     
     # URLs dynamiques - Produits
@@ -3742,7 +3811,23 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ===== 4 ARTICLES ULTRA MEGA GIGA =====
 # ===== 2 ARTICLES ULTRA MEGA SEO =====
 # ===== 4 ARTICLES ULTRA MEGA SEO =====
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA GIGA SEO V3 =====
 
+@app.route('/destockage-alimentaire-palette-boisson-prix-grossiste')
+def palette_boisson_grossiste():
+    return render_template('articles/destockage-alimentaire-palette-boisson-prix-grossiste.html')
+
+@app.route('/destockage-alimentaire-surgeles-viande-poisson')
+def surgeles_viande_poisson():
+    return render_template('articles/destockage-alimentaire-surgeles-viande-poisson.html')
+
+@app.route('/destockage-alimentaire-epicerie-nutella-cafe')
+def epicerie_nutella_cafe():
+    return render_template('articles/destockage-alimentaire-epicerie-nutella-cafe.html')
+
+@app.route('/destockage-alimentaire-champagne-moet-ruinart')
+def champagne_moet_ruinart():
+    return render_template('articles/destockage-alimentaire-champagne-moet-ruinart.html')
 @app.route('/destockage-alimentaire-2026-leader-france')
 def destockage_leader():
     return render_template('articles/destockage-alimentaire-2026-leader-france.html')
