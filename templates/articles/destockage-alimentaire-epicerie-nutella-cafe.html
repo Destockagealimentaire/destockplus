@@ -1,0 +1,126 @@
+<!-- templates/articles/destockage-alimentaire-epicerie-nutella-cafe.html -->
+{% extends "base.html" %}
+
+{% block title %}🍫 Destockage Épicerie - Nutella, Café, Pâtes -70% | DestockPro{% endblock %}
+
+{% block meta_description %}🍫 Destockage épicerie : Nutella, café, pâtes, biscuits, conserves. Jusqu'à 70% d'économies sur les produits d'épicerie de marque. Livraison 24/48h France. 15 000+ clients.{% endblock %}
+
+{% block meta_keywords %}destockage épicerie, Nutella pas cher, café grossiste, pâtes discount, biscuits destockage, conserve pas cher, épicerie en gros, grossiste épicerie{% endblock %}
+
+{% block og_title %}🍫 Destockage Épicerie - Nutella, Café, Pâtes -70% | DestockPro{% endblock %}
+{% block og_description %}🍫 Destockage épicerie : Nutella, café, pâtes, biscuits, conserves. Jusqu'à 70% d'économies sur les produits d'épicerie de marque. Livraison 24/48h.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Destockage Épicerie</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🍫 MEILLEUR RAPPORT QUALITÉ-PRIX</div>
+            <h1 itemprop="headline">🍫 Destockage Épicerie - Nutella, Café, Pâtes jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 18 août 2026</span>
+                <span>⏱️ 15 min de lecture</span>
+                <span>👤 Expert Épicerie DestockPro</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/epicerie-destockage.jpg') }}" 
+                 alt="Destockage épicerie Nutella café" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🍫 Destockage épicerie : les meilleures offres</a></li>
+                    <li><a href="#nutella">🍫 Nutella en palette</a></li>
+                    <li><a href="#cafe">☕ Café en gros</a></li>
+                    <li><a href="#pates">🍝 Pâtes et riz</a></li>
+                    <li><a href="#biscuits">🍪 Biscuits et snacks</a></li>
+                    <li><a href="#conserves">🥫 Conserves et légumes</a></li>
+                    <li><a href="#prix">💰 Prix grossiste 2026</a></li>
+                    <li><a href="#faq">❓ FAQ Épicerie</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🍫 Destockage épicerie : les meilleures offres du grossiste</h2>
+            <p>Le <strong>destockage épicerie</strong> est la solution idéale pour faire le plein de produits du quotidien à prix discount. <strong>DestockPro</strong> propose des <strong>palettes d'épicerie</strong> des plus grandes marques à des prix jusqu'à <strong>70% moins chers</strong>.</p>
+
+            <div class="highlight-box">
+                <h3>📊 L'épicerie en chiffres :</h3>
+                <ul>
+                    <li>📦 <strong>500+</strong> produits d'épicerie en stock</li>
+                    <li>💰 <strong>70%</strong> d'économies possibles</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction client</li>
+                    <li>🚚 <strong>24/48h</strong> de livraison</li>
+                </ul>
+            </div>
+
+            <h2 id="nutella">🍫 Nutella en palette - L'offre incontournable</h2>
+            <div class="palette-examples">
+                <div class="palette-card">
+                    <span class="palette-badge">⭐ MEILLEUR VENTE</span>
+                    <h4>🍫 Nutella - 760 pots</h4>
+                    <div class="price-comparison">
+                        <span class="old-price">2 500€</span>
+                        <span class="new-price">1 536€</span>
+                        <span class="savings-label">Économie : 964€</span>
+                    </div>
+                    <div class="palette-details">
+                        <span>📦 760 pots</span>
+                        <span>🍫 1kg par pot</span>
+                        <span>🇫🇷 Origine France</span>
+                    </div>
+                    <a href="{{ url_for('produits') }}/105" class="btn-small">Voir l'offre</a>
+                </div>
+            </div>
+
+            <h2 id="cafe">☕ Café en gros - Les meilleures marques</h2>
+            <div class="palette-examples">
+                <div class="palette-card">
+                    <h4>☕ Café Nespresso</h4>
+                    <div class="price-comparison">
+                        <span class="old-price">550€</span>
+                        <span class="new-price">250€</span>
+                        <span class="savings-label">Économie : 300€</span>
+                    </div>
+                    <a href="{{ url_for('produits') }}/cafe" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="palette-card">
+                    <h4>☕ Café en grains</h4>
+                    <div class="price-comparison">
+                        <span class="old-price">450€</span>
+                        <span class="new-price">220€</span>
+                        <span class="savings-label">Économie : 230€</span>
+                    </div>
+                    <a href="{{ url_for('produits') }}/cafe-grains" class="btn-small">Voir l'offre</a>
+                </div>
+            </div>
+
+            <div class="cta-article">
+                <h3>🛒 Achetez votre épicerie en destockage</h3>
+                <p>Nutella, café, pâtes... Des marques premium à prix discount.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}?categorie=epicerie" class="btn btn-primary">🛒 Voir toutes les offres <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Destockage épicerie</h2>
+            <div class="faq-item">
+                <h4>Qu'est-ce que le destockage épicerie ?</h4>
+                <p>Le <strong>destockage épicerie</strong> permet d'acheter des produits du quotidien à prix réduits.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Peut-on acheter de la Nutella en palette ?</h4>
+                <p>Oui ! DestockPro propose des <strong>palettes de Nutella</strong> avec 760 pots à prix discount.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

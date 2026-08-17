@@ -1,0 +1,115 @@
+<!-- templates/articles/destockage-alimentaire-champagne-moet-ruinart.html -->
+{% extends "base.html" %}
+
+{% block title %}🍾 Destockage Champagne - Moët, Ruinart -50% | DestockPro{% endblock %}
+
+{% block meta_description %}🍾 Destockage champagne : Moët & Chandon, Ruinart, Veuve Clicquot. Jusqu'à 50% d'économies sur les grandes maisons. Palettes de 240 bouteilles. Livraison 24/48h France. 15 000+ clients.{% endblock %}
+
+{% block meta_keywords %}destockage champagne, Moët destockage, Ruinart pas cher, champagne luxe, palette champagne, grossiste champagne, champagne grande maison, Veuve Clicquot discount{% endblock %}
+
+{% block og_title %}🍾 Destockage Champagne - Moët, Ruinart -50% | DestockPro{% endblock %}
+{% block og_description %}🍾 Destockage champagne : Moët & Chandon, Ruinart, Veuve Clicquot. Jusqu'à 50% d'économies sur les grandes maisons. Palettes de 240 bouteilles. Livraison 24/48h.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Destockage Champagne</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🍾 LUXE</div>
+            <h1 itemprop="headline">🍾 Destockage Champagne - Moët, Ruinart jusqu'à -50%</h1>
+            <div class="article-meta">
+                <span>📅 18 août 2026</span>
+                <span>⏱️ 13 min de lecture</span>
+                <span>👤 Expert Champagne DestockPro</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/champagne-destockage.jpg') }}" 
+                 alt="Destockage champagne Moët Ruinart" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🍾 Destockage champagne : l'offre exceptionnelle</a></li>
+                    <li><a href="#maisons">🥂 Les grandes maisons disponibles</a></li>
+                    <li><a href="#prix">💰 Prix grossiste des palettes de champagne</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi acheter en palette ?</a></li>
+                    <li><a href="#conseils">📝 Conseils pour bien acheter</a></li>
+                    <li><a href="#faq">❓ FAQ Champagne</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🍾 Destockage champagne : l'offre exceptionnelle du grossiste</h2>
+            <p>Le <strong>destockage champagne</strong> est une opportunité unique d'acquérir les plus grandes maisons à prix réduits. <strong>DestockPro</strong> propose des <strong>palettes de champagne</strong> des maisons les plus prestigieuses à des prix jusqu'à <strong>50% moins chers</strong>.</p>
+
+            <div class="highlight-box">
+                <h3>📊 Le champagne en chiffres :</h3>
+                <ul>
+                    <li>🍾 <strong>300 millions</strong> de bouteilles vendues chaque année</li>
+                    <li>💰 <strong>50%</strong> d'économies possibles</li>
+                    <li>📦 <strong>240</strong> bouteilles par palette</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction client</li>
+                </ul>
+            </div>
+
+            <h2 id="maisons">🥂 Les grandes maisons de champagne disponibles en palette</h2>
+            <div class="marques-grid">
+                <div class="marque-card premium">
+                    <span class="marque-icon">🍾</span>
+                    <h4>Moët & Chandon</h4>
+                    <p>Brut Impérial - 240 bouteilles</p>
+                    <span class="marque-reduction">-50%</span>
+                    <a href="{{ url_for('produits') }}/200" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="marque-card premium">
+                    <span class="marque-icon">🍾</span>
+                    <h4>Ruinart</h4>
+                    <p>Blanc de Blancs - 240 bouteilles</p>
+                    <span class="marque-reduction">-45%</span>
+                    <a href="{{ url_for('produits') }}/114" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="marque-card premium">
+                    <span class="marque-icon">🍾</span>
+                    <h4>Veuve Clicquot</h4>
+                    <p>Yellow Label - 240 bouteilles</p>
+                    <span class="marque-reduction">-48%</span>
+                    <a href="{{ url_for('produits') }}/veuve" class="btn-small">Voir l'offre</a>
+                </div>
+                <div class="marque-card premium">
+                    <span class="marque-icon">🍾</span>
+                    <h4>Bollinger</h4>
+                    <p>Spécial Cuvée - 240 bouteilles</p>
+                    <span class="marque-reduction">-42%</span>
+                    <a href="{{ url_for('produits') }}/bollinger" class="btn-small">Voir l'offre</a>
+                </div>
+            </div>
+
+            <div class="cta-article">
+                <h3>🍾 Achetez votre champagne luxe en destockage</h3>
+                <p>Moët & Chandon, Ruinart, Veuve Clicquot... Les plus grandes maisons à prix grossiste.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}?categorie=champagne" class="btn btn-primary">🛒 Voir toutes les palettes <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Champagne destockage</h2>
+            <div class="faq-item">
+                <h4>Où trouver du champagne pas cher en palette ?</h4>
+                <p>Chez <strong>DestockPro</strong>, le grossiste n°1 du <strong>champagne en destockage</strong>.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Combien coûte une palette de champagne ?</h4>
+                <p>Les prix varient de <strong>4 100€ à plus de 5 200€</strong> selon les maisons. Chez DestockPro, les prix sont jusqu'à 50% moins chers.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
