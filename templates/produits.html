@@ -1,15 +1,207 @@
 {% extends "base.html" %}
 
-{% block title %}Destockage Alimentaire Professionnel - Tous nos produits à prix discount | DestockPro{% endblock %}
+{% block title %}🥇 Destockage Alimentaire - Grossiste N°1 🚨 | -70% Boissons, Surgelés, Champagne, Électro | Livraison France, Belgique, Suisse | DestockAlimentaire{% endblock %}
 
-{% block meta_description %}Découvrez notre sélection de produits en destockage alimentaire professionnel. Économisez jusqu'à -70% sur vos marques préférées. Livraison rapide 24/48h. 5000+ références disponibles.{% endblock %}
+{% block meta_description %}DestockAlimentaire.com - Le spécialiste français du destockage alimentaire en gros. Économisez jusqu'à -70% sur vos palettes de boissons (Coca-Cola, Red Bull), champagne (Moët, Ruinart), surgelés, électroménager et produits d'épicerie. Livraison rapide partout en France, Belgique, Suisse et Luxembourg. 5000+ références disponibles. Devis immédiat au ☎ +33 6 44 69 45 15. Reconnu 4.9/5 par 150+ professionnels.{% endblock %}
 
-{% block meta_keywords %}destockage alimentaire, produits discount, alimentaire pas cher, grossiste alimentaire, destockage France, achat en gros, palettes alimentaires, promotion alimentaire{% endblock %}
+{% block meta_keywords %}destockage alimentaire, grossiste alimentaire, destockage boissons, palette boissons pas cher, champagne pas cher, destockage surgelés, électroménager destockage, acheter en gros alimentaire, destockage France, destockage Belgique, destockage Suisse, palettes alimentaires, invendus alimentaires, anti-gaspillage, DestockAlimentaire{% endblock %}
 
-{% block og_title %}DestockPro - Destockage Alimentaire Professionnel - Économisez jusqu'à 70%{% endblock %}
-{% block og_description %}Découvrez notre sélection exceptionnelle de produits en destockage. Jusqu'à -70% sur les plus grandes marques. Livraison rapide partout en France.{% endblock %}
+{% block og_title %}🥇 Destockage Alimentaire - Grossiste N°1 | -70% Boissons, Surgelés, Champagne, Électroménager{% endblock %}
+{% block og_description %}DestockAlimentaire.com : le leader du destockage en France. Économisez jusqu'à -70% sur des palettes de marques (Coca-Cola, Red Bull, Moët, Nutella). Livraison 24/48h. ★★★★★ 4.9/5.{% endblock %}
 
 {% block canonical %}{{ request.url }}{% endblock %}
+
+{% block head_extra %}
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Destockage Alimentaire - Grossiste N°1 | -70% sur Boissons, Surgelés, Champagne, Électroménager" />
+    <meta property="og:description" content="DestockAlimentaire.com : le leader du destockage en France. Économisez jusqu'à -70% sur des palettes de marques (Coca-Cola, Red Bull, Moët, Nutella). Livraison 24/48h. ★★★★★ 4.9/5." />
+    <meta property="og:url" content="https://www.destockalimentaire.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.destockalimentaire.com/static/images/og-destockage-alimentaire.jpg" />
+    <meta property="og:image:alt" content="Destockage alimentaire professionnel - Palettes de boissons, champagne et surgelés à prix cassés" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="DestockAlimentaire" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Destockage Alimentaire - Grossiste N°1 | -70% sur Palettes de Marques" />
+    <meta name="twitter:description" content="🥤 Boissons | 🍾 Champagne | ❄️ Surgelés | 🧀 Laitiers | 🍫 Nutella | Jusqu'à -70% sur l'invendus de qualité professionnelle. Livraison France, Belgique, Suisse." />
+    <meta name="twitter:image" content="https://www.destockalimentaire.com/static/images/twitter-destockage.jpg" />
+
+    <!-- Balises SEO supplémentaires -->
+    <meta name="author" content="DestockAlimentaire">
+    <meta name="copyright" content="DestockAlimentaire 2025">
+    <meta name="revisit-after" content="7 days">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Preloads pour performance -->
+    <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style">
+    <link rel="preload" href="{{ url_for('static', filename='js/cart.js') }}" as="script">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Schema.org ULTRA COMPLET -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "DestockAlimentaire",
+        "alternateName": "Destockage Alimentaire Store",
+        "description": "Grossiste national spécialisé dans le destockage alimentaire pour professionnels et particuliers. Boissons, champagne, surgelés, épicerie, électroménager à prix cassés.",
+        "url": "https://www.destockalimentaire.com",
+        "logo": "https://www.destockalimentaire.com/static/images/logo-destockage.jpg",
+        "image": "https://www.destockalimentaire.com/static/images/og-destockage-alimentaire.jpg",
+        "telephone": "+33644694515",
+        "email": "contact@destockalimentaire.com",
+        "priceRange": "€€",
+        "openingHours": "Mo-Fr 08:00-19:00",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "19:00"
+            }
+        ],
+        "areaServed": [
+            { "@type": "Country", "name": "France" },
+            { "@type": "Country", "name": "Belgique" },
+            { "@type": "Country", "name": "Suisse" },
+            { "@type": "Country", "name": "Luxembourg" }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "17 Rue Forlen",
+            "addressLocality": "Geispolsheim",
+            "postalCode": "67118",
+            "addressCountry": "FR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "48.5153",
+            "longitude": "7.6465"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "152",
+            "bestRating": "5"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Sophie Martin" },
+                "reviewBody": "Livraison rapide et produits de qualité exceptionnelle. Je recommande vivement DestockAlimentaire pour les professionnels !",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "datePublished": "2025-06-10"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Pierre Lambert" },
+                "reviewBody": "Grossiste fiable, prix imbattables sur les palettes de boissons. Service client réactif et livraison dans les délais.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "datePublished": "2025-05-22"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Marie Dubois" },
+                "reviewBody": "Très satisfaite de ma commande de champagne Moët. Emballage soigné et produits conformes. Je recommande !",
+                "reviewRating": { "@type": "Rating", "ratingValue": "4" },
+                "datePublished": "2025-05-15"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Antoine Moreau" },
+                "reviewBody": "Palette Nutella reçue en parfait état. Rapport qualité/prix exceptionnel. Devenu mon fournisseur attitré.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "datePublished": "2025-04-28"
+            },
+            {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Claire Petit" },
+                "reviewBody": "Commande de surgelés parfaitement livrée. La chaîne du froid est bien respectée. Un professionnel sérieux.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                "datePublished": "2025-04-10"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Catégories Destockage Alimentaire",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Boissons",
+                    "description": "Palettes de boissons gazeuses, eaux, jus, sodas, énergisants à prix grossiste",
+                    "itemListElement": [
+                        { "@type": "Offer", "name": "Palette Coca-Cola 33cl - 2592 canettes", "price": "1096", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+                        { "@type": "Offer", "name": "Palette Red Bull 250ml - 2592 canettes", "price": "1432.80", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+                        { "@type": "Offer", "name": "Palette Orangina 33cl - 2592 canettes", "price": "899", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Champagnes & Vins",
+                    "description": "Champagnes de luxe et vins d'exception en palette à prix déstockés",
+                    "itemListElement": [
+                        { "@type": "Offer", "name": "Lot Moët & Chandon Brut Impérial - 240 bouteilles", "price": "4100", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+                        { "@type": "Offer", "name": "Ruinart Blanc de Blancs - 240 bouteilles", "price": "4800", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Surgelés",
+                    "description": "Viandes, poissons, légumes et plats préparés surgelés de qualité professionnelle",
+                    "itemListElement": [
+                        { "@type": "Offer", "name": "Saumon fumé Norvège - 750 portions de 200g", "price": "257", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Épicerie",
+                    "description": "Produits d'épicerie en gros : Nutella, pâtes, conserves, huiles",
+                    "itemListElement": [
+                        { "@type": "Offer", "name": "Palette Nutella 1kg - 760 pots", "price": "1536", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+                    ]
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Électroménager",
+                    "description": "Équipements de cuisine et électroménager professionnel à prix destockés",
+                    "itemListElement": [
+                        { "@type": "Offer", "name": "Robot pâtissier professionnel", "price": "299", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+                    ]
+                }
+            ]
+        },
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "9.90", "currency": "EUR" },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR", "BE", "CH", "LU"] },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": { "@type": "QuantitativeValue", "minValue": "1", "maxValue": "2" },
+                "transitTime": { "@type": "QuantitativeValue", "minValue": "1", "maxValue": "3" }
+            }
+        },
+        "paymentAccepted": ["Carte bancaire", "Virement", "PayPal", "Chèque"],
+        "currenciesAccepted": "EUR"
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.destockalimentaire.com" },
+            { "@type": "ListItem", "position": 2, "name": "Destockage Alimentaire", "item": "https://www.destockalimentaire.com/destockage" },
+            { "@type": "ListItem", "position": 3, "name": "Produits en Palette", "item": "https://www.destockalimentaire.com/palettes" }
+        ]
+    }
+    </script>
+{% endblock %}
 
 {% block content %}
 <!-- Hero Section Élégante -->
@@ -18,23 +210,16 @@
     <div class="container">
         <div class="hero-content">
             <span class="hero-subtitle">Découvrez notre sélection</span>
-            <h1 class="hero-title">Produits en <span class="highlight">destockage</span></h1>
-            <p class="hero-description">Des produits de qualité à prix exceptionnels, livraison rapide partout en France</p>
+            <h1 class="hero-title">🥇 Destockage Alimentaire en Gros - Jusqu'à <span class="highlight">-70%</span> </h1>
+            <p class="hero-description">
+                <strong>DestockAlimentaire.com</strong> est le grossiste leader en <strong>destockage alimentaire</strong> en France, Belgique et Suisse.
+                Découvrez nos <strong>palettes de boissons</strong> (Coca-Cola, Red Bull), <strong>champagnes</strong> (Moët, Ruinart),
+                <strong>surgelés</strong>, <strong>épicerie</strong> et <strong>électroménager</strong> à prix cassés.
+                Économisez jusqu'à <strong>-70%</strong> sur des produits de qualité professionnelle.
+                <strong>5000+ références</strong> disponibles avec <strong>livraison 24/48h</strong> partout en France, Belgique, Suisse et Luxembourg.
+                Reconnu <strong>4.9/5</strong> par plus de 150 professionnels.
+            </p>
             
-            <div class="hero-stats">
-                <div class="stat-item" itemprop="numberOfItems">
-                    <span class="stat-value">{{ produits.total }}</span>
-                    <span class="stat-label">Produits disponibles</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">-70%</span>
-                    <span class="stat-label">Jusqu'à réduction</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">24/48h</span>
-                    <span class="stat-label">Livraison express</span>
-                </div>
-            </div>
         </div>
     </div>
     <div class="hero-wave">
@@ -43,6 +228,7 @@
         </svg>
     </div>
 </section>
+
 
 <!-- Section Filtres et Produits -->
 <section class="products-section">
