@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}🥇 Destockage Alimentaire - Grossiste N°1 🚨| -70% Boissons, Surgelés, Champagne, Électro | Livraison France, Belgique, Suisse | DestockAlimentaire{% endblock %}
+{% block title %}🥇 Destockage Alimentaire  - Grossiste N°1 🚨 | -70% Boissons, Surgelés, Champagne, Électro | Livraison France, Belgique, Suisse | DestockAlimentaire{% endblock %}
 {% block meta_description %}DestockAlimentaire.com - Le spécialiste français du destockage alimentaire en gros. Économisez jusqu'à -70% sur vos palettes de boissons (Coca-Cola, Red Bull), champagne (Moët, Ruinart), surgelés, électroménager et produits d'épicerie. Livraison rapide partout en France, Belgique, Suisse et Luxembourg. 5000+ références disponibles. Devis immédiat au ☎ +33 6 44 69 45 15. Reconnu 4.9/5 par 150+ professionnels.{% endblock %}
 
 {% block meta_keywords %}destockage alimentaire, grossiste alimentaire, destockage boissons, palette boissons pas cher, champagne pas cher, destockage surgelés, électroménager destockage, acheter en gros alimentaire, destockage France, destockage Belgique, destockage Suisse, palettes alimentaires, invendus alimentaires, anti-gaspillage, DestockAlimentaire{% endblock %}
@@ -315,37 +315,55 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.destockalimentaire.com/">
+{% endblock %} 
 
-{% endblock %}
+{% block content %}
 <!-- Hero Section Moderne -->
-<section class="hero-modern">
+<section class="hero-modern" aria-labelledby="hero-title">
     <div class="hero-particles"></div>
     <div class="hero-content-modern">
         <div class="hero-text-modern">
-            <h1>🥇 Destockage Alimentaire en Gros - Jusqu'à -70% sur Palettes de Boissons, Champagne & Surgelés | Livraison France, Belgique, Suisse</h1>
-            <p class="hero-description">Découvrez nos offres exceptionnelles sur des produits de qualité à prix imbattables. Jusqu'à -70% sur une large sélection.</p>
+            <h1 id="hero-title">Le <span>N°1 du Destockage Alimentaire</span> en France – Jusqu'à <span class="highlight">-70%</span> sur vos Produits de Marque</h1>
+            <p class="hero-description">
+                <strong>DestockAlimentaire.com</strong> est le grossiste leader en <strong>destockage alimentaire</strong> en France, Belgique et Suisse.
+                Découvrez nos <strong>palettes de boissons</strong> (Coca-Cola, Red Bull), <strong>champagnes</strong> (Moët, Ruinart),
+                <strong>surgelés</strong>, <strong>épicerie</strong> et <strong>électroménager</strong> à prix cassés.
+                Économisez jusqu'à <strong>-70%</strong> sur des produits de qualité professionnelle.
+                <strong>5000+ références</strong> disponibles avec <strong>livraison 24/48h</strong> partout en France, Belgique, Suisse et Luxembourg.
+                Reconnu <strong>4.9/5</strong> par plus de 150 professionnels.
+            </p>
             <div class="hero-buttons-modern">
-                <a href="/produits" class="hero-btn-primary">Découvrir nos produits <i class="fas fa-arrow-right"></i></a>
-                <a href="/contact" class="hero-btn-secondary">Nous contacter</a>
+                <a href="/produits" class="hero-btn-primary">
+                    Découvrir nos offres <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/contact" class="hero-btn-secondary">
+                    <i class="fas fa-phone"></i> Devis immédiat
+                </a>
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number">1000+</span>
-                    <span class="stat-label">Produits</span>
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Références disponibles</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Clients satisfaits</span>
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">★ 150+ avis professionnels</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">24/48h</span>
-                    <span class="stat-label">Livraison</span>
+                    <span class="stat-label">Livraison France, Belgique, Suisse</span>
                 </div>
             </div>
         </div>
         <div class="hero-image-modern">
-            <img src="{{ url_for('static', filename='images/image.jpg') }}"  
-                 alt="Destockage alimentaire">
+            <img src="{{ url_for('static', filename='images//image.jpg') }}" 
+                 alt="Destockage alimentaire professionnel - Palettes de boissons, champagne et surgelés" 
+                 width="600" 
+                 height="400"
+                 loading="eager">
+            <div class="hero-badge">
+                <i class="fas fa-trophy"></i> N°1 du destockage en France
+            </div>
         </div>
     </div>
 </section>
@@ -3676,3 +3694,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+{% endblock %}
