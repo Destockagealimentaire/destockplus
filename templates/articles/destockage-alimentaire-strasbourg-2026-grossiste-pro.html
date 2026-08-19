@@ -1,0 +1,80 @@
+<!-- templates/articles/destockage-alimentaire-strasbourg-2026-grossiste-pro.html -->
+{% extends "base.html" %}
+
+{% block title %}🌾 Destockage Alimentaire Strasbourg 2026 - Grossiste Pro -70% | DestockPro Strasbourg{% endblock %}
+
+{% block meta_description %}🌾 Destockage alimentaire Strasbourg 2026 : grossiste pro en Alsace. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Livraison 24/48h. 15 000+ clients.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Strasbourg, grossiste Strasbourg, destockage Strasbourg 2026, grossiste Alsace, palettes Strasbourg, destockage Strasbourg, alimentation pas cher Strasbourg, grossiste pro Strasbourg{% endblock %}
+
+{% block og_title %}🌾 Destockage Alimentaire Strasbourg 2026 - Grossiste Pro -70% | DestockPro Strasbourg{% endblock %}
+{% block og_description %}🌾 Destockage alimentaire Strasbourg 2026 : grossiste pro en Alsace. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Livraison 24/48h.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Destockage Alimentaire Strasbourg 2026</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🌾 STRASBOURG</div>
+            <h1 itemprop="headline">🌾 Destockage Alimentaire Strasbourg 2026 - Grossiste Pro jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 19 août 2026</span>
+                <span>⏱️ 14 min de lecture</span>
+                <span>👤 Expert DestockPro Strasbourg</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/destockage-strasbourg-2026.jpg') }}" 
+                 alt="Destockage alimentaire Strasbourg 2026" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🌾 Destockage Strasbourg 2026</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi à Strasbourg ?</a></li>
+                    <li><a href="#quartiers">📍 Destockage par quartier</a></li>
+                    <li><a href="#produits">📦 Produits à Strasbourg</a></li>
+                    <li><a href="#palettes">📦 Palettes Strasbourg</a></li>
+                    <li><a href="#prix">💰 Prix Strasbourg</a></li>
+                    <li><a href="#livraison">🚚 Livraison Alsace</a></li>
+                    <li><a href="#faq">❓ FAQ Strasbourg</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🌾 Destockage alimentaire Strasbourg 2026 : le grossiste pro</h2>
+            <p>Le <strong>destockage alimentaire à Strasbourg</strong> est la solution idéale pour les Strasbourgeois. <strong>DestockPro</strong> est le <strong>grossiste pro n°1 à Strasbourg</strong> avec des prix jusqu'à <strong>70% moins chers</strong>.</p>
+
+            <div class="highlight-box">
+                <h3>📊 Destockage Strasbourg en chiffres :</h3>
+                <ul>
+                    <li>🌾 <strong>76%</strong> des Strasbourgeois achètent en destockage</li>
+                    <li>💰 <strong>70%</strong> d'économies</li>
+                    <li>🚚 <strong>24/48h</strong> de livraison</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="cta-article">
+                <h3>🌾 Prêt à économiser à Strasbourg ?</h3>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">🛒 Voir les offres Strasbourg <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Destockage Strasbourg</h2>
+            <div class="faq-item">
+                <h4>Où trouver du destockage alimentaire à Strasbourg ?</h4>
+                <p>Chez <strong>DestockPro</strong>, le grossiste pro n°1 à Strasbourg.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
