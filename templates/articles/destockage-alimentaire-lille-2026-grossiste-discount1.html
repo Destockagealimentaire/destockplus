@@ -1,0 +1,80 @@
+<!-- templates/articles/destockage-alimentaire-lille-2026-grossiste-discount.html -->
+{% extends "base.html" %}
+
+{% block title %}🏙️ Destockage Alimentaire Lille 2026 - Grossiste Discount -70% | DestockPro Lille{% endblock %}
+
+{% block meta_description %}🏙️ Destockage alimentaire Lille 2026 : grossiste discount dans le Nord. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Livraison 24/48h. 15 000+ clients. Devis gratuit.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Lille, grossiste discount Lille, destockage Lille 2026, discount alimentaire Lille, palettes Lille, grossiste Nord, alimentation pas cher Lille, grossiste pro Lille{% endblock %}
+
+{% block og_title %}🏙️ Destockage Alimentaire Lille 2026 - Grossiste Discount -70% | DestockPro Lille{% endblock %}
+{% block og_description %}🏙️ Destockage alimentaire Lille 2026 : grossiste discount dans le Nord. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Livraison 24/48h.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Destockage Alimentaire Lille 2026</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🏙️ LILLE - GROSSISTE DISCOUNT</div>
+            <h1 itemprop="headline">🏙️ Destockage Alimentaire Lille 2026 - Grossiste Discount jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 25 août 2026</span>
+                <span>⏱️ 15 min de lecture</span>
+                <span>👤 Expert DestockPro Lille</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/destockage-lille-grossiste.jpg') }}" 
+                 alt="Destockage alimentaire Lille 2026 - Grossiste discount" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🏙️ Destockage Lille 2026</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi à Lille ?</a></li>
+                    <li><a href="#quartiers">📍 Destockage par quartier</a></li>
+                    <li><a href="#produits">📦 Produits à Lille</a></li>
+                    <li><a href="#palettes">📦 Palettes Lille</a></li>
+                    <li><a href="#prix">💰 Prix Lille</a></li>
+                    <li><a href="#livraison">🚚 Livraison Nord</a></li>
+                    <li><a href="#faq">❓ FAQ Lille</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🏙️ Destockage alimentaire Lille 2026 : le grossiste discount du Nord</h2>
+            <p>Le <strong>destockage alimentaire à Lille</strong> est la solution idéale pour les Lillois. <strong>DestockPro</strong> est le <strong>grossiste discount n°1 à Lille</strong> avec des prix jusqu'à <strong>70% moins chers</strong>.</p>
+
+            <div class="highlight-box">
+                <h3>📊 Destockage Lille en chiffres :</h3>
+                <ul>
+                    <li>🏙️ <strong>80%</strong> des Lillois achètent en destockage</li>
+                    <li>💰 <strong>70%</strong> d'économies</li>
+                    <li>🚚 <strong>24/48h</strong> de livraison</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="cta-article">
+                <h3>🏙️ Prêt à économiser à Lille ?</h3>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">🛒 Voir les offres Lille <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Destockage Lille</h2>
+            <div class="faq-item">
+                <h4>Où trouver du destockage alimentaire à Lille ?</h4>
+                <p>Chez <strong>DestockPro</strong>, le grossiste discount n°1 à Lille.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
