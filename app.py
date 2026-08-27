@@ -3044,7 +3044,7 @@ def discount_guide_pratique():
     return render_template('articles/discount-alimentaire-2026-guide-pratique-france.html')
 
 @app.route('/destockage-alimentaire-belgique-2026-guide-pratique')
-def destockage_belgique_guide():
+def destockage_belgique_guide1():
     return render_template('articles/destockage-alimentaire-belgique-2026-guide-pratique.html')
 
 @app.route('/destockage-alimentaire-espagne-2026-guide-pratique')
