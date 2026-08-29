@@ -3886,7 +3886,83 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-25'
         },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-ile-de-france-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-nord-pas-calais-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-paca-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-grand-est-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-auvergne-rhone-alpes-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-occitanie-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-nouvelle-aquitaine-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-bretagne-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-centre-val-de-loire-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-normandie-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-bourgogne-franche-comte-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
+        {
+            'loc': '/destockage-alimentaire-corse-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-08-28'
+        },
     ]
+    
     
     # URLs dynamiques - Produits
     produits = Produit.query.filter_by(actif=True).all()
@@ -3979,7 +4055,59 @@ Sitemap: https://www.destockalimentaire.com/sitemap-produits.xml
 Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 """, 200, {'Content-Type': 'text/plain'}
 
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
 
+@app.route('/destockage-alimentaire-ile-de-france-2026')
+def destockage_idf_2026():
+    return render_template('articles/destockage-alimentaire-ile-de-france-2026.html')
+
+@app.route('/destockage-alimentaire-nord-pas-calais-2026')
+def destockage_nord_2026():
+    return render_template('articles/destockage-alimentaire-nord-pas-calais-2026.html')
+
+@app.route('/destockage-alimentaire-paca-2026')
+def destockage_paca_2026():
+    return render_template('articles/destockage-alimentaire-paca-2026.html')
+
+@app.route('/destockage-alimentaire-grand-est-2026')
+def destockage_grand_est_2026():
+    return render_template('articles/destockage-alimentaire-grand-est-2026.html')
+
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+
+@app.route('/destockage-alimentaire-auvergne-rhone-alpes-2026')
+def destockage_ara_2026():
+    return render_template('articles/destockage-alimentaire-auvergne-rhone-alpes-2026.html')
+
+@app.route('/destockage-alimentaire-occitanie-2026')
+def destockage_occitanie_2026():
+    return render_template('articles/destockage-alimentaire-occitanie-2026.html')
+
+@app.route('/destockage-alimentaire-nouvelle-aquitaine-2026')
+def destockage_na_2026():
+    return render_template('articles/destockage-alimentaire-nouvelle-aquitaine-2026.html')
+
+@app.route('/destockage-alimentaire-bretagne-2026')
+def destockage_bretagne_2026():
+    return render_template('articles/destockage-alimentaire-bretagne-2026.html')
+
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+
+@app.route('/destockage-alimentaire-centre-val-de-loire-2026')
+def destockage_centre_2026():
+    return render_template('articles/destockage-alimentaire-centre-val-de-loire-2026.html')
+
+@app.route('/destockage-alimentaire-normandie-2026')
+def destockage_normandie_2026():
+    return render_template('articles/destockage-alimentaire-normandie-2026.html')
+
+@app.route('/destockage-alimentaire-bourgogne-franche-comte-2026')
+def destockage_bfc_2026():
+    return render_template('articles/destockage-alimentaire-bourgogne-franche-comte-2026.html')
+
+@app.route('/destockage-alimentaire-corse-2026')
+def destockage_corse_2026():
+    return render_template('articles/destockage-alimentaire-corse-2026.html')
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ULTRA BOOSTÉS ============
 # ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
 # ============ 4 ARTICLES DESTOCKPRO ULTRA CONVERSION ============
