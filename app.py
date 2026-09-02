@@ -3076,6 +3076,24 @@ def destockage_belgique_guide1():
 def destockage_espagne_guide():
     return render_template('articles/destockage-alimentaire-espagne-2026-guide-pratique.html')
 
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+
+@app.route('/destockage-alimentaire-pays-de-la-loire-2026')
+def destockage_pdl_2026():
+    return render_template('articles/destockage-alimentaire-pays-de-la-loire-2026.html')
+
+@app.route('/destockage-alimentaire-lorraine-2026')
+def destockage_lorraine_2026():
+    return render_template('articles/destockage-alimentaire-lorraine-2026.html')
+
+@app.route('/destockage-alimentaire-alsace-2026')
+def destockage_alsace_2026():
+    return render_template('articles/destockage-alimentaire-alsace-2026.html')
+
+@app.route('/destockage-alimentaire-champagne-ardenne-2026')
+def destockage_ca_2026():
+    return render_template('articles/destockage-alimentaire-champagne-ardenne-2026.html')
+    
 @app.route('/sitemap.xml')
 def sitemap():
     """Génère le sitemap XML complet"""
@@ -3986,6 +4004,106 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-08-28'
         },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-pays-de-la-loire-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-lorraine-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-alsace-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-champagne-ardenne-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+        {
+            'loc': '/destockage-alimentaire-haute-normandie-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-basse-normandie-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-limousin-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-aquitaine-2026', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        # ===== 4 ARTICLES ULTRA MEGA GIGA INDEXÉS =====
+        {
+            'loc': '/destockage-alimentaire-2026-leader-france-ultime', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/achat-palette-ruinart-blanc-de-blancs-prix', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/achat-palette-nutella-1kg-prix-grossiste', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-grossiste-discount-ultime-202609', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        # ===== 4 ARTICLES ULTRA PUISSANTS EN SEO =====
+        {
+            'loc': '/destockage-alimentaire-espagne-2026-guide-ultime', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-belgique-2026-guide-ultime', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/discount-alimentaire-2026-guide-ultime-france09', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
+        {
+            'loc': '/destockage-alimentaire-france-2026-guide-ultime', 
+            'priority': 1.0, 
+            'changefreq': 'daily', 
+            'lastmod': '2026-09-02'
+        },
     ]
     
     
@@ -4081,7 +4199,55 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 """, 200, {'Content-Type': 'text/plain'}
 
 # ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+# ===== 4 NOUVEAUX ARTICLES ULTRA MEGA SEO =====
+# ===== 4 ARTICLES ULTRA MEGA GIGA INDEXÉS =====
+# ===== 4 ARTICLES ULTRA PUISSANTS EN SEO =====
 
+@app.route('/destockage-alimentaire-espagne-2026-guide-ultime')
+def destockage_espagne_ultime():
+    return render_template('articles/destockage-alimentaire-espagne-2026-guide-ultime.html')
+
+@app.route('/destockage-alimentaire-belgique-2026-guide-ultime')
+def destockage_belgique_ultime():
+    return render_template('articles/destockage-alimentaire-belgique-2026-guide-ultime.html')
+
+@app.route('/discount-alimentaire-2026-guide-ultime-france09')
+def discount_ultime_france09():
+    return render_template('articles/discount-alimentaire-2026-guide-ultime-france09.html')
+
+@app.route('/destockage-alimentaire-france-2026-guide-ultime')
+def destockage_france_ultime():
+    return render_template('articles/destockage-alimentaire-france-2026-guide-ultime.html')
+@app.route('/destockage-alimentaire-2026-leader-france-ultime')
+def destockage_leader_ultime():
+    return render_template('articles/destockage-alimentaire-2026-leader-france-ultime.html')
+
+@app.route('/achat-palette-ruinart-blanc-de-blancs-prix')
+def achat_ruinart_palette():
+    return render_template('articles/achat-palette-ruinart-blanc-de-blancs-prix.html')
+
+@app.route('/achat-palette-nutella-1kg-prix-grossiste')
+def achat_nutella_palette():
+    return render_template('articles/achat-palette-nutella-1kg-prix-grossiste.html')
+
+@app.route('/destockage-alimentaire-grossiste-discount-ultime-202609')
+def destockage_ultime_202609():
+    return render_template('articles/destockage-alimentaire-grossiste-discount-ultime-202609.html')
+@app.route('/destockage-alimentaire-haute-normandie-2026')
+def destockage_hn_2026():
+    return render_template('articles/destockage-alimentaire-haute-normandie-2026.html')
+
+@app.route('/destockage-alimentaire-basse-normandie-2026')
+def destockage_bn_2026():
+    return render_template('articles/destockage-alimentaire-basse-normandie-2026.html')
+
+@app.route('/destockage-alimentaire-limousin-2026')
+def destockage_limousin_2026():
+    return render_template('articles/destockage-alimentaire-limousin-2026.html')
+
+@app.route('/destockage-alimentaire-aquitaine-2026')
+def destockage_aquitaine_2026():
+    return render_template('articles/destockage-alimentaire-aquitaine-2026.html')
 @app.route('/destockage-alimentaire-ile-de-france-2026')
 def destockage_idf_2026():
     return render_template('articles/destockage-alimentaire-ile-de-france-2026.html')
