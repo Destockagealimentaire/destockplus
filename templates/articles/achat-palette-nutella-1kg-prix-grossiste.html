@@ -1,0 +1,101 @@
+<!-- templates/articles/achat-palette-nutella-1kg-prix-grossiste.html -->
+{% extends "base.html" %}
+
+{% block title %}🍫 Achat Palette Nutella 1kg - Prix Grossiste -70% | DestockPro{% endblock %}
+
+{% block meta_description %}🍫 Achat palette Nutella 1kg au meilleur prix grossiste. 760 pots de la célèbre pâte à tartiner à prix discount. Jusqu'à 70% d'économies. Livraison 24/48h France. 15 000+ clients.{% endblock %}
+
+{% block meta_keywords %}achat palette Nutella, Nutella 1kg grossiste, prix Nutella palette, Nutella pas cher, palette Nutella discount, Nutella en gros, pâte à tartiner pas cher{% endblock %}
+
+{% block og_title %}🍫 Achat Palette Nutella 1kg - Prix Grossiste -70% | DestockPro{% endblock %}
+{% block og_description %}🍫 Achat palette Nutella 1kg au meilleur prix grossiste. 760 pots de la célèbre pâte à tartiner à prix discount. Jusqu'à 70% d'économies. Livraison 24/48h.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Achat Palette Nutella 1kg</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🍫 MEILLEUR VENTE</div>
+            <h1 itemprop="headline">🍫 Achat Palette Nutella 1kg - Prix Grossiste jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 2 septembre 2026</span>
+                <span>⏱️ 14 min de lecture</span>
+                <span>👤 Expert Épicerie DestockPro</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/nutella-palette-2026.jpg') }}" 
+                 alt="Achat palette Nutella 1kg" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🍫 La palette Nutella 1kg</a></li>
+                    <li><a href="#prix">💰 Prix de la palette</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi acheter en palette ?</a></li>
+                    <li><a href="#comparatif">📊 Comparatif des prix</a></li>
+                    <li><a href="#utilisation">🍽️ Idées d'utilisation</a></li>
+                    <li><a href="#faq">❓ FAQ</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🍫 La palette Nutella 1kg : l'offre incontournable du grossiste</h2>
+            <p>La <strong>palette Nutella 1kg</strong> est l'une de nos offres les plus populaires chez <strong>DestockPro</strong>. Avec <strong>760 pots de Nutella</strong> par palette, cette offre est idéale pour les professionnels et les particuliers.</p>
+
+            <div class="highlight-box">
+                <h3>📊 Nutella en chiffres :</h3>
+                <ul>
+                    <li>🍫 <strong>760</strong> pots par palette</li>
+                    <li>📦 <strong>1kg</strong> par pot</li>
+                    <li>💰 <strong>70%</strong> d'économies</li>
+                    <li>🌍 <strong>+100 pays</strong> où la Nutella est vendue</li>
+                </ul>
+            </div>
+
+            <div class="palette-examples">
+                <div class="palette-card">
+                    <span class="palette-badge">⭐ MEILLEUR VENTE</span>
+                    <h4>🍫 Nutella - 760 pots</h4>
+                    <div class="price-comparison">
+                        <span class="old-price">2 500€</span>
+                        <span class="new-price">1 536€</span>
+                        <span class="savings-label">Économie : 964€</span>
+                    </div>
+                    <div class="palette-details">
+                        <span>📦 760 pots</span>
+                        <span>🍫 1kg par pot</span>
+                        <span>🇫🇷 Origine France</span>
+                    </div>
+                    <a href="{{ url_for('produits') }}/105" class="btn-small">Voir l'offre</a>
+                </div>
+            </div>
+
+            <div class="cta-article">
+                <h3>🍫 Commandez votre palette Nutella maintenant</h3>
+                <p>760 pots à prix discount. Livraison 24/48h.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}/105" class="btn btn-primary">🛒 Acheter maintenant <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Palette Nutella</h2>
+            <div class="faq-item">
+                <h4>Combien coûte une palette Nutella 1kg ?</h4>
+                <p>La <strong>palette Nutella 1kg</strong> est à <strong>1 536€</strong> pour 760 pots, soit <strong>2,02€ par pot</strong> (prix public : 3,29€).</p>
+            </div>
+            <div class="faq-item">
+                <h4>Combien de pots dans une palette Nutella ?</h4>
+                <p>Une <strong>palette Nutella</strong> contient <strong>760 pots</strong> de 1kg.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

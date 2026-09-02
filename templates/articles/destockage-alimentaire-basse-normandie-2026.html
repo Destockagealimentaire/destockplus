@@ -1,0 +1,82 @@
+<!-- templates/articles/destockage-alimentaire-basse-normandie-2026.html -->
+{% extends "base.html" %}
+
+{% block title %}🏰 Destockage Alimentaire Basse-Normandie 2026 - Grossiste -70% | DestockPro BN{% endblock %}
+
+{% block meta_description %}🏰 Destockage alimentaire Basse-Normandie 2026 : grossiste discount dans la région. Caen, Cherbourg, Alençon, Saint-Lô. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies. Livraison 24/48h. 15 000+ clients.{% endblock %}
+
+{% block meta_keywords %}destockage alimentaire Basse-Normandie, grossiste BN, destockage Caen, destockage Cherbourg, destockage Alençon, destockage Saint-Lô, palettes Basse-Normandie{% endblock %}
+
+{% block og_title %}🏰 Destockage Alimentaire Basse-Normandie 2026 - Grossiste -70% | DestockPro BN{% endblock %}
+{% block og_description %}🏰 Destockage alimentaire Basse-Normandie 2026 : grossiste discount dans la région. Caen, Cherbourg, Alençon, Saint-Lô. Boissons, surgelés, épicerie, champagne. Jusqu'à 70% d'économies.{% endblock %}
+
+{% block content %}
+<article class="article-ultra-seo" itemscope itemtype="https://schema.org/Article">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li>Destockage Alimentaire Basse-Normandie 2026</li>
+            </ol>
+        </nav>
+
+        <header class="article-header">
+            <div class="header-badge">🏰 BASSE-NORMANDIE</div>
+            <h1 itemprop="headline">🏰 Destockage Alimentaire Basse-Normandie 2026 - Grossiste Discount jusqu'à -70%</h1>
+            <div class="article-meta">
+                <span>📅 2 septembre 2026</span>
+                <span>⏱️ 16 min de lecture</span>
+                <span>👤 Expert DestockPro BN</span>
+                <span>⭐ 4.9/5 (152 avis)</span>
+            </div>
+            <img src="{{ url_for('static', filename='images/destockage-bn-2026.jpg') }}" 
+                 alt="Destockage alimentaire Basse-Normandie 2026" class="hero-image">
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+            <div class="table-of-contents">
+                <h2>📋 Sommaire</h2>
+                <ul>
+                    <li><a href="#introduction">🏰 Destockage Basse-Normandie 2026</a></li>
+                    <li><a href="#pourquoi">💡 Pourquoi en Basse-Normandie ?</a></li>
+                    <li><a href="#villes">📍 Destockage par ville</a></li>
+                    <li><a href="#caen">🏰 Destockage à Caen</a></li>
+                    <li><a href="#cherbourg">⚓ Destockage à Cherbourg</a></li>
+                    <li><a href="#produits">📦 Produits disponibles</a></li>
+                    <li><a href="#palettes">📦 Palettes en BN</a></li>
+                    <li><a href="#prix">💰 Prix BN 2026</a></li>
+                    <li><a href="#livraison">🚚 Livraison 24/48h</a></li>
+                    <li><a href="#faq">❓ FAQ</a></li>
+                </ul>
+            </div>
+
+            <h2 id="introduction">🏰 Destockage alimentaire Basse-Normandie 2026 : le grossiste discount de la région</h2>
+            <p>Le <strong>destockage alimentaire en Basse-Normandie</strong> est la solution idéale pour les habitants de la région. <strong>DestockPro</strong> est le <strong>grossiste discount n°1 en Basse-Normandie</strong> avec des prix jusqu'à <strong>70% moins chers</strong>.</p>
+
+            <div class="highlight-box">
+                <h3>📊 Destockage Basse-Normandie en chiffres :</h3>
+                <ul>
+                    <li>🏰 <strong>79%</strong> des habitants de BN achètent en destockage</li>
+                    <li>💰 <strong>70%</strong> d'économies</li>
+                    <li>🚚 <strong>24/48h</strong> de livraison</li>
+                    <li>⭐ <strong>4.9/5</strong> de satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="cta-article">
+                <h3>🏰 Prêt à économiser en Basse-Normandie ?</h3>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('produits') }}" class="btn btn-primary">🛒 Voir les offres BN <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">📞 Devis gratuit <i class="fas fa-file-alt"></i></a>
+                </div>
+            </div>
+
+            <h2 id="faq">❓ FAQ - Destockage Basse-Normandie</h2>
+            <div class="faq-item">
+                <h4>Où trouver du destockage alimentaire en Basse-Normandie ?</h4>
+                <p>Chez <strong>DestockPro</strong>, le grossiste discount n°1 en Basse-Normandie.</p>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
