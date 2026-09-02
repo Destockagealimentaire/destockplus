@@ -23,6 +23,7 @@ SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))
 SMTP_USER = os.environ.get('SMTP_USER', '')
 SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
 RECIPIENT_EMAIL = os.environ.get('RECIPIENT_EMAIL', '')
+RECAPTCHA_SECRET_KEY = "6LfF9aQtAAAAAIvFP0DVzZL5P6ZmLSWPY1Jy123X"
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'votre-cle-secrete-tres-securisee-2024'
@@ -105,7 +106,7 @@ def send_email_contact(nom, prenom, email, telephone, sujet, message):
 
 # ============ ROUTE CONTACT - UTILISE @csrf.exempt ============
 @app.route('/contact', methods=['GET', 'POST'])
-@csrf.exempt  # ← Utilisez @csrf.exempt (pas @csrf_exempt)
+@csrf.exempt
 def contact():
     """Page de contact"""
     if request.method == 'POST':
@@ -116,6 +117,30 @@ def contact():
         sujet = request.form.get('sujet')
         message = request.form.get('message')
         
+        # === VÉRIFICATION reCAPTCHA ===
+        recaptcha_response = request.form.get('g-recaptcha-response')
+        
+        if not recaptcha_response:
+            return jsonify({'success': False, 'error': 'Veuillez valider le reCAPTCHA'})
+        
+        # Vérifier auprès de Google
+        try:
+            payload = {
+                'secret': RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=payload, timeout=10)
+            result = r.json()
+            
+            if not result.get('success'):
+                return jsonify({'success': False, 'error': 'reCAPTCHA invalide. Veuillez réessayer.'})
+                
+        except Exception as e:
+            print(f"Erreur reCAPTCHA: {e}")
+            return jsonify({'success': False, 'error': 'Erreur de vérification reCAPTCHA'})
+        # === FIN VÉRIFICATION ===
+        
+        # Suite de votre code existant...
         print("=" * 60)
         print(f"📬 FORMULAIRE CONTACT REÇU")
         print(f"Nom: {prenom} {nom}")
@@ -128,7 +153,7 @@ def contact():
         # Envoi email
         email_success, email_error = send_email_contact(nom, prenom, email, telephone, sujet, message)
         
-        # Envoi Telegram
+        # Envoi Telegram (votre code existant)
         telegram_success = False
         try:
             telegram_message = f"""
