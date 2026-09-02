@@ -157,6 +157,12 @@
                         </label>
                     </div>
                     
+                    <!-- ===== WIDGET reCAPTCHA ===== -->
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LfF9aQtAAAAAMPxv4I1V17erIET8FNeOuAMEO2J"></div>
+                    </div>
+                    <!-- ===== FIN WIDGET ===== -->
+                    
                     <div class="recaptcha-info">
                         <i class="fas fa-shield-alt"></i>
                         Ce site est protégé par reCAPTCHA et la <a href="/confidentialite" target="_blank">politique de confidentialité</a> de Google s'applique.
@@ -258,6 +264,9 @@
 }
 </script>
 
+<!-- Bibliothèque reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
@@ -299,6 +308,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            // ===== VÉRIFICATION reCAPTCHA =====
+            const recaptchaResponse = document.querySelector('.g-recaptcha-response');
+            if (!recaptchaResponse || !recaptchaResponse.value) {
+                showNotification('Veuillez valider le reCAPTCHA', 'error');
+                return;
+            }
+            // ===== FIN VÉRIFICATION =====
+            
             // Envoi
             const submitBtn = this.querySelector('.btn-submit');
             const originalHTML = submitBtn.innerHTML;
@@ -315,8 +332,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.success) {
                     showNotification('✅ Message envoyé avec succès ! Notre équipe vous répondra sous 24h.', 'success');
                     contactForm.reset();
+                    // Réinitialiser reCAPTCHA
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.reset();
+                    }
                 } else {
-                    showNotification('❌ Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+                    showNotification('❌ ' + (data.error || 'Erreur lors de l\'envoi. Veuillez réessayer.'), 'error');
                 }
             })
             .catch(error => {
