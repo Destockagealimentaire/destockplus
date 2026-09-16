@@ -3299,7 +3299,10 @@ products = [
         "economie_percent": 23,
         "economie_montant": 455.23,
         "images": [
-            "biscuits-nutella.jpg"
+            "biscuits-nutella-1.jpg",
+            "biscuits-nutella-2.jpg",
+            "biscuits-nutella-3.jpg",
+            
         ],
         "videos": [],
         "documents": []
@@ -3381,7 +3384,8 @@ products = [
         "economie_percent": 23,
         "economie_montant": 557.28,
         "images": [
-            "nutella-palette.jpg"
+            "nutella-palette.jpg",
+            "nutella-1.jpg", "nutella-2.jpg","nutella-3.jpg"
         ],
         "videos": [],
         "documents": []
@@ -4111,7 +4115,7 @@ products = [
         "economie_percent": 23,
         "economie_montant": 60.84,
         "images": [
-            "sucre-beghin.jpg"
+            "distributeur-va6k4.jpg","distributeur-va6k5.jpg"
         ],
         "videos": [],
         "documents": []
@@ -4264,8 +4268,8 @@ products = [
         "economie_percent": 23,
         "economie_montant": 320.40,
         "images": [
-            "coke-palette.jpg",
-            "coke-palette2.jpg"
+            "coca-zero.jpg",
+            "coca-zero-3.jpg","coca-zero-2.jpg"
         ],
         "videos": [],
         "documents": []
@@ -4335,7 +4339,7 @@ products = [
         "economie_percent": 23,
         "economie_montant": 234.00,
         "images": [
-            "frial-palette.jpg"
+            "huile-colza-2.webp", "huile-colza.jpg"
         ],
         "videos": [],
         "documents": []
@@ -5424,7 +5428,7 @@ products = [
         "economie_percent": 26,
         "economie_montant": 218.40,
         "images": [
-            "destop-ariel.jpg"
+            "ariel-palette.jpg"
         ],
         "videos": [],
         "documents": []
