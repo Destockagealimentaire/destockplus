@@ -2012,6 +2012,8 @@
     </style>
     
     {% block extra_css %}{% endblock %}
+    
+    {% block head_extra %}{% endblock %}    
 </head>
 <body>
     <!-- Navigation moderne -->
@@ -4694,5 +4696,6 @@ function addToWishlist(productId) {
     }
 </script>
     {% block scripts %}{% endblock %}
+    {% block head_extra %}{% endblock %}
 </body>
 </html>
