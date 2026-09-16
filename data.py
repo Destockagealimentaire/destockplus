@@ -622,7 +622,7 @@ products = [
         "devise": "EUR",
         "categorie_id": category_map["Épicerie"],
         "categorie_nom": "Épicerie",
-        "stock": 80,
+        "stock": 8,
         "stock_initial": 100,
         "sku": "NUT-1KG-760-PAL",
         "upc": "8000500155428",
