@@ -3110,6 +3110,28 @@ def destockage_hdf_ultime():
 @app.route('/destockage-alimentaire-provence-alpes-cote-azur-2026-ultime')
 def destockage_paca_ultime():
     return render_template('articles/destockage-alimentaire-provence-alpes-cote-azur-2026-ultime.html')
+
+# ============ 4 NOUVEAUX ARTICLES ============
+
+@app.route('/article/ruinart-blanc-de-blancs-guide')
+def article_ruinart():
+    """Article : Ruinart Blanc de Blancs"""
+    return render_template('articles/ruinart-blanc-de-blancs-guide.html')
+
+@app.route('/article/petrole-chauffage-clamc-cuve-ibc')
+def article_petrole_clamc():
+    """Article : Pétrole de chauffage CLAMC - Cuve IBC 1000L"""
+    return render_template('articles/petrole-chauffage-clamc-cuve-ibc.html')
+
+@app.route('/article/destockage-alimentaire-belgique')
+def article_belgique():
+    """Article : Destockage alimentaire Belgique"""
+    return render_template('articles/destockage-alimentaire-belgique.html')
+
+@app.route('/article/destockage-alimentaire-guide-complet')
+def article_destockage_complet():
+    """Article : Guide complet du destockage alimentaire"""
+    return render_template('articles/destockage-alimentaire-guide-complet.html')
     
 @app.route('/sitemap.xml')
 def sitemap():
@@ -4221,6 +4243,37 @@ def sitemap():
             'changefreq': 'daily', 
             'lastmod': '2026-09-04'
         },
+        # ============ 4 NOUVEAUX ARTICLES - SITEMAP ============
+        {'loc': '/article/ruinart-blanc-de-blancs-guide', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+        {'loc': '/article/petrole-chauffage-clamc-cuve-ibc', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+        {'loc': '/article/destockage-alimentaire-belgique', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+        {'loc': '/article/destockage-alimentaire-guide-complet', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+        # ============ 4 NOUVEAUX ARTICLES - SITEMAP ============
+{'loc': '/article/champagne-pas-cher-palette', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/surgeles-destockage-palette', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/electromenager-destockage', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-professionnel', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+# ============ 4 NOUVEAUX ARTICLES - SITEMAP ============
+{'loc': '/article/boissons-destockage-palette', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/livraison-palettes-france-belgique', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/palettes-alimentaires-pas-cheres', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-espagne', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE - SITEMAP ============
+{'loc': '/article/destockage-alimentaire-grand-est', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-auvergne-rhone-alpes', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-nouvelle-aquitaine', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-occitanie', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+        # ============ 4 NOUVEAUX ARTICLES - SITEMAP ============
+{'loc': '/article/nutella-palette-prix-grossiste', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-belgique-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-espagne-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/petrole-chauffage-clamc-cuve-ibc-1000l', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+
+# ============ 4 NOUVEAUX ARTICLES - SITEMAP ============
+{'loc': '/article/destockage-alimentaire-paris-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/discount-alimentaire-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/destockage-alimentaire-lille-2026', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
+{'loc': '/article/nutella-guide-complet', 'priority': 1.0, 'changefreq': 'weekly', 'lastmod': '2026-09-15'},
     ]
     
     
@@ -4322,7 +4375,107 @@ Sitemap: https://www.destockalimentaire.com/sitemap-categories.xml
 # ===== 4 ARTICLES ULTRA PUISSANTS V2 =====
 # ===== 4 ARTICLES ULTRA PUISSANTS V3 =====
 # ===== 4 ARTICLES ULTRA PREMIUM BELGIQUE & ESPAGNE =====
+# ============ 4 NOUVEAUX ARTICLES ============
+# ============ 4 NOUVEAUX ARTICLES ============
+# ============ 4 NOUVEAUX ARTICLES DESTOCKAGE ============
+# ============ 4 NOUVEAUX ARTICLES ============
+# ============ 4 NOUVEAUX ARTICLES ============
 
+@app.route('/article/destockage-alimentaire-paris-2026')
+def article_paris_2026():
+    """Article : Destockage alimentaire Paris 2026"""
+    return render_template('articles/destockage-alimentaire-paris-2026.html')
+
+@app.route('/article/discount-alimentaire-2026')
+def article_discount_alimentaire_2026():
+    """Article : Discount alimentaire 2026"""
+    return render_template('articles/discount-alimentaire-2026.html')
+
+@app.route('/article/destockage-alimentaire-lille-2026')
+def article_lille_2026():
+    """Article : Destockage alimentaire Lille 2026"""
+    return render_template('articles/destockage-alimentaire-lille-2026.html')
+
+@app.route('/article/nutella-guide-complet')
+def article_nutella_guide():
+    """Article : Nutella guide complet"""
+    return render_template('articles/nutella-guide-complet.html')
+@app.route('/article/nutella-palette-prix-grossiste')
+def article_nutella_palette():
+    """Article : Nutella en palette"""
+    return render_template('articles/nutella-palette-prix-grossiste.html')
+
+@app.route('/article/destockage-alimentaire-belgique-2026')
+def article_belgique_2026():
+    """Article : Destockage alimentaire Belgique 2026"""
+    return render_template('articles/destockage-alimentaire-belgique-2026.html')
+
+@app.route('/article/destockage-alimentaire-espagne-2026')
+def article_espagne_2026():
+    """Article : Destockage alimentaire Espagne 2026"""
+    return render_template('articles/destockage-alimentaire-espagne-2026.html')
+
+@app.route('/article/petrole-chauffage-clamc-cuve-ibc-1000l')
+def article_petrole_clamc_ibc():
+    """Article : Pétrole de chauffage CLAMC - Cuve IBC 1000L"""
+    return render_template('articles/petrole-chauffage-clamc-cuve-ibc-1000l.html')
+@app.route('/article/destockage-alimentaire-grand-est')
+def article_grand_est():
+    """Article : Destockage alimentaire Grand Est"""
+    return render_template('articles/destockage-alimentaire-grand-est.html')
+
+@app.route('/article/destockage-alimentaire-auvergne-rhone-alpes')
+def article_auvergne_rhone_alpes():
+    """Article : Destockage alimentaire Auvergne-Rhône-Alpes"""
+    return render_template('articles/destockage-alimentaire-auvergne-rhone-alpes.html')
+
+@app.route('/article/destockage-alimentaire-nouvelle-aquitaine')
+def article_nouvelle_aquitaine():
+    """Article : Destockage alimentaire Nouvelle-Aquitaine"""
+    return render_template('articles/destockage-alimentaire-nouvelle-aquitaine.html')
+
+@app.route('/article/destockage-alimentaire-occitanie')
+def article_occitanie():
+    """Article : Destockage alimentaire Occitanie"""
+    return render_template('articles/destockage-alimentaire-occitanie.html')
+@app.route('/article/boissons-destockage-palette')
+def article_boissons_destockage():
+    """Article : Boissons en destockage"""
+    return render_template('articles/boissons-destockage-palette.html')
+
+@app.route('/article/livraison-palettes-france-belgique')
+def article_livraison_palettes():
+    """Article : Livraison de palettes France Belgique"""
+    return render_template('articles/livraison-palettes-france-belgique.html')
+
+@app.route('/article/palettes-alimentaires-pas-cheres')
+def article_palettes_pas_cheres():
+    """Article : Palettes alimentaires pas chères"""
+    return render_template('articles/palettes-alimentaires-pas-cheres.html')
+
+@app.route('/article/destockage-alimentaire-espagne')
+def article_destockage_espagne():
+    """Article : Destockage alimentaire Espagne"""
+    return render_template('articles/destockage-alimentaire-espagne.html')
+@app.route('/article/champagne-pas-cher-palette')
+def article_champagne_pas_cher():
+    """Article : Champagne pas cher en palette"""
+    return render_template('articles/champagne-pas-cher-palette.html')
+
+@app.route('/article/surgeles-destockage-palette')
+def article_surgeles_destockage():
+    """Article : Surgelés en destockage"""
+    return render_template('articles/surgeles-destockage-palette.html')
+
+@app.route('/article/electromenager-destockage')
+def article_electromenager_destockage():
+    """Article : Électroménager en destockage"""
+    return render_template('articles/electromenager-destockage.html')
+
+@app.route('/article/destockage-alimentaire-professionnel')
+def article_destockage_professionnel():
+    """Article : Destockage alimentaire professionnel"""
+    return render_template('articles/destockage-alimentaire-professionnel.html')
 @app.route('/destockage-alimentaire-belgique-2026-guide-ultime-premium')
 def destockage_belgique_premium():
     return render_template('articles/destockage-alimentaire-belgique-2026-guide-ultime-premium.html')
