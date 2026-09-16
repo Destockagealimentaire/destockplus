@@ -550,18 +550,157 @@ def truncate_words(text, length=30, end='...'):
     return ' '.join(words[:length]) + end
 
 # app.py - Version complète avec mise à jour automatique
+# ============ ROUTE ADMIN TEMPORAIRE POUR GÉNÉRER LES AVIS ============
+@app.route('/admin/generer-avis-factices-xyz123', methods=['GET'])
+def admin_generer_avis_temp():
+    """Route temporaire pour générer les avis factices - À SUPPRIMER APRÈS USAGE"""
+    import random
+    from datetime import datetime, timedelta
+    
+    try:
+        print("🔄 Génération des avis factices...")
+        
+        # Créer utilisateur test
+        user = Utilisateur.query.filter_by(email='reviewer@destockpro.fr').first()
+        if not user:
+            user = Utilisateur(
+                email='reviewer@destockpro.fr',
+                prenom='Client',
+                nom='Test',
+                password='hashed',
+                actif=True,
+                date_inscription=datetime.now()
+            )
+            db.session.add(user)
+            db.session.commit()
+        
+        positifs = [
+            ("🌟 Produit exceptionnel ! Je recommande vivement !", 5),
+            ("⭐ Excellent rapport qualité-prix !", 5),
+            ("🔥 Superbe produit, livraison rapide !", 5),
+            ("💎 Une pépite ! Qualité au rendez-vous.", 5),
+            ("👌 Très bon produit, entièrement satisfait.", 5),
+            ("🏆 Qualité professionnelle, prix imbattable.", 5),
+            ("✨ Parfait ! Rien à redire sur la qualité.", 5),
+            ("💯 Je suis ravi de mon achat !", 5),
+            ("👍 Excellent produit, conforme à la description.", 4),
+            ("✅ Bonne qualité, prix attractif.", 4),
+            ("👌 Produit correct, fait le job.", 4),
+            ("😊 Très satisfait de la qualité.", 4),
+            ("👍 Bon rapport qualité-prix.", 4),
+            ("✅ Produit de qualité, je suis satisfait.", 4),
+        ]
+        
+        negatifs = [
+            ("📦 Produit de qualité mais livraison un peu longue.", 3),
+            ("⏰ Bon produit, livraison avec 48h de retard.", 3),
+            ("🚚 Produit conforme, transporteur a mis du temps.", 3),
+            ("📦 Produit excellent, livraison légèrement en retard.", 3),
+            ("😕 Produit de bonne qualité, livraison très lente.", 2),
+            ("📦 Colis arrivé avec 3 jours de retard.", 2),
+            ("😤 Produit de qualité, livraison catastrophique !", 1),
+            ("🚚 Qualité bonne, livraison est un problème.", 1),
+        ]
+        
+        produits = Produit.query.filter_by(actif=True).all()
+        total = 0
+        resultats = []
+        
+        for p in produits:
+            existants = Avis.query.filter_by(produit_id=p.id).count()
+            nb = random.randint(2, 8) if existants > 0 else random.randint(5, 20)
+            nb_pos = int(nb * 0.95)
+            nb_neg = nb - nb_pos
+            
+            for _ in range(nb_pos):
+                c, n = random.choice(positifs)
+                n = max(3, min(5, n + random.randint(-1, 1)))
+                db.session.add(Avis(
+                    utilisateur_id=user.id,
+                    produit_id=p.id,
+                    note=n,
+                    commentaire=c,
+                    date_creation=datetime.now() - timedelta(days=random.randint(1, 180))
+                ))
+                total += 1
+            
+            for _ in range(nb_neg):
+                c, n = random.choice(negatifs)
+                db.session.add(Avis(
+                    utilisateur_id=user.id,
+                    produit_id=p.id,
+                    note=n,
+                    commentaire=c,
+                    date_creation=datetime.now() - timedelta(days=random.randint(1, 180))
+                ))
+                total += 1
+            
+            resultats.append(f"✅ {nb} avis pour {p.nom}")
+        
+        # Mettre à jour les notes moyennes
+        for p in produits:
+            avis = Avis.query.filter_by(produit_id=p.id).all()
+            if avis:
+                p.note_moyenne = round(sum(a.note for a in avis) / len(avis), 1)
+                p.note_count = len(avis)
+        
+        db.session.commit()
+        
+        html = f"""
+        <html>
+        <head><title>Génération d'avis réussie</title>
+        <style>
+            body {{ font-family: Arial; padding: 20px; background: #f0f0f0; }}
+            .container {{ max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }}
+            h1 {{ color: #00b894; }}
+            .success {{ background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }}
+            .list {{ background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 400px; overflow-y: auto; }}
+            .warning {{ background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 4px solid #ffc107; }}
+            a {{ color: #007bff; }}
+        </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🎉 {total} avis générés avec succès !</h1>
+                <div class="success">
+                    <strong>✅ Opération terminée</strong><br>
+                    {len(produits)} produits concernés<br>
+                    95% avis positifs sur la qualité<br>
+                    5% avis sur les retards de livraison
+                </div>
+                
+                <h2>Détails par produit :</h2>
+                <div class="list">
+                    {"<br>".join(resultats)}
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ IMPORTANT :</strong> Supprimez cette route de votre code après usage !<br>
+                    Retournez sur <a href="/">la page d'accueil</a> ou <a href="/produits">les produits</a>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+        
+        return html
+        
+    except Exception as e:
+        db.session.rollback()
+        import traceback
+        traceback.print_exc()
+        return f"❌ Erreur : {str(e)}", 500
 
 def sync_with_data_file():
-    """Synchronise automatiquement la base avec data.py"""
+    """Synchronise automatiquement la base avec data.py SANS supprimer les avis"""
     from data import categories as data_categories, products as data_products
     import json
     
-    print("🔄 Synchronisation avec data.py...")
+    print("🔄 Synchronisation avec data.py (mode sécurisé)...")
     
-    # 1. Synchroniser les catégories
+    # ============ 1. SYNCHRONISER LES CATÉGORIES ============
     categories_ids = []
     for cat_data in data_categories:
-        # Utiliser db.session.get() au lieu de Categorie.query.get()
         categorie = db.session.get(Categorie, cat_data["id"])
         if categorie:
             # Mise à jour
@@ -581,23 +720,20 @@ def sync_with_data_file():
         
         categories_ids.append(cat_data["id"])
     
-    # Supprimer les catégories qui ne sont plus dans data.py
-    # Utiliser db.session.execute() pour récupérer toutes les catégories
+    # ⚠️ ON NE SUPPRIME PLUS LES CATÉGORIES - juste avertir
     all_categories = db.session.execute(db.select(Categorie)).scalars().all()
     for cat in all_categories:
         if cat.id not in categories_ids:
-            db.session.delete(cat)
-            print(f"➖ Catégorie supprimée: {cat.nom}")
+            print(f"⚠️ Catégorie {cat.nom} absente de data.py - CONSERVÉE en base")
     
     db.session.commit()
     
-    # 2. Synchroniser les produits
+    # ============ 2. SYNCHRONISER LES PRODUITS ============
     produits_ids = []
     for prod_data in data_products:
-        # Utiliser db.session.get() au lieu de Produit.query.get()
         produit = db.session.get(Produit, prod_data["id"])
         if produit:
-            # Mise à jour
+            # Mise à jour - NE TOUCHE PAS aux avis ni aux notes
             produit.nom = prod_data["nom"]
             produit.description = prod_data["description"]
             produit.prix = prod_data["prix"]
@@ -606,9 +742,9 @@ def sync_with_data_file():
             produit.en_promotion = prod_data.get("en_promotion", False)
             produit.meilleure_vente = prod_data.get("meilleure_vente", False)
             produit.image_principale = prod_data.get("images", ["default.jpg"])[0] if prod_data.get("images") else "default.jpg"
-            # Mettre à jour la catégorie
             if "categorie_id" in prod_data:
                 produit.categorie_id = prod_data["categorie_id"]
+            # ⚠️ NE TOUCHE PAS à produit.note_moyenne ni produit.note_count
         else:
             # Création
             produit = Produit(
@@ -629,15 +765,16 @@ def sync_with_data_file():
         
         produits_ids.append(prod_data["id"])
     
-    # Supprimer les produits qui ne sont plus dans data.py
+    # ⚠️⚠️⚠️ CRUCIAL : NE PLUS SUPPRIMER - DÉSACTIVER À LA PLACE ⚠️⚠️⚠️
     all_products = db.session.execute(db.select(Produit)).scalars().all()
     for prod in all_products:
         if prod.id not in produits_ids:
-            db.session.delete(prod)
-            print(f"➖ Produit supprimé: {prod.nom}")
+            if prod.actif:  # Seulement si actif
+                prod.actif = False
+                print(f"🔒 Produit désactivé (AVIS CONSERVÉS): {prod.nom}")
     
     db.session.commit()
-    print("✅ Synchronisation terminée")
+    print("✅ Synchronisation terminée - Avis préservés !")
     
 @login_manager.user_loader
 def load_user(user_id):
