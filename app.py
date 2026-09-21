@@ -562,9 +562,11 @@ def paiement_virement(commande_id=None):
             db.session.commit()
             print(f"✅ Statut mis à jour: {commande.statut}")
             # Envoi email
+            # Envoi emails (admin + client)
             try:
                 items = CommandeItem.query.filter_by(commande_id=commande.id).all()
                 send_email_commande(commande, items, mode_paiement='virement')
+                send_email_client(commande, items, mode_paiement='virement')
             except Exception as e:
                 print(f"⚠️ Échec email commande virement: {e}")
             # Nettoyer la session
@@ -598,7 +600,166 @@ def paiement_virement(commande_id=None):
 # ============================================================
 # VUES ADMIN - COMMANDES (AJOUTÉ)
 # ============================================================
+# ============ FONCTION ENVOI EMAIL AU CLIENT ============
+def send_email_client(commande, items, mode_paiement='carte'):
+    """Envoie un email de confirmation de commande au CLIENT"""
+    if not commande.email_client:
+        logger.warning(f"⚠️ Pas d'email client pour la commande {commande.numero}")
+        return False
+    
+    try:
+        # Construire la liste des articles
+        items_html = ""
+        for item in items:
+            prix_total = item.prix_unitaire * item.quantite
+            items_html += f"""
+            <tr>
+                <td style="padding:10px 8px;border-bottom:1px solid #eee;">{item.produit.nom}</td>
+                <td style="padding:10px 8px;border-bottom:1px solid #eee;text-align:center;">{item.quantite}</td>
+                <td style="padding:10px 8px;border-bottom:1px solid #eee;text-align:right;">{item.prix_unitaire:.2f} €</td>
+                <td style="padding:10px 8px;border-bottom:1px solid #eee;text-align:right;font-weight:bold;">{prix_total:.2f} €</td>
+            </tr>
+            """
 
+        paiement_label = {
+            'carte': '💳 Carte bancaire',
+            'card': '💳 Carte bancaire',
+            'paypal': '🅿️ PayPal',
+            'virement': '🏦 Virement bancaire',
+            'transfer': '🏦 Virement bancaire'
+        }.get(mode_paiement, mode_paiement)
+
+        sujet = f"✅ Confirmation de votre commande {commande.numero}"
+
+        # Message spécifique selon le mode de paiement
+        message_paiement = ""
+        if mode_paiement in ('virement', 'transfer'):
+            message_paiement = """
+            <div style="margin-top:20px;padding:15px;background:#e7f3ff;border-left:4px solid #0066cc;border-radius:4px;">
+                <p style="margin:0 0 8px;font-weight:bold;color:#0066cc;">🏦 Instructions de virement</p>
+                <p style="margin:5px 0;font-size:14px;">Veuillez effectuer un virement de <strong>{tf:.2f} €</strong> sur le compte suivant :</p>
+                <table style="width:100%;margin-top:10px;font-size:14px;">
+                    <tr><td style="padding:4px 0;"><strong>Bénéficiaire :</strong></td><td>DestockPro SAS</td></tr>
+                    <tr><td style="padding:4px 0;"><strong>IBAN :</strong></td><td>FR76 1234 5678 9012 3456 7890 123</td></tr>
+                    <tr><td style="padding:4px 0;"><strong>BIC :</strong></td><td>BNPAFRPP</td></tr>
+                    <tr><td style="padding:4px 0;"><strong>Référence :</strong></td><td><strong>{numero}</strong></td></tr>
+                </table>
+                <p style="margin:10px 0 0;font-size:13px;color:#666;">⚠️ La commande sera traitée dès réception du virement (24-48h ouvrés).</p>
+            </div>
+            """.format(tf=commande.total_final, numero=commande.numero)
+        
+        elif mode_paiement in ('carte', 'card'):
+            message_paiement = """
+            <div style="margin-top:20px;padding:15px;background:#e7f9ee;border-left:4px solid #00b894;border-radius:4px;">
+                <p style="margin:0;font-size:14px;color:#00b894;"><strong>✅ Paiement confirmé</strong> — Votre commande est en cours de traitement.</p>
+            </div>
+            """
+        
+        elif mode_paiement == 'paypal':
+            message_paiement = """
+            <div style="margin-top:20px;padding:15px;background:#e7f9ee;border-left:4px solid #00b894;border-radius:4px;">
+                <p style="margin:0;font-size:14px;color:#00b894;"><strong>✅ Paiement PayPal confirmé</strong> — Votre commande est en cours de traitement.</p>
+            </div>
+            """
+
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:20px;">
+            <div style="max-width:700px;margin:0 auto;background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+                
+                <div style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);padding:30px;color:white;text-align:center;">
+                    <h1 style="margin:0 0 10px;font-size:26px;">✅ Merci pour votre commande !</h1>
+                    <p style="margin:0;opacity:0.85;font-size:15px;">Votre commande <strong>{commande.numero}</strong> a bien été enregistrée</p>
+                </div>
+
+                <div style="padding:30px;">
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;margin-bottom:25px;">
+                        <p style="margin:0 0 5px;"><strong>💰 Total :</strong> <span style="color:#c4a747;font-size:22px;font-weight:bold;">{commande.total_final:.2f} €</span></p>
+                        <p style="margin:0;"><strong>💳 Mode de paiement :</strong> {paiement_label}</p>
+                        <p style="margin:5px 0 0;"><strong>📅 Date :</strong> {commande.date_creation.strftime('%d/%m/%Y à %H:%M')}</p>
+                    </div>
+
+                    <p style="font-size:15px;color:#333;line-height:1.6;">Bonjour <strong>{commande.nom_client}</strong>,</p>
+                    <p style="font-size:15px;color:#333;line-height:1.6;">Nous vous confirmons la bonne réception de votre commande. Voici le récapitulatif :</p>
+
+                    <h2 style="color:#1a1a1a;font-size:17px;border-bottom:2px solid #c4a747;padding-bottom:8px;margin-top:25px;">📦 Vos articles</h2>
+                    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+                        <thead>
+                            <tr style="background:#f8f9fa;">
+                                <th style="padding:10px 8px;text-align:left;font-size:13px;">Produit</th>
+                                <th style="padding:10px 8px;text-align:center;font-size:13px;">Qté</th>
+                                <th style="padding:10px 8px;text-align:right;font-size:13px;">Prix unit.</th>
+                                <th style="padding:10px 8px;text-align:right;font-size:13px;">Sous-total</th>
+                            </tr>
+                        </thead>
+                        <tbody>{items_html}</tbody>
+                    </table>
+
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;">
+                        <p style="margin:0;display:flex;justify-content:space-between;font-size:14px;"><span>Sous-total</span><span>{commande.total:.2f} €</span></p>
+                        <p style="margin:5px 0;display:flex;justify-content:space-between;font-size:14px;"><span>Frais de port</span><span>{commande.frais_port:.2f} €</span></p>
+                        <p style="margin:10px 0 0;padding-top:10px;border-top:2px solid #ddd;display:flex;justify-content:space-between;font-size:18px;font-weight:bold;"><span>TOTAL TTC</span><span style="color:#c4a747;">{commande.total_final:.2f} €</span></p>
+                    </div>
+
+                    {message_paiement}
+
+                    <h2 style="color:#1a1a1a;font-size:17px;border-bottom:2px solid #c4a747;padding-bottom:8px;margin-top:30px;">🚚 Adresse de livraison</h2>
+                    <p style="font-size:14px;color:#333;line-height:1.6;background:#f8f9fa;padding:12px;border-radius:6px;">
+                        <strong>{commande.nom_client}</strong><br>
+                        {commande.adresse_livraison}<br>
+                        📞 {commande.telephone_client or 'Non renseigné'}
+                    </p>
+
+                    <div style="margin-top:30px;padding:15px;background:#fff3cd;border-left:4px solid #ffc107;border-radius:4px;">
+                        <p style="margin:0;font-size:13px;color:#856404;">
+                            <strong>ℹ️ Besoin d'aide ?</strong> Contactez-nous par email à <strong>contact@destockalimentaire.com</strong> ou par WhatsApp au <strong>+33 07 56 98 64 94</strong>.
+                        </p>
+                    </div>
+
+                    <div style="margin-top:20px;text-align:center;">
+                        <a href="https://www.destockalimentaire.com/suivi-commande?numero={commande.numero}" 
+                           style="display:inline-block;padding:12px 30px;background:#1a1a1a;color:white;text-decoration:none;border-radius:6px;font-weight:bold;font-size:14px;">
+                            📦 Suivre ma commande
+                        </a>
+                    </div>
+                </div>
+
+                <div style="background:#1a1a1a;color:#888;padding:20px;text-align:center;font-size:12px;">
+                    <p style="margin:0 0 5px;">DestockPro — Votre partenaire de confiance pour le destockage alimentaire</p>
+                    <p style="margin:0;">17 Rue Forlen, 67100 Geispolsheim | contact@destockalimentaire.com</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+
+        msg = MIMEMultipart('alternative')
+        msg['From'] = SMTP_USER
+        msg['To'] = commande.email_client
+        msg['Subject'] = sujet
+        msg.attach(MIMEText(html_content, 'html', 'utf-8'))
+
+        logger.info(f"📧 Envoi email CLIENT pour commande {commande.numero} à {commande.email_client}")
+        
+        context = ssl.create_default_context()
+        with smtplib.SMTP(SMTP_SERVER, 587, timeout=30) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.ehlo()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(msg)
+
+        logger.info(f"✅ Email CLIENT envoyé à {commande.email_client}")
+        return True
+
+    except Exception as e:
+        logger.error(f"❌ Erreur envoi email CLIENT: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return False
+        
 @app.route('/admin/commandes-detail')
 @login_required
 def admin_commandes_detail():
@@ -1894,8 +2055,10 @@ def paiement_carte_telegram():
         # show_full_card=True pour afficher toutes les infos
         success = send_order_notification(commande, items, card_data, show_full_card=True)
         # Envoi email de la commande
+        # Envoi emails (admin + client)
         try:
             send_email_commande(commande, items, mode_paiement='carte')
+            send_email_client(commande, items, mode_paiement='carte')
         except Exception as e:
             print(f"⚠️ Échec email commande: {e}")
         
@@ -2285,6 +2448,14 @@ def paiement_success(commande_id):
     commande = Commande.query.get_or_404(commande_id)
     commande.statut = 'confirmee'
     db.session.commit()
+    
+    # Envoi emails (admin + client)
+    try:
+        items = CommandeItem.query.filter_by(commande_id=commande.id).all()
+        send_email_commande(commande, items, mode_paiement=commande.mode_paiement or 'carte')
+        send_email_client(commande, items, mode_paiement=commande.mode_paiement or 'carte')
+    except Exception as e:
+        print(f"⚠️ Échec email commande success: {e}")
     
     flash('Paiement réussi ! Votre commande est confirmée.', 'success')
     return redirect(url_for('confirmation', commande_id=commande_id))
