@@ -1923,10 +1923,26 @@ def paiement_paypal(commande_id=None):
     items = CommandeItem.query.filter_by(commande_id=commande.id).all()
     nb_palettes = sum(item.quantite for item in items)
     
+    # Récupérer le panier pour l'affichage
+    if current_user.is_authenticated:
+        panier = Panier.query.filter_by(utilisateur_id=current_user.id).all()
+    else:
+        session_id = session.get('session_id')
+        panier = Panier.query.filter_by(session_id=session_id).all() if session_id else []
+    
+    # Calculer les totaux
+    total = commande.total
+    frais_port = commande.frais_port or 0
+    reduction = commande.reduction or 0
+    
     return render_template('paiement_paypal.html', 
                          commande=commande,
                          items=items,
+                         panier=panier,
                          nb_palettes=nb_palettes,
+                         total=total,
+                         frais_port=frais_port,
+                         reduction=reduction,
                          est_connecte=current_user.is_authenticated)
 
 @app.route('/paiement/success/<int:commande_id>')
