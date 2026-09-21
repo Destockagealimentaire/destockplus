@@ -14,7 +14,16 @@ import smtplib
 import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import logging
+import sys
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    stream=sys.stdout,
+    force=True
+)
+logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # Configuration email
@@ -441,7 +450,153 @@ def calculate_shipping_cost(panier_items):
         return base + supplement
 
 # Dans app.py, route pour valider les codes promo
-
+@app.route('/admin/commandes-detail')
+@login_required
+def admin_commandes_detail():
+    """Vue détaillée de toutes les commandes - Réservé admin"""
+    if current_user.role != 'admin':
+        flash('Accès non autorisé', 'danger')
+        return redirect(url_for('index'))
+    
+    commandes = Commande.query.order_by(Commande.date_creation.desc()).all()
+    
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Commandes - Admin</title>
+        <style>
+            * { box-sizing: border-box; }
+            body { font-family: -apple-system, Arial, sans-serif; padding: 20px; background: #f0f0f0; margin: 0; }
+            .container { max-width: 1400px; margin: 0 auto; }
+            h1 { color: #1a1a1a; margin-bottom: 10px; }
+            .stats { background: #c4a747; color: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+            .commande { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+            .commande-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; flex-wrap: wrap; gap: 10px; }
+            .numero { font-size: 1.3rem; font-weight: bold; color: #1a1a1a; }
+            .date { color: #666; font-size: 0.9rem; }
+            .badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+            .en_attente_paiement { background: #fff3cd; color: #856404; }
+            .en_attente_virement { background: #cce5ff; color: #004085; }
+            .en_attente { background: #fff3cd; color: #856404; }
+            .confirmee { background: #d4edda; color: #155724; }
+            .expediee { background: #d1ecf1; color: #0c5460; }
+            .livree { background: #d1e7dd; color: #0f5132; }
+            .annulee { background: #f8d7da; color: #721c24; }
+            .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+            .info-block { background: #f8f9fa; padding: 12px; border-radius: 6px; }
+            .info-block h4 { margin: 0 0 8px 0; color: #1a1a1a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+            .info-block p { margin: 4px 0; font-size: 0.9rem; color: #333; }
+            .info-block p strong { color: #1a1a1a; }
+            .articles { background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+            .articles h4 { margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; color: #1a1a1a; }
+            .articles table { width: 100%; border-collapse: collapse; }
+            .articles th { text-align: left; padding: 8px; background: #e9ecef; font-size: 0.85rem; color: #1a1a1a; }
+            .articles td { padding: 8px; border-bottom: 1px solid #dee2e6; font-size: 0.9rem; }
+            .totaux { display: flex; justify-content: flex-end; gap: 20px; padding-top: 10px; border-top: 2px solid #f0f0f0; }
+            .totaux div { text-align: right; }
+            .totaux .label { font-size: 0.8rem; color: #666; }
+            .totaux .value { font-size: 1.1rem; font-weight: bold; color: #1a1a1a; }
+            .totaux .value.final { color: #c4a747; font-size: 1.4rem; }
+            .btn-retour { display: inline-block; padding: 10px 20px; background: #1a1a1a; color: white; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
+            .btn-retour:hover { background: #333; }
+            .no-commande { background: white; padding: 40px; border-radius: 10px; text-align: center; color: #666; }
+            @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a href="/admin/vue-globale" class="btn-retour">← Retour au dashboard</a>
+            <h1>📦 Toutes les commandes</h1>
+    """
+    
+    if not commandes:
+        html += '<div class="no-commande"><h2>Aucune commande pour le moment</h2><p>Les commandes clients apparaîtront ici automatiquement.</p></div>'
+    else:
+        total_ca = sum(c.total_final for c in commandes if c.total_final)
+        html += f'<div class="stats">💰 {len(commandes)} commande(s) — Chiffre d\'affaires total : {total_ca:.2f} €</div>'
+        
+        for c in commandes:
+            statut_class = (c.statut or 'inconnu').replace(' ', '_')
+            html += f"""
+            <div class="commande">
+                <div class="commande-header">
+                    <div>
+                        <div class="numero">{c.numero}</div>
+                        <div class="date">{c.date_creation.strftime('%d/%m/%Y à %H:%M') if c.date_creation else '-'}</div>
+                    </div>
+                    <span class="badge {statut_class}">{c.statut or '-'}</span>
+                </div>
+                
+                <div class="grid">
+                    <div class="info-block">
+                        <h4>👤 Client</h4>
+                        <p><strong>Nom :</strong> {c.nom_client or '-'}</p>
+                        <p><strong>Email :</strong> {c.email_client or '-'}</p>
+                        <p><strong>Téléphone :</strong> {c.telephone_client or '-'}</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>🚚 Livraison</h4>
+                        <p>{c.adresse_livraison or '-'}</p>
+                    </div>
+                </div>
+                
+                <div class="articles">
+                    <h4>📦 Articles commandés</h4>
+                    <table>
+                        <tr><th>Produit</th><th>Qté</th><th>Prix unit.</th><th>Sous-total</th></tr>
+            """
+            items = CommandeItem.query.filter_by(commande_id=c.id).all()
+            for item in items:
+                produit_nom = item.produit.nom if item.produit else f"Produit #{item.produit_id}"
+                sous_total = item.prix_unitaire * item.quantite
+                html += f"""
+                        <tr>
+                            <td>{produit_nom}</td>
+                            <td>{item.quantite}</td>
+                            <td>{item.prix_unitaire:.2f} €</td>
+                            <td><strong>{sous_total:.2f} €</strong></td>
+                        </tr>
+                """
+            html += """
+                    </table>
+                </div>
+                
+                <div class="grid">
+                    <div class="info-block">
+                        <h4>💳 Paiement</h4>
+                        <p><strong>Mode :</strong> {mode}</p>
+                        <p><strong>ID paiement :</strong> {pid}</p>
+                        <p><strong>Code promo :</strong> {promo}</p>
+                    </div>
+                    <div class="totaux">
+                        <div>
+                            <div class="label">Sous-total</div>
+                            <div class="value">{st:.2f} €</div>
+                        </div>
+                        <div>
+                            <div class="label">Frais port</div>
+                            <div class="value">{fp:.2f} €</div>
+                        </div>
+                        <div>
+                            <div class="label">TOTAL TTC</div>
+                            <div class="value final">{tf:.2f} €</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            """.format(
+                mode=c.mode_paiement or '-',
+                pid=c.paiement_id or '-',
+                promo=c.promo_code or '-',
+                st=c.total or 0,
+                fp=c.frais_port or 0,
+                tf=c.total_final or 0
+            )
+    
+    html += "</div></body></html>"
+    return html
 @app.route('/api/valider-code-promo', methods=['POST'])
 def valider_code_promo():
     """API pour valider un code promo"""
