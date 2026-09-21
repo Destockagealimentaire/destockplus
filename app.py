@@ -752,7 +752,223 @@ def paiement_virement(commande_id=None):
                          nb_palettes=nb_palettes,
                          commande_numero=commande.numero,
                          est_connecte=current_user.is_authenticated)
+# ============================================================
+# VUES ADMIN - COMMANDES (AJOUTÉ)
+# ============================================================
 
+@app.route('/admin/commandes-detail')
+@login_required
+def admin_commandes_detail():
+    """Vue détaillée de TOUTES les commandes"""
+    if current_user.role != 'admin':
+        flash('Accès non autorisé', 'danger')
+        return redirect(url_for('index'))
+    
+    commandes = Commande.query.order_by(Commande.date_creation.desc()).all()
+    total_ca = sum(c.total_final for c in commandes if c.total_final) or 0
+    
+    html = """<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Commandes</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, Arial, sans-serif; padding: 20px; background: #f0f0f0; margin: 0; }
+.container { max-width: 1400px; margin: 0 auto; }
+h1 { color: #1a1a1a; margin-bottom: 10px; }
+.stats { background: #c4a747; color: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; font-size: 1.1rem; }
+.commande { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.commande-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; flex-wrap: wrap; gap: 10px; }
+.numero { font-size: 1.3rem; font-weight: bold; color: #1a1a1a; }
+.date { color: #666; font-size: 0.9rem; }
+.badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+.en_attente_paiement { background: #fff3cd; color: #856404; }
+.en_attente_virement { background: #cce5ff; color: #004085; }
+.en_attente { background: #fff3cd; color: #856404; }
+.confirmee { background: #d4edda; color: #155724; }
+.expediee { background: #d1ecf1; color: #0c5460; }
+.livree { background: #d1e7dd; color: #0f5132; }
+.annulee { background: #f8d7da; color: #721c24; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.info-block { background: #f8f9fa; padding: 12px; border-radius: 6px; }
+.info-block h4 { margin: 0 0 8px 0; color: #1a1a1a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.info-block p { margin: 4px 0; font-size: 0.9rem; color: #333; }
+.articles { background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+.articles h4 { margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; }
+.articles table { width: 100%; border-collapse: collapse; }
+.articles th { text-align: left; padding: 8px; background: #e9ecef; font-size: 0.85rem; }
+.articles td { padding: 8px; border-bottom: 1px solid #dee2e6; font-size: 0.9rem; }
+.totaux { display: flex; justify-content: flex-end; gap: 20px; padding-top: 10px; }
+.totaux .label { font-size: 0.8rem; color: #666; }
+.totaux .value { font-size: 1.1rem; font-weight: bold; color: #1a1a1a; }
+.totaux .value.final { color: #c4a747; font-size: 1.4rem; }
+.btn { display: inline-block; padding: 10px 20px; background: #1a1a1a; color: white; text-decoration: none; border-radius: 6px; margin-bottom: 20px; font-weight: bold; }
+.btn:hover { background: #333; }
+.no-commande { background: white; padding: 40px; border-radius: 10px; text-align: center; color: #666; }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+</style></head><body><div class="container">
+<a href="/admin/vue-globale" class="btn">← Retour dashboard</a>
+<h1>📦 Toutes les commandes</h1>"""
+    
+    if not commandes:
+        html += '<div class="no-commande"><h2>Aucune commande pour le moment</h2><p>Les commandes clients apparaîtront ici automatiquement dès qu\'un client valide son panier.</p></div>'
+    else:
+        html += f'<div class="stats">💰 {len(commandes)} commande(s) — CA total : {total_ca:.2f} €</div>'
+        
+        for c in commandes:
+            statut_class = (c.statut or 'inconnu').replace(' ', '_')
+            html += f"""
+            <div class="commande">
+                <div class="commande-header">
+                    <div>
+                        <div class="numero">{c.numero}</div>
+                        <div class="date">{c.date_creation.strftime('%d/%m/%Y à %H:%M') if c.date_creation else '-'}</div>
+                    </div>
+                    <span class="badge {statut_class}">{c.statut or '-'}</span>
+                </div>
+                <div class="grid">
+                    <div class="info-block">
+                        <h4>👤 Client</h4>
+                        <p><strong>Nom :</strong> {c.nom_client or '-'}</p>
+                        <p><strong>Email :</strong> {c.email_client or '-'}</p>
+                        <p><strong>Téléphone :</strong> {c.telephone_client or '-'}</p>
+                    </div>
+                    <div class="info-block">
+                        <h4>🚚 Livraison</h4>
+                        <p>{c.adresse_livraison or '-'}</p>
+                    </div>
+                </div>
+                <div class="articles">
+                    <h4>📦 Articles</h4>
+                    <table>
+                        <tr><th>Produit</th><th>Qté</th><th>Prix unit.</th><th>Sous-total</th></tr>"""
+            
+            items = CommandeItem.query.filter_by(commande_id=c.id).all()
+            for item in items:
+                produit_nom = item.produit.nom if item.produit else f"Produit #{item.produit_id}"
+                st = item.prix_unitaire * item.quantite
+                html += f"<tr><td>{produit_nom}</td><td>{item.quantite}</td><td>{item.prix_unitaire:.2f} €</td><td><strong>{st:.2f} €</strong></td></tr>"
+            
+            html += f"""</table></div>
+                <div class="grid">
+                    <div class="info-block">
+                        <h4>💳 Paiement</h4>
+                        <p><strong>Mode :</strong> {c.mode_paiement or '-'}</p>
+                        <p><strong>ID :</strong> {c.paiement_id or '-'}</p>
+                        <p><strong>Code promo :</strong> {c.promo_code or '-'}</p>
+                    </div>
+                    <div class="totaux">
+                        <div><div class="label">Sous-total</div><div class="value">{c.total:.2f} €</div></div>
+                        <div><div class="label">Frais port</div><div class="value">{(c.frais_port or 0):.2f} €</div></div>
+                        <div><div class="label">TOTAL</div><div class="value final">{(c.total_final or 0):.2f} €</div></div>
+                    </div>
+                </div>
+            </div>"""
+    
+    html += "</div></body></html>"
+    return html
+
+
+@app.route('/admin/export-csv')
+@login_required
+def admin_export_csv():
+    """Exporte toutes les commandes en CSV téléchargeable"""
+    if current_user.role != 'admin':
+        flash('Accès non autorisé', 'danger')
+        return redirect(url_for('index'))
+    
+    import csv
+    import io
+    from flask import Response
+    
+    commandes = Commande.query.order_by(Commande.date_creation.desc()).all()
+    
+    output = io.StringIO()
+    writer = csv.writer(output, delimiter=';')
+    writer.writerow(['Numero', 'Date', 'Nom', 'Email', 'Telephone', 'Adresse',
+                     'Sous-total', 'Frais port', 'Reduction', 'Total TTC',
+                     'Mode paiement', 'Statut', 'Articles'])
+    
+    for c in commandes:
+        items = CommandeItem.query.filter_by(commande_id=c.id).all()
+        articles_txt = " | ".join([
+            f"{item.produit.nom if item.produit else 'Produit'} x{item.quantite}"
+            for item in items
+        ])
+        writer.writerow([
+            c.numero,
+            c.date_creation.strftime('%d/%m/%Y %H:%M') if c.date_creation else '',
+            c.nom_client or '', c.email_client or '', c.telephone_client or '',
+            (c.adresse_livraison or '').replace('\n', ' '),
+            f"{c.total:.2f}" if c.total else '0',
+            f"{c.frais_port:.2f}" if c.frais_port else '0',
+            f"{c.reduction:.2f}" if c.reduction else '0',
+            f"{c.total_final:.2f}" if c.total_final else '0',
+            c.mode_paiement or '', c.statut or '', articles_txt
+        ])
+    
+    csv_data = output.getvalue()
+    filename = f"commandes_{datetime.now().strftime('%Y%m%d_%H%M')}.csv"
+    
+    return Response(
+        '\ufeff' + csv_data,
+        mimetype='text/csv',
+        headers={'Content-Disposition': f'attachment; filename={filename}'}
+    )
+
+
+@app.route('/admin/voir-commande/<numero>')
+@login_required
+def admin_voir_commande_numero(numero):
+    """Voir une commande par son numéro (ex: CMD-20260921-2743)"""
+    if current_user.role != 'admin':
+        flash('Accès non autorisé', 'danger')
+        return redirect(url_for('index'))
+    
+    commande = Commande.query.filter(
+        (Commande._numero == numero) | (Commande.numero == numero)
+    ).first()
+    
+    if not commande:
+        flash(f'Aucune commande avec le numéro {numero}', 'warning')
+        return redirect(url_for('admin_commandes_detail'))
+    
+    items = CommandeItem.query.filter_by(commande_id=commande.id).all()
+    
+    html = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><title>{commande.numero}</title>
+<style>
+body {{ font-family: Arial; padding: 20px; background: #f0f0f0; }}
+.box {{ background: white; padding: 25px; border-radius: 10px; max-width: 800px; margin: 0 auto; }}
+h1 {{ color: #c4a747; }}
+table {{ width: 100%; border-collapse: collapse; margin: 15px 0; }}
+th, td {{ padding: 10px; text-align: left; border-bottom: 1px solid #eee; }}
+th {{ background: #1a1a1a; color: white; }}
+.total {{ font-size: 1.3rem; font-weight: bold; color: #c4a747; text-align: right; margin-top: 20px; }}
+.btn {{ display: inline-block; padding: 10px 20px; background: #1a1a1a; color: white; text-decoration: none; border-radius: 6px; margin-bottom: 15px; }}
+</style></head><body>
+<div class="box">
+<a href="/admin/commandes-detail" class="btn">← Retour</a>
+<h1>Commande {commande.numero}</h1>
+<p><b>Date :</b> {commande.date_creation.strftime('%d/%m/%Y à %H:%M') if commande.date_creation else '-'}</p>
+<p><b>Statut :</b> {commande.statut}</p>
+<hr>
+<h3>👤 Client</h3>
+<p><b>Nom :</b> {commande.nom_client}</p>
+<p><b>Email :</b> {commande.email_client}</p>
+<p><b>Tél :</b> {commande.telephone_client or '-'}</p>
+<p><b>Adresse :</b> {commande.adresse_livraison}</p>
+<hr>
+<h3>📦 Articles</h3>
+<table><tr><th>Produit</th><th>Qté</th><th>Prix</th><th>Sous-total</th></tr>"""
+    
+    for item in items:
+        produit_nom = item.produit.nom if item.produit else f"Produit #{item.produit_id}"
+        st = item.prix_unitaire * item.quantite
+        html += f"<tr><td>{produit_nom}</td><td>{item.quantite}</td><td>{item.prix_unitaire:.2f} €</td><td>{st:.2f} €</td></tr>"
+    
+    html += f"""</table>
+<p class="total">TOTAL TTC : {commande.total_final:.2f} €</p>
+<p><b>Mode paiement :</b> {commande.mode_paiement}</p>
+</div></body></html>"""
+    return html
 # app.py - Ajoutez cette route
 @app.route('/panier/contenu')
 def panier_contenu():
