@@ -6408,19 +6408,24 @@ def lille_destockage_pro_2026():
 # Route pour le suivi de commande (invités)
 @app.route('/suivi-commande')
 def suivi_commande():
-    """Page de suivi de commande pour les invités"""
-    numero = request.args.get('numero')
+    """Page de suivi de commande pour les invités ET les connectés"""
+    numero = request.args.get('numero', '').strip()
     
+    # Si pas de numéro → afficher le formulaire
     if not numero:
-        flash('Veuillez entrer un numéro de commande', 'info')
-        return redirect(url_for('index'))
+        return render_template('suivi_commande_form.html')
     
-    commande = Commande.query.filter_by(numero=numero).first()
-    if commande:
-        return render_template('suivi_commande.html', commande=commande)
+    # Chercher la commande par _numero (vraie colonne) OU numero
+    commande = Commande.query.filter(
+        (Commande._numero == numero) | (Commande.numero == numero)
+    ).first()
     
-    flash('Aucune commande trouvée avec ce numéro', 'warning')
-    return redirect(url_for('index'))
+    if not commande:
+        flash(f'Aucune commande trouvée avec le numéro {numero}', 'warning')
+        return render_template('suivi_commande_form.html')
+    
+    # Afficher la commande (accessible même sans être connecté)
+    return render_template('suivi_commande.html', commande=commande)
 
 
 
