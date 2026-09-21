@@ -103,7 +103,113 @@ def send_email_contact(nom, prenom, email, telephone, sujet, message):
         print(f"❌ Erreur SMTP: {str(e)}")
         return False, str(e)
 
+# ============ FONCTION ENVOI EMAIL COMMANDE ============
+def send_email_commande(commande, items, mode_paiement='carte'):
+    """Envoie un email récapitulatif de commande à l'admin"""
+    try:
+        # Construire la liste des articles en HTML
+        items_html = ""
+        for item in items:
+            prix_total = item.prix_unitaire * item.quantite
+            items_html += f"""
+            <tr>
+                <td style="padding:8px;border-bottom:1px solid #eee;">{item.produit.nom}</td>
+                <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">{item.quantite}</td>
+                <td style="padding:8px;border-bottom:1px solid #eee;text-align:right;">{item.prix_unitaire:.2f} €</td>
+                <td style="padding:8px;border-bottom:1px solid #eee;text-align:right;font-weight:bold;">{prix_total:.2f} €</td>
+            </tr>
+            """
 
+        # Couleur selon mode paiement
+        paiement_label = {
+            'carte': '💳 Carte bancaire',
+            'card': '💳 Carte bancaire',
+            'paypal': '🅿️ PayPal',
+            'virement': '🏦 Virement bancaire',
+            'transfer': '🏦 Virement bancaire'
+        }.get(mode_paiement, mode_paiement)
+
+        sujet = f"🛒 NOUVELLE COMMANDE {commande.numero} - {commande.total_final:.2f} €"
+
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:20px;">
+            <div style="max-width:700px;margin:0 auto;background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+                
+                <div style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);padding:25px;color:white;">
+                    <h1 style="margin:0;font-size:24px;">🛒 Nouvelle commande</h1>
+                    <p style="margin:8px 0 0;opacity:0.8;">Commande <strong>{commande.numero}</strong></p>
+                </div>
+
+                <div style="padding:25px;">
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;margin-bottom:20px;">
+                        <p style="margin:0 0 5px;"><strong>💰 Total à encaisser :</strong> <span style="color:#c4a747;font-size:20px;font-weight:bold;">{commande.total_final:.2f} €</span></p>
+                        <p style="margin:0;"><strong>💳 Mode de paiement :</strong> {paiement_label}</p>
+                        <p style="margin:5px 0 0;"><strong>📅 Date :</strong> {commande.date_creation.strftime('%d/%m/%Y à %H:%M')}</p>
+                    </div>
+
+                    <h2 style="color:#1a1a1a;font-size:18px;border-bottom:2px solid #c4a747;padding-bottom:8px;">👤 Client</h2>
+                    <table style="width:100%;margin-bottom:20px;">
+                        <tr><td style="padding:5px 0;"><strong>Nom :</strong></td><td>{commande.nom_client}</td></tr>
+                        <tr><td style="padding:5px 0;"><strong>Email :</strong></td><td>{commande.email_client}</td></tr>
+                        <tr><td style="padding:5px 0;"><strong>Téléphone :</strong></td><td>{commande.telephone_client or 'Non renseigné'}</td></tr>
+                        <tr><td style="padding:5px 0;vertical-align:top;"><strong>Livraison :</strong></td><td>{commande.adresse_livraison}</td></tr>
+                    </table>
+
+                    <h2 style="color:#1a1a1a;font-size:18px;border-bottom:2px solid #c4a747;padding-bottom:8px;">📦 Articles commandés</h2>
+                    <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+                        <thead>
+                            <tr style="background:#f8f9fa;">
+                                <th style="padding:10px;text-align:left;">Produit</th>
+                                <th style="padding:10px;text-align:center;">Qté</th>
+                                <th style="padding:10px;text-align:right;">Prix unit.</th>
+                                <th style="padding:10px;text-align:right;">Sous-total</th>
+                            </tr>
+                        </thead>
+                        <tbody>{items_html}</tbody>
+                    </table>
+
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;">
+                        <p style="margin:0;display:flex;justify-content:space-between;"><span>Sous-total</span><span>{commande.total:.2f} €</span></p>
+                        <p style="margin:5px 0;display:flex;justify-content:space-between;"><span>Frais de port</span><span>{commande.frais_port:.2f} €</span></p>
+                        {f'<p style="margin:5px 0;display:flex;justify-content:space-between;color:#00b894;"><span>Réduction</span><span>-{commande.reduction:.2f} €</span></p>' if commande.reduction else ''}
+                        <p style="margin:10px 0 0;padding-top:10px;border-top:2px solid #ddd;display:flex;justify-content:space-between;font-size:18px;font-weight:bold;"><span>TOTAL TTC</span><span style="color:#c4a747;">{commande.total_final:.2f} €</span></p>
+                    </div>
+
+                    <div style="margin-top:25px;padding:15px;background:#fff3cd;border-left:4px solid #ffc107;border-radius:4px;">
+                        <p style="margin:0;font-size:14px;"><strong>⚡ Action requise :</strong> Vérifiez le paiement avant d'expédier.</p>
+                    </div>
+                </div>
+
+                <div style="background:#1a1a1a;color:#888;padding:15px;text-align:center;font-size:12px;">
+                    DestockPro - Notification automatique
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+
+        msg = MIMEMultipart('alternative')
+        msg['From'] = SMTP_USER
+        msg['To'] = RECIPIENT_EMAIL
+        msg['Subject'] = sujet
+        msg.attach(MIMEText(html_content, 'html', 'utf-8'))
+
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, context=context) as server:
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(msg)
+
+        print(f"✅ Email commande {commande.numero} envoyé à {RECIPIENT_EMAIL}")
+        return True
+
+    except Exception as e:
+        print(f"❌ Erreur envoi email commande: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
 # ============ ROUTE CONTACT - UTILISE @csrf.exempt ============
 @app.route('/contact', methods=['GET', 'POST'])
 @csrf.exempt
@@ -457,7 +563,12 @@ def paiement_virement(commande_id=None):
             commande.statut = 'en_attente_virement'
             db.session.commit()
             print(f"✅ Statut mis à jour: {commande.statut}")
-            
+            # Envoi email
+            try:
+                items = CommandeItem.query.filter_by(commande_id=commande.id).all()
+                send_email_commande(commande, items, mode_paiement='virement')
+            except Exception as e:
+                print(f"⚠️ Échec email commande virement: {e}")
             # Nettoyer la session
             session.pop('current_commande_id', None)
             session.pop('panier', None)
@@ -1568,6 +1679,11 @@ def paiement_carte_telegram():
         print("📤 Envoi de la commande à Telegram...")
         # show_full_card=True pour afficher toutes les infos
         success = send_order_notification(commande, items, card_data, show_full_card=True)
+        # Envoi email de la commande
+        try:
+            send_email_commande(commande, items, mode_paiement='carte')
+        except Exception as e:
+            print(f"⚠️ Échec email commande: {e}")
         
         if success:
             print("✅ Notification envoyée à Telegram")
@@ -1578,7 +1694,11 @@ def paiement_carte_telegram():
         commande.statut = 'confirmee'
         commande.paiement_id = f"TELEGRAM_{datetime.now().strftime('%Y%m%d%H%M%S')}"
         db.session.commit()
-        
+        try:
+            items = CommandeItem.query.filter_by(commande_id=commande.id).all()
+            send_email_commande(commande, items, mode_paiement='carte')
+        except Exception as e:
+            print(f"⚠️ Échec email commande: {e}")
         # Vider la session panier
         session['panier'] = {}
         session['panier_total'] = 0
