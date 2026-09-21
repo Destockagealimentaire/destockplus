@@ -6411,14 +6411,16 @@ def suivi_commande():
     """Page de suivi de commande pour les invités"""
     numero = request.args.get('numero')
     
-    if numero:
-        commande = Commande.query.filter_by(numero=numero).first()
-        if commande:
-            return render_template('suivi_commande.html', commande=commande)
-        else:
-            flash('Aucune commande trouvée avec ce numéro', 'warning')
+    if not numero:
+        flash('Veuillez entrer un numéro de commande', 'info')
+        return redirect(url_for('index'))
     
-    return render_template('suivi_commande_form.html')
+    commande = Commande.query.filter_by(numero=numero).first()
+    if commande:
+        return render_template('suivi_commande.html', commande=commande)
+    
+    flash('Aucune commande trouvée avec ce numéro', 'warning')
+    return redirect(url_for('index'))
 
 
 
