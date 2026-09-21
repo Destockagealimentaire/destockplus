@@ -83,7 +83,7 @@
                     {% for commande in dernieres_commandes %}
                     <tr>
                         <td>{{ commande.numero }}</td>
-                        <td>{{ commande.client.email }}</td>
+                        <td>{{ commande.email_client }}</td>
                         <td>{{ commande.date_creation.strftime('%d/%m/%Y %H:%M') }}</td>
                         <td>{{ commande.total|format_price }}</td>
                         <td>
