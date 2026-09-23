@@ -703,9 +703,9 @@ products = [
         "meilleure_vente": True,
         "coup_coeur": True,
         "images": [
-            "nutella-palette-1.jpg",
-            "nutella-palette-2.jpg",
-            "nutella-palette-3.jpg"
+            "nutella-1.jpg",
+            "nutella-2.jpg",
+            "nutella-3.jpg"
         ],
         "videos": [
             {"titre": "Visite de l'usine Nutella", "url": "https://youtube.com/..."}
@@ -3384,9 +3384,7 @@ products = [
         "economie_percent": 23,
         "economie_montant": 557.28,
         "images": [
-            "nutella-palette.jpg",
-            "nutella-1.jpg", "nutella-2.jpg","nutella-3.jpg"
-        ],
+            "nutella-palette-1.jpg",        ],
         "videos": [],
         "documents": []
     },
@@ -4115,7 +4113,7 @@ products = [
         "economie_percent": 23,
         "economie_montant": 60.84,
         "images": [
-            "distributeur-va6k4.jpg","distributeur-va6k5.jpg"
+            "sucre-beghin.jpg",
         ],
         "videos": [],
         "documents": []
@@ -5505,9 +5503,9 @@ products = [
     },
     {
         "id": 442,
-        "nom": "【PALETTE】Savon Liquide Dove - 800 flacons 5L",
+        "nom": "【Savon Liquide Dove - 800 flacons 5L PALETTE】",
         "description": "Lot professionnel pour collectivités. Hypoallergénique avec 1/4 de crème hydratante. Prix choc.",
-        "description_courte": "Palette savon liquide Dove 5L (800 flacons)",
+        "description_courte": "Palette savon liquide Dove 5L (80 pots)",
         "prix": 1166.40,
         "prix_original": 1166.40,
         "prix_promo": 864.00,
@@ -5568,7 +5566,7 @@ products = [
         "economie_percent": 26,
         "economie_montant": 302.40,
         "images": [
-            "dove-palette.jpg"
+            "dove-palette.jpg","dove-palette1.jpg"
         ],
         "videos": [],
         "documents": []
@@ -5849,10 +5847,6 @@ products = [
         "economie_percent": 26,
         "economie_montant": 1423.76,
         "images": [
-            "distributeur-va6k.jpg",
-            "distributeur-va6k1.jpg",
-            "distributeur-va6k2.jpg",
-            "distributeur-va6k3.jpg",
             "distributeur-va6k4.jpg",
             "distributeur-va6k5.jpg"
         ],
