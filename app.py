@@ -36,7 +36,7 @@ RECAPTCHA_SECRET_KEY = "6LfF9aQtAAAAAIvFP0DVzZL5P6ZmLSWPY1Jy123X"
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'votre-cle-secrete-tres-securisee-2024'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///destockage.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///destockage.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configuration CSRF - ACTIVÉ
