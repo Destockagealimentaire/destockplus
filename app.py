@@ -1038,6 +1038,7 @@ def truncate_words(text, length=30, end='...'):
 # app.py - Version complète avec mise à jour automatique
 # ============ ROUTE ADMIN TEMPORAIRE POUR GÉNÉRER LES AVIS ============
 # ============ ROUTE ADMIN - GÉNÉRER AVIS CRÉDIBLES ============
+# ============ ROUTE ADMIN - GÉNÉRER AVIS CRÉDIBLES ============
 @app.route('/admin/generer-avis-factices-xyz123', methods=['GET'])
 def admin_generer_avis_temp():
     """Route admin pour générer des avis crédibles avec vrais noms"""
@@ -1048,36 +1049,124 @@ def admin_generer_avis_temp():
         print("🔄 Génération des avis crédibles...")
         
         # ============ VRAIS PRÉNOMS ET NOMS ============
-        PRENOMS = [
-            'Frédéric', 'Mohamed', 'Franck', 'Kouassi', 'Jean', 'Pierre', 'Michel',
-            'Nicolas', 'Laurent', 'Thomas', 'Julien', 'David', 'Sébastien', 'Olivier',
-            'Christophe', 'Stéphane', 'Pascal', 'Thierry', 'Philippe', 'Alain',
-            'Isabelle', 'Sophie', 'Nathalie', 'Christine', 'Valérie', 'Sandrine',
-            'Céline', 'Karine', 'Aurélie', 'Émilie', 'Stéphanie', 'Virginie',
-            'Amadou', 'Moussa', 'Ibrahim', 'Yacine', 'Karim', 'Rachid', 'Samir',
-            'Hassan', 'Mehdi', 'Bilal', 'Ayoub', 'Hamza', 'Youssef',
-            'Antoine', 'Guillaume', 'Maxime', 'Alexandre', 'Romain', 'Lucas',
-            'Marie', 'Julie', 'Camille', 'Charlotte', 'Léa', 'Manon',
-            'Jean-Pierre', 'Jean-Claude', 'Jean-Luc', 'Marc', 'Hervé',
+        # Format : (prenom, nom, email_base)
+        PERSONNES = [
+            # Français
+            ('Frédéric', 'Dupont', 'frederic.dupont'),
+            ('Pierre', 'Martin', 'pierre.martin'),
+            ('Michel', 'Bernard', 'michel.bernard'),
+            ('Jean-Pierre', 'Petit', 'jp.petit'),
+            ('Nicolas', 'Durand', 'nicolas.durand'),
+            ('Laurent', 'Leroy', 'laurent.leroy'),
+            ('Thomas', 'Moreau', 'thomas.moreau'),
+            ('Julien', 'Simon', 'julien.simon'),
+            ('David', 'Laurent', 'david.laurent'),
+            ('Sébastien', 'Lefebvre', 'sebastien.lefebvre'),
+            ('Olivier', 'Michel', 'olivier.michel'),
+            ('Christophe', 'Garcia', 'christophe.garcia'),
+            ('Stéphane', 'David', 'stephane.david'),
+            ('Pascal', 'Bertrand', 'pascal.bertrand'),
+            ('Thierry', 'Roux', 'thierry.roux'),
+            ('Philippe', 'Vincent', 'philippe.vincent'),
+            ('Franck', 'Fournier', 'franck.fournier'),
+            ('Alain', 'Morel', 'alain.morel'),
+            ('Hervé', 'Girard', 'herve.girard'),
+            ('Marc', 'André', 'marc.andre'),
+            ('Antoine', 'Mercier', 'antoine.mercier'),
+            ('Guillaume', 'Blanc', 'guillaume.blanc'),
+            ('Maxime', 'Guerin', 'maxime.guerin'),
+            ('Alexandre', 'Boyer', 'alexandre.boyer'),
+            ('Romain', 'Chevalier', 'romain.chevalier'),
+            ('Lucas', 'François', 'lucas.francois'),
+            
+            # Françaises
+            ('Isabelle', 'Legrand', 'isabelle.legrand'),
+            ('Sophie', 'Gauthier', 'sophie.gauthier'),
+            ('Nathalie', 'Garnier', 'nathalie.garnier'),
+            ('Christine', 'Perrin', 'christine.perrin'),
+            ('Valérie', 'Robin', 'valerie.robin'),
+            ('Sandrine', 'Clément', 'sandrine.clement'),
+            ('Céline', 'Morin', 'celine.morin'),
+            ('Karine', 'Henry', 'karine.henry'),
+            ('Aurélie', 'Roussel', 'aurelie.roussel'),
+            ('Émilie', 'Mathieu', 'emilie.mathieu'),
+            ('Stéphanie', 'Gautier', 'stephanie.gautier'),
+            ('Virginie', 'Masson', 'virginie.masson'),
+            ('Marie', 'Marchand', 'marie.marchand'),
+            ('Julie', 'Duval', 'julie.duval'),
+            ('Camille', 'Denis', 'camille.denis'),
+            ('Charlotte', 'Dumont', 'charlotte.dumont'),
+            ('Léa', 'Lemaire', 'lea.lemaire'),
+            ('Manon', 'Noël', 'manon.noel'),
+            
+            # Maghrébins / Arabes
+            ('Mohamed', 'Benali', 'mohamed.benali'),
+            ('Ahmed', 'Bouaziz', 'ahmed.bouaziz'),
+            ('Karim', 'Trabelsi', 'karim.trabelsi'),
+            ('Rachid', 'Hamdi', 'rachid.hamdi'),
+            ('Samir', 'Ben Salah', 'samir.bensalah'),
+            ('Hassan', 'El Amrani', 'hassan.elamrani'),
+            ('Mehdi', 'Bennani', 'mehdi.bennani'),
+            ('Bilal', 'Cherkaoui', 'bilal.cherkaoui'),
+            ('Ayoub', 'Alaoui', 'ayoub.alaoui'),
+            ('Hamza', 'Idrissi', 'hamza.idrissi'),
+            ('Youssef', 'Bouhaddou', 'youssef.bouhaddou'),
+            ('Amine', 'Berrada', 'amine.berrada'),
+            ('Omar', 'Fassi', 'omar.fassi'),
+            ('Yacine', 'Mansouri', 'yacine.mansouri'),
+            ('Nabil', 'Khelifi', 'nabil.khelifi'),
+            ('Sofiane', 'Bouzid', 'sofiane.bouzid'),
+            ('Riad', 'Meziane', 'riad.meziane'),
+            ('Hicham', 'Saidi', 'hicham.saidi'),
+            ('Mounir', 'Ziani', 'mounir.ziani'),
+            ('Anas', 'Belkacem', 'anas.belkacem'),
+            ('Ilyas', 'Tazi', 'ilyas.tazi'),
+            ('Zakaria', 'Bennis', 'zakaria.bennis'),
+            
+            # Maghrébines
+            ('Fatima', 'Benali', 'fatima.benali'),
+            ('Amina', 'Bouaziz', 'amina.bouaziz'),
+            ('Leila', 'Trabelsi', 'leila.trabelsi'),
+            ('Nadia', 'Hamdi', 'nadia.hamdi'),
+            ('Samira', 'El Amrani', 'samira.elamrani'),
+            ('Khadija', 'Bennani', 'khadija.bennani'),
+            ('Salma', 'Cherkaoui', 'salma.cherkaoui'),
+            ('Yasmine', 'Alaoui', 'yasmine.alaoui'),
+            ('Sara', 'Idrissi', 'sara.idrissi'),
+            ('Imane', 'Bouhaddou', 'imane.bouhaddou'),
+            ('Meryem', 'Berrada', 'meryem.berrada'),
+            ('Kenza', 'Fassi', 'kenza.fassi'),
+            ('Souad', 'Mansouri', 'souad.mansouri'),
+            ('Hanane', 'Khelifi', 'hanane.khelifi'),
+            
+            # Africains (Kouassi, etc.)
+            ('Kouassi', 'Yao', 'kouassi.yao'),
+            ('Kwame', 'Mensah', 'kwame.mensah'),
+            ('Kofi', 'Asante', 'kofi.asante'),
+            ('Amadou', 'Diallo', 'amadou.diallo'),
+            ('Moussa', 'Traoré', 'moussa.traore'),
+            ('Ibrahim', 'Cissé', 'ibrahim.cisse'),
+            ('Mamadou', 'Touré', 'mamadou.toure'),
+            ('Sekou', 'Keita', 'sekou.keita'),
+            ('Ousmane', 'Coulibaly', 'ousmane.coulibaly'),
+            ('Abdoulaye', 'Bamba', 'abdoulaye.bamba'),
+            ('Souleymane', 'Koffi', 'souleymane.koffi'),
+            ('Cheikh', 'N\'Guessan', 'cheikh.nguessan'),
+            ('Alioune', 'Sarr', 'alioune.sarr'),
+            ('Ibrahima', 'Fall', 'ibrahima.fall'),
+            ('Cheikh', 'Diop', 'cheikh.diop'),
+            
+            # Africaines
+            ('Aminata', 'Diallo', 'aminata.diallo'),
+            ('Fatoumata', 'Traoré', 'fatoumata.traore'),
+            ('Aissatou', 'Cissé', 'aissatou.cisse'),
+            ('Mariam', 'Touré', 'mariam.toure'),
+            ('Awa', 'Keita', 'awa.keita'),
+            ('Kadiatou', 'Coulibaly', 'kadiatou.coulibaly'),
+            ('Adjovi', 'Bamba', 'adjovi.bamba'),
         ]
         
-        NOMS = [
-            'Dupont', 'Martin', 'Bernard', 'Petit', 'Durand', 'Leroy', 'Moreau',
-            'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia', 'David', 'Bertrand',
-            'Roux', 'Vincent', 'Fournier', 'Morel', 'Girard', 'André',
-            'Mercier', 'Blanc', 'Guerin', 'Boyer', 'Chevalier', 'François',
-            'Legrand', 'Gauthier', 'Garnier', 'Perrin', 'Robin', 'Clément',
-            'Morin', 'Nicolas', 'Henry', 'Roussel', 'Mathieu', 'Gautier',
-            'Masson', 'Marchand', 'Duval', 'Denis', 'Dumont', 'Lemaire',
-            'Noël', 'Meyer', 'Dufour', 'Meunier', 'Brun', 'Blanchard',
-            # Noms à connotation maghrébine/africaine
-            'Benali', 'Bouaziz', 'Trabelsi', 'Hamdi', 'Ben Salah', 'El Amrani',
-            'Diallo', 'Traoré', 'Koné', 'Cissé', 'Touré', 'Keita', 'Coulibaly',
-            'Kouassi', 'Yao', 'N\'Guessan', 'Bamba', 'Koffi',
-        ]
-        
-        # ============ AVIS POSITIFS CRÉDIBLES (95%) ============
-        # Commentaires réalistes, pas "très satisfait" tout court
+        # ============ AVIS POSITIFS CRÉDIBLES ============
         POSITIFS_5 = [
             "Produit conforme à la description, livraison rapide. Je recommande sans hésiter.",
             "Excellent rapport qualité-prix, exactement ce que je cherchais pour mon commerce.",
@@ -1103,6 +1192,10 @@ def admin_generer_avis_temp():
             "Rapport qualité prix vraiment intéressant, je vais commander à nouveau.",
             "Produit de qualité, livraison conforme aux délais annoncés.",
             "Très bonne expérience, je recommande DestockPro à tous les pros.",
+            "Rien à signaler, produit nickel et livraison au top.",
+            "Vraiment satisfait, je compte bien renouveler ma commande.",
+            "Tout était parfait, de la commande à la réception.",
+            "Le produit correspond exactement à mes attentes, merci !",
         ]
         
         POSITIFS_4 = [
@@ -1133,11 +1226,8 @@ def admin_generer_avis_temp():
         # ============ CRÉER LES UTILISATEURS (une fois) ============
         utilisateurs = []
         
-        # Récupérer ou créer 20 utilisateurs avec vrais noms
-        for i in range(20):
-            prenom = PRENOMS[i % len(PRENOMS)]
-            nom = NOMS[(i * 3) % len(NOMS)]
-            email = f"{prenom.lower().replace(' ', '')}.{nom.lower().replace(' ', '').replace(chr(39), '')}{i}@example.fr"
+        for i, (prenom, nom, email_base) in enumerate(PERSONNES):
+            email = f"{email_base}{i}@example.fr"
             
             user = Utilisateur.query.filter_by(email=email).first()
             if not user:
@@ -1175,7 +1265,7 @@ def admin_generer_avis_temp():
             nb_pos_4 = int(nb * 0.25)  # 25% de 4 étoiles
             nb_neg = nb - nb_pos_5 - nb_pos_4  # 5% négatifs
             
-            # 5 ÉTOILES - Avis positifs crédibles
+            # 5 ÉTOILES
             for _ in range(nb_pos_5):
                 user = random.choice(utilisateurs)
                 commentaire = random.choice(POSITIFS_5)
@@ -1189,7 +1279,7 @@ def admin_generer_avis_temp():
                 ))
                 total += 1
             
-            # 4 ÉTOILES - Bons avis avec petit bémol
+            # 4 ÉTOILES
             for _ in range(nb_pos_4):
                 user = random.choice(utilisateurs)
                 commentaire = random.choice(POSITIFS_4)
@@ -1203,7 +1293,7 @@ def admin_generer_avis_temp():
                 ))
                 total += 1
             
-            # NÉGATIFS - Uniquement sur la livraison
+            # NÉGATIFS (livraison uniquement)
             for _ in range(nb_neg):
                 user = random.choice(utilisateurs)
                 commentaire = random.choice(NEGATIFS)
@@ -1250,7 +1340,7 @@ def admin_generer_avis_temp():
                     {len(produits)} produits concernés<br>
                     {len(utilisateurs)} utilisateurs avec de vrais noms<br>
                     70% avis 5 étoiles • 25% avis 4 étoiles • 5% livraison<br>
-                    Commentaires variés et crédibles
+                    Noms français, maghrébins et africains
                 </div>
                 
                 <h2>Détails par produit :</h2>
