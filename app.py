@@ -1037,93 +1037,190 @@ def truncate_words(text, length=30, end='...'):
 
 # app.py - Version complète avec mise à jour automatique
 # ============ ROUTE ADMIN TEMPORAIRE POUR GÉNÉRER LES AVIS ============
+# ============ ROUTE ADMIN - GÉNÉRER AVIS CRÉDIBLES ============
 @app.route('/admin/generer-avis-factices-xyz123', methods=['GET'])
 def admin_generer_avis_temp():
-    """Route temporaire pour générer les avis factices - À SUPPRIMER APRÈS USAGE"""
+    """Route admin pour générer des avis crédibles avec vrais noms"""
     import random
     from datetime import datetime, timedelta
     
     try:
-        print("🔄 Génération des avis factices...")
+        print("🔄 Génération des avis crédibles...")
         
-        # Créer utilisateur test
-        user = Utilisateur.query.filter_by(email='reviewer@destockpro.fr').first()
-        if not user:
-            user = Utilisateur(
-                email='reviewer@destockpro.fr',
-                prenom='Client',
-                nom='Test',
-                password='hashed',
-                actif=True,
-                date_inscription=datetime.now()
-            )
-            db.session.add(user)
-            db.session.commit()
-        
-        positifs = [
-            ("🌟 Produit exceptionnel ! Je recommande vivement !", 5),
-            ("⭐ Excellent rapport qualité-prix !", 5),
-            ("🔥 Superbe produit, livraison rapide !", 5),
-            ("💎 Une pépite ! Qualité au rendez-vous.", 5),
-            ("👌 Très bon produit, entièrement satisfait.", 5),
-            ("🏆 Qualité professionnelle, prix imbattable.", 5),
-            ("✨ Parfait ! Rien à redire sur la qualité.", 5),
-            ("💯 Je suis ravi de mon achat !", 5),
-            ("👍 Excellent produit, conforme à la description.", 4),
-            ("✅ Bonne qualité, prix attractif.", 4),
-            ("👌 Produit correct, fait le job.", 4),
-            ("😊 Très satisfait de la qualité.", 4),
-            ("👍 Bon rapport qualité-prix.", 4),
-            ("✅ Produit de qualité, je suis satisfait.", 4),
+        # ============ VRAIS PRÉNOMS ET NOMS ============
+        PRENOMS = [
+            'Frédéric', 'Mohamed', 'Franck', 'Kouassi', 'Jean', 'Pierre', 'Michel',
+            'Nicolas', 'Laurent', 'Thomas', 'Julien', 'David', 'Sébastien', 'Olivier',
+            'Christophe', 'Stéphane', 'Pascal', 'Thierry', 'Philippe', 'Alain',
+            'Isabelle', 'Sophie', 'Nathalie', 'Christine', 'Valérie', 'Sandrine',
+            'Céline', 'Karine', 'Aurélie', 'Émilie', 'Stéphanie', 'Virginie',
+            'Amadou', 'Moussa', 'Ibrahim', 'Yacine', 'Karim', 'Rachid', 'Samir',
+            'Hassan', 'Mehdi', 'Bilal', 'Ayoub', 'Hamza', 'Youssef',
+            'Antoine', 'Guillaume', 'Maxime', 'Alexandre', 'Romain', 'Lucas',
+            'Marie', 'Julie', 'Camille', 'Charlotte', 'Léa', 'Manon',
+            'Jean-Pierre', 'Jean-Claude', 'Jean-Luc', 'Marc', 'Hervé',
         ]
         
-        negatifs = [
-            ("📦 Produit de qualité mais livraison un peu longue.", 3),
-            ("⏰ Bon produit, livraison avec 48h de retard.", 3),
-            ("🚚 Produit conforme, transporteur a mis du temps.", 3),
-            ("📦 Produit excellent, livraison légèrement en retard.", 3),
-            ("😕 Produit de bonne qualité, livraison très lente.", 2),
-            ("📦 Colis arrivé avec 3 jours de retard.", 2),
-            ("😤 Produit de qualité, livraison catastrophique !", 1),
-            ("🚚 Qualité bonne, livraison est un problème.", 1),
+        NOMS = [
+            'Dupont', 'Martin', 'Bernard', 'Petit', 'Durand', 'Leroy', 'Moreau',
+            'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia', 'David', 'Bertrand',
+            'Roux', 'Vincent', 'Fournier', 'Morel', 'Girard', 'André',
+            'Mercier', 'Blanc', 'Guerin', 'Boyer', 'Chevalier', 'François',
+            'Legrand', 'Gauthier', 'Garnier', 'Perrin', 'Robin', 'Clément',
+            'Morin', 'Nicolas', 'Henry', 'Roussel', 'Mathieu', 'Gautier',
+            'Masson', 'Marchand', 'Duval', 'Denis', 'Dumont', 'Lemaire',
+            'Noël', 'Meyer', 'Dufour', 'Meunier', 'Brun', 'Blanchard',
+            # Noms à connotation maghrébine/africaine
+            'Benali', 'Bouaziz', 'Trabelsi', 'Hamdi', 'Ben Salah', 'El Amrani',
+            'Diallo', 'Traoré', 'Koné', 'Cissé', 'Touré', 'Keita', 'Coulibaly',
+            'Kouassi', 'Yao', 'N\'Guessan', 'Bamba', 'Koffi',
         ]
         
+        # ============ AVIS POSITIFS CRÉDIBLES (95%) ============
+        # Commentaires réalistes, pas "très satisfait" tout court
+        POSITIFS_5 = [
+            "Produit conforme à la description, livraison rapide. Je recommande sans hésiter.",
+            "Excellent rapport qualité-prix, exactement ce que je cherchais pour mon commerce.",
+            "Livraison en 48h comme annoncé, emballage très soigné. Rien à redire.",
+            "Je commande régulièrement chez DestockPro, jamais déçu. Qualité au rendez-vous.",
+            "Très bon produit, mes clients apprécient. Je vais recommander sans problème.",
+            "Rapport qualité-prix imbattable, j'ai fait des économies substantielles.",
+            "Produit de qualité professionnelle, parfait pour mon restaurant.",
+            "Livraison rapide et conforme. Le service client a répondu à mes questions rapidement.",
+            "Commande reçue en parfait état, produits bien emballés. Très satisfait.",
+            "Exactement ce dont j'avais besoin pour mon commerce. Je recommande vivement.",
+            "Prix défiant toute concurrence pour cette qualité. Je suis ravi.",
+            "Produit conforme, livraison ponctuelle. Transaction parfaite.",
+            "Bon produit dans l'ensemble, je rachèterai certainement.",
+            "Rapport qualité-prix excellent, produits frais et bien conditionnés.",
+            "L'équipe DestockPro est réactive, le produit correspond parfaitement.",
+            "Très content de ma commande, je vais recommander à mes collègues restaurateurs.",
+            "Produit de marque à prix cassé, je ne m'attendais pas à cette qualité.",
+            "La commande est arrivée à temps pour mon événement. Merci !",
+            "Conforme en tous points, je valide ce fournisseur.",
+            "Excellent pour un professionnel de la restauration, je recommande.",
+            "Produit reçu en 24h, parfait pour mon commerce. Je recommande.",
+            "Rapport qualité prix vraiment intéressant, je vais commander à nouveau.",
+            "Produit de qualité, livraison conforme aux délais annoncés.",
+            "Très bonne expérience, je recommande DestockPro à tous les pros.",
+        ]
+        
+        POSITIFS_4 = [
+            "Bon produit, livraison un peu plus longue que prévu mais conforme.",
+            "Produit correct, bon rapport qualité-prix. Petite amélioration possible sur l'emballage.",
+            "Satisfait dans l'ensemble, quelques unités légèrement abîmées mais l'essentiel est là.",
+            "Bon achat, je recommande. Petit bémol sur le délai de livraison.",
+            "Produit conforme, prix attractif. Je recommande pour les professionnels.",
+            "Globalement satisfait, la qualité est au rendez-vous.",
+            "Bonne qualité pour le prix, je commanderai à nouveau.",
+            "Produit conforme, emballage correct. Livraison un peu lente.",
+            "Bon produit, service client réactif. Je recommande.",
+            "Très correct pour le prix, rien à signaler sur la qualité.",
+        ]
+        
+        # ============ AVIS NÉGATIFS SUR LIVRAISON SEULEMENT (5%) ============
+        NEGATIFS = [
+            "Produit de bonne qualité mais livraison plus longue que prévue. Dommage pour l'organisation.",
+            "Bon produit mais le transporteur a mis 4 jours au lieu de 48h. Qualité intacte.",
+            "Produit conforme mais livraison en retard, j'ai dû décaler ma préparation.",
+            "Qualité au rendez-vous mais colis reçu 2 jours après la date prévue.",
+            "Rien à dire sur le produit, mais la livraison a pris une semaine au lieu de 48h.",
+            "Produit parfait, mais le suivi de livraison n'était pas à jour. Petit bémol.",
+            "Commande conforme mais livraison tardive, heureusement le produit est de qualité.",
+            "Le produit est top, c'est juste la livraison qui a été lente.",
+        ]
+        
+        # ============ CRÉER LES UTILISATEURS (une fois) ============
+        utilisateurs = []
+        
+        # Récupérer ou créer 20 utilisateurs avec vrais noms
+        for i in range(20):
+            prenom = PRENOMS[i % len(PRENOMS)]
+            nom = NOMS[(i * 3) % len(NOMS)]
+            email = f"{prenom.lower().replace(' ', '')}.{nom.lower().replace(' ', '').replace(chr(39), '')}{i}@example.fr"
+            
+            user = Utilisateur.query.filter_by(email=email).first()
+            if not user:
+                user = Utilisateur(
+                    email=email,
+                    prenom=prenom,
+                    nom=nom,
+                    password='hashed',
+                    actif=True,
+                    date_inscription=datetime.now() - timedelta(days=random.randint(30, 400))
+                )
+                db.session.add(user)
+                db.session.flush()
+            utilisateurs.append(user)
+        
+        db.session.commit()
+        print(f"✅ {len(utilisateurs)} utilisateurs créés/vérifiés")
+        
+        # ============ GÉNÉRER LES AVIS ============
         produits = Produit.query.filter_by(actif=True).all()
         total = 0
         resultats = []
         
         for p in produits:
             existants = Avis.query.filter_by(produit_id=p.id).count()
-            nb = random.randint(2, 8) if existants > 0 else random.randint(5, 20)
-            nb_pos = int(nb * 0.95)
-            nb_neg = nb - nb_pos
             
-            for _ in range(nb_pos):
-                c, n = random.choice(positifs)
-                n = max(3, min(5, n + random.randint(-1, 1)))
+            # Si le produit a déjà 15+ avis, ne pas en rajouter
+            if existants >= 15:
+                resultats.append(f"⏭️ {p.nom[:40]}... a déjà {existants} avis, ignoré")
+                continue
+            
+            # Nombre d'avis entre 8 et 25
+            nb = random.randint(8, 25)
+            nb_pos_5 = int(nb * 0.70)  # 70% de 5 étoiles
+            nb_pos_4 = int(nb * 0.25)  # 25% de 4 étoiles
+            nb_neg = nb - nb_pos_5 - nb_pos_4  # 5% négatifs
+            
+            # 5 ÉTOILES - Avis positifs crédibles
+            for _ in range(nb_pos_5):
+                user = random.choice(utilisateurs)
+                commentaire = random.choice(POSITIFS_5)
+                jours = random.randint(1, 365)
                 db.session.add(Avis(
                     utilisateur_id=user.id,
                     produit_id=p.id,
-                    note=n,
-                    commentaire=c,
-                    date_creation=datetime.now() - timedelta(days=random.randint(1, 180))
+                    note=5,
+                    commentaire=commentaire,
+                    date_creation=datetime.now() - timedelta(days=jours)
                 ))
                 total += 1
             
+            # 4 ÉTOILES - Bons avis avec petit bémol
+            for _ in range(nb_pos_4):
+                user = random.choice(utilisateurs)
+                commentaire = random.choice(POSITIFS_4)
+                jours = random.randint(1, 365)
+                db.session.add(Avis(
+                    utilisateur_id=user.id,
+                    produit_id=p.id,
+                    note=4,
+                    commentaire=commentaire,
+                    date_creation=datetime.now() - timedelta(days=jours)
+                ))
+                total += 1
+            
+            # NÉGATIFS - Uniquement sur la livraison
             for _ in range(nb_neg):
-                c, n = random.choice(negatifs)
+                user = random.choice(utilisateurs)
+                commentaire = random.choice(NEGATIFS)
+                jours = random.randint(1, 365)
+                note = random.choice([2, 3])
                 db.session.add(Avis(
                     utilisateur_id=user.id,
                     produit_id=p.id,
-                    note=n,
-                    commentaire=c,
-                    date_creation=datetime.now() - timedelta(days=random.randint(1, 180))
+                    note=note,
+                    commentaire=commentaire,
+                    date_creation=datetime.now() - timedelta(days=jours)
                 ))
                 total += 1
             
-            resultats.append(f"✅ {nb} avis pour {p.nom}")
+            resultats.append(f"✅ {nb} avis pour {p.nom[:40]}...")
         
-        # Mettre à jour les notes moyennes
+        # ============ METTRE À JOUR LES NOTES ============
         for p in produits:
             avis = Avis.query.filter_by(produit_id=p.id).all()
             if avis:
@@ -1134,25 +1231,26 @@ def admin_generer_avis_temp():
         
         html = f"""
         <html>
-        <head><title>Génération d'avis réussie</title>
+        <head><title>Avis générés</title>
         <style>
             body {{ font-family: Arial; padding: 20px; background: #f0f0f0; }}
-            .container {{ max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }}
+            .container {{ max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }}
             h1 {{ color: #00b894; }}
             .success {{ background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }}
-            .list {{ background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 400px; overflow-y: auto; }}
+            .list {{ background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 500px; overflow-y: auto; font-size: 14px; }}
             .warning {{ background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 4px solid #ffc107; }}
             a {{ color: #007bff; }}
         </style>
         </head>
         <body>
             <div class="container">
-                <h1>🎉 {total} avis générés avec succès !</h1>
+                <h1>🎉 {total} avis crédibles générés !</h1>
                 <div class="success">
                     <strong>✅ Opération terminée</strong><br>
                     {len(produits)} produits concernés<br>
-                    95% avis positifs sur la qualité<br>
-                    5% avis sur les retards de livraison
+                    {len(utilisateurs)} utilisateurs avec de vrais noms<br>
+                    70% avis 5 étoiles • 25% avis 4 étoiles • 5% livraison<br>
+                    Commentaires variés et crédibles
                 </div>
                 
                 <h2>Détails par produit :</h2>
@@ -1161,8 +1259,8 @@ def admin_generer_avis_temp():
                 </div>
                 
                 <div class="warning">
-                    <strong>⚠️ IMPORTANT :</strong> Supprimez cette route de votre code après usage !<br>
-                    Retournez sur <a href="/">la page d'accueil</a> ou <a href="/produits">les produits</a>
+                    <strong>⚠️ IMPORTANT :</strong> Supprimez cette route après usage.<br>
+                    <a href="/produits">Voir les produits</a>
                 </div>
             </div>
         </body>
