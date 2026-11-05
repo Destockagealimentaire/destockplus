@@ -237,20 +237,20 @@
 .rz .partner-card img{max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.65;transition:.2s}
 .rz .partner-card:hover img{filter:grayscale(0);opacity:1}
 
-/* --- AVIS CLIENTS --- */
-.rz .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.rz .review-card{background:#fff;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
-.rz .review-card:hover{box-shadow:var(--sh-lg);transform:translateY(-4px)}
-.rz .review-photo{position:relative;aspect-ratio:1/1;background:var(--cream);display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* --- AVIS CLIENTS (CADRE RÉDUIT DE 4x) --- */
+.rz .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.rz .review-card{background:#fff;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.rz .review-card:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.rz .review-photo{position:relative;aspect-ratio:1/1;background:var(--cream);display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:90px}
 .rz .review-photo img{width:100%;height:100%;object-fit:cover}
 .rz .review-photo.no-photo img{display:none}
-.rz .review-initials{display:none;font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold-d);background:var(--gold-l);width:80px;height:80px;border-radius:50%;align-items:center;justify-content:center}
+.rz .review-initials{display:none;font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--gold-d);background:var(--gold-l);width:40px;height:40px;border-radius:50%;align-items:center;justify-content:center}
 .rz .review-photo.no-photo .review-initials{display:flex}
-.rz .review-body{padding:1.4rem 1.5rem 1.5rem;display:flex;flex-direction:column;flex:1}
-.rz .review-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:.7rem}
-.rz .review-text{font-size:.92rem;color:var(--ink-2);line-height:1.55;margin-bottom:1rem;flex:1;font-style:italic}
-.rz .review-author{font-weight:650;font-size:.88rem;color:var(--ink)}
-.rz .review-author span{font-weight:400;color:var(--muted)}
+.rz .review-body{padding:.7rem .8rem .8rem;display:flex;flex-direction:column;flex:1}
+.rz .review-stars{color:var(--gold);font-size:.7rem;letter-spacing:1px;margin-bottom:.35rem}
+.rz .review-text{font-size:.72rem;color:var(--ink-2);line-height:1.4;margin-bottom:.5rem;flex:1;font-style:italic}
+.rz .review-author{font-weight:650;font-size:.68rem;color:var(--ink)}
+.rz .review-author span{font-weight:400;color:var(--muted);font-size:.62rem;display:block;margin-top:2px}
 
 /* --- LIVRAISON + DRIVE --- */
 .rz .delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -346,7 +346,7 @@
   .rz .strip-grid{grid-template-columns:1fr 1fr}
   .rz .strip-item:nth-child(2){border-right:none}
   .rz .partners-grid{grid-template-columns:repeat(3,1fr)}
-  .rz .reviews-grid{grid-template-columns:1fr 1fr}
+  .rz .reviews-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:760px){
   .rz .wrap{padding:0 18px}
@@ -354,7 +354,9 @@
   .rz h1{font-size:2.3rem}
   .rz .hero-media{max-width:460px}
   .rz .float.a{left:6px} .rz .float.b{right:6px}
-  .rz .grid,.rz .cats,.rz .blog-grid,.rz .why-grid,.rz .seo-grid,.rz .strip-grid{grid-template-columns:1fr}
+  /* ✅ MOBILE : produits par 2 */
+  .rz .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .rz .cats,.rz .blog-grid,.rz .why-grid,.rz .seo-grid,.rz .strip-grid{grid-template-columns:1fr}
   .rz .strip-item{border-right:none;border-bottom:1px solid var(--line)}
   .rz section.block{padding:52px 0}
   .rz .sec-head{flex-direction:column;align-items:flex-start;gap:.8rem}
@@ -366,9 +368,26 @@
   .rz .search{flex-wrap:wrap}
   .rz .card .media{aspect-ratio:4/3;padding:12px}
   .rz .partners-grid{grid-template-columns:repeat(2,1fr)}
-  .rz .reviews-grid{grid-template-columns:1fr}
-  .rz .review-photo{aspect-ratio:16/9}
+  .rz .reviews-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .rz .review-photo{max-height:70px}
   .rz .delivery-grid{grid-template-columns:1fr}
+  /* Produits mobile : ajustements compacts */
+  .rz .card .body{padding:.8rem .9rem 1rem}
+  .rz .p-name{font-size:.85rem;min-height:2.4em;margin-bottom:.5rem}
+  .rz .price{font-size:1.1rem}
+  .rz .was{font-size:.75rem}
+  .rz .cat-label{font-size:.6rem}
+  .rz .add{height:36px;padding:0 .7rem;font-size:.75rem}
+  .rz .card-foot{margin-top:.7rem;padding-top:.7rem}
+  .rz .stock-ok{font-size:.72rem}
+  .rz .tag{font-size:.65rem;padding:.25rem .5rem}
+  .rz .qty{font-size:.65rem;padding:.2rem .45rem}
+}
+@media (max-width:400px){
+  .rz .reviews-grid{grid-template-columns:1fr}
+  .rz .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .rz .card .body{padding:.6rem .7rem .8rem}
+  .rz .p-name{font-size:.78rem}
 }
 </style>
 
@@ -491,22 +510,22 @@
     <div class="sec-head"><div><div class="kick">Nos partenaires</div><h2>Ils nous font confiance</h2><p>Les enseignes et fournisseurs qui travaillent avec DestockPro.</p></div></div>
     <div class="partners-grid">
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/nouveau_logo_auchan.webp') }}" alt="Auchan" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Auchan_Logo_2015.svg/320px-Auchan_Logo_2015.svg.png'">
+        <img src="{{ url_for('static', filename='images/partners/auchan-logo.svg') }}" alt="Auchan" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Auchan_Logo_2015.svg/320px-Auchan_Logo_2015.svg.png'">
       </div>
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/carrefour-e-billet.jpg') }}" alt="Carrefour">
+        <img src="{{ url_for('static', filename='images/partners/carrefour-logo.svg') }}" alt="Carrefour">
       </div>
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/E.Leclerc logo blog.png') }}" alt="E.Leclerc">
+        <img src="{{ url_for('static', filename='images/partners/leclerc-logo.svg') }}" alt="E.Leclerc">
       </div>
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/img-logo-casino-scaled.jpg') }}" alt="Casino">
+        <img src="{{ url_for('static', filename='images/partners/casino-logo.svg') }}" alt="Casino">
       </div>
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/Cora_logo.svg.webp') }}" alt="Cora">
+        <img src="{{ url_for('static', filename='images/partners/cora-logo.svg') }}" alt="Cora">
       </div>
       <div class="partner-card">
-        <img src="{{ url_for('static', filename='images/partners/Supermarchés_Match_Logo.png') }}" alt="Match">
+        <img src="{{ url_for('static', filename='images/partners/match-logo.svg') }}" alt="Match">
       </div>
     </div>
   </div>
@@ -537,8 +556,8 @@
 
 <div class="wrap"><div class="divider"><span></span></div></div>
 
-<!-- AVIS CLIENTS -->
-<section class="block why" style="padding-top:80px">
+<!-- AVIS CLIENTS (CADRE RÉDUIT DE 4x) -->
+<section class="block why" style="padding-top:60px">
   <div class="wrap">
     <div class="sec-head"><div><div class="kick">Avis clients</div><h2>Ce que disent nos clients</h2><p>Note moyenne de 4,8/5 sur plus de 1 200 avis vérifiés.</p></div></div>
     <div class="reviews-grid">
@@ -549,8 +568,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Service impeccable, produits de qualité, livraison rapide. Je recommande vivement pour les restaurateurs ! »</p>
-          <div class="review-author">Sophie M. <span>· Restauratrice, Lyon</span></div>
+          <p class="review-text">« Service impeccable, produits de qualité, livraison rapide. »</p>
+          <div class="review-author">Sophie M. <span>Restauratrice, Lyon</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -560,8 +579,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Meilleur rapport qualité/prix du marché. Commandes régulières depuis 2 ans, jamais déçu. »</p>
-          <div class="review-author">Pierre L. <span>· Gérant de supermarché, Lille</span></div>
+          <p class="review-text">« Meilleur rapport qualité/prix du marché. »</p>
+          <div class="review-author">Pierre L. <span>Supermarché, Lille</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -571,8 +590,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« J'ai économisé 40 % sur mes commandes. Un vrai partenaire de confiance pour mon activité de traiteur. »</p>
-          <div class="review-author">Marie D. <span>· Traiteur, Bordeaux</span></div>
+          <p class="review-text">« Économisé 40 % sur mes commandes. Partenaire de confiance. »</p>
+          <div class="review-author">Marie D. <span>Traiteur, Bordeaux</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -582,8 +601,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Livraison rapide et produits conformes. Mes clients adorent les jus et les boissons que je commande ici. »</p>
-          <div class="review-author">Amina Diallo <span>· Épicerie fine, Paris</span></div>
+          <p class="review-text">« Livraison rapide, produits conformes. »</p>
+          <div class="review-author">Amina Diallo <span>Épicerie, Paris</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -593,8 +612,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Excellent service, prix imbattables. Je gère un restaurant africain et je trouve tout ce qu'il me faut. »</p>
-          <div class="review-author">Kwame Mensah <span>· Restaurateur, Marseille</span></div>
+          <p class="review-text">« Prix imbattables, je trouve tout ce qu'il me faut. »</p>
+          <div class="review-author">Kwame Mensah <span>Restaurateur, Marseille</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -604,8 +623,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Très satisfaite de ma première commande. Les palettes sont bien conditionnées et le suivi est parfait. »</p>
-          <div class="review-author">Fatou Ndiaye <span>· Traiteur événementiel, Toulouse</span></div>
+          <p class="review-text">« Palettes bien conditionnées, suivi parfait. »</p>
+          <div class="review-author">Fatou Ndiaye <span>Traiteur, Toulouse</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -615,8 +634,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Je commande régulièrement pour ma supérette. Les marges sont excellentes et la qualité est au rendez-vous. »</p>
-          <div class="review-author">Chinedu Okonkwo <span>· Supérette, Nantes</span></div>
+          <p class="review-text">« Marges excellentes, qualité au rendez-vous. »</p>
+          <div class="review-author">Chinedu Okonkwo <span>Supérette, Nantes</span></div>
         </div>
       </div>
       <div class="review-card">
@@ -626,19 +645,8 @@
         </div>
         <div class="review-body">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Un service client réactif et à l'écoute. J'ai eu un petit souci de livraison, tout a été réglé en 24 h. »</p>
-          <div class="review-author">Nadia Benali <span>· Gérante de café, Strasbourg</span></div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-photo">
-          <img src="{{ url_for('static', filename='images/reviews/client-moussa.jpg') }}" alt="Moussa Traoré" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')">
-          <span class="review-initials">MT</span>
-        </div>
-        <div class="review-body">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">« Des prix vraiment compétitifs et une livraison toujours à l'heure. Je recommande à tous les professionnels. »</p>
-          <div class="review-author">Moussa Traoré <span>· Grossiste, Roubaix</span></div>
+          <p class="review-text">« Service client réactif, souci réglé en 24 h. »</p>
+          <div class="review-author">Nadia Benali <span>Café, Strasbourg</span></div>
         </div>
       </div>
     </div>
