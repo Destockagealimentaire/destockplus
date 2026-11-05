@@ -1452,4 +1452,89 @@ if (!document.getElementById('notifStyles')) {
     document.head.appendChild(s);
 }
 </script>
+<script>
+// ============================================================
+// STOCK VARIABLE ALÉATOIRE (stable par session)
+// ============================================================
+(function() {
+    // Clé unique par produit pour garder la même valeur sur la session
+    const productId = {{ produit.id }};
+    const stockKey = 'stock_prod_' + productId;
+
+    // Si on a déjà calculé un stock pour ce produit dans cette session, on le garde
+    let displayStock = sessionStorage.getItem(stockKey);
+
+    if (!displayStock) {
+        // Plage de stock selon le produit (pour varier)
+        // On tire entre 2 et 12, avec plus de chance d'avoir 2, 4, 6, 8
+        const possibleStocks = [2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 12];
+        displayStock = possibleStocks[Math.floor(Math.random() * possibleStocks.length)];
+        sessionStorage.setItem(stockKey, displayStock);
+    } else {
+        displayStock = parseInt(displayStock);
+    }
+
+    // Mettre à jour l'affichage du stock dans le meta
+    const availabilityEl = document.querySelector('.availability');
+    if (availabilityEl) {
+        if (displayStock > 10) {
+            availabilityEl.textContent = 'En stock';
+            availabilityEl.className = 'availability in-stock';
+        } else if (displayStock > 0) {
+            availabilityEl.textContent = `Stock limité (${displayStock} restants)`;
+            availabilityEl.className = 'availability in-stock';
+        } else {
+            availabilityEl.textContent = 'Rupture de stock';
+            availabilityEl.className = 'availability out-stock';
+        }
+    }
+
+    // Mettre à jour le champ quantité max
+    const qtyInput = document.getElementById('quantity');
+    if (qtyInput) {
+        qtyInput.max = displayStock;
+        if (parseInt(qtyInput.value) > displayStock) {
+            qtyInput.value = displayStock;
+        }
+    }
+
+    // Mettre à jour le texte "X disponibles"
+    const stockInfo = document.querySelector('.stock-info');
+    if (stockInfo) {
+        stockInfo.textContent = `${displayStock} disponibles`;
+    }
+
+    // Mettre à jour l'alerte stock limité (top de page)
+    const stockAlert = document.querySelector('.stock-alert');
+    if (stockAlert) {
+        if (displayStock <= 5 && displayStock > 0) {
+            stockAlert.style.display = 'block';
+            const alertSpan = stockAlert.querySelector('strong:last-of-type');
+            if (alertSpan) alertSpan.textContent = displayStock;
+        } else {
+            stockAlert.style.display = 'none';
+        }
+    }
+
+    // Mettre à jour le tableau des détails (onglet Détails)
+    const detailsRows = document.querySelectorAll('.specs-table tr');
+    detailsRows.forEach(row => {
+        const th = row.querySelector('th');
+        if (th && th.textContent.trim() === 'Stock disponible') {
+            const td = row.querySelector('td');
+            if (td) td.textContent = `${displayStock} unités`;
+        }
+    });
+
+    // Désactiver les boutons si rupture
+    if (displayStock === 0) {
+        document.querySelectorAll('.btn-cart, .btn-buy, .qty-btn').forEach(btn => {
+            btn.disabled = true;
+        });
+    }
+
+    console.log(`[Stock variable] Produit ${productId} : ${displayStock} unités`);
+})();
+</script>
+                                        
 {% endblock %}
