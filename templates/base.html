@@ -277,12 +277,6 @@
                     "highPrice": "1000.00",
                     "offerCount": "5000+",
                     "availability": "https://schema.org/InStock"
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.8",
-                    "reviewCount": "1247",
-                    "bestRating": "5"
                 }
             },
             {
@@ -351,24 +345,6 @@
                         {"@type": "ListItem", "position": 4, "name": "Épicerie"},
                         {"@type": "ListItem", "position": 5, "name": "Viandes"}
                     ]
-                },
-                {
-                    "@type": "Review",
-                    "@id": "https://www.destockalimentaire.com/#review",
-                    "itemReviewed": {
-                        "@type": "Organization",
-                        "name": "DestockPro"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Pierre Dupont"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Excellent service, produits de qualité, livraison rapide. Je recommande vivement !"
                 }
             ]
         }
@@ -2013,7 +1989,44 @@
     
     {% block extra_css %}{% endblock %}
     
-    {% block head_extra %}{% endblock %}    
+    {% block head_extra %}{% endblock %}
+
+    <!-- ============ REFONTE 2026 : polices + restyle du chrome ============ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style id="rz-chrome">
+      :root{
+        --rz-ink:#1c1b18; --rz-ink2:#403d37; --rz-muted:#8a847a;
+        --rz-line:#ece8e0; --rz-cream:#f7f3ea; --rz-gold:#b0894e; --rz-gold-d:#977338;
+        --rz-gold-grad:linear-gradient(135deg,#c2a062,#977338);
+        --rz-serif:"Fraunces","Lora",Georgia,serif;
+      }
+      body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fdfcf9;color:var(--rz-ink)}
+
+      /* NAVBAR */
+      .navbar-modern{background:rgba(253,252,249,.9)!important;backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--rz-line)!important;box-shadow:none!important}
+      .logo-text{font-family:"Inter",sans-serif;font-weight:800;letter-spacing:-.03em;color:var(--rz-ink)}
+      .logo-accent{color:var(--rz-gold)!important}
+      .nav-link-modern{color:var(--rz-ink2)!important;font-weight:500}
+      .nav-link-modern:hover,.nav-link-modern.active{color:var(--rz-ink)!important}
+      .nav-link-modern.active{position:relative}
+      .btn-primary-modern{background:var(--rz-gold-grad)!important;border:none!important;box-shadow:0 10px 24px -10px rgba(151,115,56,.55)!important;color:#fff!important}
+      .btn-outline-modern{background:transparent!important;border:1px solid var(--rz-ink2)!important;color:var(--rz-ink)!important}
+      .btn-outline-modern:hover{border-color:var(--rz-ink)!important}
+      .cart-count{background:var(--rz-gold-grad)!important;color:#fff!important}
+      .user-avatar-mini{background:var(--rz-gold-grad)!important;color:#fff!important}
+
+      /* FOOTER accents */
+      .footer-modern{background:var(--rz-ink)!important}
+      .footer-logo span,.logo-accent{color:var(--rz-gold)!important}
+      .social-icon:hover{background:var(--rz-gold-grad)!important;border-color:transparent!important}
+      .footer-newsletter button,.newsletter-form button{background:var(--rz-gold-grad)!important;border:none!important;color:#fff!important}
+      .footer-links a:hover,.footer-contact a:hover,.footer-bottom-links a:hover{color:var(--rz-gold)!important}
+
+      /* Headings site-wide en serif (hors widgets .rz qui gèrent déjà) */
+      h1,h2{font-family:var(--rz-serif)}
+    </style>
 </head>
 <body>
     <!-- Navigation moderne -->
@@ -2180,83 +2193,6 @@
     <main class="main-content">
         {% block content %}{% endblock %}
     </main>
-    <!-- ============ BANNER RICH SNIPPET ============ -->
-
-
-    <!-- ============ TITRE H1 OPTIMISÉ ============ -->
-    <h1 style="font-size:clamp(2rem,4vw,3.5rem);font-weight:800;margin-bottom:1rem;text-align:center;">
-        Le N°1 du <span style="color:#c4a747;">Destockage Alimentaire</span> en France
-    </h1>
-
-    <!-- ============ TEXTE DE RENSEIGNEMENT (pour SEO) ============ -->
-    <section style="max-width:800px;margin:2rem auto;padding:2rem;background:#f8f9fa;border-radius:16px;">
-        <h2 style="font-size:1.5rem;margin-bottom:1rem;">Pourquoi choisir DestockPro ?</h2>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-            <div>
-                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Qualité garantie</h3>
-                <p style="color:#555;">Tous nos produits sont contrôlés et certifiés.</p>
-            </div>
-            <div>
-                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Prix imbattables</h3>
-                <p style="color:#555;">Jusqu'à -70% sur les marques les plus populaires.</p>
-            </div>
-            <div>
-                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Livraison rapide</h3>
-                <p style="color:#555;">Expédition sous 24h, livraison en 48h partout en France.</p>
-            </div>
-            <div>
-                <h3 style="font-size:1.1rem;color:#c4a747;">✅ Service client pro</h3>
-                <p style="color:#555;">Une équipe dédiée pour vous accompagner.</p>
-            </div>
-        </div>
-    </section>
-    <!-- ============ SECTION AVIS GOOGLE ============ -->
-    <section style="padding:3rem 0;background:linear-gradient(135deg,#f8f9fa,#ffffff);">
-        <div style="max-width:1200px;margin:0 auto;padding:0 1rem;">
-            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:2rem;">
-                Ce que nos clients disent de nous
-                <span style="display:block;font-size:1rem;color:#666;">⭐ 4.8/5 sur 1247 avis</span>
-            </h2>
-            
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
-                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="margin:1rem 0;font-style:italic;">"Service impeccable, produits de qualité, livraison rapide. Je recommande !"</p>
-                    <strong>Sophie M.</strong> - Restauratrice
-                </div>
-                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="margin:1rem 0;font-style:italic;">"Meilleur rapport qualité/prix du marché. Commandes régulières depuis 2 ans."</p>
-                    <strong>Pierre L.</strong> - Gérant de supermarché
-                </div>
-                <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-                    <div style="color:#f59e0b;font-size:1.2rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="margin:1rem 0;font-style:italic;">"J'ai économisé 40% sur mes commandes. Un vrai partenaire de confiance."</p>
-                    <strong>Marie D.</strong> - Traiteur
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="rich-snippet-banner" style="background:linear-gradient(135deg,#1a1a2e,#c4a747);color:white;padding:20px;border-radius:10px;margin-bottom:30px;text-align:center;">
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:30px;align-items:center;">
-            <div>
-                <span style="font-size:2.5rem;font-weight:800;">⭐ 4.8/5</span>
-                <span style="display:block;font-size:0.9rem;">1247 avis vérifiés</span>
-            </div>
-            <div>
-                <span style="font-size:2.5rem;font-weight:800;">-70%</span>
-                <span style="display:block;font-size:0.9rem;">Économies garanties</span>
-            </div>
-            <div>
-                <span style="font-size:2.5rem;font-weight:800;">5000+</span>
-                <span style="display:block;font-size:0.9rem;">Produits disponibles</span>
-            </div>
-            <div>
-                <span style="font-size:2.5rem;font-weight:800;">24/48h</span>
-                <span style="display:block;font-size:0.9rem;">Livraison express</span>
-            </div>
-        </div>
-        </section>
     <!-- Footer moderne -->
     <footer class="footer-modern">
         <div class="footer-wave">

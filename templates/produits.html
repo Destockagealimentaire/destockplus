@@ -43,150 +43,198 @@
 
     <!-- Schema.org ULTRA COMPLET -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "DestockAlimentaire",
+  "alternateName": "Destockage Alimentaire Store",
+  "description": "Grossiste national spécialisé dans le destockage alimentaire pour professionnels et particuliers. Boissons, champagne, surgelés, épicerie, électroménager à prix cassés.",
+  "url": "https://www.destockalimentaire.com",
+  "logo": "https://www.destockalimentaire.com/static/images/logo-destockage.jpg",
+  "image": "https://www.destockalimentaire.com/static/images/og-destockage-alimentaire.jpg",
+  "telephone": "+33644694515",
+  "email": "contact@destockalimentaire.com",
+  "priceRange": "€€",
+  "openingHours": "Mo-Fr 08:00-19:00",
+  "openingHoursSpecification": [
     {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "DestockAlimentaire",
-        "alternateName": "Destockage Alimentaire Store",
-        "description": "Grossiste national spécialisé dans le destockage alimentaire pour professionnels et particuliers. Boissons, champagne, surgelés, épicerie, électroménager à prix cassés.",
-        "url": "https://www.destockalimentaire.com",
-        "logo": "https://www.destockalimentaire.com/static/images/logo-destockage.jpg",
-        "image": "https://www.destockalimentaire.com/static/images/og-destockage-alimentaire.jpg",
-        "telephone": "+33644694515",
-        "email": "contact@destockalimentaire.com",
-        "priceRange": "€€",
-        "openingHours": "Mo-Fr 08:00-19:00",
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "08:00",
-                "closes": "19:00"
-            }
-        ],
-        "areaServed": [
-            { "@type": "Country", "name": "France" },
-            { "@type": "Country", "name": "Belgique" },
-            { "@type": "Country", "name": "Suisse" },
-            { "@type": "Country", "name": "Luxembourg" }
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "17 Rue Forlen",
-            "addressLocality": "Geispolsheim",
-            "postalCode": "67118",
-            "addressCountry": "FR"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "48.5153",
-            "longitude": "7.6465"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "152",
-            "bestRating": "5"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Sophie Martin" },
-                "reviewBody": "Livraison rapide et produits de qualité exceptionnelle. Je recommande vivement DestockAlimentaire pour les professionnels !",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "datePublished": "2025-06-10"
-            },
-            {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Pierre Lambert" },
-                "reviewBody": "Grossiste fiable, prix imbattables sur les palettes de boissons. Service client réactif et livraison dans les délais.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "datePublished": "2025-05-22"
-            },
-            {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Marie Dubois" },
-                "reviewBody": "Très satisfaite de ma commande de champagne Moët. Emballage soigné et produits conformes. Je recommande !",
-                "reviewRating": { "@type": "Rating", "ratingValue": "4" },
-                "datePublished": "2025-05-15"
-            },
-            {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Antoine Moreau" },
-                "reviewBody": "Palette Nutella reçue en parfait état. Rapport qualité/prix exceptionnel. Devenu mon fournisseur attitré.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "datePublished": "2025-04-28"
-            },
-            {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Claire Petit" },
-                "reviewBody": "Commande de surgelés parfaitement livrée. La chaîne du froid est bien respectée. Un professionnel sérieux.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                "datePublished": "2025-04-10"
-            }
-        ],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Catégories Destockage Alimentaire",
-            "itemListElement": [
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Boissons",
-                    "description": "Palettes de boissons gazeuses, eaux, jus, sodas, énergisants à prix grossiste",
-                    "itemListElement": [
-                        { "@type": "Offer", "name": "Palette Coca-Cola 33cl - 2592 canettes", "price": "1096", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-                        { "@type": "Offer", "name": "Palette Red Bull 250ml - 2592 canettes", "price": "1432.80", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-                        { "@type": "Offer", "name": "Palette Orangina 33cl - 2592 canettes", "price": "899", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
-                    ]
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Champagnes & Vins",
-                    "description": "Champagnes de luxe et vins d'exception en palette à prix déstockés",
-                    "itemListElement": [
-                        { "@type": "Offer", "name": "Lot Moët & Chandon Brut Impérial - 240 bouteilles", "price": "4100", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
-                        { "@type": "Offer", "name": "Ruinart Blanc de Blancs - 240 bouteilles", "price": "4800", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
-                    ]
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Surgelés",
-                    "description": "Viandes, poissons, légumes et plats préparés surgelés de qualité professionnelle",
-                    "itemListElement": [
-                        { "@type": "Offer", "name": "Saumon fumé Norvège - 750 portions de 200g", "price": "257", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
-                    ]
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Épicerie",
-                    "description": "Produits d'épicerie en gros : Nutella, pâtes, conserves, huiles",
-                    "itemListElement": [
-                        { "@type": "Offer", "name": "Palette Nutella 1kg - 760 pots", "price": "1536", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
-                    ]
-                },
-                {
-                    "@type": "OfferCatalog",
-                    "name": "Électroménager",
-                    "description": "Équipements de cuisine et électroménager professionnel à prix destockés",
-                    "itemListElement": [
-                        { "@type": "Offer", "name": "Robot pâtissier professionnel", "price": "299", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
-                    ]
-                }
-            ]
-        },
-        "shippingDetails": {
-            "@type": "OfferShippingDetails",
-            "shippingRate": { "@type": "MonetaryAmount", "value": "9.90", "currency": "EUR" },
-            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": ["FR", "BE", "CH", "LU"] },
-            "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": { "@type": "QuantitativeValue", "minValue": "1", "maxValue": "2" },
-                "transitTime": { "@type": "QuantitativeValue", "minValue": "1", "maxValue": "3" }
-            }
-        },
-        "paymentAccepted": ["Carte bancaire", "Virement", "PayPal", "Chèque"],
-        "currenciesAccepted": "EUR"
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "19:00"
     }
+  ],
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "France"
+    },
+    {
+      "@type": "Country",
+      "name": "Belgique"
+    },
+    {
+      "@type": "Country",
+      "name": "Suisse"
+    },
+    {
+      "@type": "Country",
+      "name": "Luxembourg"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "17 Rue Forlen",
+    "addressLocality": "Geispolsheim",
+    "postalCode": "67118",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "48.5153",
+    "longitude": "7.6465"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Catégories Destockage Alimentaire",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Boissons",
+        "description": "Palettes de boissons gazeuses, eaux, jus, sodas, énergisants à prix grossiste",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Palette Coca-Cola 33cl - 2592 canettes",
+            "price": "1096",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Palette Red Bull 250ml - 2592 canettes",
+            "price": "1432.80",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Palette Orangina 33cl - 2592 canettes",
+            "price": "899",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Champagnes & Vins",
+        "description": "Champagnes de luxe et vins d'exception en palette à prix déstockés",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Lot Moët & Chandon Brut Impérial - 240 bouteilles",
+            "price": "4100",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Ruinart Blanc de Blancs - 240 bouteilles",
+            "price": "4800",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Surgelés",
+        "description": "Viandes, poissons, légumes et plats préparés surgelés de qualité professionnelle",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Saumon fumé Norvège - 750 portions de 200g",
+            "price": "257",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Épicerie",
+        "description": "Produits d'épicerie en gros : Nutella, pâtes, conserves, huiles",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Palette Nutella 1kg - 760 pots",
+            "price": "1536",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Électroménager",
+        "description": "Équipements de cuisine et électroménager professionnel à prix destockés",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Robot pâtissier professionnel",
+            "price": "299",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    ]
+  },
+  "shippingDetails": {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {
+      "@type": "MonetaryAmount",
+      "value": "9.90",
+      "currency": "EUR"
+    },
+    "shippingDestination": {
+      "@type": "DefinedRegion",
+      "addressCountry": [
+        "FR",
+        "BE",
+        "CH",
+        "LU"
+      ]
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": "1",
+        "maxValue": "2"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": "1",
+        "maxValue": "3"
+      }
+    }
+  },
+  "paymentAccepted": [
+    "Carte bancaire",
+    "Virement",
+    "PayPal",
+    "Chèque"
+  ],
+  "currenciesAccepted": "EUR"
+}
     </script>
 
     <!-- Breadcrumb Schema -->
@@ -411,20 +459,24 @@
                                 <a href="/produit/{{ produit.id }}" onclick="event.stopPropagation()">{{ produit.nom|truncate(40) }}</a>
                             </h3>
 
+                            {% if produit.note_count and produit.note_count > 0 %}
                             <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
-                                <meta itemprop="ratingValue" content="4.5">
-                                <meta itemprop="reviewCount" content="{{ produit.note_count or 0 }}">
+                                <meta itemprop="ratingValue" content="{{ produit.note_moyenne }}">
+                                <meta itemprop="reviewCount" content="{{ produit.note_count }}">
                                 <div class="stars">
                                     {% for i in range(5) %}
-                                        {% if i < 4 %}
+                                        {% if i < produit.note_moyenne|round(0, 'floor')|int %}
                                         <i class="fas fa-star"></i>
-                                        {% else %}
+                                        {% elif i < produit.note_moyenne %}
                                         <i class="fas fa-star-half-alt"></i>
+                                        {% else %}
+                                        <i class="far fa-star"></i>
                                         {% endif %}
                                     {% endfor %}
                                 </div>
-                                <span class="rating-count">({{ produit.note_count or 0 }} avis)</span>
+                                <span class="rating-count">({{ produit.note_count }} avis)</span>
                             </div>
+                            {% endif %}
 
                             <div class="product-price">
                                 {% if produit.prix_promo %}

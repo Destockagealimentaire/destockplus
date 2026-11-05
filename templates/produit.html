@@ -68,15 +68,16 @@
                     "addressCountry": ["FR", "BE", "CH", "LU"]
                 }
             }
-        },
+        }
+        {% if avis and avis|length > 0 and produit.note_count %}
+        ,
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "{{ produit.note_moyenne or 4.5 }}",
-            "reviewCount": "{{ produit.note_count or 0 }}",
+            "ratingValue": "{{ produit.note_moyenne }}",
+            "reviewCount": "{{ produit.note_count }}",
             "bestRating": "5"
         },
         "review": [
-            {% if avis and avis|length > 0 %}
             {% for avi in avis[:3] %}
             {
                 "@type": "Review",
@@ -92,22 +93,8 @@
                 "datePublished": "{{ avi.date_creation.strftime('%Y-%m-%d') }}"
             }{% if not loop.last %},{% endif %}
             {% endfor %}
-            {% else %}
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Sophie Martin"
-                },
-                "reviewBody": "Produit de qualité exceptionnelle, livraison rapide. Je recommande vivement !",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                },
-                "datePublished": "2025-06-10"
-            }
-            {% endif %}
         ]
+        {% endif %}
     }
     </script>
 
