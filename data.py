@@ -100,14 +100,6 @@ categories = [
         "ordre": 12,
         "icone": "🧼"
     },
-    {
-        "id": 13,
-        "nom": "Extras",
-        "description": "Produits divers et équipements spéciaux",
-        "image": "extras.jpg",
-        "ordre": 13,
-        "icone": "🛠️"
-    }
 ]
 
 # Mapping des catégories pour référence rapide
@@ -6408,7 +6400,7 @@ products = [
         "prix_promo": 1740.00,
         "devise": "EUR",
         "categorie_id": category_map["Extras"],
-        "categorie_nom": "Extras",
+        "categorie_nom": "Électroménager",
         "stock": 8,
         "stock_initial": 12,
         "sku": "PET-CLAMC-1000L-IBC",
