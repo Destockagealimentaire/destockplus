@@ -6399,7 +6399,7 @@ products = [
         "prix_original": 2262.00,
         "prix_promo": 1740.00,
         "devise": "EUR",
-        "categorie_id": category_map["Extras"],
+        "categorie_id": category_map["Électroménager"],
         "categorie_nom": "Électroménager",
         "stock": 8,
         "stock_initial": 12,
