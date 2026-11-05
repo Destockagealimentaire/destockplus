@@ -2337,7 +2337,216 @@
         </div>
     </div>
 </div>
+<!-- ============================================================ -->
+<!-- ============ NOTIFICATIONS DE PAIEMENT ALÉATOIRES ============ -->
+<!-- ============================================================ -->
+<div class="payment-notification" id="paymentNotification">
+    <div class="payment-notif-inner">
+        <div class="payment-notif-avatar" id="notifAvatar">AD</div>
+        <div class="payment-notif-content">
+            <div class="payment-notif-text" id="notifText"></div>
+            <div class="payment-notif-time" id="notifTime"></div>
+        </div>
+        <button class="payment-notif-close" onclick="closePaymentNotif()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+</div>
 
+<style>
+.payment-notification {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    z-index: 9997;
+    transform: translateX(-120%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    pointer-events: none;
+}
+.payment-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+.payment-notif-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-left: 4px solid #00b894;
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 12px 32px rgba(28,27,24,.15);
+    max-width: 340px;
+    min-width: 280px;
+}
+.payment-notif-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c4a747, #e6b422);
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+.payment-notif-content { flex: 1; min-width: 0; }
+.payment-notif-text {
+    font-size: 0.85rem;
+    color: #2d3436;
+    line-height: 1.4;
+    margin-bottom: 2px;
+}
+.payment-notif-text strong { color: #00b894; }
+.payment-notif-time {
+    font-size: 0.7rem;
+    color: #8a847a;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.payment-notif-time::before {
+    content: "✓";
+    color: #00b894;
+    font-weight: 700;
+}
+.payment-notif-close {
+    background: none;
+    border: none;
+    color: #b4ada1;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+.payment-notif-close:hover { color: #d63031; }
+
+@keyframes notifPulse {
+    0%, 100% { box-shadow: 0 12px 32px rgba(28,27,24,.15); }
+    50% { box-shadow: 0 12px 32px rgba(0,184,148,.35); }
+}
+.payment-notification.show .payment-notif-inner {
+    animation: notifPulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .payment-notification { left: 12px; right: 12px; bottom: 80px; }
+    .payment-notif-inner { max-width: 100%; min-width: 0; }
+    .payment-notif-text { font-size: 0.8rem; }
+}
+</style>
+
+<script>
+// ============================================================
+// NOTIFICATIONS DE PAIEMENT ALÉATOIRES
+// ============================================================
+(function() {
+    // Liste de 20 personnes différentes (noms étrangers + français)
+    const clients = [
+        { nom: "Amina Diallo", ville: "Paris", produit: "Palette Coca-Cola 33cl" },
+        { nom: "Kwame Mensah", ville: "Marseille", produit: "Palette Red Bull 250ml" },
+        { nom: "Fatou Ndiaye", ville: "Lyon", produit: "Palette Nutella 1kg" },
+        { nom: "Chinedu Okonkwo", ville: "Toulouse", produit: "Palette Orangina 33cl" },
+        { nom: "Nadia Benali", ville: "Bordeaux", produit: "Palette Fanta Orange" },
+        { nom: "Moussa Traoré", ville: "Lille", produit: "Palette Cristaline 50cl" },
+        { nom: "Youssef El Amrani", ville: "Nantes", produit: "Palette Monster Energy" },
+        { nom: "Aïcha Kouassi", ville: "Strasbourg", produit: "Palette Nutella 750g" },
+        { nom: "Ibrahim Sow", ville: "Rennes", produit: "Palette Evian 50cl" },
+        { nom: "Grace Mwangi", ville: "Montpellier", produit: "Palette Lipton Ice Tea" },
+        { nom: "Ousmane Ba", ville: "Nice", produit: "Palette San Pellegrino" },
+        { nom: "Leila Haddad", ville: "Grenoble", produit: "Palette Coca-Cola Zero" },
+        { nom: "Samuel Okafor", ville: "Dijon", produit: "Palette Panzani Penne" },
+        { nom: "Rachid Bouzid", ville: "Reims", produit: "Palette Perrier 50cl" },
+        { nom: "Esperance Mukendi", ville: "Angers", produit: "Palette Volvic Citron" },
+        { nom: "Thomas Dubois", ville: "Le Mans", produit: "Palette Heineken 33cl" },
+        { nom: "Sophie Martin", ville: "Tours", produit: "Palette Schweppes Tonic" },
+        { nom: "Koffi Yao", ville: "Clermont-Ferrand", produit: "Palette Pepsi Zero" },
+        { nom: "Mariam Cissé", ville: "Limoges", produit: "Palette Nutella biscuits" },
+        { nom: "David Nzuzi", ville: "Besançon", produit: "Palette Barilla Penne" }
+    ];
+
+    // Références de produits (numéros de commande aléatoires)
+    const avatarsColors = [
+        "linear-gradient(135deg,#c4a747,#e6b422)",
+        "linear-gradient(135deg,#00b894,#55efc4)",
+        "linear-gradient(135deg,#0984e3,#74b9ff)",
+        "linear-gradient(135deg,#e17055,#fab1a0)",
+        "linear-gradient(135deg,#6c5ce7,#a29bfe)",
+        "linear-gradient(135deg,#d63031,#ff7675)"
+    ];
+
+    let notifTimeout = null;
+    let notifInterval = null;
+
+    function getInitials(name) {
+        return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+    }
+
+    function getRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function showPaymentNotification() {
+        const notif = document.getElementById('paymentNotification');
+        const avatar = document.getElementById('notifAvatar');
+        const text = document.getElementById('notifText');
+        const time = document.getElementById('notifTime');
+
+        if (!notif) return;
+
+        // Choisir un client aléatoire
+        const client = getRandomItem(clients);
+
+        // Construire le message
+        avatar.textContent = getInitials(client.nom);
+        avatar.style.background = getRandomItem(avatarsColors);
+        text.innerHTML = `<strong>${client.nom}</strong> (${client.ville}) vient d'acheter <strong>${client.produit}</strong>`;
+        time.textContent = "Commande payée à l'instant";
+
+        // Afficher
+        notif.classList.add('show');
+
+        // Masquer après 6 secondes
+        notifTimeout = setTimeout(() => {
+            notif.classList.remove('show');
+        }, 6000);
+    }
+
+    function closePaymentNotif() {
+        const notif = document.getElementById('paymentNotification');
+        if (notif) notif.classList.remove('show');
+        if (notifTimeout) clearTimeout(notifTimeout);
+    }
+
+    // Exposer globalement pour le bouton close
+    window.closePaymentNotif = closePaymentNotif;
+
+    // Lancer la première notification après 4 secondes
+    setTimeout(() => {
+        showPaymentNotification();
+
+        // Puis relancer toutes les 12-20 secondes
+        notifInterval = setInterval(() => {
+            showPaymentNotification();
+        }, 12000 + Math.random() * 8000);
+    }, 4000);
+
+    // Ne pas spammer si l'utilisateur a fermé
+    let userClosed = false;
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.payment-notif-close')) {
+            userClosed = true;
+            if (notifInterval) clearInterval(notifInterval);
+        }
+    });
+})();
+</script>
 <!-- Overlay pour fermer le chatbot -->
 <div class="chatbot-overlay" id="chatbotOverlay"></div>
 
