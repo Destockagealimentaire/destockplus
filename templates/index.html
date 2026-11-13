@@ -405,7 +405,7 @@
         <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <select name="categorie" aria-label="Catégorie">
           <option value="">Toutes catégories</option>
-          {% for categorie in categories %}<option value="{{ categorie.id }}">{{ categorie.nom }}</option>{% endfor %}
+          {% for categorie in categories if categorie.id not in [12, 13] %}<option value="{{ categorie.id }}">{{ categorie.nom }}</option>{% endfor %}
         </select>
         <input type="search" name="search" placeholder="Rechercher une palette, une marque…">
         <button class="go" type="submit" aria-label="Rechercher"><svg class="ic" style="color:#fff" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -452,7 +452,7 @@
   <div class="wrap">
     <div class="sec-head"><div><div class="kick">Parcourir</div><h2>Nos catégories</h2><p>Trouvez vos palettes par univers de produits.</p></div><a class="link-more" href="/produits">Tout voir <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     <div class="cats">
-      {% for categorie in categories %}
+      {% for categorie in categories if categorie.id not in [12, 13] %}
       <a class="cat" href="/produits?categorie={{ categorie.id }}">
         <span class="emoji">
           {%- set n = categorie.nom|lower -%}
