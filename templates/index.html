@@ -405,15 +405,19 @@
       <span class="eyebrow"><span class="pulse"></span>Grossiste &amp; déstockage alimentaire</span>
       <h1>Déstockage alimentaire en gros : des palettes de <span class="hl">grandes marques</span>, à prix cassés.</h1>
       <p class="lede">Boissons, épicerie, champagnes et entretien — sélectionnés en lots et livrés partout en France, Belgique et Suisse sous 24 à 48 heures.</p>
-      <form class="search" action="/produits" method="get" role="search">
-        <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <select name="categorie" aria-label="Catégorie">
-          <option value="">Toutes catégories</option>
-          {% for categorie in categories if categorie.id not in [12, 13] %}{% for categorie in categories | selectattr('id','ne',12) | selectattr('id','ne',13) %}<option value="{{ categorie.id }}">{{ categorie.nom }}</option>{% endfor %}
-        </select>
-        <input type="search" name="search" placeholder="Rechercher une palette, une marque…">
-        <button class="go" type="submit" aria-label="Rechercher"><svg class="ic" style="color:#fff" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </form>
+        <form class="search" action="/produits" method="get" role="search">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <select name="categorie" aria-label="Catégorie">
+            <option value="">Toutes catégories</option>
+            {% for categorie in categories %}
+              {% if categorie.id not in [12, 13] %}
+                <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <input type="search" name="search" placeholder="Rechercher une palette, une marque…">
+          <button class="go" type="submit" aria-label="Rechercher"><svg class="ic" style="color:#fff" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
       <div class="hero-ctas">
         <a class="btn btn-gold" href="/produits">Voir les produits <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="/contact">Demander un devis</a>
