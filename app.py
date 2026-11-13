@@ -1947,9 +1947,9 @@ def calculate_shipping_cost(nb_palettes):
 @app.route('/paiement/carte')
 @app.route('/paiement/carte/<int:commande_id>')
 def paiement_carte(commande_id=None):
-    """Paiement par carte - Utilise la commande existante"""
+    """Paiement par carte - Mode validation manuelle (sans Stripe)"""
     print("=" * 80)
-    print("🚀 ROUTE PAIEMENT CARTE - APPELÉE")
+    print("🚀 ROUTE PAIEMENT CARTE - MODE VALIDATION MANUELLE")
     
     # Récupérer l'ID commande
     if not commande_id:
@@ -1964,52 +1964,44 @@ def paiement_carte(commande_id=None):
         flash('Commande non trouvée', 'danger')
         return redirect(url_for('paiement'))
     
-    # Récupérer les items de la commande
-    items = CommandeItem.query.filter_by(commande_id=commande.id).all()
-    
-    # Calculer le nombre de palettes
-    nb_palettes = sum(item.quantite for item in items)
-    
-    # Récupérer les infos client
-    est_connecte = current_user.is_authenticated
-    reduction = commande.reduction or 0
-    
-    # Pour les invités, passer les données de la commande au template
-    client_data = {}
-    if not est_connecte:
-        client_data = {
-            'nom': commande.nom_client,
-            'email': commande.email_client,
-            'telephone': commande.telephone_client,
-            'adresse_livraison': commande.adresse_livraison
-        }
-        # Extraire adresse, code postal, ville depuis adresse_livraison
-        if commande.adresse_livraison:
-            parts = commande.adresse_livraison.split(',')
-            if len(parts) >= 2:
-                client_data['adresse'] = parts[0].strip()
-                # Extraire code postal et ville
-                cp_ville = parts[1].strip()
-                cp_parts = cp_ville.split(' ')
-                if len(cp_parts) >= 2:
-                    client_data['code_postal'] = cp_parts[0]
-                    client_data['ville'] = ' '.join(cp_parts[1:])
-    
     print(f"   Commande ID: {commande.id}")
+    print(f"   Numéro: {commande.numero}")
     print(f"   Total: {commande.total_final}€")
-    print(f"   Nombre d'items: {len(items)}")
-    print(f"   Client data: {client_data}")
+    print(f"   Statut actuel: {commande.statut}")
     
-    return render_template('paiement_carte.html',
-                         commande=commande,
-                         items=items,
-                         nb_palettes=nb_palettes,
-                         total=commande.total,
-                         frais_port=commande.frais_port,
-                         reduction=reduction,
-                         est_connecte=est_connecte,
-                         client_data=client_data,
-                         stripe_public_key=app.config['STRIPE_PUBLIC_KEY'])
+    # ⚠️ MODE SANS PAIEMENT STRIPE :
+    # On marque la commande comme "en attente de paiement"
+    # et on redirige directement vers la confirmation.
+    # Le client ne paie rien maintenant : vous devrez le contacter
+    # manuellement pour finaliser le règlement (virement, lien Stripe, etc.)
+    commande.statut = 'en_attente_paiement'
+    commande.mode_paiement = 'carte'
+    db.session.commit()
+    print(f"✅ Statut mis à jour: {commande.statut}")
+    
+    # Envoi des emails (admin + client) pour notifier la commande
+    try:
+        items = CommandeItem.query.filter_by(commande_id=commande.id).all()
+        send_email_commande(commande, items, mode_paiement='carte')
+        send_email_client(commande, items, mode_paiement='carte')
+        print("✅ Emails envoyés")
+    except Exception as e:
+        print(f"⚠️ Échec email commande carte: {e}")
+    
+    # Nettoyer la session
+    session.pop('current_commande_id', None)
+    session.pop('panier', None)
+    session.pop('panier_total', None)
+    session.pop('promo_code', None)
+    session.pop('nb_palettes', None)
+    session.pop('frais_port', None)
+    session.modified = True
+    
+    print(f"   Redirection vers /confirmation/{commande.id}")
+    print("=" * 80)
+    
+    # Redirection directe vers la confirmation
+    return redirect(url_for('confirmation', commande_id=commande.id))
 
 @app.route('/paiement/carte', methods=['POST'])
 def paiement_carte_api():
