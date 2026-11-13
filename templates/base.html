@@ -2006,6 +2006,9 @@
 
       /* NAVBAR */
       .navbar-modern{background:rgba(253,252,249,.9)!important;backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--rz-line)!important;box-shadow:none!important}
+        @media (max-width:992px){
+          .navbar-modern{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fdfcf9!important}
+        }
       .logo-text{font-family:"Inter",sans-serif;font-weight:800;letter-spacing:-.03em;color:var(--rz-ink)}
       .logo-accent{color:var(--rz-gold)!important}
       .nav-link-modern{color:var(--rz-ink2)!important;font-weight:500}
@@ -3263,7 +3266,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- OUVERTURE AUTO (si pas fermé) ---
-    if (!isClosed) {
+    if (!isClosed && window.innerWidth > 768) {
         setTimeout(() => { if (!isOpen) openChatbot(); }, 10000);
         
         let hasScrolled = false;
@@ -4067,107 +4070,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         });
     }
-    function loadCartPopup() {
-        const popupItems = document.getElementById('cartPopupItems');
-        const popupFooter = document.getElementById('cartPopupFooter');
-        const popupTotal = document.getElementById('cartPopupTotal');
-        
-        // Afficher un chargement
-        popupItems.innerHTML = `
-            <div class="cart-popup-empty">
-                <i class="fas fa-spinner fa-spin"></i>
-                <p>Chargement...</p>
-            </div>
-        `;
-        
-        // Utiliser l'endpoint existant pour récupérer le panier
-        fetch('/panier')
-            .then(response => response.text())
-            .then(html => {
-                // Créer un élément temporaire pour parser le HTML
-                const temp = document.createElement('div');
-                temp.innerHTML = html;
-                
-                // Extraire les éléments du panier - CORRECTION DES SÉLECTEURS
-                const cartItems = temp.querySelectorAll('.cart-item');
-                const totalElement = temp.querySelector('.total-amount, .summary-total .total-amount');
-                
-                console.log("Items trouvés:", cartItems.length);
-                
-                if (cartItems && cartItems.length > 0) {
-                    let itemsHtml = '';
-                    
-                    cartItems.forEach(item => {
-                        // Récupérer l'image - CORRECTION
-                        let img = '';
-                        const imgElement = item.querySelector('.item-image-mobile img, .item-image img');
-                        if (imgElement) {
-                            img = imgElement.src;
-                        }
-                        
-                        // Récupérer le nom - CORRECTION
-                        let name = 'Produit';
-                        const nameElement = item.querySelector('.item-title-mobile a, .item-title a, .item-title');
-                        if (nameElement) {
-                            name = nameElement.textContent.trim();
-                        }
-                        
-                        // Récupérer le prix - CORRECTION
-                        let price = '0,00 €';
-                        const priceElement = item.querySelector('.item-price, .current-price');
-                        if (priceElement) {
-                            price = priceElement.textContent.trim();
-                        }
-                        
-                        // Récupérer la quantité - CORRECTION
-                        let quantity = '1';
-                        const quantityInput = item.querySelector('.quantity-input');
-                        if (quantityInput) {
-                            quantity = quantityInput.value;
-                        }
-                        
-                        itemsHtml += `
-                            <div class="cart-popup-item">
-                                <div class="cart-popup-item-image">
-                                    <img src="${img}" alt="${name}" onerror="this.src='https://via.placeholder.com/50x50?text=Produit'">
-                                </div>
-                                <div class="cart-popup-item-details">
-                                    <div class="cart-popup-item-name">${name.substring(0, 35)}${name.length > 35 ? '...' : ''}</div>
-                                    <div class="cart-popup-item-price">
-                                        <span>${price}</span>
-                                        <span class="cart-popup-item-quantity">x${quantity}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    popupItems.innerHTML = itemsHtml;
-                    if (totalElement) {
-                        popupTotal.textContent = totalElement.textContent.trim();
-                    }
-                    popupFooter.style.display = 'block';
-                } else {
-                    popupItems.innerHTML = `
-                        <div class="cart-popup-empty">
-                            <i class="fas fa-shopping-bag"></i>
-                            <p>Votre panier est vide</p>
-                        </div>
-                    `;
-                    popupFooter.style.display = 'none';
-                }
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                popupItems.innerHTML = `
-                    <div class="cart-popup-empty">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p>Erreur de chargement</p>
-                        <button onclick="loadCartPopup()" style="margin-top:0.5rem; padding:0.3rem 0.8rem; background:var(--secondary); border:none; border-radius:4px; cursor:pointer;">Réessayer</button>
-                    </div>
-                `;
-            });
-    }
+    
 
         // Événements pour le popup panier
         const cartLink = document.getElementById('cartLink');
@@ -4493,11 +4396,11 @@ function addToWishlist(productId) {
     
     // Fonction améliorée pour ajouter au panier avec notification
     function addToCart(productId, productName = null, productPrice = null) {
-        // Désactiver le bouton temporairement
         const btn = event?.currentTarget;
+        let originalHtml = '';
         if (btn) {
             btn.disabled = true;
-            const originalHtml = btn.innerHTML;
+            originalHtml = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             
             // Restaurer après 2 secondes
@@ -4656,68 +4559,7 @@ function addToWishlist(productId) {
             document.body.style.overflow = '';
         }
     }
-    // Remplacez la fonction loadCartPopup par celle-ci
-    function loadCartPopup() {
-    const popupItems = document.getElementById('cartPopupItems');
-    const popupFooter = document.getElementById('cartPopupFooter');
-    const popupTotal = document.getElementById('cartPopupTotal');
-    
-    popupItems.innerHTML = `
-        <div class="cart-popup-empty">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Chargement...</p>
-        </div>
-    `;
-    
-    fetch('/api/panier')
-        .then(response => response.json())
-        .then(data => {
-            if (data.items && data.items.length > 0) {
-                let itemsHtml = '';
-                
-                data.items.forEach(item => {
-                    itemsHtml += `
-                        <div class="cart-popup-item">
-                            <div class="cart-popup-item-image">
-                                <img src="${item.image || 'https://via.placeholder.com/50x50?text=Produit'}" alt="${item.nom}">
-                            </div>
-                            <div class="cart-popup-item-details">
-                                <div class="cart-popup-item-name">${item.nom.substring(0, 35)}${item.nom.length > 35 ? '...' : ''}</div>
-                                <div class="cart-popup-item-price">
-                                    <span>${item.prix.toFixed(2)} €</span>
-                                    <span class="cart-popup-item-quantity">x${item.quantite}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                popupItems.innerHTML = itemsHtml;
-                popupTotal.textContent = data.total.toFixed(2) + ' €';
-                popupFooter.style.display = 'block';
-            } else {
-                popupItems.innerHTML = `
-                    <div class="cart-popup-empty">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Votre panier est vide</p>
-                    </div>
-                `;
-                popupFooter.style.display = 'none';
-            }
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-            popupItems.innerHTML = `
-                <div class="cart-popup-empty">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <p>Erreur de chargement</p>
-                    <button onclick="loadCartPopup()" style="margin-top:0.5rem; padding:0.3rem 0.8rem; background:var(--secondary); border:none; border-radius:4px; cursor:pointer;">Réessayer</button>
-                </div>
-            `;
-        });
-}
 
-    
     // Fonction de notification générique
     function showNotification(message, type) {
         const notification = document.createElement('div');
