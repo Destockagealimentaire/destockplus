@@ -455,8 +455,10 @@
 <section class="block">
   <div class="wrap">
     <div class="sec-head"><div><div class="kick">Parcourir</div><h2>Nos catégories</h2><p>Trouvez vos palettes par univers de produits.</p></div><a class="link-more" href="/produits">Tout voir <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+
+    {% set cats = categories | selectattr('id','ne',12) | selectattr('id','ne',13) | list %}
     <div class="cats">
-      {% for categorie in categories if categorie.id not in [12, 13] %}
+      {% for categorie in cats %}
       <a class="cat" href="/produits?categorie={{ categorie.id }}">
         <span class="emoji">
           {%- set n = categorie.nom|lower -%}
@@ -465,6 +467,12 @@
         <span class="n">{{ categorie.nom }}</span>
       </a>
       {% endfor %}
+      {% if cats|length is odd %}
+      <a class="cat" href="/produits">
+        <span class="emoji">🛒</span>
+        <span class="n">Tout voir</span>
+      </a>
+      {% endif %}
     </div>
   </div>
 </section>
