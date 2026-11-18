@@ -25,7 +25,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 app = Flask(__name__)
-
+from werkzeug.middleware.proxy_fix import ProxyFix
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 # Configuration email
 SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.hostinger.com')
 SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))
@@ -46,7 +47,14 @@ app.config['WTF_CSRF_TIME_LIMIT'] = 3600  # 1 heure
 
 # Initialisation CSRF
 csrf = CSRFProtect(app)
-
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PREFERRED_URL_SCHEME='https',
+    REMEMBER_COOKIE_SECURE=True,
+    REMEMBER_COOKIE_HTTPONLY=True,
+)
 # Configuration Stripe
 app.config['STRIPE_PUBLIC_KEY'] = os.environ.get('STRIPE_PUBLIC_KEY') or 'pk_test_votre_cle'
 app.config['STRIPE_SECRET_KEY'] = os.environ.get('STRIPE_SECRET_KEY') or 'sk_test_votre_cle'
