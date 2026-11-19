@@ -1720,7 +1720,7 @@ products = [
         "dimensions": "120 x 100 x 180 cm",
         "volume_palette": "1.8 m³",
         "format": "Palette complète",
-        "unites": 480,
+        "unites": 240,
         "type_conditionnement": "Bouteilles verre",
         "contenance_unitaire": "750 ml",
         "volume_total": "360 L",
